@@ -407,7 +407,7 @@ pub async fn delete_comment_vote(configuration: &configuration::Configuration, t
     }
 }
 
-pub async fn flag_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, is_flagged: models::BooleanQueryParam, sso: Option<&str>) -> Result<models::FlagComment200Response, Error<FlagCommentError>> {
+pub async fn flag_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, is_flagged: bool, sso: Option<&str>) -> Result<models::FlagComment200Response, Error<FlagCommentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_tenant_id = tenant_id;
     let p_comment_id = comment_id;
@@ -540,7 +540,7 @@ pub async fn get_comment_vote_user_names(configuration: &configuration::Configur
 }
 
 ///  req tenantId urlId
-pub async fn get_comments(configuration: &configuration::Configuration, tenant_id: &str, url_id: &str, page: Option<i32>, direction: Option<models::SortDirections>, sso: Option<&str>, skip: Option<i32>, skip_children: Option<i32>, limit: Option<i32>, limit_children: Option<i32>, count_children: Option<models::BooleanQueryParam>, last_gen_date: Option<i64>, fetch_page_for_comment_id: Option<&str>, include_config: Option<models::BooleanQueryParam>, count_all: Option<models::BooleanQueryParam>, includei10n: Option<models::BooleanQueryParam>, locale: Option<&str>, modules: Option<&str>, is_crawler: Option<models::BooleanQueryParam>, include_notification_count: Option<models::BooleanQueryParam>, as_tree: Option<models::BooleanQueryParam>, max_tree_depth: Option<i32>, use_full_translation_ids: Option<models::BooleanQueryParam>, parent_id: Option<&str>, search_text: Option<&str>, hash_tags: Option<Vec<String>>, user_id: Option<&str>, custom_config_str: Option<&str>) -> Result<models::GetComments200Response, Error<GetCommentsError>> {
+pub async fn get_comments(configuration: &configuration::Configuration, tenant_id: &str, url_id: &str, page: Option<i32>, direction: Option<models::SortDirections>, sso: Option<&str>, skip: Option<i32>, skip_children: Option<i32>, limit: Option<i32>, limit_children: Option<i32>, count_children: Option<bool>, last_gen_date: Option<i64>, fetch_page_for_comment_id: Option<&str>, include_config: Option<bool>, count_all: Option<bool>, includei10n: Option<bool>, locale: Option<&str>, modules: Option<&str>, is_crawler: Option<bool>, include_notification_count: Option<bool>, as_tree: Option<bool>, max_tree_depth: Option<i32>, use_full_translation_ids: Option<bool>, parent_id: Option<&str>, search_text: Option<&str>, hash_tags: Option<Vec<String>>, user_id: Option<&str>, custom_config_str: Option<&str>) -> Result<models::GetComments200Response, Error<GetCommentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_tenant_id = tenant_id;
     let p_url_id = url_id;
@@ -722,7 +722,7 @@ pub async fn get_user_notification_count(configuration: &configuration::Configur
     }
 }
 
-pub async fn get_user_notifications(configuration: &configuration::Configuration, tenant_id: &str, page_size: Option<f64>, after_id: Option<&str>, include_context: Option<models::BooleanQueryParam>, after_created_at: Option<f64>, unread_only: Option<models::BooleanQueryParam>, dm_only: Option<models::BooleanQueryParam>, no_dm: Option<models::BooleanQueryParam>, include_translations: Option<models::BooleanQueryParam>, sso: Option<&str>) -> Result<models::GetUserNotifications200Response, Error<GetUserNotificationsError>> {
+pub async fn get_user_notifications(configuration: &configuration::Configuration, tenant_id: &str, page_size: Option<f64>, after_id: Option<&str>, include_context: Option<bool>, after_created_at: Option<f64>, unread_only: Option<bool>, dm_only: Option<bool>, no_dm: Option<bool>, include_translations: Option<bool>, sso: Option<&str>) -> Result<models::GetUserNotifications200Response, Error<GetUserNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_tenant_id = tenant_id;
     let p_page_size = page_size;
@@ -922,7 +922,7 @@ pub async fn reset_user_notification_count(configuration: &configuration::Config
     }
 }
 
-pub async fn reset_user_notifications(configuration: &configuration::Configuration, tenant_id: &str, after_id: Option<&str>, after_created_at: Option<f64>, unread_only: Option<models::BooleanQueryParam>, dm_only: Option<models::BooleanQueryParam>, no_dm: Option<models::BooleanQueryParam>, sso: Option<&str>) -> Result<models::ResetUserNotifications200Response, Error<ResetUserNotificationsError>> {
+pub async fn reset_user_notifications(configuration: &configuration::Configuration, tenant_id: &str, after_id: Option<&str>, after_created_at: Option<f64>, unread_only: Option<bool>, dm_only: Option<bool>, no_dm: Option<bool>, sso: Option<&str>) -> Result<models::ResetUserNotifications200Response, Error<ResetUserNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_tenant_id = tenant_id;
     let p_after_id = after_id;

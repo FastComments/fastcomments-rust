@@ -201,7 +201,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
-**is_flagged** | [**BooleanQueryParam**](.md) |  | [required] |
+**is_flagged** | **bool** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -303,19 +303,19 @@ Name | Type | Description  | Required | Notes
 **skip_children** | Option<**i32**> |  |  |
 **limit** | Option<**i32**> |  |  |
 **limit_children** | Option<**i32**> |  |  |
-**count_children** | Option<[**BooleanQueryParam**](.md)> |  |  |
+**count_children** | Option<**bool**> |  |  |
 **last_gen_date** | Option<**i64**> |  |  |
 **fetch_page_for_comment_id** | Option<**String**> |  |  |
-**include_config** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**count_all** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**includei10n** | Option<[**BooleanQueryParam**](.md)> |  |  |
+**include_config** | Option<**bool**> |  |  |
+**count_all** | Option<**bool**> |  |  |
+**includei10n** | Option<**bool**> |  |  |
 **locale** | Option<**String**> |  |  |
 **modules** | Option<**String**> |  |  |
-**is_crawler** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**include_notification_count** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**as_tree** | Option<[**BooleanQueryParam**](.md)> |  |  |
+**is_crawler** | Option<**bool**> |  |  |
+**include_notification_count** | Option<**bool**> |  |  |
+**as_tree** | Option<**bool**> |  |  |
 **max_tree_depth** | Option<**i32**> |  |  |
-**use_full_translation_ids** | Option<[**BooleanQueryParam**](.md)> |  |  |
+**use_full_translation_ids** | Option<**bool**> |  |  |
 **parent_id** | Option<**String**> |  |  |
 **search_text** | Option<**String**> |  |  |
 **hash_tags** | Option<[**Vec<String>**](String.md)> |  |  |
@@ -380,12 +380,12 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **page_size** | Option<**f64**> | Defaults to 20. |  |
 **after_id** | Option<**String**> |  |  |
-**include_context** | Option<[**BooleanQueryParam**](.md)> |  |  |
+**include_context** | Option<**bool**> |  |  |
 **after_created_at** | Option<**f64**> |  |  |
-**unread_only** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**dm_only** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**no_dm** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**include_translations** | Option<[**BooleanQueryParam**](.md)> |  |  |
+**unread_only** | Option<**bool**> |  |  |
+**dm_only** | Option<**bool**> |  |  |
+**no_dm** | Option<**bool**> |  |  |
+**include_translations** | Option<**bool**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -508,9 +508,9 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **after_id** | Option<**String**> |  |  |
 **after_created_at** | Option<**f64**> |  |  |
-**unread_only** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**dm_only** | Option<[**BooleanQueryParam**](.md)> |  |  |
-**no_dm** | Option<[**BooleanQueryParam**](.md)> |  |  |
+**unread_only** | Option<**bool**> |  |  |
+**dm_only** | Option<**bool**> |  |  |
+**no_dm** | Option<**bool**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type

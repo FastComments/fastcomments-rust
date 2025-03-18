@@ -28,8 +28,6 @@ pub mod block_from_comment_params;
 pub use self::block_from_comment_params::BlockFromCommentParams;
 pub mod block_success;
 pub use self::block_success::BlockSuccess;
-pub mod boolean_query_param;
-pub use self::boolean_query_param::BooleanQueryParam;
 pub mod change_comment_pin_status_response;
 pub use self::change_comment_pin_status_response::ChangeCommentPinStatusResponse;
 pub mod change_comment_pin_status_response_any_of;
