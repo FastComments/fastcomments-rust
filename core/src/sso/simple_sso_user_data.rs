@@ -5,7 +5,7 @@ pub struct SimpleSSOUserData {
     pub username: String,
     pub email: String,
     pub avatar: String,
-    pub website_url: String,
+    pub website_url: Option<String>,
 }
 
 impl SimpleSSOUserData {
@@ -13,13 +13,12 @@ impl SimpleSSOUserData {
         username: String,
         email: String,
         avatar: String,
-        website_url: String,
     ) -> SimpleSSOUserData {
         SimpleSSOUserData {
             username,
             email,
             avatar,
-            website_url,
+            website_url: None,
         }
     }
 }

@@ -4,9 +4,7 @@ use fastcomments_core::sso::{fastcomments_sso::FastCommentsSSO, secure_sso_paylo
 
 fn main() {
 
-
-
-    // User data
+    // User data for SSO
     // This should be done server side, DO NOT DO ON THE CLIENT
     let user_data = SecureSSOUserData::new(
         "user-123".to_string(),
@@ -15,16 +13,22 @@ fn main() {
         "avatar".to_string(),
     );
 
-    // Create the SSO payload
     let timestamp = time::SystemTime::now().duration_since(time::SystemTime::UNIX_EPOCH).unwrap().as_secs() as i64;
-    let payload = SecureSSOPayload::new(
+
+    // Create the SSO payload
+    let secure_payload = SecureSSOPayload::new(
         serde_json::to_string(&user_data).unwrap(),
         "hash".to_string(),
         timestamp,
     );
 
     // Create SSO configuration
-    let sso = FastCommentsSSO::new(payload);
+    let sso = FastCommentsSSO::new(Some(secure_payload), None);
 
-    // 
+    let tenant_id = "tenant-123".to_string();
+    let url_id = "123".to_string();
+    let token = sso.create_token().unwrap();
+
+    // Use comments API
+    publicApi.getComments(tenant_id, url_id, token);
 }
