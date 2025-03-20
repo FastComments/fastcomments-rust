@@ -4,6 +4,15 @@ Fastcomments Rust SDK
 
 # Usage
 
+## Client
+
 ```bash
-cargo add fastcomments-rust
+cargo add fastcomments-client
 ```
+
+## Core
+
+```bash
+cargo add fastcomments-core
+```
+
