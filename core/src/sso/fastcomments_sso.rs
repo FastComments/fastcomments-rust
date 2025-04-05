@@ -1,4 +1,14 @@
-use super::{secure_sso_payload::SecureSSOPayload, simple_sso_user_data::SimpleSSOUserData};
+use std::time::{SystemTime, UNIX_EPOCH};
+
+use base64::{prelude::BASE64_STANDARD, Engine};
+
+use super::{
+    helpers::create_verification_hash, secure_sso_payload::SecureSSOPayload,
+    secure_sso_user_data::SecureSSOUserData, simple_sso_user_data::SimpleSSOUserData,
+    CreateHashError,
+};
+
+pub type LoginLogoutCallback = dyn Fn(&str);
 
 pub struct FastCommentsSSO {
     secure_sso_payload: Option<SecureSSOPayload>,
@@ -6,11 +16,8 @@ pub struct FastCommentsSSO {
     cached_token: Option<String>,
     pub login_url: Option<String>,
     pub logout_url: Option<String>,
-}
-
-trait FastCommentsSSOTrait {
-    fn login_callback(&self, username: String);
-    fn logout_callback(&self, username: String);
+    pub login_callback: Option<Box<LoginLogoutCallback>>,
+    pub logout_callback: Option<Box<LoginLogoutCallback>>,
 }
 
 impl FastCommentsSSO {
@@ -24,6 +31,65 @@ impl FastCommentsSSO {
             cached_token: None,
             login_url: None,
             logout_url: None,
+            login_callback: None,
+            logout_callback: None,
+        }
+    }
+
+    pub fn new_secure(
+        api_key: String,
+        secure_sso_user_data: &SecureSSOUserData,
+    ) -> Result<Self, CreateHashError> {
+        let timestamp = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_millis() as u64;
+
+        let user_data_json =
+            serde_json::to_string(secure_sso_user_data).expect("Failed to serialize user data");
+        let user_data_string = BASE64_STANDARD.encode(user_data_json.as_bytes());
+
+        // Create verification hash
+        let hash = create_verification_hash(&api_key, timestamp, &user_data_string)?;
+
+        let payload = SecureSSOPayload::new(user_data_string, hash, timestamp);
+
+        Ok(FastCommentsSSO::new(Some(payload), None))
+    }
+
+    pub fn new_simple(simple_sso_user_data: SimpleSSOUserData) -> Self {
+        FastCommentsSSO::new(None, Some(simple_sso_user_data))
+    }
+
+    pub fn new_secure_with_urls(
+        secure_sso_payload: SecureSSOPayload,
+        login_url: String,
+        logout_url: String,
+    ) -> Self {
+        FastCommentsSSO {
+            secure_sso_payload: Some(secure_sso_payload),
+            simple_sso_user_data: None,
+            cached_token: None,
+            login_url: Some(login_url),
+            logout_url: Some(logout_url),
+            login_callback: None,
+            logout_callback: None,
+        }
+    }
+
+    pub fn new_simple_with_callbacks(
+        simple_sso_user_data: SimpleSSOUserData,
+        login_callback: Box<LoginLogoutCallback>,
+        logout_callback: Box<LoginLogoutCallback>,
+    ) -> Self {
+        FastCommentsSSO {
+            secure_sso_payload: None,
+            simple_sso_user_data: Some(simple_sso_user_data),
+            cached_token: None,
+            login_url: None,
+            logout_url: None,
+            login_callback: Some(login_callback),
+            logout_callback: Some(logout_callback),
         }
     }
 

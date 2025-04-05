@@ -1,8 +1,16 @@
-use std::time;
+use fastcomments_client::apis::{
+    configuration::Configuration,
+};
+use fastcomments_core::sso::{
+    fastcomments_sso::FastCommentsSSO,
+    secure_sso_user_data::SecureSSOUserData,
+};
+use helpers::comments_params;
+mod helpers;
 
-use fastcomments_core::sso::{fastcomments_sso::FastCommentsSSO, secure_sso_payload::SecureSSOPayload, secure_sso_user_data::SecureSSOUserData};
-
-fn main() {
+#[tokio::main]
+async fn main() {
+    let api_key = "Your API key".to_string();
 
     // User data for SSO
     // This should be done server side, DO NOT DO ON THE CLIENT
@@ -13,22 +21,24 @@ fn main() {
         "avatar".to_string(),
     );
 
-    let timestamp = time::SystemTime::now().duration_since(time::SystemTime::UNIX_EPOCH).unwrap().as_secs() as i64;
-
-    // Create the SSO payload
-    let secure_payload = SecureSSOPayload::new(
-        serde_json::to_string(&user_data).unwrap(),
-        "hash".to_string(),
-        timestamp,
-    );
-
-    // Create SSO configuration
-    let sso = FastCommentsSSO::new(Some(secure_payload), None);
+    // Create the SSO config with a payload
+    let sso = FastCommentsSSO::new_secure(api_key, &user_data).unwrap();
 
     let tenant_id = "tenant-123".to_string();
     let url_id = "123".to_string();
     let token = sso.create_token().unwrap();
 
-    // Use comments API
-    publicApi.getComments(tenant_id, url_id, token);
+    // Populate this with your site data
+    let config = Configuration::new();
+
+    // Try to get comments
+    if let Ok(result) = fastcomments_client::apis::public_api::get_comments_public(
+        &config,
+        comments_params(tenant_id, url_id, Some(token)),
+    )
+    .await
+    {
+        // Now we can do something with the comments!
+        let _comments = result.comments;
+    };
 }

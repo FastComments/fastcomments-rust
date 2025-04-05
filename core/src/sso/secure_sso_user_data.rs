@@ -1,3 +1,4 @@
+use base64::{prelude::BASE64_STANDARD, Engine};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -32,5 +33,12 @@ impl SecureSSOUserData {
             is_moderator: None,
             is_profile_activity_private: None,
         }
+    }
+
+    pub fn as_json_base64(&self) -> String {
+
+        let json = serde_json::to_string(self).unwrap();
+        
+        BASE64_STANDARD.encode(&json)
     }
 }
