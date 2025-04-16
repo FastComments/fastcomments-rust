@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SetCommentText200Response {
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
+    #[serde(rename = "comment")]
+    pub comment: Box<models::PickFCommentPeriodApprovedOrCommentHtml>,
     #[serde(rename = "status")]
     pub status: models::ImportedApiStatusPeriodFailed,
     #[serde(rename = "reason")]
@@ -31,14 +31,12 @@ pub struct SetCommentText200Response {
     pub translated_error: Option<String>,
     #[serde(rename = "customConfig", skip_serializing_if = "Option::is_none")]
     pub custom_config: Option<Box<models::CustomConfigParameters>>,
-    #[serde(rename = "comment")]
-    pub comment: Box<models::PickFCommentPeriodApprovedOrCommentHtml>,
 }
 
 impl SetCommentText200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, reason: String, code: String, comment: models::PickFCommentPeriodApprovedOrCommentHtml) -> SetCommentText200Response {
+    pub fn new(comment: models::PickFCommentPeriodApprovedOrCommentHtml, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> SetCommentText200Response {
         SetCommentText200Response {
-            status_code: None,
+            comment: Box::new(comment),
             status,
             reason,
             code,
@@ -47,7 +45,6 @@ impl SetCommentText200Response {
             max_character_length: None,
             translated_error: None,
             custom_config: None,
-            comment: Box::new(comment),
         }
     }
 }

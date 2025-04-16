@@ -10,15 +10,293 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize, de::Error as _};
+use serde::{Deserialize, Serialize};
 use crate::{apis::ResponseContent, models};
-use super::{Error, configuration, ContentType};
+use super::{Error, configuration};
+
+/// struct for passing parameters to the method [`block_from_comment_public`]
+#[derive(Clone, Debug)]
+pub struct BlockFromCommentPublicParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub public_block_from_comment_params: models::PublicBlockFromCommentParams,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`checked_comments_for_blocked`]
+#[derive(Clone, Debug)]
+pub struct CheckedCommentsForBlockedParams {
+    pub tenant_id: String,
+    /// A comma separated list of comment ids.
+    pub comment_ids: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`create_comment_public`]
+#[derive(Clone, Debug)]
+pub struct CreateCommentPublicParams {
+    pub tenant_id: String,
+    pub url_id: String,
+    pub broadcast_id: String,
+    pub comment_data: models::CommentData,
+    pub session_id: Option<String>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`delete_comment_public`]
+#[derive(Clone, Debug)]
+pub struct DeleteCommentPublicParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub broadcast_id: String,
+    pub edit_key: Option<String>
+}
+
+/// struct for passing parameters to the method [`delete_comment_vote`]
+#[derive(Clone, Debug)]
+pub struct DeleteCommentVoteParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub vote_id: String,
+    pub url_id: String,
+    pub broadcast_id: String,
+    pub edit_key: Option<String>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`flag_comment_public`]
+#[derive(Clone, Debug)]
+pub struct FlagCommentPublicParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub is_flagged: bool,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_comment_text`]
+#[derive(Clone, Debug)]
+pub struct GetCommentTextParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub edit_key: Option<String>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_comment_vote_user_names`]
+#[derive(Clone, Debug)]
+pub struct GetCommentVoteUserNamesParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    /// Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted.
+    pub direction: f64,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_comments_public`]
+#[derive(Clone, Debug)]
+pub struct GetCommentsPublicParams {
+    pub tenant_id: String,
+    pub url_id: String,
+    pub page: Option<i32>,
+    pub direction: Option<models::SortDirections>,
+    pub sso: Option<String>,
+    pub skip: Option<i32>,
+    pub skip_children: Option<i32>,
+    pub limit: Option<i32>,
+    pub limit_children: Option<i32>,
+    pub count_children: Option<bool>,
+    pub last_gen_date: Option<i64>,
+    pub fetch_page_for_comment_id: Option<String>,
+    pub include_config: Option<bool>,
+    pub count_all: Option<bool>,
+    pub includei10n: Option<bool>,
+    pub locale: Option<String>,
+    pub modules: Option<String>,
+    pub is_crawler: Option<bool>,
+    pub include_notification_count: Option<bool>,
+    pub as_tree: Option<bool>,
+    pub max_tree_depth: Option<i32>,
+    pub use_full_translation_ids: Option<bool>,
+    pub parent_id: Option<String>,
+    pub search_text: Option<String>,
+    pub hash_tags: Option<Vec<String>>,
+    pub user_id: Option<String>,
+    pub custom_config_str: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_event_log`]
+#[derive(Clone, Debug)]
+pub struct GetEventLogParams {
+    pub tenant_id: String,
+    pub url_id: String,
+    pub user_id_ws: String,
+    pub start_time: i64,
+    pub end_time: i64
+}
+
+/// struct for passing parameters to the method [`get_global_event_log`]
+#[derive(Clone, Debug)]
+pub struct GetGlobalEventLogParams {
+    pub tenant_id: String,
+    pub url_id: String,
+    pub user_id_ws: String,
+    pub start_time: i64,
+    pub end_time: i64
+}
+
+/// struct for passing parameters to the method [`get_user_notification_count`]
+#[derive(Clone, Debug)]
+pub struct GetUserNotificationCountParams {
+    pub tenant_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_user_notifications`]
+#[derive(Clone, Debug)]
+pub struct GetUserNotificationsParams {
+    pub tenant_id: String,
+    /// Defaults to 20.
+    pub page_size: Option<f64>,
+    pub after_id: Option<String>,
+    pub include_context: Option<bool>,
+    pub after_created_at: Option<f64>,
+    pub unread_only: Option<bool>,
+    pub dm_only: Option<bool>,
+    pub no_dm: Option<bool>,
+    pub include_translations: Option<bool>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_user_presence_statuses`]
+#[derive(Clone, Debug)]
+pub struct GetUserPresenceStatusesParams {
+    pub tenant_id: String,
+    pub url_id_ws: String,
+    pub user_ids: String
+}
+
+/// struct for passing parameters to the method [`lock_comment`]
+#[derive(Clone, Debug)]
+pub struct LockCommentParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub broadcast_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`pin_comment`]
+#[derive(Clone, Debug)]
+pub struct PinCommentParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub broadcast_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`reset_user_notification_count`]
+#[derive(Clone, Debug)]
+pub struct ResetUserNotificationCountParams {
+    pub tenant_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`reset_user_notifications`]
+#[derive(Clone, Debug)]
+pub struct ResetUserNotificationsParams {
+    pub tenant_id: String,
+    pub after_id: Option<String>,
+    pub after_created_at: Option<f64>,
+    pub unread_only: Option<bool>,
+    pub dm_only: Option<bool>,
+    pub no_dm: Option<bool>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`set_comment_text`]
+#[derive(Clone, Debug)]
+pub struct SetCommentTextParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub broadcast_id: String,
+    pub comment_text_update_request: models::CommentTextUpdateRequest,
+    pub edit_key: Option<String>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`un_block_comment_public`]
+#[derive(Clone, Debug)]
+pub struct UnBlockCommentPublicParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub public_block_from_comment_params: models::PublicBlockFromCommentParams,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`un_lock_comment`]
+#[derive(Clone, Debug)]
+pub struct UnLockCommentParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub broadcast_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`un_pin_comment`]
+#[derive(Clone, Debug)]
+pub struct UnPinCommentParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub broadcast_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`update_user_notification_comment_subscription_status`]
+#[derive(Clone, Debug)]
+pub struct UpdateUserNotificationCommentSubscriptionStatusParams {
+    pub tenant_id: String,
+    pub notification_id: String,
+    pub opted_in_or_out: String,
+    pub comment_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`update_user_notification_page_subscription_status`]
+#[derive(Clone, Debug)]
+pub struct UpdateUserNotificationPageSubscriptionStatusParams {
+    pub tenant_id: String,
+    pub url_id: String,
+    pub url: String,
+    pub page_title: String,
+    pub subscribed_or_unsubscribed: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`update_user_notification_status`]
+#[derive(Clone, Debug)]
+pub struct UpdateUserNotificationStatusParams {
+    pub tenant_id: String,
+    pub notification_id: String,
+    pub new_status: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`vote_comment`]
+#[derive(Clone, Debug)]
+pub struct VoteCommentParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub url_id: String,
+    pub broadcast_id: String,
+    pub vote_body_params: models::VoteBodyParams,
+    pub session_id: Option<String>,
+    pub sso: Option<String>
+}
 
 
-/// struct for typed errors of method [`block_from_comment`]
+/// struct for typed errors of method [`block_from_comment_public`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum BlockFromCommentError {
+pub enum BlockFromCommentPublicError {
     UnknownValue(serde_json::Value),
 }
 
@@ -29,17 +307,17 @@ pub enum CheckedCommentsForBlockedError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_comment`]
+/// struct for typed errors of method [`create_comment_public`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateCommentError {
+pub enum CreateCommentPublicError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_comment`]
+/// struct for typed errors of method [`delete_comment_public`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteCommentError {
+pub enum DeleteCommentPublicError {
     UnknownValue(serde_json::Value),
 }
 
@@ -50,10 +328,10 @@ pub enum DeleteCommentVoteError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`flag_comment`]
+/// struct for typed errors of method [`flag_comment_public`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum FlagCommentError {
+pub enum FlagCommentPublicError {
     UnknownValue(serde_json::Value),
 }
 
@@ -71,10 +349,24 @@ pub enum GetCommentVoteUserNamesError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_comments`]
+/// struct for typed errors of method [`get_comments_public`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetCommentsError {
+pub enum GetCommentsPublicError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_event_log`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetEventLogError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_global_event_log`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetGlobalEventLogError {
     UnknownValue(serde_json::Value),
 }
 
@@ -89,6 +381,14 @@ pub enum GetUserNotificationCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserNotificationsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_user_presence_statuses`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserPresenceStatusesError {
+    Status422(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -127,10 +427,10 @@ pub enum SetCommentTextError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`un_block_comment`]
+/// struct for typed errors of method [`un_block_comment_public`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UnBlockCommentError {
+pub enum UnBlockCommentPublicError {
     UnknownValue(serde_json::Value),
 }
 
@@ -177,62 +477,43 @@ pub enum VoteCommentError {
 }
 
 
-pub async fn block_from_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, block_from_comment_params: models::BlockFromCommentParams, sso: Option<&str>) -> Result<models::BlockFromComment200Response, Error<BlockFromCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_block_from_comment_params = block_from_comment_params;
-    let p_sso = sso;
+pub async fn block_from_comment_public(configuration: &configuration::Configuration, params: BlockFromCommentPublicParams) -> Result<models::BlockFromCommentPublic200Response, Error<BlockFromCommentPublicError>> {
 
-    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.json(&p_block_from_comment_params);
+    req_builder = req_builder.json(&params.public_block_from_comment_params);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BlockFromComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BlockFromComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
-        let entity: Option<BlockFromCommentError> = serde_json::from_str(&content).ok();
+        let entity: Option<BlockFromCommentPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn checked_comments_for_blocked(configuration: &configuration::Configuration, tenant_id: &str, comment_ids: &str, sso: Option<&str>) -> Result<models::CheckedCommentsForBlocked200Response, Error<CheckedCommentsForBlockedError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_ids = comment_ids;
-    let p_sso = sso;
+pub async fn checked_comments_for_blocked(configuration: &configuration::Configuration, params: CheckedCommentsForBlockedParams) -> Result<models::CheckedCommentsForBlocked200Response, Error<CheckedCommentsForBlockedError>> {
 
     let uri_str = format!("{}/check-blocked-comments", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    req_builder = req_builder.query(&[("commentIds", &p_comment_ids.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("commentIds", &params.comment_ids.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -243,20 +524,10 @@ pub async fn checked_comments_for_blocked(configuration: &configuration::Configu
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CheckedCommentsForBlocked200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CheckedCommentsForBlocked200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<CheckedCommentsForBlockedError> = serde_json::from_str(&content).ok();
@@ -264,68 +535,46 @@ pub async fn checked_comments_for_blocked(configuration: &configuration::Configu
     }
 }
 
-pub async fn create_comment(configuration: &configuration::Configuration, tenant_id: &str, url_id: &str, broadcast_id: &str, comment_data: models::CommentData, session_id: Option<&str>, sso: Option<&str>) -> Result<models::CreateComment200Response, Error<CreateCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_url_id = url_id;
-    let p_broadcast_id = broadcast_id;
-    let p_comment_data = comment_data;
-    let p_session_id = session_id;
-    let p_sso = sso;
+pub async fn create_comment_public(configuration: &configuration::Configuration, params: CreateCommentPublicParams) -> Result<models::CreateCommentPublic200Response, Error<CreateCommentPublicError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id));
+    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("urlId", &p_url_id.to_string())]);
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_session_id {
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.session_id {
         req_builder = req_builder.query(&[("sessionId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sso {
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.json(&p_comment_data);
+    req_builder = req_builder.json(&params.comment_data);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
-        let entity: Option<CreateCommentError> = serde_json::from_str(&content).ok();
+        let entity: Option<CreateCommentPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn delete_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, broadcast_id: &str, edit_key: Option<&str>) -> Result<models::DeleteComment200Response, Error<DeleteCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_broadcast_id = broadcast_id;
-    let p_edit_key = edit_key;
+pub async fn delete_comment_public(configuration: &configuration::Configuration, params: DeleteCommentPublicParams) -> Result<models::DeleteCommentPublic200Response, Error<DeleteCommentPublicError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_edit_key {
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.edit_key {
         req_builder = req_builder.query(&[("editKey", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -336,46 +585,28 @@ pub async fn delete_comment(configuration: &configuration::Configuration, tenant
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
-        let entity: Option<DeleteCommentError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteCommentPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn delete_comment_vote(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, vote_id: &str, url_id: &str, broadcast_id: &str, edit_key: Option<&str>, sso: Option<&str>) -> Result<models::DeleteCommentVote200Response, Error<DeleteCommentVoteError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_vote_id = vote_id;
-    let p_url_id = url_id;
-    let p_broadcast_id = broadcast_id;
-    let p_edit_key = edit_key;
-    let p_sso = sso;
+pub async fn delete_comment_vote(configuration: &configuration::Configuration, params: DeleteCommentVoteParams) -> Result<models::DeleteCommentVote200Response, Error<DeleteCommentVoteError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote/{voteId}", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id), voteId=crate::apis::urlencode(p_vote_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote/{voteId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id), voteId=crate::apis::urlencode(params.vote_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("urlId", &p_url_id.to_string())]);
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_edit_key {
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.edit_key {
         req_builder = req_builder.query(&[("editKey", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sso {
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -386,20 +617,10 @@ pub async fn delete_comment_vote(configuration: &configuration::Configuration, t
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteCommentVote200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteCommentVote200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<DeleteCommentVoteError> = serde_json::from_str(&content).ok();
@@ -407,19 +628,14 @@ pub async fn delete_comment_vote(configuration: &configuration::Configuration, t
     }
 }
 
-pub async fn flag_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, is_flagged: bool, sso: Option<&str>) -> Result<models::FlagComment200Response, Error<FlagCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_is_flagged = is_flagged;
-    let p_sso = sso;
+pub async fn flag_comment_public(configuration: &configuration::Configuration, params: FlagCommentPublicParams) -> Result<models::FlagCommentPublic200Response, Error<FlagCommentPublicError>> {
 
-    let uri_str = format!("{}/flag-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/flag-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    req_builder = req_builder.query(&[("isFlagged", &p_is_flagged.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("isFlagged", &params.is_flagged.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -430,41 +646,26 @@ pub async fn flag_comment(configuration: &configuration::Configuration, tenant_i
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlagComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlagComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
-        let entity: Option<FlagCommentError> = serde_json::from_str(&content).ok();
+        let entity: Option<FlagCommentPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_comment_text(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, edit_key: Option<&str>, sso: Option<&str>) -> Result<models::GetCommentText200Response, Error<GetCommentTextError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_edit_key = edit_key;
-    let p_sso = sso;
+pub async fn get_comment_text(configuration: &configuration::Configuration, params: GetCommentTextParams) -> Result<models::GetCommentText200Response, Error<GetCommentTextError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/text", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/text", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = p_edit_key {
+    if let Some(ref param_value) = params.edit_key {
         req_builder = req_builder.query(&[("editKey", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sso {
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -475,20 +676,10 @@ pub async fn get_comment_text(configuration: &configuration::Configuration, tena
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentText200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentText200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<GetCommentTextError> = serde_json::from_str(&content).ok();
@@ -496,18 +687,13 @@ pub async fn get_comment_text(configuration: &configuration::Configuration, tena
     }
 }
 
-pub async fn get_comment_vote_user_names(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, direction: f64, sso: Option<&str>) -> Result<models::GetCommentVoteUserNames200Response, Error<GetCommentVoteUserNamesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_direction = direction;
-    let p_sso = sso;
+pub async fn get_comment_vote_user_names(configuration: &configuration::Configuration, params: GetCommentVoteUserNamesParams) -> Result<models::GetCommentVoteUserNames200Response, Error<GetCommentVoteUserNamesError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/votes", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/votes", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("direction", &p_direction.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("direction", &params.direction.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -518,20 +704,10 @@ pub async fn get_comment_vote_user_names(configuration: &configuration::Configur
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentVoteUserNames200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentVoteUserNames200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<GetCommentVoteUserNamesError> = serde_json::from_str(&content).ok();
@@ -540,116 +716,88 @@ pub async fn get_comment_vote_user_names(configuration: &configuration::Configur
 }
 
 ///  req tenantId urlId
-pub async fn get_comments(configuration: &configuration::Configuration, tenant_id: &str, url_id: &str, page: Option<i32>, direction: Option<models::SortDirections>, sso: Option<&str>, skip: Option<i32>, skip_children: Option<i32>, limit: Option<i32>, limit_children: Option<i32>, count_children: Option<bool>, last_gen_date: Option<i64>, fetch_page_for_comment_id: Option<&str>, include_config: Option<bool>, count_all: Option<bool>, includei10n: Option<bool>, locale: Option<&str>, modules: Option<&str>, is_crawler: Option<bool>, include_notification_count: Option<bool>, as_tree: Option<bool>, max_tree_depth: Option<i32>, use_full_translation_ids: Option<bool>, parent_id: Option<&str>, search_text: Option<&str>, hash_tags: Option<Vec<String>>, user_id: Option<&str>, custom_config_str: Option<&str>) -> Result<models::GetComments200Response, Error<GetCommentsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_url_id = url_id;
-    let p_page = page;
-    let p_direction = direction;
-    let p_sso = sso;
-    let p_skip = skip;
-    let p_skip_children = skip_children;
-    let p_limit = limit;
-    let p_limit_children = limit_children;
-    let p_count_children = count_children;
-    let p_last_gen_date = last_gen_date;
-    let p_fetch_page_for_comment_id = fetch_page_for_comment_id;
-    let p_include_config = include_config;
-    let p_count_all = count_all;
-    let p_includei10n = includei10n;
-    let p_locale = locale;
-    let p_modules = modules;
-    let p_is_crawler = is_crawler;
-    let p_include_notification_count = include_notification_count;
-    let p_as_tree = as_tree;
-    let p_max_tree_depth = max_tree_depth;
-    let p_use_full_translation_ids = use_full_translation_ids;
-    let p_parent_id = parent_id;
-    let p_search_text = search_text;
-    let p_hash_tags = hash_tags;
-    let p_user_id = user_id;
-    let p_custom_config_str = custom_config_str;
+pub async fn get_comments_public(configuration: &configuration::Configuration, params: GetCommentsPublicParams) -> Result<models::GetCommentsPublic200Response, Error<GetCommentsPublicError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id));
+    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("urlId", &p_url_id.to_string())]);
-    if let Some(ref param_value) = p_page {
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    if let Some(ref param_value) = params.page {
         req_builder = req_builder.query(&[("page", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_direction {
+    if let Some(ref param_value) = params.direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sso {
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_skip {
+    if let Some(ref param_value) = params.skip {
         req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_skip_children {
+    if let Some(ref param_value) = params.skip_children {
         req_builder = req_builder.query(&[("skipChildren", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit {
+    if let Some(ref param_value) = params.limit {
         req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_limit_children {
+    if let Some(ref param_value) = params.limit_children {
         req_builder = req_builder.query(&[("limitChildren", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_count_children {
+    if let Some(ref param_value) = params.count_children {
         req_builder = req_builder.query(&[("countChildren", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_last_gen_date {
+    if let Some(ref param_value) = params.last_gen_date {
         req_builder = req_builder.query(&[("lastGenDate", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_fetch_page_for_comment_id {
+    if let Some(ref param_value) = params.fetch_page_for_comment_id {
         req_builder = req_builder.query(&[("fetchPageForCommentId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_config {
+    if let Some(ref param_value) = params.include_config {
         req_builder = req_builder.query(&[("includeConfig", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_count_all {
+    if let Some(ref param_value) = params.count_all {
         req_builder = req_builder.query(&[("countAll", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_includei10n {
+    if let Some(ref param_value) = params.includei10n {
         req_builder = req_builder.query(&[("includei10n", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_locale {
+    if let Some(ref param_value) = params.locale {
         req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_modules {
+    if let Some(ref param_value) = params.modules {
         req_builder = req_builder.query(&[("modules", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_is_crawler {
+    if let Some(ref param_value) = params.is_crawler {
         req_builder = req_builder.query(&[("isCrawler", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_notification_count {
+    if let Some(ref param_value) = params.include_notification_count {
         req_builder = req_builder.query(&[("includeNotificationCount", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_as_tree {
+    if let Some(ref param_value) = params.as_tree {
         req_builder = req_builder.query(&[("asTree", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_max_tree_depth {
+    if let Some(ref param_value) = params.max_tree_depth {
         req_builder = req_builder.query(&[("maxTreeDepth", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_use_full_translation_ids {
+    if let Some(ref param_value) = params.use_full_translation_ids {
         req_builder = req_builder.query(&[("useFullTranslationIds", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_parent_id {
+    if let Some(ref param_value) = params.parent_id {
         req_builder = req_builder.query(&[("parentId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_search_text {
+    if let Some(ref param_value) = params.search_text {
         req_builder = req_builder.query(&[("searchText", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_hash_tags {
+    if let Some(ref param_value) = params.hash_tags {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("hashTags".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("hashTags", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
-    if let Some(ref param_value) = p_user_id {
+    if let Some(ref param_value) = params.user_id {
         req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_custom_config_str {
+    if let Some(ref param_value) = params.custom_config_str {
         req_builder = req_builder.query(&[("customConfigStr", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -660,37 +808,82 @@ pub async fn get_comments(configuration: &configuration::Configuration, tenant_i
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetComments200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetComments200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetCommentsError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetCommentsPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn get_user_notification_count(configuration: &configuration::Configuration, tenant_id: &str, sso: Option<&str>) -> Result<models::GetUserNotificationCount200Response, Error<GetUserNotificationCountError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_sso = sso;
+///  req tenantId urlId userIdWS
+pub async fn get_event_log(configuration: &configuration::Configuration, params: GetEventLogParams) -> Result<models::GetEventLog200Response, Error<GetEventLogError>> {
+
+    let uri_str = format!("{}/event-log/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    req_builder = req_builder.query(&[("userIdWS", &params.user_id_ws.to_string())]);
+    req_builder = req_builder.query(&[("startTime", &params.start_time.to_string())]);
+    req_builder = req_builder.query(&[("endTime", &params.end_time.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetEventLogError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  req tenantId urlId userIdWS
+pub async fn get_global_event_log(configuration: &configuration::Configuration, params: GetGlobalEventLogParams) -> Result<models::GetEventLog200Response, Error<GetGlobalEventLogError>> {
+
+    let uri_str = format!("{}/event-log/global/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    req_builder = req_builder.query(&[("userIdWS", &params.user_id_ws.to_string())]);
+    req_builder = req_builder.query(&[("startTime", &params.start_time.to_string())]);
+    req_builder = req_builder.query(&[("endTime", &params.end_time.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetGlobalEventLogError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_user_notification_count(configuration: &configuration::Configuration, params: GetUserNotificationCountParams) -> Result<models::GetUserNotificationCount200Response, Error<GetUserNotificationCountError>> {
 
     let uri_str = format!("{}/user-notifications/get-count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -701,20 +894,10 @@ pub async fn get_user_notification_count(configuration: &configuration::Configur
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserNotificationCount200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserNotificationCount200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<GetUserNotificationCountError> = serde_json::from_str(&content).ok();
@@ -722,48 +905,37 @@ pub async fn get_user_notification_count(configuration: &configuration::Configur
     }
 }
 
-pub async fn get_user_notifications(configuration: &configuration::Configuration, tenant_id: &str, page_size: Option<f64>, after_id: Option<&str>, include_context: Option<bool>, after_created_at: Option<f64>, unread_only: Option<bool>, dm_only: Option<bool>, no_dm: Option<bool>, include_translations: Option<bool>, sso: Option<&str>) -> Result<models::GetUserNotifications200Response, Error<GetUserNotificationsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_page_size = page_size;
-    let p_after_id = after_id;
-    let p_include_context = include_context;
-    let p_after_created_at = after_created_at;
-    let p_unread_only = unread_only;
-    let p_dm_only = dm_only;
-    let p_no_dm = no_dm;
-    let p_include_translations = include_translations;
-    let p_sso = sso;
+pub async fn get_user_notifications(configuration: &configuration::Configuration, params: GetUserNotificationsParams) -> Result<models::GetUserNotifications200Response, Error<GetUserNotificationsError>> {
 
     let uri_str = format!("{}/user-notifications", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_page_size {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.page_size {
         req_builder = req_builder.query(&[("pageSize", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after_id {
+    if let Some(ref param_value) = params.after_id {
         req_builder = req_builder.query(&[("afterId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_context {
+    if let Some(ref param_value) = params.include_context {
         req_builder = req_builder.query(&[("includeContext", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after_created_at {
+    if let Some(ref param_value) = params.after_created_at {
         req_builder = req_builder.query(&[("afterCreatedAt", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_unread_only {
+    if let Some(ref param_value) = params.unread_only {
         req_builder = req_builder.query(&[("unreadOnly", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_dm_only {
+    if let Some(ref param_value) = params.dm_only {
         req_builder = req_builder.query(&[("dmOnly", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_no_dm {
+    if let Some(ref param_value) = params.no_dm {
         req_builder = req_builder.query(&[("noDm", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_include_translations {
+    if let Some(ref param_value) = params.include_translations {
         req_builder = req_builder.query(&[("includeTranslations", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sso {
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -774,20 +946,10 @@ pub async fn get_user_notifications(configuration: &configuration::Configuration
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserNotifications200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserNotifications200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<GetUserNotificationsError> = serde_json::from_str(&content).ok();
@@ -795,18 +957,40 @@ pub async fn get_user_notifications(configuration: &configuration::Configuration
     }
 }
 
-pub async fn lock_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, broadcast_id: &str, sso: Option<&str>) -> Result<models::LockComment200Response, Error<LockCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_broadcast_id = broadcast_id;
-    let p_sso = sso;
+pub async fn get_user_presence_statuses(configuration: &configuration::Configuration, params: GetUserPresenceStatusesParams) -> Result<models::GetUserPresenceStatuses200Response, Error<GetUserPresenceStatusesError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/lock", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/user-presence-status", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("urlIdWS", &params.url_id_ws.to_string())]);
+    req_builder = req_builder.query(&[("userIds", &params.user_ids.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserPresenceStatusesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn lock_comment(configuration: &configuration::Configuration, params: LockCommentParams) -> Result<models::LockComment200Response, Error<LockCommentError>> {
+
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/lock", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -817,20 +1001,10 @@ pub async fn lock_comment(configuration: &configuration::Configuration, tenant_i
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::LockComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::LockComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<LockCommentError> = serde_json::from_str(&content).ok();
@@ -838,18 +1012,13 @@ pub async fn lock_comment(configuration: &configuration::Configuration, tenant_i
     }
 }
 
-pub async fn pin_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, broadcast_id: &str, sso: Option<&str>) -> Result<models::PinComment200Response, Error<PinCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_broadcast_id = broadcast_id;
-    let p_sso = sso;
+pub async fn pin_comment(configuration: &configuration::Configuration, params: PinCommentParams) -> Result<models::PinComment200Response, Error<PinCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/pin", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/pin", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -860,20 +1029,10 @@ pub async fn pin_comment(configuration: &configuration::Configuration, tenant_id
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PinComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PinComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<PinCommentError> = serde_json::from_str(&content).ok();
@@ -881,16 +1040,13 @@ pub async fn pin_comment(configuration: &configuration::Configuration, tenant_id
     }
 }
 
-pub async fn reset_user_notification_count(configuration: &configuration::Configuration, tenant_id: &str, sso: Option<&str>) -> Result<models::ResetUserNotifications200Response, Error<ResetUserNotificationCountError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_sso = sso;
+pub async fn reset_user_notification_count(configuration: &configuration::Configuration, params: ResetUserNotificationCountParams) -> Result<models::ResetUserNotifications200Response, Error<ResetUserNotificationCountError>> {
 
     let uri_str = format!("{}/user-notifications/reset-count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -901,20 +1057,10 @@ pub async fn reset_user_notification_count(configuration: &configuration::Config
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResetUserNotifications200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResetUserNotifications200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<ResetUserNotificationCountError> = serde_json::from_str(&content).ok();
@@ -922,36 +1068,28 @@ pub async fn reset_user_notification_count(configuration: &configuration::Config
     }
 }
 
-pub async fn reset_user_notifications(configuration: &configuration::Configuration, tenant_id: &str, after_id: Option<&str>, after_created_at: Option<f64>, unread_only: Option<bool>, dm_only: Option<bool>, no_dm: Option<bool>, sso: Option<&str>) -> Result<models::ResetUserNotifications200Response, Error<ResetUserNotificationsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_after_id = after_id;
-    let p_after_created_at = after_created_at;
-    let p_unread_only = unread_only;
-    let p_dm_only = dm_only;
-    let p_no_dm = no_dm;
-    let p_sso = sso;
+pub async fn reset_user_notifications(configuration: &configuration::Configuration, params: ResetUserNotificationsParams) -> Result<models::ResetUserNotifications200Response, Error<ResetUserNotificationsError>> {
 
     let uri_str = format!("{}/user-notifications/reset", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_after_id {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.after_id {
         req_builder = req_builder.query(&[("afterId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_after_created_at {
+    if let Some(ref param_value) = params.after_created_at {
         req_builder = req_builder.query(&[("afterCreatedAt", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_unread_only {
+    if let Some(ref param_value) = params.unread_only {
         req_builder = req_builder.query(&[("unreadOnly", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_dm_only {
+    if let Some(ref param_value) = params.dm_only {
         req_builder = req_builder.query(&[("dmOnly", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_no_dm {
+    if let Some(ref param_value) = params.no_dm {
         req_builder = req_builder.query(&[("noDm", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sso {
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -962,20 +1100,10 @@ pub async fn reset_user_notifications(configuration: &configuration::Configurati
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ResetUserNotifications200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ResetUserNotifications200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<ResetUserNotificationsError> = serde_json::from_str(&content).ok();
@@ -983,46 +1111,31 @@ pub async fn reset_user_notifications(configuration: &configuration::Configurati
     }
 }
 
-pub async fn set_comment_text(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, broadcast_id: &str, edit_key: &str, comment_text_update_request: models::CommentTextUpdateRequest, sso: Option<&str>) -> Result<models::SetCommentText200Response, Error<SetCommentTextError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_broadcast_id = broadcast_id;
-    let p_edit_key = edit_key;
-    let p_comment_text_update_request = comment_text_update_request;
-    let p_sso = sso;
+pub async fn set_comment_text(configuration: &configuration::Configuration, params: SetCommentTextParams) -> Result<models::SetCommentText200Response, Error<SetCommentTextError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/update-text", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/update-text", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    req_builder = req_builder.query(&[("editKey", &p_edit_key.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.edit_key {
+        req_builder = req_builder.query(&[("editKey", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.json(&p_comment_text_update_request);
+    req_builder = req_builder.json(&params.comment_text_update_request);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SetCommentText200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SetCommentText200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<SetCommentTextError> = serde_json::from_str(&content).ok();
@@ -1030,62 +1143,42 @@ pub async fn set_comment_text(configuration: &configuration::Configuration, tena
     }
 }
 
-pub async fn un_block_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, block_from_comment_params: models::BlockFromCommentParams, sso: Option<&str>) -> Result<models::UnBlockComment200Response, Error<UnBlockCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_block_from_comment_params = block_from_comment_params;
-    let p_sso = sso;
+pub async fn un_block_comment_public(configuration: &configuration::Configuration, params: UnBlockCommentPublicParams) -> Result<models::UnBlockCommentPublic200Response, Error<UnBlockCommentPublicError>> {
 
-    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.json(&p_block_from_comment_params);
+    req_builder = req_builder.json(&params.public_block_from_comment_params);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnBlockComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnBlockComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
-        let entity: Option<UnBlockCommentError> = serde_json::from_str(&content).ok();
+        let entity: Option<UnBlockCommentPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
-pub async fn un_lock_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, broadcast_id: &str, sso: Option<&str>) -> Result<models::LockComment200Response, Error<UnLockCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_broadcast_id = broadcast_id;
-    let p_sso = sso;
+pub async fn un_lock_comment(configuration: &configuration::Configuration, params: UnLockCommentParams) -> Result<models::LockComment200Response, Error<UnLockCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unlock", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unlock", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1096,20 +1189,10 @@ pub async fn un_lock_comment(configuration: &configuration::Configuration, tenan
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::LockComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::LockComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<UnLockCommentError> = serde_json::from_str(&content).ok();
@@ -1117,18 +1200,13 @@ pub async fn un_lock_comment(configuration: &configuration::Configuration, tenan
     }
 }
 
-pub async fn un_pin_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, broadcast_id: &str, sso: Option<&str>) -> Result<models::PinComment200Response, Error<UnPinCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_broadcast_id = broadcast_id;
-    let p_sso = sso;
+pub async fn un_pin_comment(configuration: &configuration::Configuration, params: UnPinCommentParams) -> Result<models::PinComment200Response, Error<UnPinCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unpin", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unpin", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1139,20 +1217,10 @@ pub async fn un_pin_comment(configuration: &configuration::Configuration, tenant
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PinComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PinComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<UnPinCommentError> = serde_json::from_str(&content).ok();
@@ -1161,20 +1229,14 @@ pub async fn un_pin_comment(configuration: &configuration::Configuration, tenant
 }
 
 /// Enable or disable notifications for a specific comment.
-pub async fn update_user_notification_comment_subscription_status(configuration: &configuration::Configuration, tenant_id: &str, notification_id: &str, opted_in_or_out: &str, comment_id: &str, sso: Option<&str>) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationCommentSubscriptionStatusError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_notification_id = notification_id;
-    let p_opted_in_or_out = opted_in_or_out;
-    let p_comment_id = comment_id;
-    let p_sso = sso;
+pub async fn update_user_notification_comment_subscription_status(configuration: &configuration::Configuration, params: UpdateUserNotificationCommentSubscriptionStatusParams) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationCommentSubscriptionStatusError>> {
 
-    let uri_str = format!("{}/user-notifications/{notificationId}/mark-opted/{optedInOrOut}", configuration.base_path, notificationId=crate::apis::urlencode(p_notification_id), optedInOrOut=crate::apis::urlencode(p_opted_in_or_out));
+    let uri_str = format!("{}/user-notifications/{notificationId}/mark-opted/{optedInOrOut}", configuration.base_path, notificationId=crate::apis::urlencode(params.notification_id), optedInOrOut=crate::apis::urlencode(params.opted_in_or_out));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    req_builder = req_builder.query(&[("commentId", &p_comment_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("commentId", &params.comment_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1185,20 +1247,10 @@ pub async fn update_user_notification_comment_subscription_status(configuration:
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateUserNotificationStatus200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateUserNotificationStatus200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<UpdateUserNotificationCommentSubscriptionStatusError> = serde_json::from_str(&content).ok();
@@ -1207,23 +1259,16 @@ pub async fn update_user_notification_comment_subscription_status(configuration:
 }
 
 /// Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
-pub async fn update_user_notification_page_subscription_status(configuration: &configuration::Configuration, tenant_id: &str, url_id: &str, url: &str, page_title: &str, subscribed_or_unsubscribed: &str, sso: Option<&str>) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationPageSubscriptionStatusError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_url_id = url_id;
-    let p_url = url;
-    let p_page_title = page_title;
-    let p_subscribed_or_unsubscribed = subscribed_or_unsubscribed;
-    let p_sso = sso;
+pub async fn update_user_notification_page_subscription_status(configuration: &configuration::Configuration, params: UpdateUserNotificationPageSubscriptionStatusParams) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationPageSubscriptionStatusError>> {
 
-    let uri_str = format!("{}/user-notifications/set-subscription-state/{subscribedOrUnsubscribed}", configuration.base_path, subscribedOrUnsubscribed=crate::apis::urlencode(p_subscribed_or_unsubscribed));
+    let uri_str = format!("{}/user-notifications/set-subscription-state/{subscribedOrUnsubscribed}", configuration.base_path, subscribedOrUnsubscribed=crate::apis::urlencode(params.subscribed_or_unsubscribed));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    req_builder = req_builder.query(&[("urlId", &p_url_id.to_string())]);
-    req_builder = req_builder.query(&[("url", &p_url.to_string())]);
-    req_builder = req_builder.query(&[("pageTitle", &p_page_title.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    req_builder = req_builder.query(&[("url", &params.url.to_string())]);
+    req_builder = req_builder.query(&[("pageTitle", &params.page_title.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1234,20 +1279,10 @@ pub async fn update_user_notification_page_subscription_status(configuration: &c
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateUserNotificationStatus200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateUserNotificationStatus200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<UpdateUserNotificationPageSubscriptionStatusError> = serde_json::from_str(&content).ok();
@@ -1255,18 +1290,13 @@ pub async fn update_user_notification_page_subscription_status(configuration: &c
     }
 }
 
-pub async fn update_user_notification_status(configuration: &configuration::Configuration, tenant_id: &str, notification_id: &str, new_status: &str, sso: Option<&str>) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationStatusError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_notification_id = notification_id;
-    let p_new_status = new_status;
-    let p_sso = sso;
+pub async fn update_user_notification_status(configuration: &configuration::Configuration, params: UpdateUserNotificationStatusParams) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationStatusError>> {
 
-    let uri_str = format!("{}/user-notifications/{notificationId}/mark/{newStatus}", configuration.base_path, notificationId=crate::apis::urlencode(p_notification_id), newStatus=crate::apis::urlencode(p_new_status));
+    let uri_str = format!("{}/user-notifications/{notificationId}/mark/{newStatus}", configuration.base_path, notificationId=crate::apis::urlencode(params.notification_id), newStatus=crate::apis::urlencode(params.new_status));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_sso {
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
@@ -1277,20 +1307,10 @@ pub async fn update_user_notification_status(configuration: &configuration::Conf
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateUserNotificationStatus200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateUserNotificationStatus200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<UpdateUserNotificationStatusError> = serde_json::from_str(&content).ok();
@@ -1298,50 +1318,32 @@ pub async fn update_user_notification_status(configuration: &configuration::Conf
     }
 }
 
-pub async fn vote_comment(configuration: &configuration::Configuration, tenant_id: &str, comment_id: &str, url_id: &str, broadcast_id: &str, vote_body_params: models::VoteBodyParams, session_id: Option<&str>, sso: Option<&str>) -> Result<models::VoteComment200Response, Error<VoteCommentError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_comment_id = comment_id;
-    let p_url_id = url_id;
-    let p_broadcast_id = broadcast_id;
-    let p_vote_body_params = vote_body_params;
-    let p_session_id = session_id;
-    let p_sso = sso;
+pub async fn vote_comment(configuration: &configuration::Configuration, params: VoteCommentParams) -> Result<models::VoteComment200Response, Error<VoteCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id), commentId=crate::apis::urlencode(p_comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("urlId", &p_url_id.to_string())]);
-    req_builder = req_builder.query(&[("broadcastId", &p_broadcast_id.to_string())]);
-    if let Some(ref param_value) = p_session_id {
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
+    if let Some(ref param_value) = params.session_id {
         req_builder = req_builder.query(&[("sessionId", &param_value.to_string())]);
     }
-    if let Some(ref param_value) = p_sso {
+    if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.json(&p_vote_body_params);
+    req_builder = req_builder.json(&params.vote_body_params);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VoteComment200Response`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VoteComment200Response`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<VoteCommentError> = serde_json::from_str(&content).ok();

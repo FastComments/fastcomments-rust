@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
 **status_code** | Option<**f64**> |  | [optional]
-**reason** | **String** |  | 
+**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
 **code** | **String** |  | 
+**reason** | **String** |  | 
+**was_unapproved** | Option<**bool**> |  | [optional]
 **secondary_code** | Option<**String**> |  | [optional]
 **banned_until** | Option<**f64**> |  | [optional]
 **max_character_length** | Option<**f64**> |  | [optional]

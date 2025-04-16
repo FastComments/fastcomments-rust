@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **is_verified** | Option<**bool**> |  | [optional]
 **user** | Option<[**models::VoteResponseUser**](VoteResponseUser.md)> |  | [optional]
 **edit_key** | Option<**String**> |  | [optional]
-**status_code** | Option<**f64**> |  | [optional]
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

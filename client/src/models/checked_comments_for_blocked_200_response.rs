@@ -18,8 +18,6 @@ pub struct CheckedCommentsForBlocked200Response {
     pub comment_statuses: std::collections::HashMap<String, bool>,
     #[serde(rename = "status")]
     pub status: models::ImportedApiStatusPeriodFailed,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -41,7 +39,6 @@ impl CheckedCommentsForBlocked200Response {
         CheckedCommentsForBlocked200Response {
             comment_statuses,
             status,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

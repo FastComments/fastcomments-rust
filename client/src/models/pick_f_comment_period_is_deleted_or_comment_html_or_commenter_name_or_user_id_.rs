@@ -14,23 +14,23 @@ use serde::{Deserialize, Serialize};
 /// PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId : From T, pick a set of properties whose keys are in the union K
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId {
-    #[serde(rename = "commentHTML")]
-    pub comment_html: String,
     #[serde(rename = "userId", skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
     #[serde(rename = "commenterName")]
     pub commenter_name: String,
+    #[serde(rename = "commentHTML")]
+    pub comment_html: String,
     #[serde(rename = "isDeleted", skip_serializing_if = "Option::is_none")]
     pub is_deleted: Option<bool>,
 }
 
 impl PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId {
     /// From T, pick a set of properties whose keys are in the union K
-    pub fn new(comment_html: String, commenter_name: String) -> PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId {
+    pub fn new(commenter_name: String, comment_html: String) -> PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId {
         PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId {
-            comment_html,
             user_id: None,
             commenter_name,
+            comment_html,
             is_deleted: None,
         }
     }

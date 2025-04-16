@@ -4,23 +4,26 @@ All URIs are relative to *https://fastcomments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**block_from_comment**](PublicApi.md#block_from_comment) | **POST** /block-from-comment/{commentId} | 
+[**block_from_comment_public**](PublicApi.md#block_from_comment_public) | **POST** /block-from-comment/{commentId} | 
 [**checked_comments_for_blocked**](PublicApi.md#checked_comments_for_blocked) | **GET** /check-blocked-comments | 
-[**create_comment**](PublicApi.md#create_comment) | **POST** /comments/{tenantId} | 
-[**delete_comment**](PublicApi.md#delete_comment) | **DELETE** /comments/{tenantId}/{commentId} | 
+[**create_comment_public**](PublicApi.md#create_comment_public) | **POST** /comments/{tenantId} | 
+[**delete_comment_public**](PublicApi.md#delete_comment_public) | **DELETE** /comments/{tenantId}/{commentId} | 
 [**delete_comment_vote**](PublicApi.md#delete_comment_vote) | **DELETE** /comments/{tenantId}/{commentId}/vote/{voteId} | 
-[**flag_comment**](PublicApi.md#flag_comment) | **POST** /flag-comment/{commentId} | 
+[**flag_comment_public**](PublicApi.md#flag_comment_public) | **POST** /flag-comment/{commentId} | 
 [**get_comment_text**](PublicApi.md#get_comment_text) | **GET** /comments/{tenantId}/{commentId}/text | 
 [**get_comment_vote_user_names**](PublicApi.md#get_comment_vote_user_names) | **GET** /comments/{tenantId}/{commentId}/votes | 
-[**get_comments**](PublicApi.md#get_comments) | **GET** /comments/{tenantId} | 
+[**get_comments_public**](PublicApi.md#get_comments_public) | **GET** /comments/{tenantId} | 
+[**get_event_log**](PublicApi.md#get_event_log) | **GET** /event-log/{tenantId} | 
+[**get_global_event_log**](PublicApi.md#get_global_event_log) | **GET** /event-log/global/{tenantId} | 
 [**get_user_notification_count**](PublicApi.md#get_user_notification_count) | **GET** /user-notifications/get-count | 
 [**get_user_notifications**](PublicApi.md#get_user_notifications) | **GET** /user-notifications | 
+[**get_user_presence_statuses**](PublicApi.md#get_user_presence_statuses) | **GET** /user-presence-status | 
 [**lock_comment**](PublicApi.md#lock_comment) | **POST** /comments/{tenantId}/{commentId}/lock | 
 [**pin_comment**](PublicApi.md#pin_comment) | **POST** /comments/{tenantId}/{commentId}/pin | 
 [**reset_user_notification_count**](PublicApi.md#reset_user_notification_count) | **POST** /user-notifications/reset-count | 
 [**reset_user_notifications**](PublicApi.md#reset_user_notifications) | **POST** /user-notifications/reset | 
 [**set_comment_text**](PublicApi.md#set_comment_text) | **POST** /comments/{tenantId}/{commentId}/update-text | 
-[**un_block_comment**](PublicApi.md#un_block_comment) | **DELETE** /block-from-comment/{commentId} | 
+[**un_block_comment_public**](PublicApi.md#un_block_comment_public) | **DELETE** /block-from-comment/{commentId} | 
 [**un_lock_comment**](PublicApi.md#un_lock_comment) | **POST** /comments/{tenantId}/{commentId}/unlock | 
 [**un_pin_comment**](PublicApi.md#un_pin_comment) | **POST** /comments/{tenantId}/{commentId}/unpin | 
 [**update_user_notification_comment_subscription_status**](PublicApi.md#update_user_notification_comment_subscription_status) | **POST** /user-notifications/{notificationId}/mark-opted/{optedInOrOut} | 
@@ -30,9 +33,9 @@ Method | HTTP request | Description
 
 
 
-## block_from_comment
+## block_from_comment_public
 
-> models::BlockFromComment200Response block_from_comment(tenant_id, comment_id, block_from_comment_params, sso)
+> models::BlockFromCommentPublic200Response block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso)
 
 
 ### Parameters
@@ -42,12 +45,12 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
-**block_from_comment_params** | [**BlockFromCommentParams**](BlockFromCommentParams.md) |  | [required] |
+**public_block_from_comment_params** | [**PublicBlockFromCommentParams**](PublicBlockFromCommentParams.md) |  | [required] |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
 
-[**models::BlockFromComment200Response**](BlockFromComment_200_response.md)
+[**models::BlockFromCommentPublic200Response**](BlockFromCommentPublic_200_response.md)
 
 ### Authorization
 
@@ -91,9 +94,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## create_comment
+## create_comment_public
 
-> models::CreateComment200Response create_comment(tenant_id, url_id, broadcast_id, comment_data, session_id, sso)
+> models::CreateCommentPublic200Response create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id, sso)
 
 
 ### Parameters
@@ -110,7 +113,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateComment200Response**](CreateComment_200_response.md)
+[**models::CreateCommentPublic200Response**](CreateCommentPublic_200_response.md)
 
 ### Authorization
 
@@ -124,9 +127,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## delete_comment
+## delete_comment_public
 
-> models::DeleteComment200Response delete_comment(tenant_id, comment_id, broadcast_id, edit_key)
+> models::DeleteCommentPublic200Response delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key)
 
 
 ### Parameters
@@ -141,7 +144,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::DeleteComment200Response**](DeleteComment_200_response.md)
+[**models::DeleteCommentPublic200Response**](DeleteCommentPublic_200_response.md)
 
 ### Authorization
 
@@ -189,9 +192,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## flag_comment
+## flag_comment_public
 
-> models::FlagComment200Response flag_comment(tenant_id, comment_id, is_flagged, sso)
+> models::FlagCommentPublic200Response flag_comment_public(tenant_id, comment_id, is_flagged, sso)
 
 
 ### Parameters
@@ -206,7 +209,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagComment200Response**](FlagComment_200_response.md)
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
 
 ### Authorization
 
@@ -282,9 +285,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_comments
+## get_comments_public
 
-> models::GetComments200Response get_comments(tenant_id, url_id, page, direction, sso, skip, skip_children, limit, limit_children, count_children, last_gen_date, fetch_page_for_comment_id, include_config, count_all, includei10n, locale, modules, is_crawler, include_notification_count, as_tree, max_tree_depth, use_full_translation_ids, parent_id, search_text, hash_tags, user_id, custom_config_str)
+> models::GetCommentsPublic200Response get_comments_public(tenant_id, url_id, page, direction, sso, skip, skip_children, limit, limit_children, count_children, last_gen_date, fetch_page_for_comment_id, include_config, count_all, includei10n, locale, modules, is_crawler, include_notification_count, as_tree, max_tree_depth, use_full_translation_ids, parent_id, search_text, hash_tags, user_id, custom_config_str)
 
 
  req tenantId urlId
@@ -324,7 +327,75 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetComments200Response**](GetComments_200_response.md)
+[**models::GetCommentsPublic200Response**](GetCommentsPublic_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_event_log
+
+> models::GetEventLog200Response get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time)
+
+
+ req tenantId urlId userIdWS
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id** | **String** |  | [required] |
+**user_id_ws** | **String** |  | [required] |
+**start_time** | **i64** |  | [required] |
+**end_time** | **i64** |  | [required] |
+
+### Return type
+
+[**models::GetEventLog200Response**](GetEventLog_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_global_event_log
+
+> models::GetEventLog200Response get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time)
+
+
+ req tenantId urlId userIdWS
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id** | **String** |  | [required] |
+**user_id_ws** | **String** |  | [required] |
+**start_time** | **i64** |  | [required] |
+**end_time** | **i64** |  | [required] |
+
+### Return type
+
+[**models::GetEventLog200Response**](GetEventLog_200_response.md)
 
 ### Authorization
 
@@ -391,6 +462,36 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetUserNotifications200Response**](GetUserNotifications_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_user_presence_statuses
+
+> models::GetUserPresenceStatuses200Response get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id_ws** | **String** |  | [required] |
+**user_ids** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetUserPresenceStatuses200Response**](GetUserPresenceStatuses_200_response.md)
 
 ### Authorization
 
@@ -531,7 +632,7 @@ No authorization required
 
 ## set_comment_text
 
-> models::SetCommentText200Response set_comment_text(tenant_id, comment_id, broadcast_id, edit_key, comment_text_update_request, sso)
+> models::SetCommentText200Response set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key, sso)
 
 
 ### Parameters
@@ -542,8 +643,8 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **broadcast_id** | **String** |  | [required] |
-**edit_key** | **String** |  | [required] |
 **comment_text_update_request** | [**CommentTextUpdateRequest**](CommentTextUpdateRequest.md) |  | [required] |
+**edit_key** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -562,9 +663,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## un_block_comment
+## un_block_comment_public
 
-> models::UnBlockComment200Response un_block_comment(tenant_id, comment_id, block_from_comment_params, sso)
+> models::UnBlockCommentPublic200Response un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso)
 
 
 ### Parameters
@@ -574,12 +675,12 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
-**block_from_comment_params** | [**BlockFromCommentParams**](BlockFromCommentParams.md) |  | [required] |
+**public_block_from_comment_params** | [**PublicBlockFromCommentParams**](PublicBlockFromCommentParams.md) |  | [required] |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
 
-[**models::UnBlockComment200Response**](UnBlockComment_200_response.md)
+[**models::UnBlockCommentPublic200Response**](UnBlockCommentPublic_200_response.md)
 
 ### Authorization
 

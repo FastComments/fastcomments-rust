@@ -17,8 +17,6 @@ pub struct GetUserNotificationCount200Response {
     pub status: models::ImportedApiStatusPeriodFailed,
     #[serde(rename = "count")]
     pub count: f64,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -40,7 +38,6 @@ impl GetUserNotificationCount200Response {
         GetUserNotificationCount200Response {
             status,
             count,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

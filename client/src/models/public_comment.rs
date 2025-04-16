@@ -15,18 +15,20 @@ use serde::{Deserialize, Serialize};
 pub struct PublicComment {
     #[serde(rename = "_id")]
     pub _id: String,
-    #[serde(rename = "commentHTML")]
-    pub comment_html: String,
+    #[serde(rename = "date")]
+    pub date: String,
     #[serde(rename = "userId", skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
+    #[serde(rename = "anonUserId", skip_serializing_if = "Option::is_none")]
+    pub anon_user_id: Option<String>,
     #[serde(rename = "commenterName")]
     pub commenter_name: String,
     #[serde(rename = "commenterLink", skip_serializing_if = "Option::is_none")]
     pub commenter_link: Option<String>,
+    #[serde(rename = "commentHTML")]
+    pub comment_html: String,
     #[serde(rename = "parentId", skip_serializing_if = "Option::is_none")]
     pub parent_id: Option<String>,
-    #[serde(rename = "date")]
-    pub date: String,
     #[serde(rename = "votes", skip_serializing_if = "Option::is_none")]
     pub votes: Option<i32>,
     #[serde(rename = "votesUp", skip_serializing_if = "Option::is_none")]
@@ -37,8 +39,14 @@ pub struct PublicComment {
     pub verified: bool,
     #[serde(rename = "avatarSrc", skip_serializing_if = "Option::is_none")]
     pub avatar_src: Option<String>,
+    #[serde(rename = "isSpam", skip_serializing_if = "Option::is_none")]
+    pub is_spam: Option<bool>,
     #[serde(rename = "hasImages", skip_serializing_if = "Option::is_none")]
     pub has_images: Option<bool>,
+    #[serde(rename = "isDeleted", skip_serializing_if = "Option::is_none")]
+    pub is_deleted: Option<bool>,
+    #[serde(rename = "isDeletedUser", skip_serializing_if = "Option::is_none")]
+    pub is_deleted_user: Option<bool>,
     #[serde(rename = "isByAdmin", skip_serializing_if = "Option::is_none")]
     pub is_by_admin: Option<bool>,
     #[serde(rename = "isByModerator", skip_serializing_if = "Option::is_none")]
@@ -47,24 +55,16 @@ pub struct PublicComment {
     pub is_pinned: Option<bool>,
     #[serde(rename = "isLocked", skip_serializing_if = "Option::is_none")]
     pub is_locked: Option<bool>,
-    #[serde(rename = "displayLabel", skip_serializing_if = "Option::is_none")]
-    pub display_label: Option<String>,
     #[serde(rename = "rating", skip_serializing_if = "Option::is_none")]
     pub rating: Option<f64>,
+    #[serde(rename = "displayLabel", skip_serializing_if = "Option::is_none")]
+    pub display_label: Option<String>,
     #[serde(rename = "badges", skip_serializing_if = "Option::is_none")]
     pub badges: Option<Vec<models::CommentUserBadgeInfo>>,
-    #[serde(rename = "viewCount", skip_serializing_if = "Option::is_none")]
-    pub view_count: Option<f64>,
-    #[serde(rename = "isDeleted", skip_serializing_if = "Option::is_none")]
-    pub is_deleted: Option<bool>,
-    #[serde(rename = "isDeletedUser", skip_serializing_if = "Option::is_none")]
-    pub is_deleted_user: Option<bool>,
-    #[serde(rename = "isSpam", skip_serializing_if = "Option::is_none")]
-    pub is_spam: Option<bool>,
-    #[serde(rename = "anonUserId", skip_serializing_if = "Option::is_none")]
-    pub anon_user_id: Option<String>,
     #[serde(rename = "feedbackIds", skip_serializing_if = "Option::is_none")]
     pub feedback_ids: Option<Vec<String>>,
+    #[serde(rename = "viewCount", skip_serializing_if = "Option::is_none")]
+    pub view_count: Option<f64>,
     #[serde(rename = "isUnread", skip_serializing_if = "Option::is_none")]
     pub is_unread: Option<bool>,
     #[serde(rename = "myVoteId", skip_serializing_if = "Option::is_none")]
@@ -91,34 +91,34 @@ pub struct PublicComment {
 }
 
 impl PublicComment {
-    pub fn new(_id: String, comment_html: String, commenter_name: String, date: String, verified: bool) -> PublicComment {
+    pub fn new(_id: String, date: String, commenter_name: String, comment_html: String, verified: bool) -> PublicComment {
         PublicComment {
             _id,
-            comment_html,
+            date,
             user_id: None,
+            anon_user_id: None,
             commenter_name,
             commenter_link: None,
+            comment_html,
             parent_id: None,
-            date,
             votes: None,
             votes_up: None,
             votes_down: None,
             verified,
             avatar_src: None,
+            is_spam: None,
             has_images: None,
+            is_deleted: None,
+            is_deleted_user: None,
             is_by_admin: None,
             is_by_moderator: None,
             is_pinned: None,
             is_locked: None,
-            display_label: None,
             rating: None,
+            display_label: None,
             badges: None,
-            view_count: None,
-            is_deleted: None,
-            is_deleted_user: None,
-            is_spam: None,
-            anon_user_id: None,
             feedback_ids: None,
+            view_count: None,
             is_unread: None,
             my_vote_id: None,
             is_voted_down: None,

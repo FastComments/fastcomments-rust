@@ -4,9 +4,56 @@ All URIs are relative to *https://fastcomments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**add_domain_config**](DefaultApi.md#add_domain_config) | **POST** /api/v1/domain-configs | 
 [**aggregate**](DefaultApi.md#aggregate) | **POST** /api/v1/aggregate | 
-[**comments_options**](DefaultApi.md#comments_options) | **OPTIONS** /comments/{tenantId} | 
+[**block_user_from_comment**](DefaultApi.md#block_user_from_comment) | **POST** /api/v1/comments/{id}/block | 
+[**create_feed_post**](DefaultApi.md#create_feed_post) | **POST** /api/v1/feed-posts | 
+[**delete_comment**](DefaultApi.md#delete_comment) | **DELETE** /api/v1/comments/{id} | 
+[**delete_domain_config**](DefaultApi.md#delete_domain_config) | **DELETE** /api/v1/domain-configs/{domain} | 
+[**flag_comment**](DefaultApi.md#flag_comment) | **POST** /api/v1/comments/{id}/flag | 
+[**get_audit_logs**](DefaultApi.md#get_audit_logs) | **GET** /api/v1/audit-logs | 
+[**get_comment**](DefaultApi.md#get_comment) | **GET** /api/v1/comments/{id} | 
+[**get_comments**](DefaultApi.md#get_comments) | **GET** /api/v1/comments | 
+[**get_domain_config**](DefaultApi.md#get_domain_config) | **GET** /api/v1/domain-configs/{domain} | 
+[**get_domain_configs**](DefaultApi.md#get_domain_configs) | **GET** /api/v1/domain-configs | 
+[**get_feed_posts**](DefaultApi.md#get_feed_posts) | **GET** /api/v1/feed-posts | 
+[**patch_domain_config**](DefaultApi.md#patch_domain_config) | **PATCH** /api/v1/domain-configs/{domainToUpdate} | 
+[**put_domain_config**](DefaultApi.md#put_domain_config) | **PUT** /api/v1/domain-configs/{domainToUpdate} | 
+[**save_comment**](DefaultApi.md#save_comment) | **POST** /api/v1/comments | 
+[**un_block_user_from_comment**](DefaultApi.md#un_block_user_from_comment) | **POST** /api/v1/comments/{id}/un-block | 
+[**un_flag_comment**](DefaultApi.md#un_flag_comment) | **POST** /api/v1/comments/{id}/un-flag | 
+[**update_comment**](DefaultApi.md#update_comment) | **PATCH** /api/v1/comments/{id} | 
+[**update_feed_post**](DefaultApi.md#update_feed_post) | **PATCH** /api/v1/feed-posts/{id} | 
 
+
+
+## add_domain_config
+
+> models::AddDomainConfig200Response add_domain_config(tenant_id, add_domain_config_params)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**add_domain_config_params** | [**AddDomainConfigParams**](AddDomainConfigParams.md) |  | [required] |
+
+### Return type
+
+[**models::AddDomainConfig200Response**](AddDomainConfig_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## aggregate
@@ -42,9 +89,294 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## comments_options
+## block_user_from_comment
 
-> String comments_options(tenant_id)
+> models::BlockFromCommentPublic200Response block_user_from_comment(tenant_id, id, block_from_comment_params, user_id, anon_user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**block_from_comment_params** | [**BlockFromCommentParams**](BlockFromCommentParams.md) |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**anon_user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::BlockFromCommentPublic200Response**](BlockFromCommentPublic_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_feed_post
+
+> models::CreateFeedPost200Response create_feed_post(tenant_id, feed_post)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**feed_post** | [**FeedPost**](FeedPost.md) |  | [required] |
+
+### Return type
+
+[**models::CreateFeedPost200Response**](CreateFeedPost_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_comment
+
+> models::DeleteComment200Response delete_comment(tenant_id, id, context_user_id, is_live)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**context_user_id** | Option<**String**> |  |  |
+**is_live** | Option<**bool**> |  |  |
+
+### Return type
+
+[**models::DeleteComment200Response**](DeleteComment_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_domain_config
+
+> models::DeleteDomainConfig200Response delete_domain_config(tenant_id, domain)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**domain** | **String** |  | [required] |
+
+### Return type
+
+[**models::DeleteDomainConfig200Response**](DeleteDomainConfig_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## flag_comment
+
+> models::FlagComment200Response flag_comment(tenant_id, id, user_id, anon_user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**anon_user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagComment200Response**](FlagComment_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_audit_logs
+
+> models::GetAuditLogs200Response get_audit_logs(tenant_id, limit, skip, order, after, before)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**limit** | Option<**f64**> |  |  |
+**skip** | Option<**f64**> |  |  |
+**order** | Option<[**SortDir**](.md)> |  |  |
+**after** | Option<**f64**> |  |  |
+**before** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetAuditLogs200Response**](GetAuditLogs_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_comment
+
+> models::GetComment200Response get_comment(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetComment200Response**](GetComment_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_comments
+
+> models::GetComments200Response get_comments(tenant_id, page, limit, skip, as_tree, skip_children, limit_children, max_tree_depth, url_id, user_id, anon_user_id, context_user_id, hash_tag, parent_id, direction)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**page** | Option<**f64**> |  |  |
+**limit** | Option<**f64**> |  |  |
+**skip** | Option<**f64**> |  |  |
+**as_tree** | Option<**bool**> |  |  |
+**skip_children** | Option<**f64**> |  |  |
+**limit_children** | Option<**f64**> |  |  |
+**max_tree_depth** | Option<**f64**> |  |  |
+**url_id** | Option<**String**> |  |  |
+**user_id** | Option<**String**> |  |  |
+**anon_user_id** | Option<**String**> |  |  |
+**context_user_id** | Option<**String**> |  |  |
+**hash_tag** | Option<**String**> |  |  |
+**parent_id** | Option<**String**> |  |  |
+**direction** | Option<[**SortDirections**](.md)> |  |  |
+
+### Return type
+
+[**models::GetComments200Response**](GetComments_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_domain_config
+
+> models::GetDomainConfig200Response get_domain_config(tenant_id, domain)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**domain** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_domain_configs
+
+> models::GetDomainConfigs200Response get_domain_configs(tenant_id)
 
 
 ### Parameters
@@ -56,7 +388,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-**String**
+[**models::GetDomainConfigs200Response**](GetDomainConfigs_200_response.md)
 
 ### Authorization
 
@@ -65,6 +397,256 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_feed_posts
+
+> models::GetFeedPosts200Response get_feed_posts(tenant_id, after_id, limit, tags)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**after_id** | Option<**f64**> |  |  |
+**limit** | Option<**f64**> |  |  |
+**tags** | Option<[**Vec<String>**](String.md)> |  |  |
+
+### Return type
+
+[**models::GetFeedPosts200Response**](GetFeedPosts_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_domain_config
+
+> models::GetDomainConfig200Response patch_domain_config(tenant_id, domain_to_update, patch_domain_config_params)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**domain_to_update** | **String** |  | [required] |
+**patch_domain_config_params** | [**PatchDomainConfigParams**](PatchDomainConfigParams.md) |  | [required] |
+
+### Return type
+
+[**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## put_domain_config
+
+> models::GetDomainConfig200Response put_domain_config(tenant_id, domain_to_update, update_domain_config_params)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**domain_to_update** | **String** |  | [required] |
+**update_domain_config_params** | [**UpdateDomainConfigParams**](UpdateDomainConfigParams.md) |  | [required] |
+
+### Return type
+
+[**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## save_comment
+
+> models::SaveComment200Response save_comment(tenant_id, create_comment_params, is_live, do_spam_check, send_emails, populate_notifications)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_comment_params** | [**CreateCommentParams**](CreateCommentParams.md) |  | [required] |
+**is_live** | Option<**bool**> |  |  |
+**do_spam_check** | Option<**bool**> |  |  |
+**send_emails** | Option<**bool**> |  |  |
+**populate_notifications** | Option<**bool**> |  |  |
+
+### Return type
+
+[**models::SaveComment200Response**](SaveComment_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## un_block_user_from_comment
+
+> models::UnBlockCommentPublic200Response un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, user_id, anon_user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**un_block_from_comment_params** | [**UnBlockFromCommentParams**](UnBlockFromCommentParams.md) |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**anon_user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::UnBlockCommentPublic200Response**](UnBlockCommentPublic_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## un_flag_comment
+
+> models::FlagComment200Response un_flag_comment(tenant_id, id, user_id, anon_user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**anon_user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagComment200Response**](FlagComment_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_comment
+
+> models::FlagCommentPublic200Response update_comment(tenant_id, id, body, context_user_id, do_spam_check, is_live)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**body** | **models::PickApiCommentPeriodUpdatableCommentFields** |  | [required] |
+**context_user_id** | Option<**String**> |  |  |
+**do_spam_check** | Option<**bool**> |  |  |
+**is_live** | Option<**bool**> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_feed_post
+
+> models::FlagCommentPublic200Response update_feed_post(tenant_id, id, feed_post)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**feed_post** | [**FeedPost**](FeedPost.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

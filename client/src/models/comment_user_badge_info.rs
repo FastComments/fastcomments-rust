@@ -19,32 +19,32 @@ pub struct CommentUserBadgeInfo {
     pub r#type: f64,
     #[serde(rename = "description")]
     pub description: String,
-    #[serde(rename = "displayLabel", deserialize_with = "Option::deserialize")]
-    pub display_label: Option<String>,
-    #[serde(rename = "displaySrc", deserialize_with = "Option::deserialize")]
-    pub display_src: Option<String>,
-    #[serde(rename = "backgroundColor", deserialize_with = "Option::deserialize")]
-    pub background_color: Option<String>,
-    #[serde(rename = "borderColor", deserialize_with = "Option::deserialize")]
-    pub border_color: Option<String>,
-    #[serde(rename = "textColor", deserialize_with = "Option::deserialize")]
-    pub text_color: Option<String>,
-    #[serde(rename = "cssClass", deserialize_with = "Option::deserialize")]
-    pub css_class: Option<String>,
+    #[serde(rename = "displayLabel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub display_label: Option<Option<String>>,
+    #[serde(rename = "displaySrc", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub display_src: Option<Option<String>>,
+    #[serde(rename = "backgroundColor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub background_color: Option<Option<String>>,
+    #[serde(rename = "borderColor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub border_color: Option<Option<String>>,
+    #[serde(rename = "textColor", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub text_color: Option<Option<String>>,
+    #[serde(rename = "cssClass", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub css_class: Option<Option<String>>,
 }
 
 impl CommentUserBadgeInfo {
-    pub fn new(id: String, r#type: f64, description: String, display_label: Option<String>, display_src: Option<String>, background_color: Option<String>, border_color: Option<String>, text_color: Option<String>, css_class: Option<String>) -> CommentUserBadgeInfo {
+    pub fn new(id: String, r#type: f64, description: String) -> CommentUserBadgeInfo {
         CommentUserBadgeInfo {
             id,
             r#type,
             description,
-            display_label,
-            display_src,
-            background_color,
-            border_color,
-            text_color,
-            css_class,
+            display_label: None,
+            display_src: None,
+            background_color: None,
+            border_color: None,
+            text_color: None,
+            css_class: None,
         }
     }
 }

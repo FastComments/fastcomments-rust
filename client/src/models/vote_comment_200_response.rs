@@ -23,8 +23,6 @@ pub struct VoteComment200Response {
     pub user: Option<Box<models::VoteResponseUser>>,
     #[serde(rename = "editKey", skip_serializing_if = "Option::is_none")]
     pub edit_key: Option<String>,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -49,7 +47,6 @@ impl VoteComment200Response {
             is_verified: None,
             user: None,
             edit_key: None,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

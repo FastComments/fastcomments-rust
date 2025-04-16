@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **has_more** | **bool** |  | 
 **notifications** | [**Vec<models::RenderableUserNotification>**](RenderableUserNotification.md) |  | 
 **status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
-**status_code** | Option<**f64**> |  | [optional]
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

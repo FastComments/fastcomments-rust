@@ -17,8 +17,6 @@ pub struct ResetUserNotifications200Response {
     pub status: models::ImportedApiStatusPeriodFailed,
     #[serde(rename = "code")]
     pub code: String,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "secondaryCode", skip_serializing_if = "Option::is_none")]
@@ -38,7 +36,6 @@ impl ResetUserNotifications200Response {
         ResetUserNotifications200Response {
             status,
             code,
-            status_code: None,
             reason,
             secondary_code: None,
             banned_until: None,

@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
 **code** | **String** |  | 
-**status_code** | Option<**f64**> |  | [optional]
 **reason** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]
 **banned_until** | Option<**f64**> |  | [optional]

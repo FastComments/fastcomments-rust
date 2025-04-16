@@ -13,14 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DeleteComment200Response {
-    #[serde(rename = "comment", skip_serializing_if = "Option::is_none")]
-    pub comment: Option<Box<models::PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId>>,
-    #[serde(rename = "hardRemoved")]
-    pub hard_removed: bool,
+    #[serde(rename = "action")]
+    pub action: models::DeleteCommentAction,
     #[serde(rename = "status")]
     pub status: models::ImportedApiStatusPeriodFailed,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -38,12 +34,10 @@ pub struct DeleteComment200Response {
 }
 
 impl DeleteComment200Response {
-    pub fn new(hard_removed: bool, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> DeleteComment200Response {
+    pub fn new(action: models::DeleteCommentAction, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> DeleteComment200Response {
         DeleteComment200Response {
-            comment: None,
-            hard_removed,
+            action,
             status,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

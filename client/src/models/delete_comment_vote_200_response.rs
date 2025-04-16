@@ -17,8 +17,6 @@ pub struct DeleteCommentVote200Response {
     pub status: models::ImportedApiStatusPeriodFailed,
     #[serde(rename = "wasPendingVote", skip_serializing_if = "Option::is_none")]
     pub was_pending_vote: Option<bool>,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -40,7 +38,6 @@ impl DeleteCommentVote200Response {
         DeleteCommentVote200Response {
             status,
             was_pending_vote: None,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

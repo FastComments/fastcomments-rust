@@ -13,10 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetCommentText200Response {
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "status")]
     pub status: models::ImportedApiStatusPeriodFailed,
+    #[serde(rename = "commentText")]
+    pub comment_text: String,
+    #[serde(rename = "sanitizedCommentText")]
+    pub sanitized_comment_text: String,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -31,17 +33,14 @@ pub struct GetCommentText200Response {
     pub translated_error: Option<String>,
     #[serde(rename = "customConfig", skip_serializing_if = "Option::is_none")]
     pub custom_config: Option<Box<models::CustomConfigParameters>>,
-    #[serde(rename = "commentText")]
-    pub comment_text: String,
-    #[serde(rename = "sanitizedCommentText")]
-    pub sanitized_comment_text: String,
 }
 
 impl GetCommentText200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, reason: String, code: String, comment_text: String, sanitized_comment_text: String) -> GetCommentText200Response {
+    pub fn new(status: models::ImportedApiStatusPeriodFailed, comment_text: String, sanitized_comment_text: String, reason: String, code: String) -> GetCommentText200Response {
         GetCommentText200Response {
-            status_code: None,
             status,
+            comment_text,
+            sanitized_comment_text,
             reason,
             code,
             secondary_code: None,
@@ -49,8 +48,6 @@ impl GetCommentText200Response {
             max_character_length: None,
             translated_error: None,
             custom_config: None,
-            comment_text,
-            sanitized_comment_text,
         }
     }
 }

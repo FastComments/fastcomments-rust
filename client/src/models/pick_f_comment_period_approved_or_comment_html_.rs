@@ -14,18 +14,18 @@ use serde::{Deserialize, Serialize};
 /// PickFCommentPeriodApprovedOrCommentHtml : From T, pick a set of properties whose keys are in the union K
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PickFCommentPeriodApprovedOrCommentHtml {
-    #[serde(rename = "approved")]
-    pub approved: bool,
     #[serde(rename = "commentHTML")]
     pub comment_html: String,
+    #[serde(rename = "approved")]
+    pub approved: bool,
 }
 
 impl PickFCommentPeriodApprovedOrCommentHtml {
     /// From T, pick a set of properties whose keys are in the union K
-    pub fn new(approved: bool, comment_html: String) -> PickFCommentPeriodApprovedOrCommentHtml {
+    pub fn new(comment_html: String, approved: bool) -> PickFCommentPeriodApprovedOrCommentHtml {
         PickFCommentPeriodApprovedOrCommentHtml {
-            approved,
             comment_html,
+            approved,
         }
     }
 }

@@ -10,10 +10,200 @@
 
 
 use reqwest;
-use serde::{Deserialize, Serialize, de::Error as _};
+use serde::{Deserialize, Serialize};
 use crate::{apis::ResponseContent, models};
-use super::{Error, configuration, ContentType};
+use super::{Error, configuration};
 
+/// struct for passing parameters to the method [`add_domain_config`]
+#[derive(Clone, Debug)]
+pub struct AddDomainConfigParams {
+    pub tenant_id: String,
+    pub add_domain_config_params: models::AddDomainConfigParams
+}
+
+/// struct for passing parameters to the method [`aggregate`]
+#[derive(Clone, Debug)]
+pub struct AggregateParams {
+    pub tenant_id: String,
+    pub aggregation_request: models::AggregationRequest,
+    pub parent_tenant_id: Option<String>,
+    pub include_stats: Option<bool>
+}
+
+/// struct for passing parameters to the method [`block_user_from_comment`]
+#[derive(Clone, Debug)]
+pub struct BlockUserFromCommentParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub block_from_comment_params: models::BlockFromCommentParams,
+    pub user_id: Option<String>,
+    pub anon_user_id: Option<String>
+}
+
+/// struct for passing parameters to the method [`create_feed_post`]
+#[derive(Clone, Debug)]
+pub struct CreateFeedPostParams {
+    pub tenant_id: String,
+    pub feed_post: models::FeedPost
+}
+
+/// struct for passing parameters to the method [`delete_comment`]
+#[derive(Clone, Debug)]
+pub struct DeleteCommentParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub context_user_id: Option<String>,
+    pub is_live: Option<bool>
+}
+
+/// struct for passing parameters to the method [`delete_domain_config`]
+#[derive(Clone, Debug)]
+pub struct DeleteDomainConfigParams {
+    pub tenant_id: String,
+    pub domain: String
+}
+
+/// struct for passing parameters to the method [`flag_comment`]
+#[derive(Clone, Debug)]
+pub struct FlagCommentParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub user_id: Option<String>,
+    pub anon_user_id: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_audit_logs`]
+#[derive(Clone, Debug)]
+pub struct GetAuditLogsParams {
+    pub tenant_id: String,
+    pub limit: Option<f64>,
+    pub skip: Option<f64>,
+    pub order: Option<models::SortDir>,
+    pub after: Option<f64>,
+    pub before: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_comment`]
+#[derive(Clone, Debug)]
+pub struct GetCommentParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_comments`]
+#[derive(Clone, Debug)]
+pub struct GetCommentsParams {
+    pub tenant_id: String,
+    pub page: Option<f64>,
+    pub limit: Option<f64>,
+    pub skip: Option<f64>,
+    pub as_tree: Option<bool>,
+    pub skip_children: Option<f64>,
+    pub limit_children: Option<f64>,
+    pub max_tree_depth: Option<f64>,
+    pub url_id: Option<String>,
+    pub user_id: Option<String>,
+    pub anon_user_id: Option<String>,
+    pub context_user_id: Option<String>,
+    pub hash_tag: Option<String>,
+    pub parent_id: Option<String>,
+    pub direction: Option<models::SortDirections>
+}
+
+/// struct for passing parameters to the method [`get_domain_config`]
+#[derive(Clone, Debug)]
+pub struct GetDomainConfigParams {
+    pub tenant_id: String,
+    pub domain: String
+}
+
+/// struct for passing parameters to the method [`get_domain_configs`]
+#[derive(Clone, Debug)]
+pub struct GetDomainConfigsParams {
+    pub tenant_id: String
+}
+
+/// struct for passing parameters to the method [`get_feed_posts`]
+#[derive(Clone, Debug)]
+pub struct GetFeedPostsParams {
+    pub tenant_id: String,
+    pub after_id: Option<f64>,
+    pub limit: Option<f64>,
+    pub tags: Option<Vec<String>>
+}
+
+/// struct for passing parameters to the method [`patch_domain_config`]
+#[derive(Clone, Debug)]
+pub struct PatchDomainConfigParams {
+    pub tenant_id: String,
+    pub domain_to_update: String,
+    pub patch_domain_config_params: models::PatchDomainConfigParams
+}
+
+/// struct for passing parameters to the method [`put_domain_config`]
+#[derive(Clone, Debug)]
+pub struct PutDomainConfigParams {
+    pub tenant_id: String,
+    pub domain_to_update: String,
+    pub update_domain_config_params: models::UpdateDomainConfigParams
+}
+
+/// struct for passing parameters to the method [`save_comment`]
+#[derive(Clone, Debug)]
+pub struct SaveCommentParams {
+    pub tenant_id: String,
+    pub create_comment_params: models::CreateCommentParams,
+    pub is_live: Option<bool>,
+    pub do_spam_check: Option<bool>,
+    pub send_emails: Option<bool>,
+    pub populate_notifications: Option<bool>
+}
+
+/// struct for passing parameters to the method [`un_block_user_from_comment`]
+#[derive(Clone, Debug)]
+pub struct UnBlockUserFromCommentParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub un_block_from_comment_params: models::UnBlockFromCommentParams,
+    pub user_id: Option<String>,
+    pub anon_user_id: Option<String>
+}
+
+/// struct for passing parameters to the method [`un_flag_comment`]
+#[derive(Clone, Debug)]
+pub struct UnFlagCommentParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub user_id: Option<String>,
+    pub anon_user_id: Option<String>
+}
+
+/// struct for passing parameters to the method [`update_comment`]
+#[derive(Clone, Debug)]
+pub struct UpdateCommentParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub body: models::PickApiCommentPeriodUpdatableCommentFields,
+    pub context_user_id: Option<String>,
+    pub do_spam_check: Option<bool>,
+    pub is_live: Option<bool>
+}
+
+/// struct for passing parameters to the method [`update_feed_post`]
+#[derive(Clone, Debug)]
+pub struct UpdateFeedPostParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub feed_post: models::FeedPost
+}
+
+
+/// struct for typed errors of method [`add_domain_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AddDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
 
 /// struct for typed errors of method [`aggregate`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -22,55 +212,185 @@ pub enum AggregateError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`comments_options`]
+/// struct for typed errors of method [`block_user_from_comment`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CommentsOptionsError {
+pub enum BlockUserFromCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_feed_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateFeedPostError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_comment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_domain_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`flag_comment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum FlagCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_audit_logs`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetAuditLogsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_comment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_comments`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCommentsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_domain_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_domain_configs`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetDomainConfigsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_feed_posts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetFeedPostsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_domain_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`put_domain_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`save_comment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SaveCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`un_block_user_from_comment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UnBlockUserFromCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`un_flag_comment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UnFlagCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_comment`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_feed_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateFeedPostError {
     UnknownValue(serde_json::Value),
 }
 
 
-/// Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
-pub async fn aggregate(configuration: &configuration::Configuration, tenant_id: &str, aggregation_request: models::AggregationRequest, parent_tenant_id: Option<&str>, include_stats: Option<bool>) -> Result<models::AggregationResponse, Error<AggregateError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
-    let p_aggregation_request = aggregation_request;
-    let p_parent_tenant_id = parent_tenant_id;
-    let p_include_stats = include_stats;
+pub async fn add_domain_config(configuration: &configuration::Configuration, params: AddDomainConfigParams) -> Result<models::AddDomainConfig200Response, Error<AddDomainConfigError>> {
 
-    let uri_str = format!("{}/api/v1/aggregate", configuration.base_path);
+    let uri_str = format!("{}/api/v1/domain-configs", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    req_builder = req_builder.query(&[("tenantId", &p_tenant_id.to_string())]);
-    if let Some(ref param_value) = p_parent_tenant_id {
-        req_builder = req_builder.query(&[("parentTenantId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = p_include_stats {
-        req_builder = req_builder.query(&[("includeStats", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.json(&p_aggregation_request);
+    req_builder = req_builder.json(&params.add_domain_config_params);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AggregationResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AggregationResponse`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AddDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
+pub async fn aggregate(configuration: &configuration::Configuration, params: AggregateParams) -> Result<models::AggregationResponse, Error<AggregateError>> {
+
+    let uri_str = format!("{}/api/v1/aggregate", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.parent_tenant_id {
+        req_builder = req_builder.query(&[("parentTenantId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_stats {
+        req_builder = req_builder.query(&[("includeStats", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.aggregation_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
         let entity: Option<AggregateError> = serde_json::from_str(&content).ok();
@@ -78,13 +398,76 @@ pub async fn aggregate(configuration: &configuration::Configuration, tenant_id: 
     }
 }
 
-pub async fn comments_options(configuration: &configuration::Configuration, tenant_id: &str) -> Result<String, Error<CommentsOptionsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_tenant_id = tenant_id;
+pub async fn block_user_from_comment(configuration: &configuration::Configuration, params: BlockUserFromCommentParams) -> Result<models::BlockFromCommentPublic200Response, Error<BlockUserFromCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(p_tenant_id));
-    let mut req_builder = configuration.client.request(reqwest::Method::OPTIONS, &uri_str);
+    let uri_str = format!("{}/api/v1/comments/{id}/block", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.anon_user_id {
+        req_builder = req_builder.query(&[("anonUserId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.block_from_comment_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BlockUserFromCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_feed_post(configuration: &configuration::Configuration, params: CreateFeedPostParams) -> Result<models::CreateFeedPost200Response, Error<CreateFeedPostError>> {
+
+    let uri_str = format!("{}/api/v1/feed-posts", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.feed_post);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateFeedPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_comment(configuration: &configuration::Configuration, params: DeleteCommentParams) -> Result<models::DeleteComment200Response, Error<DeleteCommentError>> {
+
+    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.context_user_id {
+        req_builder = req_builder.query(&[("contextUserId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_live {
+        req_builder = req_builder.query(&[("isLive", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -93,23 +476,502 @@ pub async fn comments_options(configuration: &configuration::Configuration, tena
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
         let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `String`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `String`")))),
-        }
+        serde_json::from_str(&content).map_err(Error::from)
     } else {
         let content = resp.text().await?;
-        let entity: Option<CommentsOptionsError> = serde_json::from_str(&content).ok();
+        let entity: Option<DeleteCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_domain_config(configuration: &configuration::Configuration, params: DeleteDomainConfigParams) -> Result<models::DeleteDomainConfig200Response, Error<DeleteDomainConfigError>> {
+
+    let uri_str = format!("{}/api/v1/domain-configs/{domain}", configuration.base_path, domain=crate::apis::urlencode(params.domain));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn flag_comment(configuration: &configuration::Configuration, params: FlagCommentParams) -> Result<models::FlagComment200Response, Error<FlagCommentError>> {
+
+    let uri_str = format!("{}/api/v1/comments/{id}/flag", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.anon_user_id {
+        req_builder = req_builder.query(&[("anonUserId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<FlagCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_audit_logs(configuration: &configuration::Configuration, params: GetAuditLogsParams) -> Result<models::GetAuditLogs200Response, Error<GetAuditLogsError>> {
+
+    let uri_str = format!("{}/api/v1/audit-logs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.order {
+        req_builder = req_builder.query(&[("order", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.after {
+        req_builder = req_builder.query(&[("after", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.before {
+        req_builder = req_builder.query(&[("before", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetAuditLogsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_comment(configuration: &configuration::Configuration, params: GetCommentParams) -> Result<models::GetComment200Response, Error<GetCommentError>> {
+
+    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_comments(configuration: &configuration::Configuration, params: GetCommentsParams) -> Result<models::GetComments200Response, Error<GetCommentsError>> {
+
+    let uri_str = format!("{}/api/v1/comments", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.page {
+        req_builder = req_builder.query(&[("page", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.as_tree {
+        req_builder = req_builder.query(&[("asTree", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip_children {
+        req_builder = req_builder.query(&[("skipChildren", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit_children {
+        req_builder = req_builder.query(&[("limitChildren", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_tree_depth {
+        req_builder = req_builder.query(&[("maxTreeDepth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.url_id {
+        req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.anon_user_id {
+        req_builder = req_builder.query(&[("anonUserId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.context_user_id {
+        req_builder = req_builder.query(&[("contextUserId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.hash_tag {
+        req_builder = req_builder.query(&[("hashTag", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.parent_id {
+        req_builder = req_builder.query(&[("parentId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.direction {
+        req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetCommentsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_domain_config(configuration: &configuration::Configuration, params: GetDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<GetDomainConfigError>> {
+
+    let uri_str = format!("{}/api/v1/domain-configs/{domain}", configuration.base_path, domain=crate::apis::urlencode(params.domain));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_domain_configs(configuration: &configuration::Configuration, params: GetDomainConfigsParams) -> Result<models::GetDomainConfigs200Response, Error<GetDomainConfigsError>> {
+
+    let uri_str = format!("{}/api/v1/domain-configs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetDomainConfigsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_feed_posts(configuration: &configuration::Configuration, params: GetFeedPostsParams) -> Result<models::GetFeedPosts200Response, Error<GetFeedPostsError>> {
+
+    let uri_str = format!("{}/api/v1/feed-posts", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.after_id {
+        req_builder = req_builder.query(&[("afterId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tags {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("tags".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("tags", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetFeedPostsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn patch_domain_config(configuration: &configuration::Configuration, params: PatchDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<PatchDomainConfigError>> {
+
+    let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::apis::urlencode(params.domain_to_update));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.patch_domain_config_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn put_domain_config(configuration: &configuration::Configuration, params: PutDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<PutDomainConfigError>> {
+
+    let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::apis::urlencode(params.domain_to_update));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.update_domain_config_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn save_comment(configuration: &configuration::Configuration, params: SaveCommentParams) -> Result<models::SaveComment200Response, Error<SaveCommentError>> {
+
+    let uri_str = format!("{}/api/v1/comments", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.is_live {
+        req_builder = req_builder.query(&[("isLive", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.do_spam_check {
+        req_builder = req_builder.query(&[("doSpamCheck", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.send_emails {
+        req_builder = req_builder.query(&[("sendEmails", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.populate_notifications {
+        req_builder = req_builder.query(&[("populateNotifications", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.create_comment_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SaveCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn un_block_user_from_comment(configuration: &configuration::Configuration, params: UnBlockUserFromCommentParams) -> Result<models::UnBlockCommentPublic200Response, Error<UnBlockUserFromCommentError>> {
+
+    let uri_str = format!("{}/api/v1/comments/{id}/un-block", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.anon_user_id {
+        req_builder = req_builder.query(&[("anonUserId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.un_block_from_comment_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UnBlockUserFromCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn un_flag_comment(configuration: &configuration::Configuration, params: UnFlagCommentParams) -> Result<models::FlagComment200Response, Error<UnFlagCommentError>> {
+
+    let uri_str = format!("{}/api/v1/comments/{id}/un-flag", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.anon_user_id {
+        req_builder = req_builder.query(&[("anonUserId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UnFlagCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_comment(configuration: &configuration::Configuration, params: UpdateCommentParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateCommentError>> {
+
+    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.context_user_id {
+        req_builder = req_builder.query(&[("contextUserId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.do_spam_check {
+        req_builder = req_builder.query(&[("doSpamCheck", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_live {
+        req_builder = req_builder.query(&[("isLive", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_feed_post(configuration: &configuration::Configuration, params: UpdateFeedPostParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateFeedPostError>> {
+
+    let uri_str = format!("{}/api/v1/feed-posts/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.feed_post);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateFeedPostError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

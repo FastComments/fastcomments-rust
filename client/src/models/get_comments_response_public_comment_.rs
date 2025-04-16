@@ -28,7 +28,7 @@ pub struct GetCommentsResponsePublicComment {
     #[serde(rename = "urlIdClean", skip_serializing_if = "Option::is_none")]
     pub url_id_clean: Option<String>,
     #[serde(rename = "lastGenDate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub last_gen_date: Option<Option<i32>>,
+    pub last_gen_date: Option<Option<i64>>,
     #[serde(rename = "includesPastPages", skip_serializing_if = "Option::is_none")]
     pub includes_past_pages: Option<bool>,
     #[serde(rename = "isDemo", skip_serializing_if = "Option::is_none")]
@@ -39,8 +39,6 @@ pub struct GetCommentsResponsePublicComment {
     pub is_site_admin: Option<bool>,
     #[serde(rename = "hasBillingIssue", skip_serializing_if = "Option::is_none")]
     pub has_billing_issue: Option<bool>,
-    #[serde(rename = "isCommentsHidden", skip_serializing_if = "Option::is_none")]
-    pub is_comments_hidden: Option<bool>,
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "moduleData", skip_serializing_if = "Option::is_none")]
     pub module_data: Option<std::collections::HashMap<String, serde_json::Value>>,
@@ -80,7 +78,6 @@ impl GetCommentsResponsePublicComment {
             comment_count: None,
             is_site_admin: None,
             has_billing_issue: None,
-            is_comments_hidden: None,
             module_data: None,
             page_number,
             is_white_labeled: None,

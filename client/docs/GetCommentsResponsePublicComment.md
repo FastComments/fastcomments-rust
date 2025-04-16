@@ -11,13 +11,12 @@ Name | Type | Description | Notes
 **comments** | [**Vec<models::PublicComment>**](PublicComment.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | 
 **url_id_clean** | Option<**String**> |  | [optional]
-**last_gen_date** | Option<**i32**> |  | [optional]
+**last_gen_date** | Option<**i64**> |  | [optional]
 **includes_past_pages** | Option<**bool**> |  | [optional]
 **is_demo** | Option<**bool**> |  | [optional]
 **comment_count** | Option<**i32**> |  | [optional]
 **is_site_admin** | Option<**bool**> |  | [optional]
 **has_billing_issue** | Option<**bool**> |  | [optional]
-**is_comments_hidden** | Option<**bool**> |  | [optional]
 **module_data** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | Construct a type with a set of properties K of type T | [optional]
 **page_number** | **i32** |  | 
 **is_white_labeled** | Option<**bool**> |  | [optional]

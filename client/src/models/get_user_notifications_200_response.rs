@@ -24,8 +24,6 @@ pub struct GetUserNotifications200Response {
     pub notifications: Vec<models::RenderableUserNotification>,
     #[serde(rename = "status")]
     pub status: models::ImportedApiStatusPeriodFailed,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -50,7 +48,6 @@ impl GetUserNotifications200Response {
             has_more,
             notifications,
             status,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

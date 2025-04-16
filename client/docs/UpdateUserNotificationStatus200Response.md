@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **matched_count** | **f64** |  | 
 **modified_count** | **f64** |  | 
 **note** | **String** |  | 
-**status_code** | Option<**f64**> |  | [optional]
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

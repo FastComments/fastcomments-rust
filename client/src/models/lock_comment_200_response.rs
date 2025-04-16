@@ -13,10 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LockComment200Response {
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ImportedApiStatusPeriodSuccess,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -34,9 +32,8 @@ pub struct LockComment200Response {
 }
 
 impl LockComment200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> LockComment200Response {
+    pub fn new(status: models::ImportedApiStatusPeriodSuccess, reason: String, code: String) -> LockComment200Response {
         LockComment200Response {
-            status_code: None,
             status,
             reason,
             code,

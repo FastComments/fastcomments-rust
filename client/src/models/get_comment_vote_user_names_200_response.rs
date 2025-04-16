@@ -19,8 +19,6 @@ pub struct GetCommentVoteUserNames200Response {
     pub vote_user_names: Vec<String>,
     #[serde(rename = "hasMore")]
     pub has_more: bool,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -43,7 +41,6 @@ impl GetCommentVoteUserNames200Response {
             status,
             vote_user_names,
             has_more,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

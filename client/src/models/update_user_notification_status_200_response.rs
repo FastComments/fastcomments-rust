@@ -21,8 +21,6 @@ pub struct UpdateUserNotificationStatus200Response {
     pub modified_count: f64,
     #[serde(rename = "note")]
     pub note: Note,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -46,7 +44,6 @@ impl UpdateUserNotificationStatus200Response {
             matched_count,
             modified_count,
             note,
-            status_code: None,
             reason,
             code,
             secondary_code: None,

@@ -13,15 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BlockFromCommentParams {
-    /// A list of comment ids to check if are blocked after performing the update.
-    #[serde(rename = "commentIds", deserialize_with = "Option::deserialize")]
-    pub comment_ids: Option<Vec<String>>,
+    #[serde(rename = "commentIdsToCheck", skip_serializing_if = "Option::is_none")]
+    pub comment_ids_to_check: Option<Vec<String>>,
 }
 
 impl BlockFromCommentParams {
-    pub fn new(comment_ids: Option<Vec<String>>) -> BlockFromCommentParams {
+    pub fn new() -> BlockFromCommentParams {
         BlockFromCommentParams {
-            comment_ids,
+            comment_ids_to_check: None,
         }
     }
 }

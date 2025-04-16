@@ -16,38 +16,14 @@ pub struct PublicApiSetCommentTextResponse {
     #[serde(rename = "comment")]
     pub comment: Box<models::PickFCommentPeriodApprovedOrCommentHtml>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
-    #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<f64>,
-    #[serde(rename = "reason")]
-    pub reason: String,
-    #[serde(rename = "code")]
-    pub code: String,
-    #[serde(rename = "secondaryCode", skip_serializing_if = "Option::is_none")]
-    pub secondary_code: Option<String>,
-    #[serde(rename = "bannedUntil", skip_serializing_if = "Option::is_none")]
-    pub banned_until: Option<f64>,
-    #[serde(rename = "maxCharacterLength", skip_serializing_if = "Option::is_none")]
-    pub max_character_length: Option<f64>,
-    #[serde(rename = "translatedError", skip_serializing_if = "Option::is_none")]
-    pub translated_error: Option<String>,
-    #[serde(rename = "customConfig", skip_serializing_if = "Option::is_none")]
-    pub custom_config: Option<Box<models::CustomConfigParameters>>,
+    pub status: models::ImportedApiStatusPeriodSuccess,
 }
 
 impl PublicApiSetCommentTextResponse {
-    pub fn new(comment: models::PickFCommentPeriodApprovedOrCommentHtml, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> PublicApiSetCommentTextResponse {
+    pub fn new(comment: models::PickFCommentPeriodApprovedOrCommentHtml, status: models::ImportedApiStatusPeriodSuccess) -> PublicApiSetCommentTextResponse {
         PublicApiSetCommentTextResponse {
             comment: Box::new(comment),
             status,
-            status_code: None,
-            reason,
-            code,
-            secondary_code: None,
-            banned_until: None,
-            max_character_length: None,
-            translated_error: None,
-            custom_config: None,
         }
     }
 }

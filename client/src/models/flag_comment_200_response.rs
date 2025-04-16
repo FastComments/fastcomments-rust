@@ -13,14 +13,16 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlagComment200Response {
-    #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
     #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
     pub status_code: Option<f64>,
-    #[serde(rename = "reason")]
-    pub reason: String,
+    #[serde(rename = "status")]
+    pub status: models::ImportedApiStatusPeriodFailed,
     #[serde(rename = "code")]
     pub code: String,
+    #[serde(rename = "reason")]
+    pub reason: String,
+    #[serde(rename = "wasUnapproved", skip_serializing_if = "Option::is_none")]
+    pub was_unapproved: Option<bool>,
     #[serde(rename = "secondaryCode", skip_serializing_if = "Option::is_none")]
     pub secondary_code: Option<String>,
     #[serde(rename = "bannedUntil", skip_serializing_if = "Option::is_none")]
@@ -34,12 +36,13 @@ pub struct FlagComment200Response {
 }
 
 impl FlagComment200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> FlagComment200Response {
+    pub fn new(status: models::ImportedApiStatusPeriodFailed, code: String, reason: String) -> FlagComment200Response {
         FlagComment200Response {
-            status,
             status_code: None,
-            reason,
+            status,
             code,
+            reason,
+            was_unapproved: None,
             secondary_code: None,
             banned_until: None,
             max_character_length: None,

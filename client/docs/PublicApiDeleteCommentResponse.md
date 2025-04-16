@@ -6,15 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | Option<[**models::PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId**](Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_.md)> |  | [optional]
 **hard_removed** | **bool** |  | 
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
-**status_code** | Option<**f64**> |  | [optional]
-**reason** | **String** |  | 
-**code** | **String** |  | 
-**secondary_code** | Option<**String**> |  | [optional]
-**banned_until** | Option<**f64**> |  | [optional]
-**max_character_length** | Option<**f64**> |  | [optional]
-**translated_error** | Option<**String**> |  | [optional]
-**custom_config** | Option<[**models::CustomConfigParameters**](CustomConfigParameters.md)> |  | [optional]
+**status** | [**models::ImportedApiStatusPeriodSuccess**](ImportedAPIStatus.SUCCESS.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
