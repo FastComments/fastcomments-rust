@@ -45,9 +45,7 @@ impl FastCommentsSSO {
             .unwrap()
             .as_millis() as u64;
 
-        let user_data_json =
-            serde_json::to_string(secure_sso_user_data).expect("Failed to serialize user data");
-        let user_data_string = BASE64_STANDARD.encode(user_data_json.as_bytes());
+        let user_data_string = secure_sso_user_data.as_json_base64();
 
         // Create verification hash
         let hash = create_verification_hash(&api_key, timestamp, &user_data_string)?;
