@@ -66,6 +66,10 @@ pub struct PickFCommentPeriodPublicCommentFieldsKeys {
     pub feedback_ids: Option<Vec<String>>,
     #[serde(rename = "viewCount", skip_serializing_if = "Option::is_none")]
     pub view_count: Option<f64>,
+    #[serde(rename = "requiresVerification", skip_serializing_if = "Option::is_none")]
+    pub requires_verification: Option<bool>,
+    #[serde(rename = "editKey", skip_serializing_if = "Option::is_none")]
+    pub edit_key: Option<String>,
 }
 
 impl PickFCommentPeriodPublicCommentFieldsKeys {
@@ -98,6 +102,8 @@ impl PickFCommentPeriodPublicCommentFieldsKeys {
             badges: None,
             feedback_ids: None,
             view_count: None,
+            requires_verification: None,
+            edit_key: None,
         }
     }
 }

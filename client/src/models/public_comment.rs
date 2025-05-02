@@ -65,6 +65,10 @@ pub struct PublicComment {
     pub feedback_ids: Option<Vec<String>>,
     #[serde(rename = "viewCount", skip_serializing_if = "Option::is_none")]
     pub view_count: Option<f64>,
+    #[serde(rename = "requiresVerification", skip_serializing_if = "Option::is_none")]
+    pub requires_verification: Option<bool>,
+    #[serde(rename = "editKey", skip_serializing_if = "Option::is_none")]
+    pub edit_key: Option<String>,
     #[serde(rename = "isUnread", skip_serializing_if = "Option::is_none")]
     pub is_unread: Option<bool>,
     #[serde(rename = "myVoteId", skip_serializing_if = "Option::is_none")]
@@ -119,6 +123,8 @@ impl PublicComment {
             badges: None,
             feedback_ids: None,
             view_count: None,
+            requires_verification: None,
+            edit_key: None,
             is_unread: None,
             my_vote_id: None,
             is_voted_down: None,

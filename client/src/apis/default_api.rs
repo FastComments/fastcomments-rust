@@ -30,6 +30,18 @@ pub struct AggregateParams {
     pub include_stats: Option<bool>
 }
 
+/// struct for passing parameters to the method [`aggregate_question_results`]
+#[derive(Clone, Debug)]
+pub struct AggregateQuestionResultsParams {
+    pub tenant_id: String,
+    pub question_id: Option<String>,
+    pub question_ids: Option<Vec<String>>,
+    pub url_id: Option<String>,
+    pub time_bucket: Option<models::AggregateTimeBucket>,
+    pub start_date: Option<String>,
+    pub force_recalculate: Option<bool>
+}
+
 /// struct for passing parameters to the method [`block_user_from_comment`]
 #[derive(Clone, Debug)]
 pub struct BlockUserFromCommentParams {
@@ -40,11 +52,44 @@ pub struct BlockUserFromCommentParams {
     pub anon_user_id: Option<String>
 }
 
+/// struct for passing parameters to the method [`bulk_aggregate_question_results`]
+#[derive(Clone, Debug)]
+pub struct BulkAggregateQuestionResultsParams {
+    pub tenant_id: String,
+    pub bulk_aggregate_question_results_request: models::BulkAggregateQuestionResultsRequest,
+    pub force_recalculate: Option<bool>
+}
+
+/// struct for passing parameters to the method [`combine_comments_with_question_results`]
+#[derive(Clone, Debug)]
+pub struct CombineCommentsWithQuestionResultsParams {
+    pub tenant_id: String,
+    pub question_id: Option<String>,
+    pub question_ids: Option<Vec<String>>,
+    pub url_id: Option<String>,
+    pub start_date: Option<String>,
+    pub force_recalculate: Option<bool>,
+    pub min_value: Option<f64>,
+    pub max_value: Option<f64>,
+    pub limit: Option<f64>
+}
+
 /// struct for passing parameters to the method [`create_feed_post`]
 #[derive(Clone, Debug)]
 pub struct CreateFeedPostParams {
     pub tenant_id: String,
-    pub feed_post: models::FeedPost
+    pub create_feed_post_params: models::CreateFeedPostParams,
+    pub broadcast_id: Option<String>,
+    pub is_live: Option<bool>,
+    pub do_spam_check: Option<bool>,
+    pub skip_dup_check: Option<bool>
+}
+
+/// struct for passing parameters to the method [`create_user_badge`]
+#[derive(Clone, Debug)]
+pub struct CreateUserBadgeParams {
+    pub tenant_id: String,
+    pub create_user_badge_params: models::CreateUserBadgeParams
 }
 
 /// struct for passing parameters to the method [`delete_comment`]
@@ -61,6 +106,13 @@ pub struct DeleteCommentParams {
 pub struct DeleteDomainConfigParams {
     pub tenant_id: String,
     pub domain: String
+}
+
+/// struct for passing parameters to the method [`delete_user_badge`]
+#[derive(Clone, Debug)]
+pub struct DeleteUserBadgeParams {
+    pub tenant_id: String,
+    pub id: String
 }
 
 /// struct for passing parameters to the method [`flag_comment`]
@@ -127,9 +179,51 @@ pub struct GetDomainConfigsParams {
 #[derive(Clone, Debug)]
 pub struct GetFeedPostsParams {
     pub tenant_id: String,
-    pub after_id: Option<f64>,
-    pub limit: Option<f64>,
+    pub after_id: Option<String>,
+    pub limit: Option<i32>,
     pub tags: Option<Vec<String>>
+}
+
+/// struct for passing parameters to the method [`get_user_badge`]
+#[derive(Clone, Debug)]
+pub struct GetUserBadgeParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_user_badge_progress_by_id`]
+#[derive(Clone, Debug)]
+pub struct GetUserBadgeProgressByIdParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_user_badge_progress_by_user_id`]
+#[derive(Clone, Debug)]
+pub struct GetUserBadgeProgressByUserIdParams {
+    pub tenant_id: String,
+    pub user_id: String
+}
+
+/// struct for passing parameters to the method [`get_user_badge_progress_list`]
+#[derive(Clone, Debug)]
+pub struct GetUserBadgeProgressListParams {
+    pub tenant_id: String,
+    pub user_id: Option<String>,
+    pub limit: Option<f64>,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_user_badges`]
+#[derive(Clone, Debug)]
+pub struct GetUserBadgesParams {
+    pub tenant_id: String,
+    pub user_id: Option<String>,
+    pub badge_id: Option<String>,
+    pub r#type: Option<f64>,
+    pub displayed_on_comments: Option<bool>,
+    pub limit: Option<f64>,
+    pub skip: Option<f64>
 }
 
 /// struct for passing parameters to the method [`patch_domain_config`]
@@ -197,6 +291,14 @@ pub struct UpdateFeedPostParams {
     pub feed_post: models::FeedPost
 }
 
+/// struct for passing parameters to the method [`update_user_badge`]
+#[derive(Clone, Debug)]
+pub struct UpdateUserBadgeParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_user_badge_params: models::UpdateUserBadgeParams
+}
+
 
 /// struct for typed errors of method [`add_domain_config`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -212,6 +314,13 @@ pub enum AggregateError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`aggregate_question_results`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AggregateQuestionResultsError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`block_user_from_comment`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -219,10 +328,31 @@ pub enum BlockUserFromCommentError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`bulk_aggregate_question_results`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BulkAggregateQuestionResultsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`combine_comments_with_question_results`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CombineCommentsWithQuestionResultsError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`create_feed_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateFeedPostError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_user_badge`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateUserBadgeError {
     UnknownValue(serde_json::Value),
 }
 
@@ -237,6 +367,13 @@ pub enum DeleteCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_user_badge`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteUserBadgeError {
     UnknownValue(serde_json::Value),
 }
 
@@ -289,6 +426,41 @@ pub enum GetFeedPostsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_user_badge`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserBadgeError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_user_badge_progress_by_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserBadgeProgressByIdError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_user_badge_progress_by_user_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserBadgeProgressByUserIdError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_user_badge_progress_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserBadgeProgressListError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_user_badges`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserBadgesError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`patch_domain_config`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -338,6 +510,13 @@ pub enum UpdateFeedPostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_user_badge`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateUserBadgeError {
+    UnknownValue(serde_json::Value),
+}
+
 
 pub async fn add_domain_config(configuration: &configuration::Configuration, params: AddDomainConfigParams) -> Result<models::AddDomainConfig200Response, Error<AddDomainConfigError>> {
 
@@ -348,6 +527,14 @@ pub async fn add_domain_config(configuration: &configuration::Configuration, par
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.add_domain_config_params);
 
     let req = req_builder.build()?;
@@ -381,6 +568,14 @@ pub async fn aggregate(configuration: &configuration::Configuration, params: Agg
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.aggregation_request);
 
     let req = req_builder.build()?;
@@ -394,6 +589,60 @@ pub async fn aggregate(configuration: &configuration::Configuration, params: Agg
     } else {
         let content = resp.text().await?;
         let entity: Option<AggregateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn aggregate_question_results(configuration: &configuration::Configuration, params: AggregateQuestionResultsParams) -> Result<models::AggregateQuestionResults200Response, Error<AggregateQuestionResultsError>> {
+
+    let uri_str = format!("{}/api/v1/question-results-aggregation", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.question_id {
+        req_builder = req_builder.query(&[("questionId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.question_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("questionIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("questionIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.url_id {
+        req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.time_bucket {
+        req_builder = req_builder.query(&[("timeBucket", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.start_date {
+        req_builder = req_builder.query(&[("startDate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.force_recalculate {
+        req_builder = req_builder.query(&[("forceRecalculate", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AggregateQuestionResultsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -413,6 +662,14 @@ pub async fn block_user_from_comment(configuration: &configuration::Configuratio
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.block_from_comment_params);
 
     let req = req_builder.build()?;
@@ -430,16 +687,133 @@ pub async fn block_user_from_comment(configuration: &configuration::Configuratio
     }
 }
 
+pub async fn bulk_aggregate_question_results(configuration: &configuration::Configuration, params: BulkAggregateQuestionResultsParams) -> Result<models::BulkAggregateQuestionResults200Response, Error<BulkAggregateQuestionResultsError>> {
+
+    let uri_str = format!("{}/api/v1/question-results-aggregation/bulk", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.force_recalculate {
+        req_builder = req_builder.query(&[("forceRecalculate", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.bulk_aggregate_question_results_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BulkAggregateQuestionResultsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn combine_comments_with_question_results(configuration: &configuration::Configuration, params: CombineCommentsWithQuestionResultsParams) -> Result<models::CombineCommentsWithQuestionResults200Response, Error<CombineCommentsWithQuestionResultsError>> {
+
+    let uri_str = format!("{}/api/v1/question-results-aggregation/combine/comments", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.question_id {
+        req_builder = req_builder.query(&[("questionId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.question_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("questionIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("questionIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.url_id {
+        req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.start_date {
+        req_builder = req_builder.query(&[("startDate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.force_recalculate {
+        req_builder = req_builder.query(&[("forceRecalculate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_value {
+        req_builder = req_builder.query(&[("minValue", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_value {
+        req_builder = req_builder.query(&[("maxValue", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CombineCommentsWithQuestionResultsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn create_feed_post(configuration: &configuration::Configuration, params: CreateFeedPostParams) -> Result<models::CreateFeedPost200Response, Error<CreateFeedPostError>> {
 
     let uri_str = format!("{}/api/v1/feed-posts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_live {
+        req_builder = req_builder.query(&[("isLive", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.do_spam_check {
+        req_builder = req_builder.query(&[("doSpamCheck", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip_dup_check {
+        req_builder = req_builder.query(&[("skipDupCheck", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
-    req_builder = req_builder.json(&params.feed_post);
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_feed_post_params);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -452,6 +826,40 @@ pub async fn create_feed_post(configuration: &configuration::Configuration, para
     } else {
         let content = resp.text().await?;
         let entity: Option<CreateFeedPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_user_badge(configuration: &configuration::Configuration, params: CreateUserBadgeParams) -> Result<models::CreateUserBadge200Response, Error<CreateUserBadgeError>> {
+
+    let uri_str = format!("{}/api/v1/user-badges", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_user_badge_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateUserBadgeError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -471,6 +879,14 @@ pub async fn delete_comment(configuration: &configuration::Configuration, params
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -496,6 +912,14 @@ pub async fn delete_domain_config(configuration: &configuration::Configuration, 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -508,6 +932,39 @@ pub async fn delete_domain_config(configuration: &configuration::Configuration, 
     } else {
         let content = resp.text().await?;
         let entity: Option<DeleteDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_user_badge(configuration: &configuration::Configuration, params: DeleteUserBadgeParams) -> Result<models::UpdateUserBadge200Response, Error<DeleteUserBadgeError>> {
+
+    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteUserBadgeError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -527,6 +984,14 @@ pub async fn flag_comment(configuration: &configuration::Configuration, params: 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -567,6 +1032,14 @@ pub async fn get_audit_logs(configuration: &configuration::Configuration, params
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -592,6 +1065,14 @@ pub async fn get_comment(configuration: &configuration::Configuration, params: G
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -659,6 +1140,14 @@ pub async fn get_comments(configuration: &configuration::Configuration, params: 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -684,6 +1173,14 @@ pub async fn get_domain_config(configuration: &configuration::Configuration, par
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -709,6 +1206,14 @@ pub async fn get_domain_configs(configuration: &configuration::Configuration, pa
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -725,6 +1230,7 @@ pub async fn get_domain_configs(configuration: &configuration::Configuration, pa
     }
 }
 
+///  req tenantId afterId
 pub async fn get_feed_posts(configuration: &configuration::Configuration, params: GetFeedPostsParams) -> Result<models::GetFeedPosts200Response, Error<GetFeedPostsError>> {
 
     let uri_str = format!("{}/api/v1/feed-posts", configuration.base_path);
@@ -746,6 +1252,14 @@ pub async fn get_feed_posts(configuration: &configuration::Configuration, params
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -762,6 +1276,198 @@ pub async fn get_feed_posts(configuration: &configuration::Configuration, params
     }
 }
 
+pub async fn get_user_badge(configuration: &configuration::Configuration, params: GetUserBadgeParams) -> Result<models::GetUserBadge200Response, Error<GetUserBadgeError>> {
+
+    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserBadgeError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_user_badge_progress_by_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByIdParams) -> Result<models::GetUserBadgeProgressById200Response, Error<GetUserBadgeProgressByIdError>> {
+
+    let uri_str = format!("{}/api/v1/user-badge-progress/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserBadgeProgressByIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_user_badge_progress_by_user_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByUserIdParams) -> Result<models::GetUserBadgeProgressById200Response, Error<GetUserBadgeProgressByUserIdError>> {
+
+    let uri_str = format!("{}/api/v1/user-badge-progress/user/{userId}", configuration.base_path, userId=crate::apis::urlencode(params.user_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserBadgeProgressByUserIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_user_badge_progress_list(configuration: &configuration::Configuration, params: GetUserBadgeProgressListParams) -> Result<models::GetUserBadgeProgressList200Response, Error<GetUserBadgeProgressListError>> {
+
+    let uri_str = format!("{}/api/v1/user-badge-progress", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserBadgeProgressListError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_user_badges(configuration: &configuration::Configuration, params: GetUserBadgesParams) -> Result<models::GetUserBadges200Response, Error<GetUserBadgesError>> {
+
+    let uri_str = format!("{}/api/v1/user-badges", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.badge_id {
+        req_builder = req_builder.query(&[("badgeId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.r#type {
+        req_builder = req_builder.query(&[("type", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.displayed_on_comments {
+        req_builder = req_builder.query(&[("displayedOnComments", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserBadgesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn patch_domain_config(configuration: &configuration::Configuration, params: PatchDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<PatchDomainConfigError>> {
 
     let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::apis::urlencode(params.domain_to_update));
@@ -771,6 +1477,14 @@ pub async fn patch_domain_config(configuration: &configuration::Configuration, p
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.patch_domain_config_params);
 
     let req = req_builder.build()?;
@@ -797,6 +1511,14 @@ pub async fn put_domain_config(configuration: &configuration::Configuration, par
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.update_domain_config_params);
 
     let req = req_builder.build()?;
@@ -835,6 +1557,14 @@ pub async fn save_comment(configuration: &configuration::Configuration, params: 
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.create_comment_params);
 
     let req = req_builder.build()?;
@@ -867,6 +1597,14 @@ pub async fn un_block_user_from_comment(configuration: &configuration::Configura
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.un_block_from_comment_params);
 
     let req = req_builder.build()?;
@@ -899,6 +1637,14 @@ pub async fn un_flag_comment(configuration: &configuration::Configuration, param
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -933,6 +1679,14 @@ pub async fn update_comment(configuration: &configuration::Configuration, params
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.body);
 
     let req = req_builder.build()?;
@@ -959,6 +1713,14 @@ pub async fn update_feed_post(configuration: &configuration::Configuration, para
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
     req_builder = req_builder.json(&params.feed_post);
 
     let req = req_builder.build()?;
@@ -972,6 +1734,40 @@ pub async fn update_feed_post(configuration: &configuration::Configuration, para
     } else {
         let content = resp.text().await?;
         let entity: Option<UpdateFeedPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_user_badge(configuration: &configuration::Configuration, params: UpdateUserBadgeParams) -> Result<models::UpdateUserBadge200Response, Error<UpdateUserBadgeError>> {
+
+    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_user_badge_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateUserBadgeError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

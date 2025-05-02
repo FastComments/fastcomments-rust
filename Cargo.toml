@@ -1,3 +1,6 @@
 [workspace]
 resolver = "2"
 members = ["client", "core"]
+
+[workspace.dependencies]
+fastcomments-client = { path = "client" }

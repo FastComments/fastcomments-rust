@@ -33,8 +33,8 @@ pub struct FComment {
     pub commenter_email: Option<Option<String>>,
     #[serde(rename = "commenterName")]
     pub commenter_name: String,
-    #[serde(rename = "commenterLink", skip_serializing_if = "Option::is_none")]
-    pub commenter_link: Option<String>,
+    #[serde(rename = "commenterLink", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub commenter_link: Option<Option<String>>,
     #[serde(rename = "comment")]
     pub comment: String,
     #[serde(rename = "commentHTML")]
@@ -149,6 +149,10 @@ pub struct FComment {
     pub group_ids: Option<Option<Vec<String>>>,
     #[serde(rename = "viewCount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub view_count: Option<Option<f64>>,
+    #[serde(rename = "requiresVerification", skip_serializing_if = "Option::is_none")]
+    pub requires_verification: Option<bool>,
+    #[serde(rename = "editKey", skip_serializing_if = "Option::is_none")]
+    pub edit_key: Option<String>,
 }
 
 impl FComment {
@@ -222,6 +226,8 @@ impl FComment {
             logs: None,
             group_ids: None,
             view_count: None,
+            requires_verification: None,
+            edit_key: None,
         }
     }
 }

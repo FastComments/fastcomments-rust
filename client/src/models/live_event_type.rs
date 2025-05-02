@@ -36,6 +36,16 @@ pub enum LiveEventType {
     NewConfig,
     #[serde(rename = "thread-state-change")]
     ThreadStateChange,
+    #[serde(rename = "fr")]
+    Fr,
+    #[serde(rename = "dfr")]
+    Dfr,
+    #[serde(rename = "new-feed-post")]
+    NewFeedPost,
+    #[serde(rename = "updated-feed-post")]
+    UpdatedFeedPost,
+    #[serde(rename = "deleted-feed-post")]
+    DeletedFeedPost,
 
 }
 
@@ -53,6 +63,11 @@ impl std::fmt::Display for LiveEventType {
             Self::Cvc => write!(f, "cvc"),
             Self::NewConfig => write!(f, "new-config"),
             Self::ThreadStateChange => write!(f, "thread-state-change"),
+            Self::Fr => write!(f, "fr"),
+            Self::Dfr => write!(f, "dfr"),
+            Self::NewFeedPost => write!(f, "new-feed-post"),
+            Self::UpdatedFeedPost => write!(f, "updated-feed-post"),
+            Self::DeletedFeedPost => write!(f, "deleted-feed-post"),
         }
     }
 }

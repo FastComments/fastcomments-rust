@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FeedPostMediaItemAsset {
     #[serde(rename = "w")]
-    pub w: f64,
+    pub w: i32,
     #[serde(rename = "h")]
-    pub h: f64,
+    pub h: i32,
     #[serde(rename = "src")]
     pub src: String,
 }
 
 impl FeedPostMediaItemAsset {
-    pub fn new(w: f64, h: f64, src: String) -> FeedPostMediaItemAsset {
+    pub fn new(w: i32, h: i32, src: String) -> FeedPostMediaItemAsset {
         FeedPostMediaItemAsset {
             w,
             h,

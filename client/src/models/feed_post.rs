@@ -15,8 +15,16 @@ use serde::{Deserialize, Serialize};
 pub struct FeedPost {
     #[serde(rename = "_id")]
     pub _id: String,
+    #[serde(rename = "tenantId")]
+    pub tenant_id: String,
+    #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
     #[serde(rename = "fromUserId", skip_serializing_if = "Option::is_none")]
     pub from_user_id: Option<String>,
+    #[serde(rename = "fromUserDisplayName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub from_user_display_name: Option<Option<String>>,
+    #[serde(rename = "fromUserAvatar", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub from_user_avatar: Option<Option<String>>,
     #[serde(rename = "fromIpHash", skip_serializing_if = "Option::is_none")]
     pub from_ip_hash: Option<String>,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
@@ -34,13 +42,21 @@ pub struct FeedPost {
     pub links: Option<Vec<models::FeedPostLink>>,
     #[serde(rename = "createdAt")]
     pub created_at: String,
+    #[serde(rename = "reacts", skip_serializing_if = "Option::is_none")]
+    pub reacts: Option<std::collections::HashMap<String, i32>>,
+    #[serde(rename = "commentCount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub comment_count: Option<Option<i32>>,
 }
 
 impl FeedPost {
-    pub fn new(_id: String, created_at: String) -> FeedPost {
+    pub fn new(_id: String, tenant_id: String, created_at: String) -> FeedPost {
         FeedPost {
             _id,
+            tenant_id,
+            title: None,
             from_user_id: None,
+            from_user_display_name: None,
+            from_user_avatar: None,
             from_ip_hash: None,
             tags: None,
             weight: None,
@@ -49,6 +65,8 @@ impl FeedPost {
             media: None,
             links: None,
             created_at,
+            reacts: None,
+            comment_count: None,
         }
     }
 }

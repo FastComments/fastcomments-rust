@@ -43,13 +43,23 @@ pub struct CreateCommentPublicParams {
     pub sso: Option<String>
 }
 
+/// struct for passing parameters to the method [`create_feed_post_public`]
+#[derive(Clone, Debug)]
+pub struct CreateFeedPostPublicParams {
+    pub tenant_id: String,
+    pub create_feed_post_params: models::CreateFeedPostParams,
+    pub broadcast_id: Option<String>,
+    pub sso: Option<String>
+}
+
 /// struct for passing parameters to the method [`delete_comment_public`]
 #[derive(Clone, Debug)]
 pub struct DeleteCommentPublicParams {
     pub tenant_id: String,
     pub comment_id: String,
     pub broadcast_id: String,
-    pub edit_key: Option<String>
+    pub edit_key: Option<String>,
+    pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`delete_comment_vote`]
@@ -61,6 +71,15 @@ pub struct DeleteCommentVoteParams {
     pub url_id: String,
     pub broadcast_id: String,
     pub edit_key: Option<String>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`delete_feed_post_public`]
+#[derive(Clone, Debug)]
+pub struct DeleteFeedPostPublicParams {
+    pub tenant_id: String,
+    pub post_id: String,
+    pub broadcast_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -134,6 +153,26 @@ pub struct GetEventLogParams {
     pub end_time: i64
 }
 
+/// struct for passing parameters to the method [`get_feed_posts_public`]
+#[derive(Clone, Debug)]
+pub struct GetFeedPostsPublicParams {
+    pub tenant_id: String,
+    pub after_id: Option<String>,
+    pub limit: Option<i32>,
+    pub tags: Option<Vec<String>>,
+    pub sso: Option<String>,
+    pub is_crawler: Option<bool>,
+    pub include_user_info: Option<bool>
+}
+
+/// struct for passing parameters to the method [`get_feed_posts_stats`]
+#[derive(Clone, Debug)]
+pub struct GetFeedPostsStatsParams {
+    pub tenant_id: String,
+    pub post_ids: Vec<String>,
+    pub sso: Option<String>
+}
+
 /// struct for passing parameters to the method [`get_global_event_log`]
 #[derive(Clone, Debug)]
 pub struct GetGlobalEventLogParams {
@@ -175,6 +214,14 @@ pub struct GetUserPresenceStatusesParams {
     pub user_ids: String
 }
 
+/// struct for passing parameters to the method [`get_user_reacts_public`]
+#[derive(Clone, Debug)]
+pub struct GetUserReactsPublicParams {
+    pub tenant_id: String,
+    pub post_ids: Option<Vec<String>>,
+    pub sso: Option<String>
+}
+
 /// struct for passing parameters to the method [`lock_comment`]
 #[derive(Clone, Debug)]
 pub struct LockCommentParams {
@@ -190,6 +237,17 @@ pub struct PinCommentParams {
     pub tenant_id: String,
     pub comment_id: String,
     pub broadcast_id: String,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`react_feed_post_public`]
+#[derive(Clone, Debug)]
+pub struct ReactFeedPostPublicParams {
+    pub tenant_id: String,
+    pub post_id: String,
+    pub react_body_params: models::ReactBodyParams,
+    pub is_undo: Option<bool>,
+    pub broadcast_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -250,6 +308,16 @@ pub struct UnPinCommentParams {
     pub sso: Option<String>
 }
 
+/// struct for passing parameters to the method [`update_feed_post_public`]
+#[derive(Clone, Debug)]
+pub struct UpdateFeedPostPublicParams {
+    pub tenant_id: String,
+    pub post_id: String,
+    pub update_feed_post_params: models::UpdateFeedPostParams,
+    pub broadcast_id: Option<String>,
+    pub sso: Option<String>
+}
+
 /// struct for passing parameters to the method [`update_user_notification_comment_subscription_status`]
 #[derive(Clone, Debug)]
 pub struct UpdateUserNotificationCommentSubscriptionStatusParams {
@@ -278,6 +346,17 @@ pub struct UpdateUserNotificationStatusParams {
     pub notification_id: String,
     pub new_status: String,
     pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`upload_image`]
+#[derive(Clone, Debug)]
+pub struct UploadImageParams {
+    pub tenant_id: String,
+    pub file: std::path::PathBuf,
+    /// Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)
+    pub size_preset: Option<models::SizePreset>,
+    /// Page id that upload is happening from, to configure
+    pub url_id: Option<String>
 }
 
 /// struct for passing parameters to the method [`vote_comment`]
@@ -314,6 +393,13 @@ pub enum CreateCommentPublicError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_feed_post_public`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateFeedPostPublicError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`delete_comment_public`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -325,6 +411,13 @@ pub enum DeleteCommentPublicError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCommentVoteError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_feed_post_public`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteFeedPostPublicError {
     UnknownValue(serde_json::Value),
 }
 
@@ -363,6 +456,20 @@ pub enum GetEventLogError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_feed_posts_public`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetFeedPostsPublicError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_feed_posts_stats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetFeedPostsStatsError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_global_event_log`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -392,6 +499,13 @@ pub enum GetUserPresenceStatusesError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_user_reacts_public`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserReactsPublicError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`lock_comment`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -403,6 +517,13 @@ pub enum LockCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PinCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`react_feed_post_public`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ReactFeedPostPublicError {
     UnknownValue(serde_json::Value),
 }
 
@@ -448,6 +569,13 @@ pub enum UnPinCommentError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_feed_post_public`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateFeedPostPublicError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`update_user_notification_comment_subscription_status`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -466,6 +594,13 @@ pub enum UpdateUserNotificationPageSubscriptionStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserNotificationStatusError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`upload_image`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UploadImageError {
     UnknownValue(serde_json::Value),
 }
 
@@ -568,6 +703,37 @@ pub async fn create_comment_public(configuration: &configuration::Configuration,
     }
 }
 
+pub async fn create_feed_post_public(configuration: &configuration::Configuration, params: CreateFeedPostPublicParams) -> Result<models::CreateFeedPostPublic200Response, Error<CreateFeedPostPublicError>> {
+
+    let uri_str = format!("{}/feed-posts/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.create_feed_post_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateFeedPostPublicError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn delete_comment_public(configuration: &configuration::Configuration, params: DeleteCommentPublicParams) -> Result<models::DeleteCommentPublic200Response, Error<DeleteCommentPublicError>> {
 
     let uri_str = format!("{}/comments/{tenantId}/{commentId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
@@ -576,6 +742,9 @@ pub async fn delete_comment_public(configuration: &configuration::Configuration,
     req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
     if let Some(ref param_value) = params.edit_key {
         req_builder = req_builder.query(&[("editKey", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -624,6 +793,36 @@ pub async fn delete_comment_vote(configuration: &configuration::Configuration, p
     } else {
         let content = resp.text().await?;
         let entity: Option<DeleteCommentVoteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_feed_post_public(configuration: &configuration::Configuration, params: DeleteFeedPostPublicParams) -> Result<models::DeleteFeedPostPublic200Response, Error<DeleteFeedPostPublicError>> {
+
+    let uri_str = format!("{}/feed-posts/{tenantId}/{postId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), postId=crate::apis::urlencode(params.post_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteFeedPostPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -848,6 +1047,83 @@ pub async fn get_event_log(configuration: &configuration::Configuration, params:
     }
 }
 
+///  req tenantId afterId
+pub async fn get_feed_posts_public(configuration: &configuration::Configuration, params: GetFeedPostsPublicParams) -> Result<models::GetFeedPostsPublic200Response, Error<GetFeedPostsPublicError>> {
+
+    let uri_str = format!("{}/feed-posts/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.after_id {
+        req_builder = req_builder.query(&[("afterId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tags {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("tags".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("tags", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.is_crawler {
+        req_builder = req_builder.query(&[("isCrawler", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_user_info {
+        req_builder = req_builder.query(&[("includeUserInfo", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetFeedPostsPublicError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_feed_posts_stats(configuration: &configuration::Configuration, params: GetFeedPostsStatsParams) -> Result<models::GetFeedPostsStats200Response, Error<GetFeedPostsStatsError>> {
+
+    let uri_str = format!("{}/feed-posts/{tenantId}/stats", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&params.post_ids.into_iter().map(|p| ("postIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("postIds", &params.post_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetFeedPostsStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 ///  req tenantId urlId userIdWS
 pub async fn get_global_event_log(configuration: &configuration::Configuration, params: GetGlobalEventLogParams) -> Result<models::GetEventLog200Response, Error<GetGlobalEventLogError>> {
 
@@ -984,6 +1260,39 @@ pub async fn get_user_presence_statuses(configuration: &configuration::Configura
     }
 }
 
+pub async fn get_user_reacts_public(configuration: &configuration::Configuration, params: GetUserReactsPublicParams) -> Result<models::GetUserReactsPublic200Response, Error<GetUserReactsPublicError>> {
+
+    let uri_str = format!("{}/feed-posts/{tenantId}/user-reacts", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.post_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("postIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("postIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserReactsPublicError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn lock_comment(configuration: &configuration::Configuration, params: LockCommentParams) -> Result<models::LockComment200Response, Error<LockCommentError>> {
 
     let uri_str = format!("{}/comments/{tenantId}/{commentId}/lock", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
@@ -1036,6 +1345,40 @@ pub async fn pin_comment(configuration: &configuration::Configuration, params: P
     } else {
         let content = resp.text().await?;
         let entity: Option<PinCommentError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn react_feed_post_public(configuration: &configuration::Configuration, params: ReactFeedPostPublicParams) -> Result<models::ReactFeedPostPublic200Response, Error<ReactFeedPostPublicError>> {
+
+    let uri_str = format!("{}/feed-posts/{tenantId}/react/{postId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), postId=crate::apis::urlencode(params.post_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = params.is_undo {
+        req_builder = req_builder.query(&[("isUndo", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.react_body_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ReactFeedPostPublicError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1228,6 +1571,37 @@ pub async fn un_pin_comment(configuration: &configuration::Configuration, params
     }
 }
 
+pub async fn update_feed_post_public(configuration: &configuration::Configuration, params: UpdateFeedPostPublicParams) -> Result<models::CreateFeedPostPublic200Response, Error<UpdateFeedPostPublicError>> {
+
+    let uri_str = format!("{}/feed-posts/{tenantId}/{postId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), postId=crate::apis::urlencode(params.post_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    req_builder = req_builder.json(&params.update_feed_post_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateFeedPostPublicError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 /// Enable or disable notifications for a specific comment.
 pub async fn update_user_notification_comment_subscription_status(configuration: &configuration::Configuration, params: UpdateUserNotificationCommentSubscriptionStatusParams) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationCommentSubscriptionStatusError>> {
 
@@ -1314,6 +1688,40 @@ pub async fn update_user_notification_status(configuration: &configuration::Conf
     } else {
         let content = resp.text().await?;
         let entity: Option<UpdateUserNotificationStatusError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+/// Upload and resize an image
+pub async fn upload_image(configuration: &configuration::Configuration, params: UploadImageParams) -> Result<models::UploadImageResponse, Error<UploadImageError>> {
+
+    let uri_str = format!("{}/upload-image/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = params.size_preset {
+        req_builder = req_builder.query(&[("sizePreset", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.url_id {
+        req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    let mut multipart_form = reqwest::multipart::Form::new();
+    // TODO: support file upload for 'file' parameter
+    req_builder = req_builder.multipart(multipart_form);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UploadImageError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

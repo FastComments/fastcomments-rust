@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | Option<**String**> |  | [optional]
-**link** | Option<**String**> |  | [optional]
-**sizes** | Option<[**models::FeedPostMediaItemAsset**](FeedPostMediaItemAsset.md)> |  | [optional]
+**link_url** | Option<**String**> |  | [optional]
+**sizes** | [**Vec<models::FeedPostMediaItemAsset>**](FeedPostMediaItemAsset.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -31,6 +31,8 @@ pub struct LiveEvent {
     pub vote: Option<Box<models::PubSubVote>>,
     #[serde(rename = "comment", skip_serializing_if = "Option::is_none")]
     pub comment: Option<Box<models::PubSubComment>>,
+    #[serde(rename = "feedPost", skip_serializing_if = "Option::is_none")]
+    pub feed_post: Option<Box<models::FeedPost>>,
     #[serde(rename = "extraInfo", skip_serializing_if = "Option::is_none")]
     pub extra_info: Option<Box<models::LiveEventExtraInfo>>,
     #[serde(rename = "config", skip_serializing_if = "Option::is_none")]
@@ -41,9 +43,8 @@ pub struct LiveEvent {
     pub uj: Option<Vec<String>>,
     #[serde(rename = "ul", skip_serializing_if = "Option::is_none")]
     pub ul: Option<Vec<String>>,
-    /// Construct a type with a set of properties K of type T
     #[serde(rename = "changes", skip_serializing_if = "Option::is_none")]
-    pub changes: Option<std::collections::HashMap<String, f64>>,
+    pub changes: Option<std::collections::HashMap<String, i32>>,
 }
 
 impl LiveEvent {
@@ -58,6 +59,7 @@ impl LiveEvent {
             notification: None,
             vote: None,
             comment: None,
+            feed_post: None,
             extra_info: None,
             config: None,
             is_closed: None,

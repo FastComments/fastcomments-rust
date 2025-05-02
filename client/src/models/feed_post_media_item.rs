@@ -15,18 +15,18 @@ use serde::{Deserialize, Serialize};
 pub struct FeedPostMediaItem {
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
-    #[serde(rename = "link", skip_serializing_if = "Option::is_none")]
-    pub link: Option<String>,
-    #[serde(rename = "sizes", skip_serializing_if = "Option::is_none")]
-    pub sizes: Option<Box<models::FeedPostMediaItemAsset>>,
+    #[serde(rename = "linkUrl", skip_serializing_if = "Option::is_none")]
+    pub link_url: Option<String>,
+    #[serde(rename = "sizes")]
+    pub sizes: Vec<models::FeedPostMediaItemAsset>,
 }
 
 impl FeedPostMediaItem {
-    pub fn new() -> FeedPostMediaItem {
+    pub fn new(sizes: Vec<models::FeedPostMediaItemAsset>) -> FeedPostMediaItem {
         FeedPostMediaItem {
             title: None,
-            link: None,
-            sizes: None,
+            link_url: None,
+            sizes,
         }
     }
 }

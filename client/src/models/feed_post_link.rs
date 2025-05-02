@@ -13,17 +13,23 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FeedPostLink {
+    #[serde(rename = "text", skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
     #[serde(rename = "title", skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
-    #[serde(rename = "link", skip_serializing_if = "Option::is_none")]
-    pub link: Option<String>,
+    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
 }
 
 impl FeedPostLink {
     pub fn new() -> FeedPostLink {
         FeedPostLink {
+            text: None,
             title: None,
-            link: None,
+            description: None,
+            url: None,
         }
     }
 }

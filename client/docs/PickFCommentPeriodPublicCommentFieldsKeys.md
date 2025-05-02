@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 **badges** | Option<[**Vec<models::CommentUserBadgeInfo>**](CommentUserBadgeInfo.md)> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **view_count** | Option<**f64**> |  | [optional]
+**requires_verification** | Option<**bool**> |  | [optional]
+**edit_key** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

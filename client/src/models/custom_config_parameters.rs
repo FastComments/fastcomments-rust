@@ -95,6 +95,8 @@ pub struct CustomConfigParameters {
     pub hide_avatars: Option<bool>,
     #[serde(rename = "hideCommentsUnderCountTextFormat", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub hide_comments_under_count_text_format: Option<Option<String>>,
+    #[serde(rename = "imageContentProfanityLevel", skip_serializing_if = "Option::is_none")]
+    pub image_content_profanity_level: Option<models::ImageContentProfanityLevel>,
     #[serde(rename = "inputAfterComments", skip_serializing_if = "Option::is_none")]
     pub input_after_comments: Option<bool>,
     #[serde(rename = "limitCommentsByGroups", skip_serializing_if = "Option::is_none")]
@@ -117,8 +119,6 @@ pub struct CustomConfigParameters {
     pub readonly: Option<bool>,
     #[serde(rename = "requireSSO", skip_serializing_if = "Option::is_none")]
     pub require_sso: Option<bool>,
-    #[serde(rename = "ssoSecLvl", skip_serializing_if = "Option::is_none")]
-    pub sso_sec_lvl: Option<models::SsoSecurityLevel>,
     #[serde(rename = "restrictedLinkDomains", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub restricted_link_domains: Option<Option<Vec<String>>>,
     #[serde(rename = "showCommentSaveSuccess", skip_serializing_if = "Option::is_none")]
@@ -129,6 +129,8 @@ pub struct CustomConfigParameters {
     pub show_question: Option<bool>,
     #[serde(rename = "spamRules", skip_serializing_if = "Option::is_none")]
     pub spam_rules: Option<Vec<models::SpamRule>>,
+    #[serde(rename = "ssoSecLvl", skip_serializing_if = "Option::is_none")]
+    pub sso_sec_lvl: Option<models::SsoSecurityLevel>,
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "translations", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub translations: Option<Option<std::collections::HashMap<String, String>>>,
@@ -198,6 +200,7 @@ impl CustomConfigParameters {
             header_html: None,
             hide_avatars: None,
             hide_comments_under_count_text_format: None,
+            image_content_profanity_level: None,
             input_after_comments: None,
             limit_comments_by_groups: None,
             locale: None,
@@ -209,12 +212,12 @@ impl CustomConfigParameters {
             page_size: None,
             readonly: None,
             require_sso: None,
-            sso_sec_lvl: None,
             restricted_link_domains: None,
             show_comment_save_success: None,
             show_live_right_away: None,
             show_question: None,
             spam_rules: None,
+            sso_sec_lvl: None,
             translations: None,
             use_show_comments_toggle: None,
             use_single_line_comment_input: None,
