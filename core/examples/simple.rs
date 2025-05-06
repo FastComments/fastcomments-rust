@@ -24,13 +24,17 @@ async fn main() {
     let config = Configuration::new();
 
     // Try to get comments
-    if let Ok(result) = fastcomments_client::apis::public_api::get_comments_public(
+    let result = fastcomments_client::apis::public_api::get_comments_public(
         &config,
         comments_params(tenant_id, url_id, Some(token)),
     )
-    .await
-    {
+    .await;
+    if let Ok(result) = result {
         // Now we can do something with the comments!
-        let _comments = result.comments;
+        let comments = result.comments;
+
+        println!("Comments: {:#?}", comments);
+    } else {
+        println!("Failed to get comments {:#?}", result);
     };
 }

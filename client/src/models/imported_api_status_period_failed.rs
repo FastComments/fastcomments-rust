@@ -16,13 +16,15 @@ use serde::{Deserialize, Serialize};
 pub enum ImportedApiStatusPeriodFailed {
     #[serde(rename = "failed")]
     Failed,
-
+    #[serde(rename = "success")]
+    Success,
 }
 
 impl std::fmt::Display for ImportedApiStatusPeriodFailed {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
             Self::Failed => write!(f, "failed"),
+            Self::Success => write!(f, "success"),
         }
     }
 }
