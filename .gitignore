@@ -19,11 +19,6 @@
 .env.local
 .env.*.local
 
-# Project specific
-# Downloaded OpenAPI spec
-openapi.json
-openapi.yaml
-
 # Logs
 *.log
 logs/
