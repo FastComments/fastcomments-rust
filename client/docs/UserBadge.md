@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **badge_id** | **String** |  | 
 **from_tenant_id** | **String** |  | 
 **created_at** | **String** |  | 
-**r#type** | **f64** |  | 
-**threshold** | **f64** |  | 
+**r#type** | **i32** |  | 
+**threshold** | **i64** |  | 
 **description** | **String** |  | 
 **display_label** | **String** |  | 
 **display_src** | Option<**String**> |  | [optional]
@@ -18,10 +18,10 @@ Name | Type | Description | Notes
 **border_color** | Option<**String**> |  | [optional]
 **text_color** | Option<**String**> |  | [optional]
 **css_class** | Option<**String**> |  | [optional]
-**veteran_user_threshold_millis** | **f64** |  | 
+**veteran_user_threshold_millis** | **i64** |  | 
 **displayed_on_comments** | **bool** |  | 
 **received_at** | **String** |  | 
-**order** | Option<**f64**> |  | [optional]
+**order** | Option<**i32**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

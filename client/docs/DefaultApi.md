@@ -5,15 +5,21 @@ All URIs are relative to *https://fastcomments.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_domain_config**](DefaultApi.md#add_domain_config) | **POST** /api/v1/domain-configs | 
+[**add_page**](DefaultApi.md#add_page) | **POST** /api/v1/pages | 
+[**add_sso_user**](DefaultApi.md#add_sso_user) | **POST** /api/v1/sso-users | 
 [**aggregate**](DefaultApi.md#aggregate) | **POST** /api/v1/aggregate | 
 [**aggregate_question_results**](DefaultApi.md#aggregate_question_results) | **GET** /api/v1/question-results-aggregation | 
 [**block_user_from_comment**](DefaultApi.md#block_user_from_comment) | **POST** /api/v1/comments/{id}/block | 
 [**bulk_aggregate_question_results**](DefaultApi.md#bulk_aggregate_question_results) | **POST** /api/v1/question-results-aggregation/bulk | 
 [**combine_comments_with_question_results**](DefaultApi.md#combine_comments_with_question_results) | **GET** /api/v1/question-results-aggregation/combine/comments | 
 [**create_feed_post**](DefaultApi.md#create_feed_post) | **POST** /api/v1/feed-posts | 
+[**create_subscription**](DefaultApi.md#create_subscription) | **POST** /api/v1/subscriptions | 
 [**create_user_badge**](DefaultApi.md#create_user_badge) | **POST** /api/v1/user-badges | 
 [**delete_comment**](DefaultApi.md#delete_comment) | **DELETE** /api/v1/comments/{id} | 
 [**delete_domain_config**](DefaultApi.md#delete_domain_config) | **DELETE** /api/v1/domain-configs/{domain} | 
+[**delete_page**](DefaultApi.md#delete_page) | **DELETE** /api/v1/pages/{id} | 
+[**delete_sso_user**](DefaultApi.md#delete_sso_user) | **DELETE** /api/v1/sso-users/{id} | 
+[**delete_subscription**](DefaultApi.md#delete_subscription) | **DELETE** /api/v1/subscriptions/{id} | 
 [**delete_user_badge**](DefaultApi.md#delete_user_badge) | **DELETE** /api/v1/user-badges/{id} | 
 [**flag_comment**](DefaultApi.md#flag_comment) | **POST** /api/v1/comments/{id}/flag | 
 [**get_audit_logs**](DefaultApi.md#get_audit_logs) | **GET** /api/v1/audit-logs | 
@@ -22,14 +28,24 @@ Method | HTTP request | Description
 [**get_domain_config**](DefaultApi.md#get_domain_config) | **GET** /api/v1/domain-configs/{domain} | 
 [**get_domain_configs**](DefaultApi.md#get_domain_configs) | **GET** /api/v1/domain-configs | 
 [**get_feed_posts**](DefaultApi.md#get_feed_posts) | **GET** /api/v1/feed-posts | 
+[**get_page_by_urlid**](DefaultApi.md#get_page_by_urlid) | **GET** /api/v1/pages/by-url-id | 
+[**get_pages**](DefaultApi.md#get_pages) | **GET** /api/v1/pages | 
+[**get_sso_user_by_email**](DefaultApi.md#get_sso_user_by_email) | **GET** /api/v1/sso-users/by-email/{email} | 
+[**get_sso_user_by_id**](DefaultApi.md#get_sso_user_by_id) | **GET** /api/v1/sso-users/by-id/{id} | 
+[**get_sso_users**](DefaultApi.md#get_sso_users) | **GET** /api/v1/sso-users | 
+[**get_subscriptions**](DefaultApi.md#get_subscriptions) | **GET** /api/v1/subscriptions | 
 [**get_user_badge**](DefaultApi.md#get_user_badge) | **GET** /api/v1/user-badges/{id} | 
 [**get_user_badge_progress_by_id**](DefaultApi.md#get_user_badge_progress_by_id) | **GET** /api/v1/user-badge-progress/{id} | 
 [**get_user_badge_progress_by_user_id**](DefaultApi.md#get_user_badge_progress_by_user_id) | **GET** /api/v1/user-badge-progress/user/{userId} | 
 [**get_user_badge_progress_list**](DefaultApi.md#get_user_badge_progress_list) | **GET** /api/v1/user-badge-progress | 
 [**get_user_badges**](DefaultApi.md#get_user_badges) | **GET** /api/v1/user-badges | 
 [**patch_domain_config**](DefaultApi.md#patch_domain_config) | **PATCH** /api/v1/domain-configs/{domainToUpdate} | 
+[**patch_page**](DefaultApi.md#patch_page) | **PATCH** /api/v1/pages/{id} | 
+[**patch_sso_user**](DefaultApi.md#patch_sso_user) | **PATCH** /api/v1/sso-users/{id} | 
 [**put_domain_config**](DefaultApi.md#put_domain_config) | **PUT** /api/v1/domain-configs/{domainToUpdate} | 
+[**put_sso_user**](DefaultApi.md#put_sso_user) | **PUT** /api/v1/sso-users/{id} | 
 [**save_comment**](DefaultApi.md#save_comment) | **POST** /api/v1/comments | 
+[**save_comments_bulk**](DefaultApi.md#save_comments_bulk) | **POST** /api/v1/comments/bulk | 
 [**un_block_user_from_comment**](DefaultApi.md#un_block_user_from_comment) | **POST** /api/v1/comments/{id}/un-block | 
 [**un_flag_comment**](DefaultApi.md#un_flag_comment) | **POST** /api/v1/comments/{id}/un-flag | 
 [**update_comment**](DefaultApi.md#update_comment) | **PATCH** /api/v1/comments/{id} | 
@@ -54,6 +70,64 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::AddDomainConfig200Response**](AddDomainConfig_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## add_page
+
+> models::AddPageApiResponse add_page(tenant_id, create_api_page_data)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_api_page_data** | [**CreateApiPageData**](CreateApiPageData.md) |  | [required] |
+
+### Return type
+
+[**models::AddPageApiResponse**](AddPageAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## add_sso_user
+
+> models::AddSsoUserApiResponse add_sso_user(tenant_id, create_apisso_user_data)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_apisso_user_data** | [**CreateApissoUserData**](CreateApissoUserData.md) |  | [required] |
+
+### Return type
+
+[**models::AddSsoUserApiResponse**](AddSSOUserAPIResponse.md)
 
 ### Authorization
 
@@ -265,6 +339,35 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## create_subscription
+
+> models::CreateSubscriptionApiResponse create_subscription(tenant_id, create_api_user_subscription_data)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_api_user_subscription_data** | [**CreateApiUserSubscriptionData**](CreateApiUserSubscriptionData.md) |  | [required] |
+
+### Return type
+
+[**models::CreateSubscriptionApiResponse**](CreateSubscriptionAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## create_user_badge
 
 > models::CreateUserBadge200Response create_user_badge(tenant_id, create_user_badge_params)
@@ -341,6 +444,96 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::DeleteDomainConfig200Response**](DeleteDomainConfig_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_page
+
+> models::DeletePageApiResponse delete_page(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::DeletePageApiResponse**](DeletePageAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_sso_user
+
+> models::DeleteSsoUserApiResponse delete_sso_user(tenant_id, id, delete_comments, comment_delete_mode)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**delete_comments** | Option<**bool**> |  |  |
+**comment_delete_mode** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::DeleteSsoUserApiResponse**](DeleteSSOUserAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_subscription
+
+> models::DeleteSubscriptionApiResponse delete_subscription(tenant_id, id, user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::DeleteSubscriptionApiResponse**](DeleteSubscriptionAPIResponse.md)
 
 ### Authorization
 
@@ -487,13 +680,13 @@ Name | Type | Description  | Required | Notes
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
-**page** | Option<**f64**> |  |  |
-**limit** | Option<**f64**> |  |  |
-**skip** | Option<**f64**> |  |  |
+**page** | Option<**i32**> |  |  |
+**limit** | Option<**i32**> |  |  |
+**skip** | Option<**i32**> |  |  |
 **as_tree** | Option<**bool**> |  |  |
-**skip_children** | Option<**f64**> |  |  |
-**limit_children** | Option<**f64**> |  |  |
-**max_tree_depth** | Option<**f64**> |  |  |
+**skip_children** | Option<**i32**> |  |  |
+**limit_children** | Option<**i32**> |  |  |
+**max_tree_depth** | Option<**i32**> |  |  |
 **url_id** | Option<**String**> |  |  |
 **user_id** | Option<**String**> |  |  |
 **anon_user_id** | Option<**String**> |  |  |
@@ -595,6 +788,179 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetFeedPosts200Response**](GetFeedPosts_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_page_by_urlid
+
+> models::GetPageByUrlidApiResponse get_page_by_urlid(tenant_id, url_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetPageByUrlidApiResponse**](GetPageByURLIdAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_pages
+
+> models::GetPagesApiResponse get_pages(tenant_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetPagesApiResponse**](GetPagesAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_sso_user_by_email
+
+> models::GetSsoUserByEmailApiResponse get_sso_user_by_email(tenant_id, email)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**email** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetSsoUserByEmailApiResponse**](GetSSOUserByEmailAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_sso_user_by_id
+
+> models::GetSsoUserByIdApiResponse get_sso_user_by_id(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetSsoUserByIdApiResponse**](GetSSOUserByIdAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_sso_users
+
+> models::GetSsoUsers200Response get_sso_users(tenant_id, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**skip** | Option<**i32**> |  |  |
+
+### Return type
+
+[**models::GetSsoUsers200Response**](GetSSOUsers_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_subscriptions
+
+> models::GetSubscriptionsApiResponse get_subscriptions(tenant_id, user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::GetSubscriptionsApiResponse**](GetSubscriptionsAPIResponse.md)
 
 ### Authorization
 
@@ -790,6 +1156,67 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## patch_page
+
+> models::PatchPageApiResponse patch_page(tenant_id, id, update_api_page_data)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_api_page_data** | [**UpdateApiPageData**](UpdateApiPageData.md) |  | [required] |
+
+### Return type
+
+[**models::PatchPageApiResponse**](PatchPageAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_sso_user
+
+> models::PatchSsoUserApiResponse patch_sso_user(tenant_id, id, update_apisso_user_data, update_comments)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_apisso_user_data** | [**UpdateApissoUserData**](UpdateApissoUserData.md) |  | [required] |
+**update_comments** | Option<**bool**> |  |  |
+
+### Return type
+
+[**models::PatchSsoUserApiResponse**](PatchSSOUserAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## put_domain_config
 
 > models::GetDomainConfig200Response put_domain_config(tenant_id, domain_to_update, update_domain_config_params)
@@ -807,6 +1234,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## put_sso_user
+
+> models::PutSsoUserApiResponse put_sso_user(tenant_id, id, update_apisso_user_data, update_comments)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_apisso_user_data** | [**UpdateApissoUserData**](UpdateApissoUserData.md) |  | [required] |
+**update_comments** | Option<**bool**> |  |  |
+
+### Return type
+
+[**models::PutSsoUserApiResponse**](PutSSOUserAPIResponse.md)
 
 ### Authorization
 
@@ -840,6 +1298,39 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::SaveComment200Response**](SaveComment_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## save_comments_bulk
+
+> Vec<models::SaveComment200Response> save_comments_bulk(tenant_id, create_comment_params, is_live, do_spam_check, send_emails, populate_notifications)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_comment_params** | [**Vec<models::CreateCommentParams>**](CreateCommentParams.md) |  | [required] |
+**is_live** | Option<**bool**> |  |  |
+**do_spam_check** | Option<**bool**> |  |  |
+**send_emails** | Option<**bool**> |  |  |
+**populate_notifications** | Option<**bool**> |  |  |
+
+### Return type
+
+[**Vec<models::SaveComment200Response>**](SaveComment_200_response.md)
 
 ### Authorization
 

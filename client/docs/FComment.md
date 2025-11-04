@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **external_parent_id** | Option<**String**> |  | [optional]
 **avatar_src** | Option<**String**> |  | [optional]
 **is_spam** | Option<**bool**> |  | [optional]
+**perm_not_spam** | Option<**bool**> |  | [optional]
 **ai_determined_spam** | Option<**bool**> |  | [optional]
 **has_images** | Option<**bool**> |  | [optional]
 **page_number** | Option<**i32**> |  | [optional]
@@ -71,7 +72,7 @@ Name | Type | Description | Notes
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **logs** | Option<[**Vec<Vec<serde_json::Value>>**](Vec.md)> |  | [optional]
 **group_ids** | Option<**Vec<String>**> |  | [optional]
-**view_count** | Option<**f64**> |  | [optional]
+**view_count** | Option<**i64**> |  | [optional]
 **requires_verification** | Option<**bool**> |  | [optional]
 **edit_key** | Option<**String**> |  | [optional]
 

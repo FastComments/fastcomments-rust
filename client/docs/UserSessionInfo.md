@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | Option<**String**> |  | [optional]
 **authorized** | Option<**bool**> |  | [optional]
 **avatar_src** | Option<**String**> |  | [optional]
+**badges** | Option<[**Vec<models::CommentUserBadgeInfo>**](CommentUserBadgeInfo.md)> |  | [optional]
 **display_label** | Option<**String**> |  | [optional]
 **display_name** | Option<**String**> |  | [optional]
 **email** | Option<**String**> |  | [optional]

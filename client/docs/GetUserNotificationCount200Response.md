@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
-**count** | **f64** |  | 
+**count** | **i64** |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]
-**banned_until** | Option<**f64**> |  | [optional]
-**max_character_length** | Option<**f64**> |  | [optional]
+**banned_until** | Option<**i64**> |  | [optional]
+**max_character_length** | Option<**i32**> |  | [optional]
 **translated_error** | Option<**String**> |  | [optional]
 **custom_config** | Option<[**models::CustomConfigParameters**](CustomConfigParameters.md)> |  | [optional]
 

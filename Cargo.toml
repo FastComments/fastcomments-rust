@@ -1,6 +1,46 @@
-[workspace]
-resolver = "2"
-members = ["client", "core"]
+[package]
+name = "fastcomments-rust"
+version = "0.0.1"
+authors = ["FastComments <support@fastcomments.com>"]
+description = "FastComments Rust SDK - A SDK for interacting with the FastComments API"
+license = "MIT"
+edition = "2021"
+repository = "https://github.com/fastcomments/fastcomments-rust"
+homepage = "https://fastcomments.com"
+keywords = ["fastcomments", "comments", "api", "sdk"]
+categories = ["api-bindings", "web-programming"]
 
-[workspace.dependencies]
-fastcomments-client = { path = "client" }
+[dependencies]
+# Serialization
+serde = { version = "^1.0", features = ["derive"] }
+serde_with = { version = "^3.8", default-features = false, features = ["base64", "std", "macros"] }
+serde_json = "^1.0"
+serde_repr = "^0.1"
+
+# HTTP client
+reqwest = { version = "^0.12", features = ["json", "multipart"] }
+url = "^2.5"
+uuid = { version = "^1.8", features = ["serde", "v4"] }
+
+# SSO/Crypto
+base64 = "0.22.1"
+hmac = "0.12.1"
+sha2 = "0.10.8"
+
+# Async runtime
+tokio = { version = "1.44.1", features = ["macros", "rt-multi-thread"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[lib]
+name = "fastcomments_rust"
+path = "src/lib.rs"
+
+[[example]]
+name = "secure"
+path = "examples/secure.rs"
+
+[[example]]
+name = "simple"
+path = "examples/simple.rs"

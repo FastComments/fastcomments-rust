@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date** | **String** |  | 
 **_id** | **String** |  | 
+**tenant_id** | **String** |  | 
 **url_id** | **String** |  | 
 **url** | **String** |  | 
 **page_title** | Option<**String**> |  | [optional]
-**date** | **String** |  | 
-**tenant_id** | **String** |  | 
 **user_id** | Option<**String**> |  | [optional]
 **anon_user_id** | Option<**String**> |  | [optional]
 **commenter_name** | **String** |  | 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **domain** | Option<**String**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **group_ids** | Option<**Vec<String>**> |  | [optional]
-**view_count** | Option<**f64**> |  | [optional]
+**view_count** | Option<**i64**> |  | [optional]
 **is_live** | Option<**bool**> |  | [optional]
 **hidden** | Option<**bool**> |  | [optional]
 

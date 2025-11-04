@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **url_id** | **String** |  | 
 **url** | **String** |  | 
 **page_title** | Option<**String**> |  | [optional]
-**related_object_type** | **f64** |  | 
+**related_object_type** | [**models::NotificationObjectType**](NotificationObjectType.md) |  | 
 **related_object_id** | **String** |  | 
 **viewed** | **bool** |  | 
 **is_unread_message** | **bool** |  | 
@@ -24,6 +24,10 @@ Name | Type | Description | Notes
 **from_user_id** | Option<**String**> |  | [optional]
 **from_user_avatar_src** | Option<**String**> |  | [optional]
 **opted_out** | **bool** |  | 
+**count** | Option<**i64**> |  | [optional]
+**related_ids** | Option<**Vec<String>**> |  | [optional]
+**from_user_ids** | Option<**Vec<String>**> |  | [optional]
+**from_user_names** | Option<**Vec<String>**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,6 +6,7 @@
 |---- | -----|
 | UpdateBadges | update-badges |
 | Notification | notification |
+| NotificationUpdate | notification-update |
 | PU | p-u |
 | NewVote | new-vote |
 | DeletedVote | deleted-vote |

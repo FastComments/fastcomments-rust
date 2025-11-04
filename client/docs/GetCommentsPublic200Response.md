@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
 **code** | **String** |  | 
 **reason** | **String** |  | 
+**translated_warning** | Option<**String**> |  | [optional]
 **comments** | [**Vec<models::PublicComment>**](PublicComment.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | 
 **url_id_clean** | Option<**String**> |  | [optional]
@@ -31,8 +32,8 @@ Name | Type | Description | Notes
 **user_id_ws** | Option<**String**> |  | [optional]
 **tenant_id_ws** | Option<**String**> |  | [optional]
 **secondary_code** | Option<**String**> |  | [optional]
-**banned_until** | Option<**f64**> |  | [optional]
-**max_character_length** | Option<**f64**> |  | [optional]
+**banned_until** | Option<**i64**> |  | [optional]
+**max_character_length** | Option<**i32**> |  | [optional]
 **translated_error** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

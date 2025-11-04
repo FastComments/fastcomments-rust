@@ -11,7 +11,7 @@
 
 use reqwest;
 use serde::{Deserialize, Serialize};
-use crate::{apis::ResponseContent, models};
+use crate::client::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 /// struct for passing parameters to the method [`block_from_comment_public`]
@@ -106,8 +106,7 @@ pub struct GetCommentTextParams {
 pub struct GetCommentVoteUserNamesParams {
     pub tenant_id: String,
     pub comment_id: String,
-    /// Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted.
-    pub direction: f64,
+    pub dir: i32,
     pub sso: Option<String>
 }
 
@@ -124,7 +123,6 @@ pub struct GetCommentsPublicParams {
     pub limit: Option<i32>,
     pub limit_children: Option<i32>,
     pub count_children: Option<bool>,
-    pub last_gen_date: Option<i64>,
     pub fetch_page_for_comment_id: Option<String>,
     pub include_config: Option<bool>,
     pub count_all: Option<bool>,
@@ -140,7 +138,9 @@ pub struct GetCommentsPublicParams {
     pub search_text: Option<String>,
     pub hash_tags: Option<Vec<String>>,
     pub user_id: Option<String>,
-    pub custom_config_str: Option<String>
+    pub custom_config_str: Option<String>,
+    pub after_comment_id: Option<String>,
+    pub before_comment_id: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_event_log`]
@@ -194,11 +194,10 @@ pub struct GetUserNotificationCountParams {
 #[derive(Clone, Debug)]
 pub struct GetUserNotificationsParams {
     pub tenant_id: String,
-    /// Defaults to 20.
-    pub page_size: Option<f64>,
+    pub page_size: Option<i32>,
     pub after_id: Option<String>,
     pub include_context: Option<bool>,
-    pub after_created_at: Option<f64>,
+    pub after_created_at: Option<i64>,
     pub unread_only: Option<bool>,
     pub dm_only: Option<bool>,
     pub no_dm: Option<bool>,
@@ -263,10 +262,20 @@ pub struct ResetUserNotificationCountParams {
 pub struct ResetUserNotificationsParams {
     pub tenant_id: String,
     pub after_id: Option<String>,
-    pub after_created_at: Option<f64>,
+    pub after_created_at: Option<i64>,
     pub unread_only: Option<bool>,
     pub dm_only: Option<bool>,
     pub no_dm: Option<bool>,
+    pub sso: Option<String>
+}
+
+/// struct for passing parameters to the method [`search_users`]
+#[derive(Clone, Debug)]
+pub struct SearchUsersParams {
+    pub tenant_id: String,
+    pub url_id: String,
+    pub username_starts_with: String,
+    pub mention_group_ids: Option<Vec<String>>,
     pub sso: Option<String>
 }
 
@@ -541,6 +550,13 @@ pub enum ResetUserNotificationsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`search_users`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SearchUsersError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`set_comment_text`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -614,7 +630,7 @@ pub enum VoteCommentError {
 
 pub async fn block_from_comment_public(configuration: &configuration::Configuration, params: BlockFromCommentPublicParams) -> Result<models::BlockFromCommentPublic200Response, Error<BlockFromCommentPublicError>> {
 
-    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -672,7 +688,7 @@ pub async fn checked_comments_for_blocked(configuration: &configuration::Configu
 
 pub async fn create_comment_public(configuration: &configuration::Configuration, params: CreateCommentPublicParams) -> Result<models::CreateCommentPublic200Response, Error<CreateCommentPublicError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
@@ -705,7 +721,7 @@ pub async fn create_comment_public(configuration: &configuration::Configuration,
 
 pub async fn create_feed_post_public(configuration: &configuration::Configuration, params: CreateFeedPostPublicParams) -> Result<models::CreateFeedPostPublic200Response, Error<CreateFeedPostPublicError>> {
 
-    let uri_str = format!("{}/feed-posts/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/feed-posts/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = params.broadcast_id {
@@ -736,7 +752,7 @@ pub async fn create_feed_post_public(configuration: &configuration::Configuratio
 
 pub async fn delete_comment_public(configuration: &configuration::Configuration, params: DeleteCommentPublicParams) -> Result<models::DeleteCommentPublic200Response, Error<DeleteCommentPublicError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
@@ -767,7 +783,7 @@ pub async fn delete_comment_public(configuration: &configuration::Configuration,
 
 pub async fn delete_comment_vote(configuration: &configuration::Configuration, params: DeleteCommentVoteParams) -> Result<models::DeleteCommentVote200Response, Error<DeleteCommentVoteError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote/{voteId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id), voteId=crate::apis::urlencode(params.vote_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote/{voteId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id), voteId=crate::client::apis::urlencode(params.vote_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
@@ -799,7 +815,7 @@ pub async fn delete_comment_vote(configuration: &configuration::Configuration, p
 
 pub async fn delete_feed_post_public(configuration: &configuration::Configuration, params: DeleteFeedPostPublicParams) -> Result<models::DeleteFeedPostPublic200Response, Error<DeleteFeedPostPublicError>> {
 
-    let uri_str = format!("{}/feed-posts/{tenantId}/{postId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), postId=crate::apis::urlencode(params.post_id));
+    let uri_str = format!("{}/feed-posts/{tenantId}/{postId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), postId=crate::client::apis::urlencode(params.post_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref param_value) = params.broadcast_id {
@@ -829,7 +845,7 @@ pub async fn delete_feed_post_public(configuration: &configuration::Configuratio
 
 pub async fn flag_comment_public(configuration: &configuration::Configuration, params: FlagCommentPublicParams) -> Result<models::FlagCommentPublic200Response, Error<FlagCommentPublicError>> {
 
-    let uri_str = format!("{}/flag-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/flag-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -858,7 +874,7 @@ pub async fn flag_comment_public(configuration: &configuration::Configuration, p
 
 pub async fn get_comment_text(configuration: &configuration::Configuration, params: GetCommentTextParams) -> Result<models::GetCommentText200Response, Error<GetCommentTextError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/text", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/text", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.edit_key {
@@ -888,10 +904,10 @@ pub async fn get_comment_text(configuration: &configuration::Configuration, para
 
 pub async fn get_comment_vote_user_names(configuration: &configuration::Configuration, params: GetCommentVoteUserNamesParams) -> Result<models::GetCommentVoteUserNames200Response, Error<GetCommentVoteUserNamesError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/votes", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/votes", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    req_builder = req_builder.query(&[("direction", &params.direction.to_string())]);
+    req_builder = req_builder.query(&[("dir", &params.dir.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -917,7 +933,7 @@ pub async fn get_comment_vote_user_names(configuration: &configuration::Configur
 ///  req tenantId urlId
 pub async fn get_comments_public(configuration: &configuration::Configuration, params: GetCommentsPublicParams) -> Result<models::GetCommentsPublic200Response, Error<GetCommentsPublicError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/comments/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
@@ -944,9 +960,6 @@ pub async fn get_comments_public(configuration: &configuration::Configuration, p
     }
     if let Some(ref param_value) = params.count_children {
         req_builder = req_builder.query(&[("countChildren", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.last_gen_date {
-        req_builder = req_builder.query(&[("lastGenDate", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.fetch_page_for_comment_id {
         req_builder = req_builder.query(&[("fetchPageForCommentId", &param_value.to_string())]);
@@ -999,6 +1012,12 @@ pub async fn get_comments_public(configuration: &configuration::Configuration, p
     if let Some(ref param_value) = params.custom_config_str {
         req_builder = req_builder.query(&[("customConfigStr", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.after_comment_id {
+        req_builder = req_builder.query(&[("afterCommentId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.before_comment_id {
+        req_builder = req_builder.query(&[("beforeCommentId", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1021,7 +1040,7 @@ pub async fn get_comments_public(configuration: &configuration::Configuration, p
 ///  req tenantId urlId userIdWS
 pub async fn get_event_log(configuration: &configuration::Configuration, params: GetEventLogParams) -> Result<models::GetEventLog200Response, Error<GetEventLogError>> {
 
-    let uri_str = format!("{}/event-log/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/event-log/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
@@ -1050,7 +1069,7 @@ pub async fn get_event_log(configuration: &configuration::Configuration, params:
 ///  req tenantId afterId
 pub async fn get_feed_posts_public(configuration: &configuration::Configuration, params: GetFeedPostsPublicParams) -> Result<models::GetFeedPostsPublic200Response, Error<GetFeedPostsPublicError>> {
 
-    let uri_str = format!("{}/feed-posts/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/feed-posts/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.after_id {
@@ -1095,7 +1114,7 @@ pub async fn get_feed_posts_public(configuration: &configuration::Configuration,
 
 pub async fn get_feed_posts_stats(configuration: &configuration::Configuration, params: GetFeedPostsStatsParams) -> Result<models::GetFeedPostsStats200Response, Error<GetFeedPostsStatsError>> {
 
-    let uri_str = format!("{}/feed-posts/{tenantId}/stats", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/feed-posts/{tenantId}/stats", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = match "multi" {
@@ -1127,7 +1146,7 @@ pub async fn get_feed_posts_stats(configuration: &configuration::Configuration, 
 ///  req tenantId urlId userIdWS
 pub async fn get_global_event_log(configuration: &configuration::Configuration, params: GetGlobalEventLogParams) -> Result<models::GetEventLog200Response, Error<GetGlobalEventLogError>> {
 
-    let uri_str = format!("{}/event-log/global/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/event-log/global/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
@@ -1262,7 +1281,7 @@ pub async fn get_user_presence_statuses(configuration: &configuration::Configura
 
 pub async fn get_user_reacts_public(configuration: &configuration::Configuration, params: GetUserReactsPublicParams) -> Result<models::GetUserReactsPublic200Response, Error<GetUserReactsPublicError>> {
 
-    let uri_str = format!("{}/feed-posts/{tenantId}/user-reacts", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/feed-posts/{tenantId}/user-reacts", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.post_ids {
@@ -1295,7 +1314,7 @@ pub async fn get_user_reacts_public(configuration: &configuration::Configuration
 
 pub async fn lock_comment(configuration: &configuration::Configuration, params: LockCommentParams) -> Result<models::LockComment200Response, Error<LockCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/lock", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/lock", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
@@ -1323,7 +1342,7 @@ pub async fn lock_comment(configuration: &configuration::Configuration, params: 
 
 pub async fn pin_comment(configuration: &configuration::Configuration, params: PinCommentParams) -> Result<models::PinComment200Response, Error<PinCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/pin", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/pin", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
@@ -1351,7 +1370,7 @@ pub async fn pin_comment(configuration: &configuration::Configuration, params: P
 
 pub async fn react_feed_post_public(configuration: &configuration::Configuration, params: ReactFeedPostPublicParams) -> Result<models::ReactFeedPostPublic200Response, Error<ReactFeedPostPublicError>> {
 
-    let uri_str = format!("{}/feed-posts/{tenantId}/react/{postId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), postId=crate::apis::urlencode(params.post_id));
+    let uri_str = format!("{}/feed-posts/{tenantId}/react/{postId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), postId=crate::client::apis::urlencode(params.post_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = params.is_undo {
@@ -1454,9 +1473,44 @@ pub async fn reset_user_notifications(configuration: &configuration::Configurati
     }
 }
 
+pub async fn search_users(configuration: &configuration::Configuration, params: SearchUsersParams) -> Result<models::SearchUsers200Response, Error<SearchUsersError>> {
+
+    let uri_str = format!("{}/user-search/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    req_builder = req_builder.query(&[("usernameStartsWith", &params.username_starts_with.to_string())]);
+    if let Some(ref param_value) = params.mention_group_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("mentionGroupIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("mentionGroupIds", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.sso {
+        req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SearchUsersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn set_comment_text(configuration: &configuration::Configuration, params: SetCommentTextParams) -> Result<models::SetCommentText200Response, Error<SetCommentTextError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/update-text", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/update-text", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
@@ -1488,7 +1542,7 @@ pub async fn set_comment_text(configuration: &configuration::Configuration, para
 
 pub async fn un_block_comment_public(configuration: &configuration::Configuration, params: UnBlockCommentPublicParams) -> Result<models::UnBlockCommentPublic200Response, Error<UnBlockCommentPublicError>> {
 
-    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/block-from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1517,7 +1571,7 @@ pub async fn un_block_comment_public(configuration: &configuration::Configuratio
 
 pub async fn un_lock_comment(configuration: &configuration::Configuration, params: UnLockCommentParams) -> Result<models::LockComment200Response, Error<UnLockCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unlock", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unlock", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
@@ -1545,7 +1599,7 @@ pub async fn un_lock_comment(configuration: &configuration::Configuration, param
 
 pub async fn un_pin_comment(configuration: &configuration::Configuration, params: UnPinCommentParams) -> Result<models::PinComment200Response, Error<UnPinCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unpin", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/unpin", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("broadcastId", &params.broadcast_id.to_string())]);
@@ -1573,7 +1627,7 @@ pub async fn un_pin_comment(configuration: &configuration::Configuration, params
 
 pub async fn update_feed_post_public(configuration: &configuration::Configuration, params: UpdateFeedPostPublicParams) -> Result<models::CreateFeedPostPublic200Response, Error<UpdateFeedPostPublicError>> {
 
-    let uri_str = format!("{}/feed-posts/{tenantId}/{postId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), postId=crate::apis::urlencode(params.post_id));
+    let uri_str = format!("{}/feed-posts/{tenantId}/{postId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), postId=crate::client::apis::urlencode(params.post_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref param_value) = params.broadcast_id {
@@ -1605,7 +1659,7 @@ pub async fn update_feed_post_public(configuration: &configuration::Configuratio
 /// Enable or disable notifications for a specific comment.
 pub async fn update_user_notification_comment_subscription_status(configuration: &configuration::Configuration, params: UpdateUserNotificationCommentSubscriptionStatusParams) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationCommentSubscriptionStatusError>> {
 
-    let uri_str = format!("{}/user-notifications/{notificationId}/mark-opted/{optedInOrOut}", configuration.base_path, notificationId=crate::apis::urlencode(params.notification_id), optedInOrOut=crate::apis::urlencode(params.opted_in_or_out));
+    let uri_str = format!("{}/user-notifications/{notificationId}/mark-opted/{optedInOrOut}", configuration.base_path, notificationId=crate::client::apis::urlencode(params.notification_id), optedInOrOut=crate::client::apis::urlencode(params.opted_in_or_out));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1635,7 +1689,7 @@ pub async fn update_user_notification_comment_subscription_status(configuration:
 /// Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
 pub async fn update_user_notification_page_subscription_status(configuration: &configuration::Configuration, params: UpdateUserNotificationPageSubscriptionStatusParams) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationPageSubscriptionStatusError>> {
 
-    let uri_str = format!("{}/user-notifications/set-subscription-state/{subscribedOrUnsubscribed}", configuration.base_path, subscribedOrUnsubscribed=crate::apis::urlencode(params.subscribed_or_unsubscribed));
+    let uri_str = format!("{}/user-notifications/set-subscription-state/{subscribedOrUnsubscribed}", configuration.base_path, subscribedOrUnsubscribed=crate::client::apis::urlencode(params.subscribed_or_unsubscribed));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1666,7 +1720,7 @@ pub async fn update_user_notification_page_subscription_status(configuration: &c
 
 pub async fn update_user_notification_status(configuration: &configuration::Configuration, params: UpdateUserNotificationStatusParams) -> Result<models::UpdateUserNotificationStatus200Response, Error<UpdateUserNotificationStatusError>> {
 
-    let uri_str = format!("{}/user-notifications/{notificationId}/mark/{newStatus}", configuration.base_path, notificationId=crate::apis::urlencode(params.notification_id), newStatus=crate::apis::urlencode(params.new_status));
+    let uri_str = format!("{}/user-notifications/{notificationId}/mark/{newStatus}", configuration.base_path, notificationId=crate::client::apis::urlencode(params.notification_id), newStatus=crate::client::apis::urlencode(params.new_status));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1695,7 +1749,7 @@ pub async fn update_user_notification_status(configuration: &configuration::Conf
 /// Upload and resize an image
 pub async fn upload_image(configuration: &configuration::Configuration, params: UploadImageParams) -> Result<models::UploadImageResponse, Error<UploadImageError>> {
 
-    let uri_str = format!("{}/upload-image/{tenantId}", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id));
+    let uri_str = format!("{}/upload-image/{tenantId}", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = params.size_preset {
@@ -1728,7 +1782,7 @@ pub async fn upload_image(configuration: &configuration::Configuration, params: 
 
 pub async fn vote_comment(configuration: &configuration::Configuration, params: VoteCommentParams) -> Result<models::VoteComment200Response, Error<VoteCommentError>> {
 
-    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote", configuration.base_path, tenantId=crate::apis::urlencode(params.tenant_id), commentId=crate::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/comments/{tenantId}/{commentId}/vote", configuration.base_path, tenantId=crate::client::apis::urlencode(params.tenant_id), commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);

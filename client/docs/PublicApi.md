@@ -28,6 +28,7 @@ Method | HTTP request | Description
 [**react_feed_post_public**](PublicApi.md#react_feed_post_public) | **POST** /feed-posts/{tenantId}/react/{postId} | 
 [**reset_user_notification_count**](PublicApi.md#reset_user_notification_count) | **POST** /user-notifications/reset-count | 
 [**reset_user_notifications**](PublicApi.md#reset_user_notifications) | **POST** /user-notifications/reset | 
+[**search_users**](PublicApi.md#search_users) | **GET** /user-search/{tenantId} | 
 [**set_comment_text**](PublicApi.md#set_comment_text) | **POST** /comments/{tenantId}/{commentId}/update-text | 
 [**un_block_comment_public**](PublicApi.md#un_block_comment_public) | **DELETE** /block-from-comment/{commentId} | 
 [**un_lock_comment**](PublicApi.md#un_lock_comment) | **POST** /comments/{tenantId}/{commentId}/unlock | 
@@ -327,7 +328,7 @@ No authorization required
 
 ## get_comment_vote_user_names
 
-> models::GetCommentVoteUserNames200Response get_comment_vote_user_names(tenant_id, comment_id, direction, sso)
+> models::GetCommentVoteUserNames200Response get_comment_vote_user_names(tenant_id, comment_id, dir, sso)
 
 
 ### Parameters
@@ -337,7 +338,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
-**direction** | **f64** | Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. | [required] |
+**dir** | **i32** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -358,7 +359,7 @@ No authorization required
 
 ## get_comments_public
 
-> models::GetCommentsPublic200Response get_comments_public(tenant_id, url_id, page, direction, sso, skip, skip_children, limit, limit_children, count_children, last_gen_date, fetch_page_for_comment_id, include_config, count_all, includei10n, locale, modules, is_crawler, include_notification_count, as_tree, max_tree_depth, use_full_translation_ids, parent_id, search_text, hash_tags, user_id, custom_config_str)
+> models::GetCommentsPublic200Response get_comments_public(tenant_id, url_id, page, direction, sso, skip, skip_children, limit, limit_children, count_children, fetch_page_for_comment_id, include_config, count_all, includei10n, locale, modules, is_crawler, include_notification_count, as_tree, max_tree_depth, use_full_translation_ids, parent_id, search_text, hash_tags, user_id, custom_config_str, after_comment_id, before_comment_id)
 
 
  req tenantId urlId
@@ -378,7 +379,6 @@ Name | Type | Description  | Required | Notes
 **limit** | Option<**i32**> |  |  |
 **limit_children** | Option<**i32**> |  |  |
 **count_children** | Option<**bool**> |  |  |
-**last_gen_date** | Option<**i64**> |  |  |
 **fetch_page_for_comment_id** | Option<**String**> |  |  |
 **include_config** | Option<**bool**> |  |  |
 **count_all** | Option<**bool**> |  |  |
@@ -395,6 +395,8 @@ Name | Type | Description  | Required | Notes
 **hash_tags** | Option<[**Vec<String>**](String.md)> |  |  |
 **user_id** | Option<**String**> |  |  |
 **custom_config_str** | Option<**String**> |  |  |
+**after_comment_id** | Option<**String**> |  |  |
+**before_comment_id** | Option<**String**> |  |  |
 
 ### Return type
 
@@ -586,10 +588,10 @@ No authorization required
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
-**page_size** | Option<**f64**> | Defaults to 20. |  |
+**page_size** | Option<**i32**> |  |  |
 **after_id** | Option<**String**> |  |  |
 **include_context** | Option<**bool**> |  |  |
-**after_created_at** | Option<**f64**> |  |  |
+**after_created_at** | Option<**i64**> |  |  |
 **unread_only** | Option<**bool**> |  |  |
 **dm_only** | Option<**bool**> |  |  |
 **no_dm** | Option<**bool**> |  |  |
@@ -808,7 +810,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **after_id** | Option<**String**> |  |  |
-**after_created_at** | Option<**f64**> |  |  |
+**after_created_at** | Option<**i64**> |  |  |
 **unread_only** | Option<**bool**> |  |  |
 **dm_only** | Option<**bool**> |  |  |
 **no_dm** | Option<**bool**> |  |  |
@@ -817,6 +819,38 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::ResetUserNotifications200Response**](ResetUserNotifications_200_response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## search_users
+
+> models::SearchUsers200Response search_users(tenant_id, url_id, username_starts_with, mention_group_ids, sso)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id** | **String** |  | [required] |
+**username_starts_with** | **String** |  | [required] |
+**mention_group_ids** | Option<[**Vec<String>**](String.md)> |  |  |
+**sso** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::SearchUsers200Response**](SearchUsers_200_response.md)
 
 ### Authorization
 

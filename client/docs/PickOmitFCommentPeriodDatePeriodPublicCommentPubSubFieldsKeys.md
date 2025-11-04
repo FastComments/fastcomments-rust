@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date** | Option<[**serde_json::Value**](.md)> |  | 
 **_id** | **String** |  | 
+**tenant_id** | **String** |  | 
 **url_id** | **String** |  | 
 **url** | **String** |  | 
 **page_title** | Option<**String**> |  | [optional]
-**date** | Option<[**serde_json::Value**](.md)> |  | 
-**tenant_id** | **String** |  | 
 **user_id** | Option<**String**> |  | [optional]
 **anon_user_id** | Option<**String**> |  | [optional]
 **commenter_name** | **String** |  | 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **domain** | Option<**String**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **group_ids** | Option<**Vec<String>**> |  | [optional]
-**view_count** | Option<**f64**> |  | [optional]
+**view_count** | Option<**i64**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

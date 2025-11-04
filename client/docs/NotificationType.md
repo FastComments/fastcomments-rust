@@ -12,6 +12,11 @@
 | Variant5 | 5 |
 | Variant6 | 6 |
 | Variant7 | 7 |
+| Variant8 | 8 |
+| Variant81 | 81 |
+| Variant82 | 82 |
+| Variant9 | 9 |
+| Variant10 | 10 |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

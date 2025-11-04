@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **anon_user_id** | **String** |  | 
 **user_id** | **String** |  | 
 **created_at** | **String** |  | 
-**value** | **f64** |  | 
+**value** | **i32** |  | 
 **comment_id** | Option<**String**> |  | [optional]
 **question_id** | **String** |  | 
 **meta** | Option<[**Vec<models::MetaItem>**](MetaItem.md)> |  | [optional]

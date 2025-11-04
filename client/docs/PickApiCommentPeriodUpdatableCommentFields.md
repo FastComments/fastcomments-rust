@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date** | **String** |  | 
 **url_id** | **String** |  | 
+**url_id_raw** | Option<**String**> |  | [optional]
 **url** | **String** |  | 
 **page_title** | Option<**String**> |  | [optional]
-**date** | **String** |  | 
-**url_id_raw** | Option<**String**> |  | [optional]
 **user_id** | Option<**String**> |  | [optional]
 **commenter_email** | Option<**String**> |  | [optional]
 **commenter_name** | **String** |  | 

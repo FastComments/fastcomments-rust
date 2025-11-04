@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**r#type** | **f64** |  | 
+**r#type** | **i32** |  | 
 **description** | **String** |  | 
 **display_label** | Option<**String**> |  | [optional]
 **display_src** | Option<**String**> |  | [optional]

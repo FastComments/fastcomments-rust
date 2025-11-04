@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **status** | **String** |  | 
 **code** | Option<**String**> |  | [optional]
 **reason** | Option<**String**> |  | [optional]
+**translated_warning** | Option<**String**> |  | [optional]
 **comments** | [**Vec<models::PublicComment>**](PublicComment.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | 
 **url_id_clean** | Option<**String**> |  | [optional]

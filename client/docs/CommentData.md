@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **f64** |  | 
+**date** | Option<**i64**> |  | [optional]
 **local_date_string** | Option<**String**> |  | [optional]
-**local_date_hours** | Option<**f64**> |  | [optional]
+**local_date_hours** | Option<**i32**> |  | [optional]
 **commenter_name** | **String** |  | 
 **commenter_email** | Option<**String**> |  | [optional]
 **commenter_link** | Option<**String**> |  | [optional]
 **comment** | **String** |  | 
-**product_id** | Option<**f64**> |  | [optional]
+**product_id** | Option<**i32**> |  | [optional]
 **user_id** | Option<**String**> |  | [optional]
 **avatar_src** | Option<**String**> |  | [optional]
 **parent_id** | Option<**String**> |  | [optional]
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **moderation_group_ids** | Option<**Vec<String>**> |  | [optional]
 **rating** | Option<**f64**> |  | [optional]
 **from_offline_restore** | Option<**bool**> |  | [optional]
-**autoplay_delay_ms** | Option<**f64**> |  | [optional]
+**autoplay_delay_ms** | Option<**i64**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **question_values** | Option<[**std::collections::HashMap<String, models::RecordStringStringOrNumberValue>**](Record_string_string_or_number__value.md)> | Construct a type with a set of properties K of type T | [optional]
 

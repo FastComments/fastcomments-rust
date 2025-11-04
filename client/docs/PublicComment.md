@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_id** | **String** |  | 
 **date** | **String** |  | 
+**_id** | **String** |  | 
 **user_id** | Option<**String**> |  | [optional]
 **anon_user_id** | Option<**String**> |  | [optional]
 **commenter_name** | **String** |  | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **display_label** | Option<**String**> |  | [optional]
 **badges** | Option<[**Vec<models::CommentUserBadgeInfo>**](CommentUserBadgeInfo.md)> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
-**view_count** | Option<**f64**> |  | [optional]
+**view_count** | Option<**i64**> |  | [optional]
 **requires_verification** | Option<**bool**> |  | [optional]
 **edit_key** | Option<**String**> |  | [optional]
 **is_unread** | Option<**bool**> |  | [optional]

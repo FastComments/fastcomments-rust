@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date** | **String** |  | 
 **_id** | **String** |  | 
+**tenant_id** | **String** |  | 
 **url_id** | **String** |  | 
+**url_id_raw** | Option<**String**> |  | [optional]
 **url** | **String** |  | 
 **page_title** | Option<**String**> |  | [optional]
-**date** | **String** |  | 
-**tenant_id** | **String** |  | 
-**url_id_raw** | Option<**String**> |  | [optional]
 **user_id** | Option<**String**> |  | [optional]
 **anon_user_id** | Option<**String**> |  | [optional]
 **commenter_email** | Option<**String**> |  | [optional]

@@ -11,7 +11,7 @@
 
 use reqwest;
 use serde::{Deserialize, Serialize};
-use crate::{apis::ResponseContent, models};
+use crate::client::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 /// struct for passing parameters to the method [`add_domain_config`]
@@ -19,6 +19,20 @@ use super::{Error, configuration};
 pub struct AddDomainConfigParams {
     pub tenant_id: String,
     pub add_domain_config_params: models::AddDomainConfigParams
+}
+
+/// struct for passing parameters to the method [`add_page`]
+#[derive(Clone, Debug)]
+pub struct AddPageParams {
+    pub tenant_id: String,
+    pub create_api_page_data: models::CreateApiPageData
+}
+
+/// struct for passing parameters to the method [`add_sso_user`]
+#[derive(Clone, Debug)]
+pub struct AddSsoUserParams {
+    pub tenant_id: String,
+    pub create_apisso_user_data: models::CreateApissoUserData
 }
 
 /// struct for passing parameters to the method [`aggregate`]
@@ -85,6 +99,13 @@ pub struct CreateFeedPostParams {
     pub skip_dup_check: Option<bool>
 }
 
+/// struct for passing parameters to the method [`create_subscription`]
+#[derive(Clone, Debug)]
+pub struct CreateSubscriptionParams {
+    pub tenant_id: String,
+    pub create_api_user_subscription_data: models::CreateApiUserSubscriptionData
+}
+
 /// struct for passing parameters to the method [`create_user_badge`]
 #[derive(Clone, Debug)]
 pub struct CreateUserBadgeParams {
@@ -106,6 +127,30 @@ pub struct DeleteCommentParams {
 pub struct DeleteDomainConfigParams {
     pub tenant_id: String,
     pub domain: String
+}
+
+/// struct for passing parameters to the method [`delete_page`]
+#[derive(Clone, Debug)]
+pub struct DeletePageParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`delete_sso_user`]
+#[derive(Clone, Debug)]
+pub struct DeleteSsoUserParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub delete_comments: Option<bool>,
+    pub comment_delete_mode: Option<String>
+}
+
+/// struct for passing parameters to the method [`delete_subscription`]
+#[derive(Clone, Debug)]
+pub struct DeleteSubscriptionParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub user_id: Option<String>
 }
 
 /// struct for passing parameters to the method [`delete_user_badge`]
@@ -146,13 +191,13 @@ pub struct GetCommentParams {
 #[derive(Clone, Debug)]
 pub struct GetCommentsParams {
     pub tenant_id: String,
-    pub page: Option<f64>,
-    pub limit: Option<f64>,
-    pub skip: Option<f64>,
+    pub page: Option<i32>,
+    pub limit: Option<i32>,
+    pub skip: Option<i32>,
     pub as_tree: Option<bool>,
-    pub skip_children: Option<f64>,
-    pub limit_children: Option<f64>,
-    pub max_tree_depth: Option<f64>,
+    pub skip_children: Option<i32>,
+    pub limit_children: Option<i32>,
+    pub max_tree_depth: Option<i32>,
     pub url_id: Option<String>,
     pub user_id: Option<String>,
     pub anon_user_id: Option<String>,
@@ -182,6 +227,47 @@ pub struct GetFeedPostsParams {
     pub after_id: Option<String>,
     pub limit: Option<i32>,
     pub tags: Option<Vec<String>>
+}
+
+/// struct for passing parameters to the method [`get_page_by_urlid`]
+#[derive(Clone, Debug)]
+pub struct GetPageByUrlidParams {
+    pub tenant_id: String,
+    pub url_id: String
+}
+
+/// struct for passing parameters to the method [`get_pages`]
+#[derive(Clone, Debug)]
+pub struct GetPagesParams {
+    pub tenant_id: String
+}
+
+/// struct for passing parameters to the method [`get_sso_user_by_email`]
+#[derive(Clone, Debug)]
+pub struct GetSsoUserByEmailParams {
+    pub tenant_id: String,
+    pub email: String
+}
+
+/// struct for passing parameters to the method [`get_sso_user_by_id`]
+#[derive(Clone, Debug)]
+pub struct GetSsoUserByIdParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_sso_users`]
+#[derive(Clone, Debug)]
+pub struct GetSsoUsersParams {
+    pub tenant_id: String,
+    pub skip: Option<i32>
+}
+
+/// struct for passing parameters to the method [`get_subscriptions`]
+#[derive(Clone, Debug)]
+pub struct GetSubscriptionsParams {
+    pub tenant_id: String,
+    pub user_id: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_user_badge`]
@@ -234,6 +320,23 @@ pub struct PatchDomainConfigParams {
     pub patch_domain_config_params: models::PatchDomainConfigParams
 }
 
+/// struct for passing parameters to the method [`patch_page`]
+#[derive(Clone, Debug)]
+pub struct PatchPageParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_api_page_data: models::UpdateApiPageData
+}
+
+/// struct for passing parameters to the method [`patch_sso_user`]
+#[derive(Clone, Debug)]
+pub struct PatchSsoUserParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_apisso_user_data: models::UpdateApissoUserData,
+    pub update_comments: Option<bool>
+}
+
 /// struct for passing parameters to the method [`put_domain_config`]
 #[derive(Clone, Debug)]
 pub struct PutDomainConfigParams {
@@ -242,11 +345,31 @@ pub struct PutDomainConfigParams {
     pub update_domain_config_params: models::UpdateDomainConfigParams
 }
 
+/// struct for passing parameters to the method [`put_sso_user`]
+#[derive(Clone, Debug)]
+pub struct PutSsoUserParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_apisso_user_data: models::UpdateApissoUserData,
+    pub update_comments: Option<bool>
+}
+
 /// struct for passing parameters to the method [`save_comment`]
 #[derive(Clone, Debug)]
 pub struct SaveCommentParams {
     pub tenant_id: String,
     pub create_comment_params: models::CreateCommentParams,
+    pub is_live: Option<bool>,
+    pub do_spam_check: Option<bool>,
+    pub send_emails: Option<bool>,
+    pub populate_notifications: Option<bool>
+}
+
+/// struct for passing parameters to the method [`save_comments_bulk`]
+#[derive(Clone, Debug)]
+pub struct SaveCommentsBulkParams {
+    pub tenant_id: String,
+    pub create_comment_params: Vec<models::CreateCommentParams>,
     pub is_live: Option<bool>,
     pub do_spam_check: Option<bool>,
     pub send_emails: Option<bool>,
@@ -307,6 +430,20 @@ pub enum AddDomainConfigError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`add_page`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AddPageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`add_sso_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AddSsoUserError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`aggregate`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -349,6 +486,13 @@ pub enum CreateFeedPostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_subscription`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateSubscriptionError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`create_user_badge`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -367,6 +511,27 @@ pub enum DeleteCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_page`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeletePageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_sso_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteSsoUserError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_subscription`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteSubscriptionError {
     UnknownValue(serde_json::Value),
 }
 
@@ -426,6 +591,48 @@ pub enum GetFeedPostsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_page_by_urlid`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetPageByUrlidError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_pages`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetPagesError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_sso_user_by_email`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSsoUserByEmailError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_sso_user_by_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSsoUserByIdError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_sso_users`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSsoUsersError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_subscriptions`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSubscriptionsError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_user_badge`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -468,6 +675,20 @@ pub enum PatchDomainConfigError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`patch_page`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchPageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_sso_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchSsoUserError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`put_domain_config`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -475,10 +696,24 @@ pub enum PutDomainConfigError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`put_sso_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutSsoUserError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`save_comment`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SaveCommentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`save_comments_bulk`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SaveCommentsBulkError {
     UnknownValue(serde_json::Value),
 }
 
@@ -548,6 +783,74 @@ pub async fn add_domain_config(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<AddDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn add_page(configuration: &configuration::Configuration, params: AddPageParams) -> Result<models::AddPageApiResponse, Error<AddPageError>> {
+
+    let uri_str = format!("{}/api/v1/pages", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_api_page_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AddPageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn add_sso_user(configuration: &configuration::Configuration, params: AddSsoUserParams) -> Result<models::AddSsoUserApiResponse, Error<AddSsoUserError>> {
+
+    let uri_str = format!("{}/api/v1/sso-users", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_apisso_user_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AddSsoUserError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -649,7 +952,7 @@ pub async fn aggregate_question_results(configuration: &configuration::Configura
 
 pub async fn block_user_from_comment(configuration: &configuration::Configuration, params: BlockUserFromCommentParams) -> Result<models::BlockFromCommentPublic200Response, Error<BlockUserFromCommentError>> {
 
-    let uri_str = format!("{}/api/v1/comments/{id}/block", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/comments/{id}/block", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -830,6 +1133,40 @@ pub async fn create_feed_post(configuration: &configuration::Configuration, para
     }
 }
 
+pub async fn create_subscription(configuration: &configuration::Configuration, params: CreateSubscriptionParams) -> Result<models::CreateSubscriptionApiResponse, Error<CreateSubscriptionError>> {
+
+    let uri_str = format!("{}/api/v1/subscriptions", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_api_user_subscription_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateSubscriptionError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn create_user_badge(configuration: &configuration::Configuration, params: CreateUserBadgeParams) -> Result<models::CreateUserBadge200Response, Error<CreateUserBadgeError>> {
 
     let uri_str = format!("{}/api/v1/user-badges", configuration.base_path);
@@ -866,7 +1203,7 @@ pub async fn create_user_badge(configuration: &configuration::Configuration, par
 
 pub async fn delete_comment(configuration: &configuration::Configuration, params: DeleteCommentParams) -> Result<models::DeleteComment200Response, Error<DeleteCommentError>> {
 
-    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -905,7 +1242,7 @@ pub async fn delete_comment(configuration: &configuration::Configuration, params
 
 pub async fn delete_domain_config(configuration: &configuration::Configuration, params: DeleteDomainConfigParams) -> Result<models::DeleteDomainConfig200Response, Error<DeleteDomainConfigError>> {
 
-    let uri_str = format!("{}/api/v1/domain-configs/{domain}", configuration.base_path, domain=crate::apis::urlencode(params.domain));
+    let uri_str = format!("{}/api/v1/domain-configs/{domain}", configuration.base_path, domain=crate::client::apis::urlencode(params.domain));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -936,9 +1273,117 @@ pub async fn delete_domain_config(configuration: &configuration::Configuration, 
     }
 }
 
+pub async fn delete_page(configuration: &configuration::Configuration, params: DeletePageParams) -> Result<models::DeletePageApiResponse, Error<DeletePageError>> {
+
+    let uri_str = format!("{}/api/v1/pages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeletePageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_sso_user(configuration: &configuration::Configuration, params: DeleteSsoUserParams) -> Result<models::DeleteSsoUserApiResponse, Error<DeleteSsoUserError>> {
+
+    let uri_str = format!("{}/api/v1/sso-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.delete_comments {
+        req_builder = req_builder.query(&[("deleteComments", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.comment_delete_mode {
+        req_builder = req_builder.query(&[("commentDeleteMode", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteSsoUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_subscription(configuration: &configuration::Configuration, params: DeleteSubscriptionParams) -> Result<models::DeleteSubscriptionApiResponse, Error<DeleteSubscriptionError>> {
+
+    let uri_str = format!("{}/api/v1/subscriptions/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteSubscriptionError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn delete_user_badge(configuration: &configuration::Configuration, params: DeleteUserBadgeParams) -> Result<models::UpdateUserBadge200Response, Error<DeleteUserBadgeError>> {
 
-    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -971,7 +1416,7 @@ pub async fn delete_user_badge(configuration: &configuration::Configuration, par
 
 pub async fn flag_comment(configuration: &configuration::Configuration, params: FlagCommentParams) -> Result<models::FlagComment200Response, Error<FlagCommentError>> {
 
-    let uri_str = format!("{}/api/v1/comments/{id}/flag", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/comments/{id}/flag", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1058,7 +1503,7 @@ pub async fn get_audit_logs(configuration: &configuration::Configuration, params
 
 pub async fn get_comment(configuration: &configuration::Configuration, params: GetCommentParams) -> Result<models::GetComment200Response, Error<GetCommentError>> {
 
-    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1166,7 +1611,7 @@ pub async fn get_comments(configuration: &configuration::Configuration, params: 
 
 pub async fn get_domain_config(configuration: &configuration::Configuration, params: GetDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<GetDomainConfigError>> {
 
-    let uri_str = format!("{}/api/v1/domain-configs/{domain}", configuration.base_path, domain=crate::apis::urlencode(params.domain));
+    let uri_str = format!("{}/api/v1/domain-configs/{domain}", configuration.base_path, domain=crate::client::apis::urlencode(params.domain));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1276,9 +1721,214 @@ pub async fn get_feed_posts(configuration: &configuration::Configuration, params
     }
 }
 
+pub async fn get_page_by_urlid(configuration: &configuration::Configuration, params: GetPageByUrlidParams) -> Result<models::GetPageByUrlidApiResponse, Error<GetPageByUrlidError>> {
+
+    let uri_str = format!("{}/api/v1/pages/by-url-id", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetPageByUrlidError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_pages(configuration: &configuration::Configuration, params: GetPagesParams) -> Result<models::GetPagesApiResponse, Error<GetPagesError>> {
+
+    let uri_str = format!("{}/api/v1/pages", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetPagesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_sso_user_by_email(configuration: &configuration::Configuration, params: GetSsoUserByEmailParams) -> Result<models::GetSsoUserByEmailApiResponse, Error<GetSsoUserByEmailError>> {
+
+    let uri_str = format!("{}/api/v1/sso-users/by-email/{email}", configuration.base_path, email=crate::client::apis::urlencode(params.email));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSsoUserByEmailError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_sso_user_by_id(configuration: &configuration::Configuration, params: GetSsoUserByIdParams) -> Result<models::GetSsoUserByIdApiResponse, Error<GetSsoUserByIdError>> {
+
+    let uri_str = format!("{}/api/v1/sso-users/by-id/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSsoUserByIdError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_sso_users(configuration: &configuration::Configuration, params: GetSsoUsersParams) -> Result<models::GetSsoUsers200Response, Error<GetSsoUsersError>> {
+
+    let uri_str = format!("{}/api/v1/sso-users", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSsoUsersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_subscriptions(configuration: &configuration::Configuration, params: GetSubscriptionsParams) -> Result<models::GetSubscriptionsApiResponse, Error<GetSubscriptionsError>> {
+
+    let uri_str = format!("{}/api/v1/subscriptions", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetSubscriptionsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn get_user_badge(configuration: &configuration::Configuration, params: GetUserBadgeParams) -> Result<models::GetUserBadge200Response, Error<GetUserBadgeError>> {
 
-    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1311,7 +1961,7 @@ pub async fn get_user_badge(configuration: &configuration::Configuration, params
 
 pub async fn get_user_badge_progress_by_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByIdParams) -> Result<models::GetUserBadgeProgressById200Response, Error<GetUserBadgeProgressByIdError>> {
 
-    let uri_str = format!("{}/api/v1/user-badge-progress/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/user-badge-progress/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1344,7 +1994,7 @@ pub async fn get_user_badge_progress_by_id(configuration: &configuration::Config
 
 pub async fn get_user_badge_progress_by_user_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByUserIdParams) -> Result<models::GetUserBadgeProgressById200Response, Error<GetUserBadgeProgressByUserIdError>> {
 
-    let uri_str = format!("{}/api/v1/user-badge-progress/user/{userId}", configuration.base_path, userId=crate::apis::urlencode(params.user_id));
+    let uri_str = format!("{}/api/v1/user-badge-progress/user/{userId}", configuration.base_path, userId=crate::client::apis::urlencode(params.user_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1470,7 +2120,7 @@ pub async fn get_user_badges(configuration: &configuration::Configuration, param
 
 pub async fn patch_domain_config(configuration: &configuration::Configuration, params: PatchDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<PatchDomainConfigError>> {
 
-    let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::apis::urlencode(params.domain_to_update));
+    let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::client::apis::urlencode(params.domain_to_update));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1502,9 +2152,80 @@ pub async fn patch_domain_config(configuration: &configuration::Configuration, p
     }
 }
 
+pub async fn patch_page(configuration: &configuration::Configuration, params: PatchPageParams) -> Result<models::PatchPageApiResponse, Error<PatchPageError>> {
+
+    let uri_str = format!("{}/api/v1/pages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_api_page_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchPageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn patch_sso_user(configuration: &configuration::Configuration, params: PatchSsoUserParams) -> Result<models::PatchSsoUserApiResponse, Error<PatchSsoUserError>> {
+
+    let uri_str = format!("{}/api/v1/sso-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.update_comments {
+        req_builder = req_builder.query(&[("updateComments", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_apisso_user_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchSsoUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn put_domain_config(configuration: &configuration::Configuration, params: PutDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<PutDomainConfigError>> {
 
-    let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::apis::urlencode(params.domain_to_update));
+    let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::client::apis::urlencode(params.domain_to_update));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1532,6 +2253,43 @@ pub async fn put_domain_config(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<PutDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn put_sso_user(configuration: &configuration::Configuration, params: PutSsoUserParams) -> Result<models::PutSsoUserApiResponse, Error<PutSsoUserError>> {
+
+    let uri_str = format!("{}/api/v1/sso-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.update_comments {
+        req_builder = req_builder.query(&[("updateComments", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_apisso_user_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PutSsoUserError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1582,9 +2340,55 @@ pub async fn save_comment(configuration: &configuration::Configuration, params: 
     }
 }
 
+pub async fn save_comments_bulk(configuration: &configuration::Configuration, params: SaveCommentsBulkParams) -> Result<Vec<models::SaveComment200Response>, Error<SaveCommentsBulkError>> {
+
+    let uri_str = format!("{}/api/v1/comments/bulk", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.is_live {
+        req_builder = req_builder.query(&[("isLive", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.do_spam_check {
+        req_builder = req_builder.query(&[("doSpamCheck", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.send_emails {
+        req_builder = req_builder.query(&[("sendEmails", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.populate_notifications {
+        req_builder = req_builder.query(&[("populateNotifications", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_comment_params);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SaveCommentsBulkError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn un_block_user_from_comment(configuration: &configuration::Configuration, params: UnBlockUserFromCommentParams) -> Result<models::UnBlockCommentPublic200Response, Error<UnBlockUserFromCommentError>> {
 
-    let uri_str = format!("{}/api/v1/comments/{id}/un-block", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/comments/{id}/un-block", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1624,7 +2428,7 @@ pub async fn un_block_user_from_comment(configuration: &configuration::Configura
 
 pub async fn un_flag_comment(configuration: &configuration::Configuration, params: UnFlagCommentParams) -> Result<models::FlagComment200Response, Error<UnFlagCommentError>> {
 
-    let uri_str = format!("{}/api/v1/comments/{id}/un-flag", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/comments/{id}/un-flag", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1663,7 +2467,7 @@ pub async fn un_flag_comment(configuration: &configuration::Configuration, param
 
 pub async fn update_comment(configuration: &configuration::Configuration, params: UpdateCommentParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateCommentError>> {
 
-    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1706,7 +2510,7 @@ pub async fn update_comment(configuration: &configuration::Configuration, params
 
 pub async fn update_feed_post(configuration: &configuration::Configuration, params: UpdateFeedPostParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateFeedPostError>> {
 
-    let uri_str = format!("{}/api/v1/feed-posts/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/feed-posts/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
@@ -1740,7 +2544,7 @@ pub async fn update_feed_post(configuration: &configuration::Configuration, para
 
 pub async fn update_user_badge(configuration: &configuration::Configuration, params: UpdateUserBadgeParams) -> Result<models::UpdateUserBadge200Response, Error<UpdateUserBadgeError>> {
 
-    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::apis::urlencode(params.id));
+    let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);

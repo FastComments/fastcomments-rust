@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | Option<**f64**> |  | [optional]
+**status_code** | Option<**i32**> |  | [optional]
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **code** | Option<**String**> |  | [optional]
 **reason** | Option<**String**> |  | [optional]
