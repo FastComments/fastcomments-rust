@@ -1,4 +1,4 @@
-use fastcomments_rust::client::apis::public_api::GetCommentsPublicParams;
+use fastcomments_sdk::client::apis::public_api::GetCommentsPublicParams;
 
 pub fn comments_params(tenant_id: String, url_id: String, sso_token: Option<String>) -> GetCommentsPublicParams {
     GetCommentsPublicParams {

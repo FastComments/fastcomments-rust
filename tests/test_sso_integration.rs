@@ -5,7 +5,7 @@
 
 mod common;
 
-use fastcomments_rust::{FastCommentsSSO, SecureSSOUserData, SimpleSSOUserData};
+use fastcomments_sdk::{FastCommentsSSO, SecureSSOUserData, SimpleSSOUserData};
 use common::TestEnv;
 
 // Note: Integration tests will be skipped if generated client is not available

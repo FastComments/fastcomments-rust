@@ -1,5 +1,5 @@
 [package]
-name = "fastcomments-rust"
+name = "fastcomments-sdk"
 version = "0.0.1"
 authors = ["FastComments <support@fastcomments.com>"]
 description = "Official FastComments Rust SDK (Typed API Client & Utilities)"
@@ -45,7 +45,7 @@ tokio = { version = "1.44.1", features = ["macros", "rt-multi-thread"] }
 tokio-test = "0.4"
 
 [lib]
-name = "fastcomments_rust"
+name = "fastcomments_sdk"
 path = "src/lib.rs"
 
 [[example]]

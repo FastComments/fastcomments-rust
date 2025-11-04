@@ -2,7 +2,7 @@
 
 mod common;
 
-use fastcomments_rust::{
+use fastcomments_sdk::{
     FastCommentsSSO, SecureSSOUserData, SimpleSSOUserData,
 };
 use common::{TestEnv, TestUserData};

@@ -1,5 +1,5 @@
-use fastcomments_rust::client::apis::configuration::Configuration;
-use fastcomments_rust::sso::{
+use fastcomments_sdk::client::apis::configuration::Configuration;
+use fastcomments_sdk::sso::{
     fastcomments_sso::FastCommentsSSO, secure_sso_user_data::SecureSSOUserData,
 };
 
@@ -30,7 +30,7 @@ async fn main() {
     let config = Configuration::new();
 
     // Try to get comments
-    let result = fastcomments_rust::client::apis::public_api::get_comments_public(
+    let result = fastcomments_sdk::client::apis::public_api::get_comments_public(
         &config,
         comments_params(tenant_id, url_id, Some(token)),
     )
