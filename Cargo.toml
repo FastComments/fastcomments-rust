@@ -9,6 +9,17 @@ repository = "https://github.com/fastcomments/fastcomments-rust"
 homepage = "https://fastcomments.com"
 keywords = ["fastcomments", "comments", "commenting-system", "api", "sdk"]
 categories = ["api-bindings", "web-programming"]
+include = [
+    "src/**/*",
+    "sso/**/*",
+    "client/src/**/*",
+    "client/Cargo.toml",
+    "examples/**/*",
+    "tests/**/*",
+    "Cargo.toml",
+    "LICENSE",
+    "README.md",
+]
 
 [dependencies]
 # Serialization
