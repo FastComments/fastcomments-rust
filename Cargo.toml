@@ -2,12 +2,12 @@
 name = "fastcomments-rust"
 version = "0.0.1"
 authors = ["FastComments <support@fastcomments.com>"]
-description = "FastComments Rust SDK - A SDK for interacting with the FastComments API"
+description = "Official FastComments Rust SDK (Typed API Client & Utilities)"
 license = "MIT"
 edition = "2021"
 repository = "https://github.com/fastcomments/fastcomments-rust"
 homepage = "https://fastcomments.com"
-keywords = ["fastcomments", "comments", "api", "sdk"]
+keywords = ["fastcomments", "comments", "commenting-system", "api", "sdk"]
 categories = ["api-bindings", "web-programming"]
 
 [dependencies]
