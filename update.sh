@@ -29,3 +29,9 @@ echo "Fixing import paths..."
 find ./client/src -type f -name "*.rs" -exec sed -i 's/use crate::{apis::ResponseContent, models}/use crate::client::{apis::ResponseContent, models}/g' {} \;
 find ./client/src -type f -name "*.rs" -exec sed -i 's/use crate::models;/use crate::client::models;/g' {} \;
 find ./client/src -type f -name "*.rs" -exec sed -i 's/crate::apis::urlencode/crate::client::apis::urlencode/g' {} \;
+
+# Remove files that prevent cargo publish from including client directory
+echo "Removing client/.gitignore and client/Cargo.toml..."
+rm -f ./client/.gitignore ./client/Cargo.toml
+
+echo "Client generation complete!"
