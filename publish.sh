@@ -30,7 +30,7 @@ cargo build --release
 
 echo ""
 echo "Publishing to crates.io..."
-cargo publish
+cargo publish --allow-dirty
 
 echo ""
 echo "✓ Successfully published fastcomments-sdk v$VERSION to crates.io!"
