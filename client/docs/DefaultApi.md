@@ -1409,7 +1409,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_comment
 
-> models::FlagCommentPublic200Response update_comment(tenant_id, id, body, context_user_id, do_spam_check, is_live)
+> models::FlagCommentPublic200Response update_comment(tenant_id, id, updatable_comment_params, context_user_id, do_spam_check, is_live)
 
 
 ### Parameters
@@ -1419,7 +1419,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **id** | **String** |  | [required] |
-**body** | **models::PickApiCommentPeriodUpdatableCommentFields** |  | [required] |
+**updatable_comment_params** | [**UpdatableCommentParams**](UpdatableCommentParams.md) |  | [required] |
 **context_user_id** | Option<**String**> |  |  |
 **do_spam_check** | Option<**bool**> |  |  |
 **is_live** | Option<**bool**> |  |  |

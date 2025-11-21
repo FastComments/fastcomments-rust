@@ -1,31 +1,28 @@
-# PickFCommentPeriodApiCommentFieldsKeys
+# UpdatableCommentParams
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **String** |  | 
-**_id** | **String** |  | 
-**tenant_id** | **String** |  | 
-**url_id** | **String** |  | 
+**url_id** | Option<**String**> |  | [optional]
 **url_id_raw** | Option<**String**> |  | [optional]
-**url** | **String** |  | 
+**url** | Option<**String**> |  | [optional]
 **page_title** | Option<**String**> |  | [optional]
 **user_id** | Option<**String**> |  | [optional]
-**anon_user_id** | Option<**String**> |  | [optional]
 **commenter_email** | Option<**String**> |  | [optional]
-**commenter_name** | **String** |  | 
+**commenter_name** | Option<**String**> |  | [optional]
 **commenter_link** | Option<**String**> |  | [optional]
-**comment** | **String** |  | 
-**comment_html** | **String** |  | 
+**comment** | Option<**String**> |  | [optional]
+**comment_html** | Option<**String**> |  | [optional]
 **parent_id** | Option<**String**> |  | [optional]
+**date** | Option<**f64**> |  | [optional]
 **local_date_string** | Option<**String**> |  | [optional]
 **local_date_hours** | Option<**i32**> |  | [optional]
 **votes** | Option<**i32**> |  | [optional]
 **votes_up** | Option<**i32**> |  | [optional]
 **votes_down** | Option<**i32**> |  | [optional]
 **expire_at** | Option<**String**> |  | [optional]
-**verified** | **bool** |  | 
+**verified** | Option<**bool**> |  | [optional]
 **verified_date** | Option<**String**> |  | [optional]
 **notification_sent_for_parent** | Option<**bool**> |  | [optional]
 **notification_sent_for_parent_tenant** | Option<**bool**> |  | [optional]
@@ -34,12 +31,7 @@ Name | Type | Description | Notes
 **external_parent_id** | Option<**String**> |  | [optional]
 **avatar_src** | Option<**String**> |  | [optional]
 **is_spam** | Option<**bool**> |  | [optional]
-**ai_determined_spam** | Option<**bool**> |  | [optional]
-**has_images** | Option<**bool**> |  | [optional]
-**has_links** | Option<**bool**> |  | [optional]
-**has_code** | Option<**bool**> |  | [optional]
-**approved** | **bool** |  | 
-**locale** | **String** |  | 
+**approved** | Option<**bool**> |  | [optional]
 **is_deleted** | Option<**bool**> |  | [optional]
 **is_deleted_user** | Option<**bool**> |  | [optional]
 **is_by_admin** | Option<**bool**> |  | [optional]
@@ -47,14 +39,8 @@ Name | Type | Description | Notes
 **is_pinned** | Option<**bool**> |  | [optional]
 **is_locked** | Option<**bool**> |  | [optional]
 **flag_count** | Option<**i32**> |  | [optional]
-**rating** | Option<**f64**> |  | [optional]
 **display_label** | Option<**String**> |  | [optional]
-**from_product_id** | Option<**i32**> |  | [optional]
-**meta** | Option<[**models::PickFCommentApiCommentFieldsKeysMeta**](Pick_FComment_APICommentFieldsKeys__meta.md)> |  | [optional]
-**mentions** | Option<[**Vec<models::CommentUserMentionInfo>**](CommentUserMentionInfo.md)> |  | [optional]
-**hash_tags** | Option<[**Vec<models::CommentUserHashTagInfo>**](CommentUserHashTagInfo.md)> |  | [optional]
-**badges** | Option<[**Vec<models::CommentUserBadgeInfo>**](CommentUserBadgeInfo.md)> |  | [optional]
-**domain** | Option<**String**> |  | [optional]
+**meta** | Option<[**models::FCommentMeta**](FComment_meta.md)> |  | [optional]
 **moderation_group_ids** | Option<**Vec<String>**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 

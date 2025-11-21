@@ -1,16 +1,16 @@
-# PickTenantAuditLogPeriodTenantAuditLogKeys
+# ApiAuditLog
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **String** |  | 
-**url** | Option<**String**> |  | [optional]
 **user_id** | Option<**String**> |  | [optional]
 **username** | Option<**String**> |  | [optional]
 **resource_name** | **String** |  | 
 **crud_type** | **String** |  | 
 **from** | Option<**String**> |  | [optional]
+**url** | Option<**String**> |  | [optional]
 **ip** | Option<**String**> |  | [optional]
 **when** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]

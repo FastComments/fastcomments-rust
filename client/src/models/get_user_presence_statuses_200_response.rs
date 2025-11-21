@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetUserPresenceStatuses200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "userIdsOnline")]
     pub user_ids_online: std::collections::HashMap<String, bool>,
@@ -35,7 +35,7 @@ pub struct GetUserPresenceStatuses200Response {
 }
 
 impl GetUserPresenceStatuses200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, user_ids_online: std::collections::HashMap<String, bool>, reason: String, code: String) -> GetUserPresenceStatuses200Response {
+    pub fn new(status: models::ApiStatus, user_ids_online: std::collections::HashMap<String, bool>, reason: String, code: String) -> GetUserPresenceStatuses200Response {
         GetUserPresenceStatuses200Response {
             status,
             user_ids_online,

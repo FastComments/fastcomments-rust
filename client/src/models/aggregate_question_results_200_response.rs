@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AggregateQuestionResults200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "data")]
     pub data: Box<models::QuestionResultAggregationOverall>,
     #[serde(rename = "reason")]
@@ -34,7 +34,7 @@ pub struct AggregateQuestionResults200Response {
 }
 
 impl AggregateQuestionResults200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, data: models::QuestionResultAggregationOverall, reason: String, code: String) -> AggregateQuestionResults200Response {
+    pub fn new(status: models::ApiStatus, data: models::QuestionResultAggregationOverall, reason: String, code: String) -> AggregateQuestionResults200Response {
         AggregateQuestionResults200Response {
             status,
             data: Box::new(data),

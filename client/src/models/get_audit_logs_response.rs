@@ -16,11 +16,11 @@ pub struct GetAuditLogsResponse {
     #[serde(rename = "status")]
     pub status: models::ApiStatus,
     #[serde(rename = "auditLogs")]
-    pub audit_logs: Vec<models::PickTenantAuditLogPeriodTenantAuditLogKeys>,
+    pub audit_logs: Vec<models::ApiAuditLog>,
 }
 
 impl GetAuditLogsResponse {
-    pub fn new(status: models::ApiStatus, audit_logs: Vec<models::PickTenantAuditLogPeriodTenantAuditLogKeys>) -> GetAuditLogsResponse {
+    pub fn new(status: models::ApiStatus, audit_logs: Vec<models::ApiAuditLog>) -> GetAuditLogsResponse {
         GetAuditLogsResponse {
             status,
             audit_logs,

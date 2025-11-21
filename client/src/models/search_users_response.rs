@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchUsersResponse {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
     #[serde(rename = "users")]
     pub users: Vec<models::UserSearchResult>,
 }
 
 impl SearchUsersResponse {
-    pub fn new(status: models::ImportedApiStatusPeriodSuccess, users: Vec<models::UserSearchResult>) -> SearchUsersResponse {
+    pub fn new(status: models::ApiStatus, users: Vec<models::UserSearchResult>) -> SearchUsersResponse {
         SearchUsersResponse {
             status,
             users,

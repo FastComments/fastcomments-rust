@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
-**comment** | [**models::PickFCommentPeriodApiCommentFieldsKeys**](Pick_FComment.APICommentFieldsKeys_.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
+**comment** | [**models::ApiComment**](APIComment.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

@@ -12,12 +12,18 @@ use crate::client::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct VoteDeleteResponseStatus {
+pub struct SetCommentTextResult {
+    #[serde(rename = "approved")]
+    pub approved: bool,
+    #[serde(rename = "commentHTML")]
+    pub comment_html: String,
 }
 
-impl VoteDeleteResponseStatus {
-    pub fn new() -> VoteDeleteResponseStatus {
-        VoteDeleteResponseStatus {
+impl SetCommentTextResult {
+    pub fn new(approved: bool, comment_html: String) -> SetCommentTextResult {
+        SetCommentTextResult {
+            approved,
+            comment_html,
         }
     }
 }

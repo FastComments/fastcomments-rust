@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HeaderState {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
     #[serde(rename = "NotificationType")]
     pub notification_type: serde_json::Value,
     #[serde(rename = "userId")]
@@ -26,7 +26,7 @@ pub struct HeaderState {
 }
 
 impl HeaderState {
-    pub fn new(status: models::ImportedApiStatusPeriodSuccess, notification_type: serde_json::Value, user_id: String, user_id_ws: String, notification_counts: Vec<models::NotificationAndCount>) -> HeaderState {
+    pub fn new(status: models::ApiStatus, notification_type: serde_json::Value, user_id: String, user_id_ws: String, notification_counts: Vec<models::NotificationAndCount>) -> HeaderState {
         HeaderState {
             status,
             notification_type,

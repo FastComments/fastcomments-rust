@@ -17,11 +17,11 @@ pub struct CheckBlockedCommentsResponse {
     #[serde(rename = "commentStatuses")]
     pub comment_statuses: std::collections::HashMap<String, bool>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
 }
 
 impl CheckBlockedCommentsResponse {
-    pub fn new(comment_statuses: std::collections::HashMap<String, bool>, status: models::ImportedApiStatusPeriodSuccess) -> CheckBlockedCommentsResponse {
+    pub fn new(comment_statuses: std::collections::HashMap<String, bool>, status: models::ApiStatus) -> CheckBlockedCommentsResponse {
         CheckBlockedCommentsResponse {
             comment_statuses,
             status,

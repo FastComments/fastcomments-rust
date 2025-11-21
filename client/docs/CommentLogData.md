@@ -1,0 +1,53 @@
+# CommentLogData
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**clear_content** | Option<**bool**> |  | [optional]
+**is_deleted_user** | Option<**bool**> |  | [optional]
+**phrase** | Option<**String**> |  | [optional]
+**bad_word** | Option<**String**> |  | [optional]
+**word** | Option<**String**> |  | [optional]
+**locale** | Option<**String**> |  | [optional]
+**tenant_badge_id** | Option<**String**> |  | [optional]
+**badge_id** | Option<**String**> |  | [optional]
+**was_logged_in** | Option<**bool**> |  | [optional]
+**found_user** | Option<**bool**> |  | [optional]
+**verified** | Option<**bool**> |  | [optional]
+**engine** | Option<**String**> |  | [optional]
+**engine_response** | Option<**String**> |  | [optional]
+**engine_tokens** | Option<**f64**> |  | [optional]
+**trust_factor** | Option<**f64**> |  | [optional]
+**rule** | Option<[**models::SpamRule**](SpamRule.md)> |  | [optional]
+**user_id** | Option<**String**> |  | [optional]
+**subscribers** | Option<**f64**> |  | [optional]
+**notification_count** | Option<**f64**> |  | [optional]
+**votes_before** | Option<**f64**> |  | [optional]
+**votes_up_before** | Option<**f64**> |  | [optional]
+**votes_down_before** | Option<**f64**> |  | [optional]
+**votes_after** | Option<**f64**> |  | [optional]
+**votes_up_after** | Option<**f64**> |  | [optional]
+**votes_down_after** | Option<**f64**> |  | [optional]
+**repeat_action** | Option<[**models::RepeatCommentHandlingAction**](RepeatCommentHandlingAction.md)> |  | [optional]
+**reason** | Option<[**models::RepeatCommentCheckIgnoredReason**](RepeatCommentCheckIgnoredReason.md)> |  | [optional]
+**other_data** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**spam_before** | Option<**bool**> |  | [optional]
+**spam_after** | Option<**bool**> |  | [optional]
+**permanent_flag** | Option<**String**> |  | [optional]
+**approved_before** | Option<**bool**> |  | [optional]
+**approved_after** | Option<**bool**> |  | [optional]
+**reviewed_before** | Option<**bool**> |  | [optional]
+**reviewed_after** | Option<**bool**> |  | [optional]
+**text_before** | Option<**String**> |  | [optional]
+**text_after** | Option<**String**> |  | [optional]
+**expire_before** | Option<**String**> |  | [optional]
+**expire_after** | Option<**String**> |  | [optional]
+**flag_count_before** | Option<**f64**> |  | [optional]
+**trust_factor_before** | Option<**f64**> |  | [optional]
+**trust_factor_after** | Option<**f64**> |  | [optional]
+**referenced_comment_id** | Option<**String**> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

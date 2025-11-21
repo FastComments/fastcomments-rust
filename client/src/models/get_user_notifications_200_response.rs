@@ -23,7 +23,7 @@ pub struct GetUserNotifications200Response {
     #[serde(rename = "notifications")]
     pub notifications: Vec<models::RenderableUserNotification>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -41,7 +41,7 @@ pub struct GetUserNotifications200Response {
 }
 
 impl GetUserNotifications200Response {
-    pub fn new(is_subscribed: bool, has_more: bool, notifications: Vec<models::RenderableUserNotification>, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> GetUserNotifications200Response {
+    pub fn new(is_subscribed: bool, has_more: bool, notifications: Vec<models::RenderableUserNotification>, status: models::ApiStatus, reason: String, code: String) -> GetUserNotifications200Response {
         GetUserNotifications200Response {
             translations: None,
             is_subscribed,

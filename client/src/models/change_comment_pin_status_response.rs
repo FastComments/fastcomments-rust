@@ -17,11 +17,11 @@ pub struct ChangeCommentPinStatusResponse {
     #[serde(rename = "commentPositions")]
     pub comment_positions: std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
 }
 
 impl ChangeCommentPinStatusResponse {
-    pub fn new(comment_positions: std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>, status: models::ImportedApiStatusPeriodSuccess) -> ChangeCommentPinStatusResponse {
+    pub fn new(comment_positions: std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>, status: models::ApiStatus) -> ChangeCommentPinStatusResponse {
         ChangeCommentPinStatusResponse {
             comment_positions,
             status,

@@ -16,11 +16,11 @@ pub struct ApiGetCommentsResponse {
     #[serde(rename = "status")]
     pub status: models::ApiStatus,
     #[serde(rename = "comments")]
-    pub comments: Vec<models::PickFCommentPeriodApiCommentFieldsKeys>,
+    pub comments: Vec<models::ApiComment>,
 }
 
 impl ApiGetCommentsResponse {
-    pub fn new(status: models::ApiStatus, comments: Vec<models::PickFCommentPeriodApiCommentFieldsKeys>) -> ApiGetCommentsResponse {
+    pub fn new(status: models::ApiStatus, comments: Vec<models::ApiComment>) -> ApiGetCommentsResponse {
         ApiGetCommentsResponse {
             status,
             comments,

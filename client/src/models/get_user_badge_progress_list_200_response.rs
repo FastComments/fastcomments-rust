@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetUserBadgeProgressList200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "userBadgeProgresses")]
     pub user_badge_progresses: Vec<models::UserBadgeProgress>,
     #[serde(rename = "reason")]
@@ -34,7 +34,7 @@ pub struct GetUserBadgeProgressList200Response {
 }
 
 impl GetUserBadgeProgressList200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, user_badge_progresses: Vec<models::UserBadgeProgress>, reason: String, code: String) -> GetUserBadgeProgressList200Response {
+    pub fn new(status: models::ApiStatus, user_badge_progresses: Vec<models::UserBadgeProgress>, reason: String, code: String) -> GetUserBadgeProgressList200Response {
         GetUserBadgeProgressList200Response {
             status,
             user_badge_progresses,

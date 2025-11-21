@@ -13,140 +13,140 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PubSubComment {
-    #[serde(rename = "date")]
-    pub date: String,
     #[serde(rename = "_id")]
     pub _id: String,
     #[serde(rename = "tenantId")]
     pub tenant_id: String,
+    #[serde(rename = "userId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub user_id: Option<Option<String>>,
     #[serde(rename = "urlId")]
     pub url_id: String,
-    #[serde(rename = "url")]
-    pub url: String,
-    #[serde(rename = "pageTitle", skip_serializing_if = "Option::is_none")]
-    pub page_title: Option<String>,
-    #[serde(rename = "userId", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    #[serde(rename = "anonUserId", skip_serializing_if = "Option::is_none")]
-    pub anon_user_id: Option<String>,
     #[serde(rename = "commenterName")]
     pub commenter_name: String,
-    #[serde(rename = "commenterLink", skip_serializing_if = "Option::is_none")]
-    pub commenter_link: Option<String>,
-    #[serde(rename = "comment")]
-    pub comment: String,
+    #[serde(rename = "commenterLink", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub commenter_link: Option<Option<String>>,
     #[serde(rename = "commentHTML")]
     pub comment_html: String,
-    #[serde(rename = "parentId", skip_serializing_if = "Option::is_none")]
-    pub parent_id: Option<String>,
-    #[serde(rename = "votes", skip_serializing_if = "Option::is_none")]
-    pub votes: Option<i32>,
-    #[serde(rename = "votesUp", skip_serializing_if = "Option::is_none")]
-    pub votes_up: Option<i32>,
-    #[serde(rename = "votesDown", skip_serializing_if = "Option::is_none")]
-    pub votes_down: Option<i32>,
-    #[serde(rename = "expireAt", skip_serializing_if = "Option::is_none")]
-    pub expire_at: Option<String>,
+    #[serde(rename = "comment")]
+    pub comment: String,
+    #[serde(rename = "parentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub parent_id: Option<Option<String>>,
+    #[serde(rename = "votes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub votes: Option<Option<i32>>,
+    #[serde(rename = "votesUp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub votes_up: Option<Option<i32>>,
+    #[serde(rename = "votesDown", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub votes_down: Option<Option<i32>>,
     #[serde(rename = "verified")]
     pub verified: bool,
-    #[serde(rename = "reviewed", skip_serializing_if = "Option::is_none")]
-    pub reviewed: Option<bool>,
-    #[serde(rename = "avatarSrc", skip_serializing_if = "Option::is_none")]
-    pub avatar_src: Option<String>,
-    #[serde(rename = "isSpam", skip_serializing_if = "Option::is_none")]
-    pub is_spam: Option<bool>,
+    #[serde(rename = "avatarSrc", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub avatar_src: Option<Option<String>>,
     #[serde(rename = "hasImages", skip_serializing_if = "Option::is_none")]
     pub has_images: Option<bool>,
     #[serde(rename = "hasLinks", skip_serializing_if = "Option::is_none")]
     pub has_links: Option<bool>,
-    #[serde(rename = "hasCode", skip_serializing_if = "Option::is_none")]
-    pub has_code: Option<bool>,
-    #[serde(rename = "approved")]
-    pub approved: bool,
-    #[serde(rename = "locale")]
-    pub locale: String,
-    #[serde(rename = "isDeleted", skip_serializing_if = "Option::is_none")]
-    pub is_deleted: Option<bool>,
-    #[serde(rename = "isDeletedUser", skip_serializing_if = "Option::is_none")]
-    pub is_deleted_user: Option<bool>,
-    #[serde(rename = "isBannedUser", skip_serializing_if = "Option::is_none")]
-    pub is_banned_user: Option<bool>,
     #[serde(rename = "isByAdmin", skip_serializing_if = "Option::is_none")]
     pub is_by_admin: Option<bool>,
     #[serde(rename = "isByModerator", skip_serializing_if = "Option::is_none")]
     pub is_by_moderator: Option<bool>,
-    #[serde(rename = "isPinned", skip_serializing_if = "Option::is_none")]
-    pub is_pinned: Option<bool>,
-    #[serde(rename = "isLocked", skip_serializing_if = "Option::is_none")]
-    pub is_locked: Option<bool>,
-    #[serde(rename = "flagCount", skip_serializing_if = "Option::is_none")]
-    pub flag_count: Option<i32>,
-    #[serde(rename = "rating", skip_serializing_if = "Option::is_none")]
-    pub rating: Option<f64>,
-    #[serde(rename = "displayLabel", skip_serializing_if = "Option::is_none")]
-    pub display_label: Option<String>,
-    #[serde(rename = "badges", skip_serializing_if = "Option::is_none")]
-    pub badges: Option<Vec<models::CommentUserBadgeInfo>>,
-    #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
-    pub domain: Option<String>,
+    #[serde(rename = "isPinned", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub is_pinned: Option<Option<bool>>,
+    #[serde(rename = "isLocked", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub is_locked: Option<Option<bool>>,
+    #[serde(rename = "displayLabel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub display_label: Option<Option<String>>,
+    #[serde(rename = "rating", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub rating: Option<Option<f64>>,
+    #[serde(rename = "badges", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub badges: Option<Option<Vec<models::CommentUserBadgeInfo>>>,
+    #[serde(rename = "viewCount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub view_count: Option<Option<i64>>,
+    #[serde(rename = "isDeleted", skip_serializing_if = "Option::is_none")]
+    pub is_deleted: Option<bool>,
+    #[serde(rename = "isDeletedUser", skip_serializing_if = "Option::is_none")]
+    pub is_deleted_user: Option<bool>,
+    #[serde(rename = "isSpam", skip_serializing_if = "Option::is_none")]
+    pub is_spam: Option<bool>,
+    #[serde(rename = "anonUserId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub anon_user_id: Option<Option<String>>,
     #[serde(rename = "feedbackIds", skip_serializing_if = "Option::is_none")]
     pub feedback_ids: Option<Vec<String>>,
-    #[serde(rename = "groupIds", skip_serializing_if = "Option::is_none")]
-    pub group_ids: Option<Vec<String>>,
-    #[serde(rename = "viewCount", skip_serializing_if = "Option::is_none")]
-    pub view_count: Option<i64>,
+    #[serde(rename = "flagCount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub flag_count: Option<Option<i32>>,
+    #[serde(rename = "domain", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub domain: Option<Option<String>>,
+    #[serde(rename = "url")]
+    pub url: String,
+    #[serde(rename = "pageTitle", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub page_title: Option<Option<String>>,
+    #[serde(rename = "expireAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub expire_at: Option<Option<String>>,
+    #[serde(rename = "reviewed", skip_serializing_if = "Option::is_none")]
+    pub reviewed: Option<bool>,
+    #[serde(rename = "hasCode", skip_serializing_if = "Option::is_none")]
+    pub has_code: Option<bool>,
+    #[serde(rename = "approved")]
+    pub approved: bool,
+    #[serde(rename = "locale", deserialize_with = "Option::deserialize")]
+    pub locale: Option<String>,
+    #[serde(rename = "isBannedUser", skip_serializing_if = "Option::is_none")]
+    pub is_banned_user: Option<bool>,
+    #[serde(rename = "groupIds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub group_ids: Option<Option<Vec<String>>>,
     #[serde(rename = "isLive", skip_serializing_if = "Option::is_none")]
     pub is_live: Option<bool>,
     #[serde(rename = "hidden", skip_serializing_if = "Option::is_none")]
     pub hidden: Option<bool>,
+    #[serde(rename = "date")]
+    pub date: String,
 }
 
 impl PubSubComment {
-    pub fn new(date: String, _id: String, tenant_id: String, url_id: String, url: String, commenter_name: String, comment: String, comment_html: String, verified: bool, approved: bool, locale: String) -> PubSubComment {
+    pub fn new(_id: String, tenant_id: String, url_id: String, commenter_name: String, comment_html: String, comment: String, verified: bool, url: String, approved: bool, locale: Option<String>, date: String) -> PubSubComment {
         PubSubComment {
-            date,
             _id,
             tenant_id,
-            url_id,
-            url,
-            page_title: None,
             user_id: None,
-            anon_user_id: None,
+            url_id,
             commenter_name,
             commenter_link: None,
-            comment,
             comment_html,
+            comment,
             parent_id: None,
             votes: None,
             votes_up: None,
             votes_down: None,
-            expire_at: None,
             verified,
-            reviewed: None,
             avatar_src: None,
-            is_spam: None,
             has_images: None,
             has_links: None,
-            has_code: None,
-            approved,
-            locale,
-            is_deleted: None,
-            is_deleted_user: None,
-            is_banned_user: None,
             is_by_admin: None,
             is_by_moderator: None,
             is_pinned: None,
             is_locked: None,
-            flag_count: None,
-            rating: None,
             display_label: None,
+            rating: None,
             badges: None,
-            domain: None,
-            feedback_ids: None,
-            group_ids: None,
             view_count: None,
+            is_deleted: None,
+            is_deleted_user: None,
+            is_spam: None,
+            anon_user_id: None,
+            feedback_ids: None,
+            flag_count: None,
+            domain: None,
+            url,
+            page_title: None,
+            expire_at: None,
+            reviewed: None,
+            has_code: None,
+            approved,
+            locale,
+            is_banned_user: None,
+            group_ids: None,
             is_live: None,
             hidden: None,
+            date,
         }
     }
 }

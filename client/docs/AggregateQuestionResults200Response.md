@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **data** | [**models::QuestionResultAggregationOverall**](QuestionResultAggregationOverall.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **comment** | [**models::PublicComment**](PublicComment.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | 
 **module_data** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | Construct a type with a set of properties K of type T | [optional]

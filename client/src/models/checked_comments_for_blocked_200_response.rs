@@ -17,7 +17,7 @@ pub struct CheckedCommentsForBlocked200Response {
     #[serde(rename = "commentStatuses")]
     pub comment_statuses: std::collections::HashMap<String, bool>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -35,7 +35,7 @@ pub struct CheckedCommentsForBlocked200Response {
 }
 
 impl CheckedCommentsForBlocked200Response {
-    pub fn new(comment_statuses: std::collections::HashMap<String, bool>, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> CheckedCommentsForBlocked200Response {
+    pub fn new(comment_statuses: std::collections::HashMap<String, bool>, status: models::ApiStatus, reason: String, code: String) -> CheckedCommentsForBlocked200Response {
         CheckedCommentsForBlocked200Response {
             comment_statuses,
             status,

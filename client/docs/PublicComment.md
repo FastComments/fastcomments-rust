@@ -4,34 +4,35 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | **String** |  | 
 **_id** | **String** |  | 
 **user_id** | Option<**String**> |  | [optional]
-**anon_user_id** | Option<**String**> |  | [optional]
 **commenter_name** | **String** |  | 
 **commenter_link** | Option<**String**> |  | [optional]
 **comment_html** | **String** |  | 
 **parent_id** | Option<**String**> |  | [optional]
+**date** | Option<**String**> |  | 
 **votes** | Option<**i32**> |  | [optional]
 **votes_up** | Option<**i32**> |  | [optional]
 **votes_down** | Option<**i32**> |  | [optional]
 **verified** | **bool** |  | 
 **avatar_src** | Option<**String**> |  | [optional]
-**is_spam** | Option<**bool**> |  | [optional]
 **has_images** | Option<**bool**> |  | [optional]
-**is_deleted** | Option<**bool**> |  | [optional]
-**is_deleted_user** | Option<**bool**> |  | [optional]
 **is_by_admin** | Option<**bool**> |  | [optional]
 **is_by_moderator** | Option<**bool**> |  | [optional]
 **is_pinned** | Option<**bool**> |  | [optional]
 **is_locked** | Option<**bool**> |  | [optional]
-**rating** | Option<**f64**> |  | [optional]
 **display_label** | Option<**String**> |  | [optional]
+**rating** | Option<**f64**> |  | [optional]
 **badges** | Option<[**Vec<models::CommentUserBadgeInfo>**](CommentUserBadgeInfo.md)> |  | [optional]
-**feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **view_count** | Option<**i64**> |  | [optional]
+**is_deleted** | Option<**bool**> |  | [optional]
+**is_deleted_user** | Option<**bool**> |  | [optional]
+**is_spam** | Option<**bool**> |  | [optional]
+**anon_user_id** | Option<**String**> |  | [optional]
+**feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **requires_verification** | Option<**bool**> |  | [optional]
 **edit_key** | Option<**String**> |  | [optional]
+**approved** | Option<**bool**> |  | [optional]
 **is_unread** | Option<**bool**> |  | [optional]
 **my_vote_id** | Option<**String**> |  | [optional]
 **is_voted_down** | Option<**bool**> |  | [optional]

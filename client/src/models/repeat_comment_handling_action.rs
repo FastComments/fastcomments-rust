@@ -13,23 +13,29 @@ use serde::{Deserialize, Serialize};
 
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum ImportedApiStatusPeriodSuccess {
-    #[serde(rename = "success")]
-    Success,
+pub enum RepeatCommentHandlingAction {
+    #[serde(rename = "0")]
+    Variant0,
+    #[serde(rename = "1")]
+    Variant1,
+    #[serde(rename = "2")]
+    Variant2,
 
 }
 
-impl std::fmt::Display for ImportedApiStatusPeriodSuccess {
+impl std::fmt::Display for RepeatCommentHandlingAction {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Success => write!(f, "success"),
+            Self::Variant0 => write!(f, "0"),
+            Self::Variant1 => write!(f, "1"),
+            Self::Variant2 => write!(f, "2"),
         }
     }
 }
 
-impl Default for ImportedApiStatusPeriodSuccess {
-    fn default() -> ImportedApiStatusPeriodSuccess {
-        Self::Success
+impl Default for RepeatCommentHandlingAction {
+    fn default() -> RepeatCommentHandlingAction {
+        Self::Variant0
     }
 }
 

@@ -11,13 +11,10 @@
 use crate::client::models;
 use serde::{Deserialize, Serialize};
 
-/// PickTenantAuditLogPeriodTenantAuditLogKeys : From T, pick a set of properties whose keys are in the union K
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PickTenantAuditLogPeriodTenantAuditLogKeys {
+pub struct ApiAuditLog {
     #[serde(rename = "_id")]
     pub _id: String,
-    #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
-    pub url: Option<String>,
     #[serde(rename = "userId", skip_serializing_if = "Option::is_none")]
     pub user_id: Option<String>,
     #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
@@ -28,8 +25,10 @@ pub struct PickTenantAuditLogPeriodTenantAuditLogKeys {
     pub crud_type: CrudType,
     #[serde(rename = "from", skip_serializing_if = "Option::is_none")]
     pub from: Option<From>,
-    #[serde(rename = "ip", skip_serializing_if = "Option::is_none")]
-    pub ip: Option<String>,
+    #[serde(rename = "url", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub url: Option<Option<String>>,
+    #[serde(rename = "ip", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ip: Option<Option<String>>,
     #[serde(rename = "when", skip_serializing_if = "Option::is_none")]
     pub when: Option<String>,
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
@@ -37,21 +36,20 @@ pub struct PickTenantAuditLogPeriodTenantAuditLogKeys {
     #[serde(rename = "serverStartDate", skip_serializing_if = "Option::is_none")]
     pub server_start_date: Option<String>,
     /// Construct a type with a set of properties K of type T
-    #[serde(rename = "objectDetails", skip_serializing_if = "Option::is_none")]
-    pub object_details: Option<std::collections::HashMap<String, serde_json::Value>>,
+    #[serde(rename = "objectDetails", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub object_details: Option<Option<std::collections::HashMap<String, serde_json::Value>>>,
 }
 
-impl PickTenantAuditLogPeriodTenantAuditLogKeys {
-    /// From T, pick a set of properties whose keys are in the union K
-    pub fn new(_id: String, resource_name: String, crud_type: CrudType) -> PickTenantAuditLogPeriodTenantAuditLogKeys {
-        PickTenantAuditLogPeriodTenantAuditLogKeys {
+impl ApiAuditLog {
+    pub fn new(_id: String, resource_name: String, crud_type: CrudType) -> ApiAuditLog {
+        ApiAuditLog {
             _id,
-            url: None,
             user_id: None,
             username: None,
             resource_name,
             crud_type,
             from: None,
+            url: None,
             ip: None,
             when: None,
             description: None,

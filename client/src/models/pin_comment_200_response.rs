@@ -17,7 +17,7 @@ pub struct PinComment200Response {
     #[serde(rename = "commentPositions")]
     pub comment_positions: std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -35,7 +35,7 @@ pub struct PinComment200Response {
 }
 
 impl PinComment200Response {
-    pub fn new(comment_positions: std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> PinComment200Response {
+    pub fn new(comment_positions: std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>, status: models::ApiStatus, reason: String, code: String) -> PinComment200Response {
         PinComment200Response {
             comment_positions,
             status,

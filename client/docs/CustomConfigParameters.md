@@ -56,6 +56,7 @@ Name | Type | Description | Notes
 **no_styles** | Option<**bool**> |  | [optional]
 **page_size** | Option<**i32**> |  | [optional]
 **readonly** | Option<**bool**> |  | [optional]
+**no_new_root_comments** | Option<**bool**> |  | [optional]
 **require_sso** | Option<**bool**> |  | [optional]
 **enable_resize_handle** | Option<**bool**> |  | [optional]
 **restricted_link_domains** | Option<**Vec<String>**> |  | [optional]

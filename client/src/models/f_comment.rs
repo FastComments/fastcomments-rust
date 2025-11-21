@@ -146,7 +146,7 @@ pub struct FComment {
     #[serde(rename = "feedbackIds", skip_serializing_if = "Option::is_none")]
     pub feedback_ids: Option<Vec<String>>,
     #[serde(rename = "logs", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub logs: Option<Option<Vec<Vec<serde_json::Value>>>>,
+    pub logs: Option<Option<Vec<models::CommentLogEntry>>>,
     #[serde(rename = "groupIds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub group_ids: Option<Option<Vec<String>>>,
     #[serde(rename = "viewCount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

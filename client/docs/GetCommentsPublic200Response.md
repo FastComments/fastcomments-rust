@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status_code** | Option<**i32**> |  | [optional]
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **code** | **String** |  | 
 **reason** | **String** |  | 
 **translated_warning** | Option<**String**> |  | [optional]

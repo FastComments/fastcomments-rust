@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UserNotificationWriteResponse {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
     #[serde(rename = "matchedCount")]
     pub matched_count: i64,
     #[serde(rename = "modifiedCount")]
@@ -22,7 +22,7 @@ pub struct UserNotificationWriteResponse {
 }
 
 impl UserNotificationWriteResponse {
-    pub fn new(status: models::ImportedApiStatusPeriodSuccess, matched_count: i64, modified_count: i64) -> UserNotificationWriteResponse {
+    pub fn new(status: models::ApiStatus, matched_count: i64, modified_count: i64) -> UserNotificationWriteResponse {
         UserNotificationWriteResponse {
             status,
             matched_count,

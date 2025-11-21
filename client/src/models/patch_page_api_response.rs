@@ -17,6 +17,8 @@ pub struct PatchPageApiResponse {
     pub reason: Option<String>,
     #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
     pub code: Option<String>,
+    #[serde(rename = "commentsUpdated", skip_serializing_if = "Option::is_none")]
+    pub comments_updated: Option<i64>,
     #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
     pub page: Option<Box<models::ApiPage>>,
     #[serde(rename = "status")]
@@ -28,6 +30,7 @@ impl PatchPageApiResponse {
         PatchPageApiResponse {
             reason: None,
             code: None,
+            comments_updated: None,
             page: None,
             status,
         }

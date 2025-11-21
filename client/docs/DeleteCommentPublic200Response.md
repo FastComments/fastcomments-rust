@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | Option<[**models::PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId**](Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_.md)> |  | [optional]
+**comment** | Option<[**models::DeletedCommentResultComment**](DeletedCommentResultComment.md)> |  | [optional]
 **hard_removed** | **bool** |  | 
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

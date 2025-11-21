@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BulkAggregateQuestionResults200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "data")]
     pub data: std::collections::HashMap<String, models::QuestionResultAggregationOverall>,
@@ -35,7 +35,7 @@ pub struct BulkAggregateQuestionResults200Response {
 }
 
 impl BulkAggregateQuestionResults200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, data: std::collections::HashMap<String, models::QuestionResultAggregationOverall>, reason: String, code: String) -> BulkAggregateQuestionResults200Response {
+    pub fn new(status: models::ApiStatus, data: std::collections::HashMap<String, models::QuestionResultAggregationOverall>, reason: String, code: String) -> BulkAggregateQuestionResults200Response {
         BulkAggregateQuestionResults200Response {
             status,
             data,

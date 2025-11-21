@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
-**audit_logs** | [**Vec<models::PickTenantAuditLogPeriodTenantAuditLogKeys>**](Pick_TenantAuditLog.TenantAuditLogKeys_.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
+**audit_logs** | [**Vec<models::ApiAuditLog>**](APIAuditLog.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetComment200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "comment")]
-    pub comment: Box<models::PickFCommentPeriodApiCommentFieldsKeys>,
+    pub comment: Box<models::ApiComment>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -34,7 +34,7 @@ pub struct GetComment200Response {
 }
 
 impl GetComment200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, comment: models::PickFCommentPeriodApiCommentFieldsKeys, reason: String, code: String) -> GetComment200Response {
+    pub fn new(status: models::ApiStatus, comment: models::ApiComment, reason: String, code: String) -> GetComment200Response {
         GetComment200Response {
             status,
             comment: Box::new(comment),

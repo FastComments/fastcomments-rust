@@ -16,7 +16,7 @@ pub struct FlagComment200Response {
     #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
     pub status_code: Option<i32>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "code")]
     pub code: String,
     #[serde(rename = "reason")]
@@ -36,7 +36,7 @@ pub struct FlagComment200Response {
 }
 
 impl FlagComment200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, code: String, reason: String) -> FlagComment200Response {
+    pub fn new(status: models::ApiStatus, code: String, reason: String) -> FlagComment200Response {
         FlagComment200Response {
             status_code: None,
             status,

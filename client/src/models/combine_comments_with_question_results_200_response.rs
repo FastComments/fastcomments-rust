@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CombineCommentsWithQuestionResults200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "data")]
     pub data: Box<models::FindCommentsByRangeResponse>,
     #[serde(rename = "reason")]
@@ -34,7 +34,7 @@ pub struct CombineCommentsWithQuestionResults200Response {
 }
 
 impl CombineCommentsWithQuestionResults200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, data: models::FindCommentsByRangeResponse, reason: String, code: String) -> CombineCommentsWithQuestionResults200Response {
+    pub fn new(status: models::ApiStatus, data: models::FindCommentsByRangeResponse, reason: String, code: String) -> CombineCommentsWithQuestionResults200Response {
         CombineCommentsWithQuestionResults200Response {
             status,
             data: Box::new(data),

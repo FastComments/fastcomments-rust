@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **data** | [**std::collections::HashMap<String, models::QuestionResultAggregationOverall>**](QuestionResultAggregationOverall.md) | Construct a type with a set of properties K of type T | 
 **reason** | **String** |  | 
 **code** | **String** |  | 

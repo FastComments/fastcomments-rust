@@ -19,6 +19,9 @@ docs/AggregationRequestSort.md
 docs/AggregationResponse.md
 docs/AggregationResponseStats.md
 docs/AggregationValue.md
+docs/ApiAuditLog.md
+docs/ApiComment.md
+docs/ApiCommentBase.md
 docs/ApiCreateUserBadgeResponse.md
 docs/ApiEmptyResponse.md
 docs/ApiEmptySuccessResponse.md
@@ -47,6 +50,9 @@ docs/CombineCommentsWithQuestionResults200Response.md
 docs/CombineQuestionResultsWithCommentsResponse.md
 docs/CommentData.md
 docs/CommentHtmlRenderingMode.md
+docs/CommentLogData.md
+docs/CommentLogEntry.md
+docs/CommentLogType.md
 docs/CommentQuestionResultsRenderingType.md
 docs/CommentQuestionsRequired.md
 docs/CommentTextUpdateRequest.md
@@ -81,6 +87,7 @@ docs/DeleteFeedPostPublic200ResponseAnyOf.md
 docs/DeletePageApiResponse.md
 docs/DeleteSsoUserApiResponse.md
 docs/DeleteSubscriptionApiResponse.md
+docs/DeletedCommentResultComment.md
 docs/EventLogEntry.md
 docs/FComment.md
 docs/FCommentMeta.md
@@ -137,8 +144,6 @@ docs/GifRating.md
 docs/HeaderState.md
 docs/IgnoredResponse.md
 docs/ImageContentProfanityLevel.md
-docs/ImportedApiStatusPeriodFailed.md
-docs/ImportedApiStatusPeriodSuccess.md
 docs/LiveEvent.md
 docs/LiveEventExtraInfo.md
 docs/LiveEventType.md
@@ -151,16 +156,9 @@ docs/NotificationType.md
 docs/PatchDomainConfigParams.md
 docs/PatchPageApiResponse.md
 docs/PatchSsoUserApiResponse.md
-docs/PickApiCommentPeriodUpdatableCommentFields.md
-docs/PickFCommentApiCommentFieldsKeysMeta.md
-docs/PickFCommentPeriodApiCommentFieldsKeys.md
-docs/PickFCommentPeriodApprovedOrCommentHtml.md
-docs/PickFCommentPeriodIsDeletedOrCommentHtmlOrCommenterNameOrUserId.md
-docs/PickFCommentPeriodPublicCommentFieldsKeys.md
-docs/PickOmitFCommentPeriodDatePeriodPublicCommentPubSubFieldsKeys.md
-docs/PickTenantAuditLogPeriodTenantAuditLogKeys.md
 docs/PinComment200Response.md
 docs/PubSubComment.md
+docs/PubSubCommentBase.md
 docs/PubSubVote.md
 docs/PublicApi.md
 docs/PublicApiDeleteCommentResponse.md
@@ -168,6 +166,7 @@ docs/PublicApiGetCommentTextResponse.md
 docs/PublicApiSetCommentTextResponse.md
 docs/PublicBlockFromCommentParams.md
 docs/PublicComment.md
+docs/PublicCommentBase.md
 docs/PublicFeedPostsResponse.md
 docs/PutSsoUserApiResponse.md
 docs/QueryPredicate.md
@@ -184,6 +183,8 @@ docs/ReactFeedPostResponse.md
 docs/RecordStringBeforeStringOrNullAfterStringOrNullValue.md
 docs/RecordStringStringOrNumberValue.md
 docs/RenderableUserNotification.md
+docs/RepeatCommentCheckIgnoredReason.md
+docs/RepeatCommentHandlingAction.md
 docs/ResetUserNotifications200Response.md
 docs/ResetUserNotificationsResponse.md
 docs/SaveComment200Response.md
@@ -193,6 +194,7 @@ docs/SaveCommentsResponseWithPresence.md
 docs/SearchUsers200Response.md
 docs/SearchUsersResponse.md
 docs/SetCommentText200Response.md
+docs/SetCommentTextResult.md
 docs/SizePreset.md
 docs/SortDir.md
 docs/SortDirections.md
@@ -201,6 +203,7 @@ docs/SsoSecurityLevel.md
 docs/UnBlockCommentPublic200Response.md
 docs/UnBlockFromCommentParams.md
 docs/UnblockSuccess.md
+docs/UpdatableCommentParams.md
 docs/UpdateApiPageData.md
 docs/UpdateApissoUserData.md
 docs/UpdateDomainConfigParams.md
@@ -220,7 +223,6 @@ docs/UserSessionInfo.md
 docs/VoteBodyParams.md
 docs/VoteComment200Response.md
 docs/VoteDeleteResponse.md
-docs/VoteDeleteResponseStatus.md
 docs/VoteResponse.md
 docs/VoteResponseStatus.md
 docs/VoteResponseUser.md
@@ -247,6 +249,9 @@ src/models/aggregation_request_sort.rs
 src/models/aggregation_response.rs
 src/models/aggregation_response_stats.rs
 src/models/aggregation_value.rs
+src/models/api_audit_log.rs
+src/models/api_comment.rs
+src/models/api_comment_base.rs
 src/models/api_create_user_badge_response.rs
 src/models/api_empty_response.rs
 src/models/api_empty_success_response.rs
@@ -275,6 +280,9 @@ src/models/combine_comments_with_question_results_200_response.rs
 src/models/combine_question_results_with_comments_response.rs
 src/models/comment_data.rs
 src/models/comment_html_rendering_mode.rs
+src/models/comment_log_data.rs
+src/models/comment_log_entry.rs
+src/models/comment_log_type.rs
 src/models/comment_question_results_rendering_type.rs
 src/models/comment_questions_required.rs
 src/models/comment_text_update_request.rs
@@ -308,6 +316,7 @@ src/models/delete_feed_post_public_200_response_any_of.rs
 src/models/delete_page_api_response.rs
 src/models/delete_sso_user_api_response.rs
 src/models/delete_subscription_api_response.rs
+src/models/deleted_comment_result_comment.rs
 src/models/event_log_entry.rs
 src/models/f_comment.rs
 src/models/f_comment_meta.rs
@@ -364,8 +373,6 @@ src/models/gif_rating.rs
 src/models/header_state.rs
 src/models/ignored_response.rs
 src/models/image_content_profanity_level.rs
-src/models/imported_api_status_period_failed.rs
-src/models/imported_api_status_period_success.rs
 src/models/live_event.rs
 src/models/live_event_extra_info.rs
 src/models/live_event_type.rs
@@ -379,22 +386,16 @@ src/models/notification_type.rs
 src/models/patch_domain_config_params.rs
 src/models/patch_page_api_response.rs
 src/models/patch_sso_user_api_response.rs
-src/models/pick_api_comment_period_updatable_comment_fields_.rs
-src/models/pick_f_comment_api_comment_fields_keys__meta.rs
-src/models/pick_f_comment_period_api_comment_fields_keys_.rs
-src/models/pick_f_comment_period_approved_or_comment_html_.rs
-src/models/pick_f_comment_period_is_deleted_or_comment_html_or_commenter_name_or_user_id_.rs
-src/models/pick_f_comment_period_public_comment_fields_keys_.rs
-src/models/pick_omit_f_comment_period_date_period_public_comment_pub_sub_fields_keys_.rs
-src/models/pick_tenant_audit_log_period_tenant_audit_log_keys_.rs
 src/models/pin_comment_200_response.rs
 src/models/pub_sub_comment.rs
+src/models/pub_sub_comment_base.rs
 src/models/pub_sub_vote.rs
 src/models/public_api_delete_comment_response.rs
 src/models/public_api_get_comment_text_response.rs
 src/models/public_api_set_comment_text_response.rs
 src/models/public_block_from_comment_params.rs
 src/models/public_comment.rs
+src/models/public_comment_base.rs
 src/models/public_feed_posts_response.rs
 src/models/put_sso_user_api_response.rs
 src/models/query_predicate.rs
@@ -411,6 +412,8 @@ src/models/react_feed_post_response.rs
 src/models/record_string__before_string_or_null__after_string_or_null___value.rs
 src/models/record_string_string_or_number__value.rs
 src/models/renderable_user_notification.rs
+src/models/repeat_comment_check_ignored_reason.rs
+src/models/repeat_comment_handling_action.rs
 src/models/reset_user_notifications_200_response.rs
 src/models/reset_user_notifications_response.rs
 src/models/save_comment_200_response.rs
@@ -420,6 +423,7 @@ src/models/save_comments_response_with_presence.rs
 src/models/search_users_200_response.rs
 src/models/search_users_response.rs
 src/models/set_comment_text_200_response.rs
+src/models/set_comment_text_result.rs
 src/models/size_preset.rs
 src/models/sort_dir.rs
 src/models/sort_directions.rs
@@ -428,6 +432,7 @@ src/models/sso_security_level.rs
 src/models/un_block_comment_public_200_response.rs
 src/models/un_block_from_comment_params.rs
 src/models/unblock_success.rs
+src/models/updatable_comment_params.rs
 src/models/update_api_page_data.rs
 src/models/update_apisso_user_data.rs
 src/models/update_domain_config_params.rs
@@ -447,7 +452,6 @@ src/models/user_session_info.rs
 src/models/vote_body_params.rs
 src/models/vote_comment_200_response.rs
 src/models/vote_delete_response.rs
-src/models/vote_delete_response_status.rs
 src/models/vote_response.rs
 src/models/vote_response_status.rs
 src/models/vote_response_user.rs

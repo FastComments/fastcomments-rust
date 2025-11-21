@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **my_reacts** | Option<[**std::collections::HashMap<String, std::collections::HashMap<String, bool>>**](std::collections::HashMap.md)> |  | [optional]
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **feed_posts** | [**Vec<models::FeedPost>**](FeedPost.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | [optional]
 **url_id_ws** | Option<**String**> |  | [optional]

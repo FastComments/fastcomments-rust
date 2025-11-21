@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **user_badges** | [**Vec<models::UserBadge>**](UserBadge.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 

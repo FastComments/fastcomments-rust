@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct VoteComment200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "voteId", skip_serializing_if = "Option::is_none")]
     pub vote_id: Option<String>,
     #[serde(rename = "isVerified", skip_serializing_if = "Option::is_none")]
@@ -40,7 +40,7 @@ pub struct VoteComment200Response {
 }
 
 impl VoteComment200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> VoteComment200Response {
+    pub fn new(status: models::ApiStatus, reason: String, code: String) -> VoteComment200Response {
         VoteComment200Response {
             status,
             vote_id: None,

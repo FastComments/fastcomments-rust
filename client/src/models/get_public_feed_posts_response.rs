@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetPublicFeedPostsResponse {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
     #[serde(rename = "feedPosts")]
     pub feed_posts: Vec<models::FeedPost>,
     #[serde(rename = "user", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -22,7 +22,7 @@ pub struct GetPublicFeedPostsResponse {
 }
 
 impl GetPublicFeedPostsResponse {
-    pub fn new(status: models::ImportedApiStatusPeriodSuccess, feed_posts: Vec<models::FeedPost>) -> GetPublicFeedPostsResponse {
+    pub fn new(status: models::ApiStatus, feed_posts: Vec<models::FeedPost>) -> GetPublicFeedPostsResponse {
         GetPublicFeedPostsResponse {
             status,
             feed_posts,

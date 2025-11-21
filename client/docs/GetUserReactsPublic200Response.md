@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **reacts** | [**std::collections::HashMap<String, std::collections::HashMap<String, bool>>**](std::collections::HashMap.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 

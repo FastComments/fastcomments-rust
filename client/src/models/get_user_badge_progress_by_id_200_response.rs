@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetUserBadgeProgressById200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "userBadgeProgress")]
     pub user_badge_progress: Box<models::UserBadgeProgress>,
     #[serde(rename = "reason")]
@@ -34,7 +34,7 @@ pub struct GetUserBadgeProgressById200Response {
 }
 
 impl GetUserBadgeProgressById200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, user_badge_progress: models::UserBadgeProgress, reason: String, code: String) -> GetUserBadgeProgressById200Response {
+    pub fn new(status: models::ApiStatus, user_badge_progress: models::UserBadgeProgress, reason: String, code: String) -> GetUserBadgeProgressById200Response {
         GetUserBadgeProgressById200Response {
             status,
             user_badge_progress: Box::new(user_badge_progress),

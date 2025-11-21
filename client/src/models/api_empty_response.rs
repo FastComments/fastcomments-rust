@@ -14,11 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiEmptyResponse {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
 }
 
 impl ApiEmptyResponse {
-    pub fn new(status: models::ImportedApiStatusPeriodSuccess) -> ApiEmptyResponse {
+    pub fn new(status: models::ApiStatus) -> ApiEmptyResponse {
         ApiEmptyResponse {
             status,
         }

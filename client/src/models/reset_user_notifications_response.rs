@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResetUserNotificationsResponse {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
     #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
     pub code: Option<Code>,
 }
 
 impl ResetUserNotificationsResponse {
-    pub fn new(status: models::ImportedApiStatusPeriodSuccess) -> ResetUserNotificationsResponse {
+    pub fn new(status: models::ApiStatus) -> ResetUserNotificationsResponse {
         ResetUserNotificationsResponse {
             status,
             code: None,
