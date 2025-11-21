@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PublicApiSetCommentTextResponse {
     #[serde(rename = "comment")]
-    pub comment: Box<models::PickFCommentPeriodApprovedOrCommentHtml>,
+    pub comment: Box<models::SetCommentTextResult>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
 }
 
 impl PublicApiSetCommentTextResponse {
-    pub fn new(comment: models::PickFCommentPeriodApprovedOrCommentHtml, status: models::ImportedApiStatusPeriodSuccess) -> PublicApiSetCommentTextResponse {
+    pub fn new(comment: models::SetCommentTextResult, status: models::ApiStatus) -> PublicApiSetCommentTextResponse {
         PublicApiSetCommentTextResponse {
             comment: Box::new(comment),
             status,

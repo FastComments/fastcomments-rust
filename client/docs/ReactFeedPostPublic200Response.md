@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **react_type** | **String** |  | 
 **is_undo** | **bool** |  | 
 **reason** | **String** |  | 

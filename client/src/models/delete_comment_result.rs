@@ -16,11 +16,11 @@ pub struct DeleteCommentResult {
     #[serde(rename = "action")]
     pub action: models::DeleteCommentAction,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
 }
 
 impl DeleteCommentResult {
-    pub fn new(action: models::DeleteCommentAction, status: models::ImportedApiStatusPeriodSuccess) -> DeleteCommentResult {
+    pub fn new(action: models::DeleteCommentAction, status: models::ApiStatus) -> DeleteCommentResult {
         DeleteCommentResult {
             action,
             status,

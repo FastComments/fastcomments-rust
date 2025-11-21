@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SaveCommentResponse {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
     #[serde(rename = "comment")]
     pub comment: Box<models::FComment>,
     #[serde(rename = "user", deserialize_with = "Option::deserialize")]
@@ -25,7 +25,7 @@ pub struct SaveCommentResponse {
 }
 
 impl SaveCommentResponse {
-    pub fn new(status: models::ImportedApiStatusPeriodSuccess, comment: models::FComment, user: Option<models::UserSessionInfo>) -> SaveCommentResponse {
+    pub fn new(status: models::ApiStatus, comment: models::FComment, user: Option<models::UserSessionInfo>) -> SaveCommentResponse {
         SaveCommentResponse {
             status,
             comment: Box::new(comment),

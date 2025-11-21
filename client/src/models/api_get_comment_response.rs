@@ -16,11 +16,11 @@ pub struct ApiGetCommentResponse {
     #[serde(rename = "status")]
     pub status: models::ApiStatus,
     #[serde(rename = "comment")]
-    pub comment: Box<models::PickFCommentPeriodApiCommentFieldsKeys>,
+    pub comment: Box<models::ApiComment>,
 }
 
 impl ApiGetCommentResponse {
-    pub fn new(status: models::ApiStatus, comment: models::PickFCommentPeriodApiCommentFieldsKeys) -> ApiGetCommentResponse {
+    pub fn new(status: models::ApiStatus, comment: models::ApiComment) -> ApiGetCommentResponse {
         ApiGetCommentResponse {
             status,
             comment: Box::new(comment),

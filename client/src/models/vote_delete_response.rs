@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct VoteDeleteResponse {
     #[serde(rename = "status")]
-    pub status: Box<models::VoteDeleteResponseStatus>,
+    pub status: models::ApiStatus,
     #[serde(rename = "wasPendingVote", skip_serializing_if = "Option::is_none")]
     pub was_pending_vote: Option<bool>,
 }
 
 impl VoteDeleteResponse {
-    pub fn new(status: models::VoteDeleteResponseStatus) -> VoteDeleteResponse {
+    pub fn new(status: models::ApiStatus) -> VoteDeleteResponse {
         VoteDeleteResponse {
-            status: Box::new(status),
+            status,
             was_pending_vote: None,
         }
     }

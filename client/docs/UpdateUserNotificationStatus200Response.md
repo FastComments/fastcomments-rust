@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **matched_count** | **i64** |  | 
 **modified_count** | **i64** |  | 
 **note** | **String** |  | 

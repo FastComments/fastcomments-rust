@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reason** | Option<**String**> |  | [optional]
 **code** | Option<**String**> |  | [optional]
+**comments_updated** | Option<**i64**> |  | [optional]
 **page** | Option<[**models::ApiPage**](APIPage.md)> |  | [optional]
 **status** | **String** |  | 
 

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetCommentText200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "commentText")]
     pub comment_text: String,
     #[serde(rename = "sanitizedCommentText")]
@@ -36,7 +36,7 @@ pub struct GetCommentText200Response {
 }
 
 impl GetCommentText200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, comment_text: String, sanitized_comment_text: String, reason: String, code: String) -> GetCommentText200Response {
+    pub fn new(status: models::ApiStatus, comment_text: String, sanitized_comment_text: String, reason: String, code: String) -> GetCommentText200Response {
         GetCommentText200Response {
             status,
             comment_text,

@@ -14,9 +14,11 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateUserBadge200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "userBadge")]
     pub user_badge: Box<models::UserBadge>,
+    #[serde(rename = "notes", skip_serializing_if = "Option::is_none")]
+    pub notes: Option<Vec<String>>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -34,10 +36,11 @@ pub struct CreateUserBadge200Response {
 }
 
 impl CreateUserBadge200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, user_badge: models::UserBadge, reason: String, code: String) -> CreateUserBadge200Response {
+    pub fn new(status: models::ApiStatus, user_badge: models::UserBadge, reason: String, code: String) -> CreateUserBadge200Response {
         CreateUserBadge200Response {
             status,
             user_badge: Box::new(user_badge),
+            notes: None,
             reason,
             code,
             secondary_code: None,

@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UpdateUserNotificationStatus200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "matchedCount")]
     pub matched_count: i64,
     #[serde(rename = "modifiedCount")]
@@ -38,7 +38,7 @@ pub struct UpdateUserNotificationStatus200Response {
 }
 
 impl UpdateUserNotificationStatus200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, matched_count: i64, modified_count: i64, note: Note, reason: String, code: String) -> UpdateUserNotificationStatus200Response {
+    pub fn new(status: models::ApiStatus, matched_count: i64, modified_count: i64, note: Note, reason: String, code: String) -> UpdateUserNotificationStatus200Response {
         UpdateUserNotificationStatus200Response {
             status,
             matched_count,

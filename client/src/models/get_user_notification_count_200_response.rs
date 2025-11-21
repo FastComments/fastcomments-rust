@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetUserNotificationCount200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "count")]
     pub count: i64,
     #[serde(rename = "reason")]
@@ -34,7 +34,7 @@ pub struct GetUserNotificationCount200Response {
 }
 
 impl GetUserNotificationCount200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, count: i64, reason: String, code: String) -> GetUserNotificationCount200Response {
+    pub fn new(status: models::ApiStatus, count: i64, reason: String, code: String) -> GetUserNotificationCount200Response {
         GetUserNotificationCount200Response {
             status,
             count,

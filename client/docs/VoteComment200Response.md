@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **vote_id** | Option<**String**> |  | [optional]
 **is_verified** | Option<**bool**> |  | [optional]
 **user** | Option<[**models::VoteResponseUser**](VoteResponseUser.md)> |  | [optional]

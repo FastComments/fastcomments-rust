@@ -117,6 +117,8 @@ pub struct CustomConfigParameters {
     pub page_size: Option<Option<i32>>,
     #[serde(rename = "readonly", skip_serializing_if = "Option::is_none")]
     pub readonly: Option<bool>,
+    #[serde(rename = "noNewRootComments", skip_serializing_if = "Option::is_none")]
+    pub no_new_root_comments: Option<bool>,
     #[serde(rename = "requireSSO", skip_serializing_if = "Option::is_none")]
     pub require_sso: Option<bool>,
     #[serde(rename = "enableResizeHandle", skip_serializing_if = "Option::is_none")]
@@ -215,6 +217,7 @@ impl CustomConfigParameters {
             no_styles: None,
             page_size: None,
             readonly: None,
+            no_new_root_comments: None,
             require_sso: None,
             enable_resize_handle: None,
             restricted_link_domains: None,

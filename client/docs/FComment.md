@@ -70,7 +70,7 @@ Name | Type | Description | Notes
 **autoplay_job_id** | Option<**String**> |  | [optional]
 **autoplay_delay_ms** | Option<**i64**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
-**logs** | Option<[**Vec<Vec<serde_json::Value>>**](Vec.md)> |  | [optional]
+**logs** | Option<[**Vec<models::CommentLogEntry>**](CommentLogEntry.md)> |  | [optional]
 **group_ids** | Option<**Vec<String>**> |  | [optional]
 **view_count** | Option<**i64**> |  | [optional]
 **requires_verification** | Option<**bool**> |  | [optional]

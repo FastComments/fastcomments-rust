@@ -16,7 +16,7 @@ pub struct GetCommentsPublic200Response {
     #[serde(rename = "statusCode", skip_serializing_if = "Option::is_none")]
     pub status_code: Option<i32>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "code")]
     pub code: String,
     #[serde(rename = "reason")]
@@ -79,7 +79,7 @@ pub struct GetCommentsPublic200Response {
 }
 
 impl GetCommentsPublic200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, code: String, reason: String, comments: Vec<models::PublicComment>, user: Option<models::UserSessionInfo>, page_number: i32) -> GetCommentsPublic200Response {
+    pub fn new(status: models::ApiStatus, code: String, reason: String, comments: Vec<models::PublicComment>, user: Option<models::UserSessionInfo>, page_number: i32) -> GetCommentsPublic200Response {
         GetCommentsPublic200Response {
             status_code: None,
             status,

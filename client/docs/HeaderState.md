@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodSuccess**](ImportedAPIStatus.SUCCESS.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **notification_type** | [**serde_json::Value**](.md) |  | 
 **user_id** | **String** |  | 
 **user_id_ws** | **String** |  | 

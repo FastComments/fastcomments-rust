@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateFeedPost200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "feedPost")]
     pub feed_post: Box<models::FeedPost>,
     #[serde(rename = "reason")]
@@ -34,7 +34,7 @@ pub struct CreateFeedPost200Response {
 }
 
 impl CreateFeedPost200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, feed_post: models::FeedPost, reason: String, code: String) -> CreateFeedPost200Response {
+    pub fn new(status: models::ApiStatus, feed_post: models::FeedPost, reason: String, code: String) -> CreateFeedPost200Response {
         CreateFeedPost200Response {
             status,
             feed_post: Box::new(feed_post),

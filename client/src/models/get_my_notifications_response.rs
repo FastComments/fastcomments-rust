@@ -23,11 +23,11 @@ pub struct GetMyNotificationsResponse {
     #[serde(rename = "notifications")]
     pub notifications: Vec<models::RenderableUserNotification>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
 }
 
 impl GetMyNotificationsResponse {
-    pub fn new(is_subscribed: bool, has_more: bool, notifications: Vec<models::RenderableUserNotification>, status: models::ImportedApiStatusPeriodSuccess) -> GetMyNotificationsResponse {
+    pub fn new(is_subscribed: bool, has_more: bool, notifications: Vec<models::RenderableUserNotification>, status: models::ApiStatus) -> GetMyNotificationsResponse {
         GetMyNotificationsResponse {
             translations: None,
             is_subscribed,

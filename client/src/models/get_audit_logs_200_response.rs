@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetAuditLogs200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "auditLogs")]
-    pub audit_logs: Vec<models::PickTenantAuditLogPeriodTenantAuditLogKeys>,
+    pub audit_logs: Vec<models::ApiAuditLog>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -34,7 +34,7 @@ pub struct GetAuditLogs200Response {
 }
 
 impl GetAuditLogs200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, audit_logs: Vec<models::PickTenantAuditLogPeriodTenantAuditLogKeys>, reason: String, code: String) -> GetAuditLogs200Response {
+    pub fn new(status: models::ApiStatus, audit_logs: Vec<models::ApiAuditLog>, reason: String, code: String) -> GetAuditLogs200Response {
         GetAuditLogs200Response {
             status,
             audit_logs,

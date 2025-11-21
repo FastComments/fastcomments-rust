@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BlockFromCommentPublic200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "commentStatuses")]
     pub comment_statuses: std::collections::HashMap<String, bool>,
@@ -35,7 +35,7 @@ pub struct BlockFromCommentPublic200Response {
 }
 
 impl BlockFromCommentPublic200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, comment_statuses: std::collections::HashMap<String, bool>, reason: String, code: String) -> BlockFromCommentPublic200Response {
+    pub fn new(status: models::ApiStatus, comment_statuses: std::collections::HashMap<String, bool>, reason: String, code: String) -> BlockFromCommentPublic200Response {
         BlockFromCommentPublic200Response {
             status,
             comment_statuses,

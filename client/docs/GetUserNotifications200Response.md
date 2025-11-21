@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **is_subscribed** | **bool** |  | 
 **has_more** | **bool** |  | 
 **notifications** | [**Vec<models::RenderableUserNotification>**](RenderableUserNotification.md) |  | 
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

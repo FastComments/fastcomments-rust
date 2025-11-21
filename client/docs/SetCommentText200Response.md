@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | [**models::PickFCommentPeriodApprovedOrCommentHtml**](Pick_FComment.approved-or-commentHTML_.md) |  | 
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**comment** | [**models::SetCommentTextResult**](SetCommentTextResult.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

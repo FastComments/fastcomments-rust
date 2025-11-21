@@ -16,7 +16,7 @@ pub struct GetEventLog200Response {
     #[serde(rename = "events")]
     pub events: Vec<models::EventLogEntry>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -34,7 +34,7 @@ pub struct GetEventLog200Response {
 }
 
 impl GetEventLog200Response {
-    pub fn new(events: Vec<models::EventLogEntry>, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> GetEventLog200Response {
+    pub fn new(events: Vec<models::EventLogEntry>, status: models::ApiStatus, reason: String, code: String) -> GetEventLog200Response {
         GetEventLog200Response {
             events,
             status,

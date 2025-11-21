@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ReactFeedPostPublic200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "reactType")]
     pub react_type: String,
     #[serde(rename = "isUndo")]
@@ -36,7 +36,7 @@ pub struct ReactFeedPostPublic200Response {
 }
 
 impl ReactFeedPostPublic200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, react_type: String, is_undo: bool, reason: String, code: String) -> ReactFeedPostPublic200Response {
+    pub fn new(status: models::ApiStatus, react_type: String, is_undo: bool, reason: String, code: String) -> ReactFeedPostPublic200Response {
         ReactFeedPostPublic200Response {
             status,
             react_type,

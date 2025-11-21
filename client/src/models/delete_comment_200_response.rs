@@ -16,7 +16,7 @@ pub struct DeleteComment200Response {
     #[serde(rename = "action")]
     pub action: models::DeleteCommentAction,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -34,7 +34,7 @@ pub struct DeleteComment200Response {
 }
 
 impl DeleteComment200Response {
-    pub fn new(action: models::DeleteCommentAction, status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> DeleteComment200Response {
+    pub fn new(action: models::DeleteCommentAction, status: models::ApiStatus, reason: String, code: String) -> DeleteComment200Response {
         DeleteComment200Response {
             action,
             status,

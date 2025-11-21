@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodSuccess**](ImportedAPIStatus.SUCCESS.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **feed_posts** | [**Vec<models::FeedPost>**](FeedPost.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | [optional]
 **url_id_ws** | Option<**String**> |  | [optional]

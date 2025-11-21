@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetFeedPostsStats200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "stats")]
     pub stats: std::collections::HashMap<String, models::FeedPostStats>,
     #[serde(rename = "reason")]
@@ -34,7 +34,7 @@ pub struct GetFeedPostsStats200Response {
 }
 
 impl GetFeedPostsStats200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, stats: std::collections::HashMap<String, models::FeedPostStats>, reason: String, code: String) -> GetFeedPostsStats200Response {
+    pub fn new(status: models::ApiStatus, stats: std::collections::HashMap<String, models::FeedPostStats>, reason: String, code: String) -> GetFeedPostsStats200Response {
         GetFeedPostsStats200Response {
             status,
             stats,

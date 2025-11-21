@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodSuccess**](ImportedAPIStatus.SUCCESS.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **vote_user_names** | **Vec<String>** |  | 
 **has_more** | **bool** |  | 
 

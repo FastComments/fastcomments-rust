@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiError {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -32,7 +32,7 @@ pub struct ApiError {
 }
 
 impl ApiError {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, reason: String, code: String) -> ApiError {
+    pub fn new(status: models::ApiStatus, reason: String, code: String) -> ApiError {
         ApiError {
             status,
             reason,

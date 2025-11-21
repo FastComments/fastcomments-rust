@@ -17,6 +17,8 @@ pub struct ApiCreateUserBadgeResponse {
     pub status: models::ApiStatus,
     #[serde(rename = "userBadge")]
     pub user_badge: Box<models::UserBadge>,
+    #[serde(rename = "notes", skip_serializing_if = "Option::is_none")]
+    pub notes: Option<Vec<String>>,
 }
 
 impl ApiCreateUserBadgeResponse {
@@ -24,6 +26,7 @@ impl ApiCreateUserBadgeResponse {
         ApiCreateUserBadgeResponse {
             status,
             user_badge: Box::new(user_badge),
+            notes: None,
         }
     }
 }

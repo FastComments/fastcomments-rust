@@ -400,7 +400,7 @@ pub struct UnFlagCommentParams {
 pub struct UpdateCommentParams {
     pub tenant_id: String,
     pub id: String,
-    pub body: models::PickApiCommentPeriodUpdatableCommentFields,
+    pub updatable_comment_params: models::UpdatableCommentParams,
     pub context_user_id: Option<String>,
     pub do_spam_check: Option<bool>,
     pub is_live: Option<bool>
@@ -2491,7 +2491,7 @@ pub async fn update_comment(configuration: &configuration::Configuration, params
         };
         req_builder = req_builder.header("x-api-key", value);
     };
-    req_builder = req_builder.json(&params.body);
+    req_builder = req_builder.json(&params.updatable_comment_params);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;

@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetComments200Response {
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "comments")]
-    pub comments: Vec<models::PickFCommentPeriodApiCommentFieldsKeys>,
+    pub comments: Vec<models::ApiComment>,
     #[serde(rename = "reason")]
     pub reason: String,
     #[serde(rename = "code")]
@@ -34,7 +34,7 @@ pub struct GetComments200Response {
 }
 
 impl GetComments200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, comments: Vec<models::PickFCommentPeriodApiCommentFieldsKeys>, reason: String, code: String) -> GetComments200Response {
+    pub fn new(status: models::ApiStatus, comments: Vec<models::ApiComment>, reason: String, code: String) -> GetComments200Response {
         GetComments200Response {
             status,
             comments,

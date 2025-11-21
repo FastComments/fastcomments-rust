@@ -16,11 +16,11 @@ pub struct GetEventLogResponse {
     #[serde(rename = "events")]
     pub events: Vec<models::EventLogEntry>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodSuccess,
+    pub status: models::ApiStatus,
 }
 
 impl GetEventLogResponse {
-    pub fn new(events: Vec<models::EventLogEntry>, status: models::ImportedApiStatusPeriodSuccess) -> GetEventLogResponse {
+    pub fn new(events: Vec<models::EventLogEntry>, status: models::ApiStatus) -> GetEventLogResponse {
         GetEventLogResponse {
             events,
             status,

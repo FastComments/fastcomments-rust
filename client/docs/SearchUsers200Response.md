@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**models::ImportedApiStatusPeriodFailed**](ImportedAPIStatus.FAILED.md) |  | 
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **users** | [**Vec<models::UserSearchResult>**](UserSearchResult.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 

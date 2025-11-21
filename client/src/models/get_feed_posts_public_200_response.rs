@@ -16,7 +16,7 @@ pub struct GetFeedPostsPublic200Response {
     #[serde(rename = "myReacts", skip_serializing_if = "Option::is_none")]
     pub my_reacts: Option<std::collections::HashMap<String, std::collections::HashMap<String, bool>>>,
     #[serde(rename = "status")]
-    pub status: models::ImportedApiStatusPeriodFailed,
+    pub status: models::ApiStatus,
     #[serde(rename = "feedPosts")]
     pub feed_posts: Vec<models::FeedPost>,
     #[serde(rename = "user", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -44,7 +44,7 @@ pub struct GetFeedPostsPublic200Response {
 }
 
 impl GetFeedPostsPublic200Response {
-    pub fn new(status: models::ImportedApiStatusPeriodFailed, feed_posts: Vec<models::FeedPost>, reason: String, code: String) -> GetFeedPostsPublic200Response {
+    pub fn new(status: models::ApiStatus, feed_posts: Vec<models::FeedPost>, reason: String, code: String) -> GetFeedPostsPublic200Response {
         GetFeedPostsPublic200Response {
             my_reacts: None,
             status,
