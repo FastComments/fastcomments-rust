@@ -124,6 +124,8 @@ pub enum CommentLogType {
     Variant53,
     #[serde(rename = "54")]
     Variant54,
+    #[serde(rename = "55")]
+    Variant55,
 
 }
 
@@ -185,6 +187,7 @@ impl std::fmt::Display for CommentLogType {
             Self::Variant52 => write!(f, "52"),
             Self::Variant53 => write!(f, "53"),
             Self::Variant54 => write!(f, "54"),
+            Self::Variant55 => write!(f, "55"),
         }
     }
 }

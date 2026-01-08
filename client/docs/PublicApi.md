@@ -844,7 +844,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **url_id** | **String** |  | [required] |
-**username_starts_with** | **String** |  | [required] |
+**username_starts_with** | Option<**String**> |  |  |
 **mention_group_ids** | Option<[**Vec<String>**](String.md)> |  |  |
 **sso** | Option<**String**> |  |  |
 

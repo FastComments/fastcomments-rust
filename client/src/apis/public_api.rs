@@ -274,7 +274,7 @@ pub struct ResetUserNotificationsParams {
 pub struct SearchUsersParams {
     pub tenant_id: String,
     pub url_id: String,
-    pub username_starts_with: String,
+    pub username_starts_with: Option<String>,
     pub mention_group_ids: Option<Vec<String>>,
     pub sso: Option<String>
 }
@@ -1479,7 +1479,9 @@ pub async fn search_users(configuration: &configuration::Configuration, params: 
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
-    req_builder = req_builder.query(&[("usernameStartsWith", &params.username_starts_with.to_string())]);
+    if let Some(ref param_value) = params.username_starts_with {
+        req_builder = req_builder.query(&[("usernameStartsWith", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.mention_group_ids {
         req_builder = match "multi" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("mentionGroupIds".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),

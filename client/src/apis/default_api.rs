@@ -21,6 +21,20 @@ pub struct AddDomainConfigParams {
     pub add_domain_config_params: models::AddDomainConfigParams
 }
 
+/// struct for passing parameters to the method [`add_hash_tag`]
+#[derive(Clone, Debug)]
+pub struct AddHashTagParams {
+    pub tenant_id: Option<String>,
+    pub create_hash_tag_body: Option<models::CreateHashTagBody>
+}
+
+/// struct for passing parameters to the method [`add_hash_tags_bulk`]
+#[derive(Clone, Debug)]
+pub struct AddHashTagsBulkParams {
+    pub tenant_id: Option<String>,
+    pub bulk_create_hash_tags_body: Option<models::BulkCreateHashTagsBody>
+}
+
 /// struct for passing parameters to the method [`add_page`]
 #[derive(Clone, Debug)]
 pub struct AddPageParams {
@@ -88,6 +102,13 @@ pub struct CombineCommentsWithQuestionResultsParams {
     pub limit: Option<f64>
 }
 
+/// struct for passing parameters to the method [`create_email_template`]
+#[derive(Clone, Debug)]
+pub struct CreateEmailTemplateParams {
+    pub tenant_id: String,
+    pub create_email_template_body: models::CreateEmailTemplateBody
+}
+
 /// struct for passing parameters to the method [`create_feed_post`]
 #[derive(Clone, Debug)]
 pub struct CreateFeedPostParams {
@@ -99,6 +120,27 @@ pub struct CreateFeedPostParams {
     pub skip_dup_check: Option<bool>
 }
 
+/// struct for passing parameters to the method [`create_moderator`]
+#[derive(Clone, Debug)]
+pub struct CreateModeratorParams {
+    pub tenant_id: String,
+    pub create_moderator_body: models::CreateModeratorBody
+}
+
+/// struct for passing parameters to the method [`create_question_config`]
+#[derive(Clone, Debug)]
+pub struct CreateQuestionConfigParams {
+    pub tenant_id: String,
+    pub create_question_config_body: models::CreateQuestionConfigBody
+}
+
+/// struct for passing parameters to the method [`create_question_result`]
+#[derive(Clone, Debug)]
+pub struct CreateQuestionResultParams {
+    pub tenant_id: String,
+    pub create_question_result_body: models::CreateQuestionResultBody
+}
+
 /// struct for passing parameters to the method [`create_subscription`]
 #[derive(Clone, Debug)]
 pub struct CreateSubscriptionParams {
@@ -106,11 +148,42 @@ pub struct CreateSubscriptionParams {
     pub create_api_user_subscription_data: models::CreateApiUserSubscriptionData
 }
 
+/// struct for passing parameters to the method [`create_tenant`]
+#[derive(Clone, Debug)]
+pub struct CreateTenantParams {
+    pub tenant_id: String,
+    pub create_tenant_body: models::CreateTenantBody
+}
+
+/// struct for passing parameters to the method [`create_tenant_package`]
+#[derive(Clone, Debug)]
+pub struct CreateTenantPackageParams {
+    pub tenant_id: String,
+    pub create_tenant_package_body: models::CreateTenantPackageBody
+}
+
+/// struct for passing parameters to the method [`create_tenant_user`]
+#[derive(Clone, Debug)]
+pub struct CreateTenantUserParams {
+    pub tenant_id: String,
+    pub create_tenant_user_body: models::CreateTenantUserBody
+}
+
 /// struct for passing parameters to the method [`create_user_badge`]
 #[derive(Clone, Debug)]
 pub struct CreateUserBadgeParams {
     pub tenant_id: String,
     pub create_user_badge_params: models::CreateUserBadgeParams
+}
+
+/// struct for passing parameters to the method [`create_vote`]
+#[derive(Clone, Debug)]
+pub struct CreateVoteParams {
+    pub tenant_id: String,
+    pub comment_id: String,
+    pub direction: String,
+    pub user_id: Option<String>,
+    pub anon_user_id: Option<String>
 }
 
 /// struct for passing parameters to the method [`delete_comment`]
@@ -129,9 +202,68 @@ pub struct DeleteDomainConfigParams {
     pub domain: String
 }
 
+/// struct for passing parameters to the method [`delete_email_template`]
+#[derive(Clone, Debug)]
+pub struct DeleteEmailTemplateParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`delete_email_template_render_error`]
+#[derive(Clone, Debug)]
+pub struct DeleteEmailTemplateRenderErrorParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub error_id: String
+}
+
+/// struct for passing parameters to the method [`delete_hash_tag`]
+#[derive(Clone, Debug)]
+pub struct DeleteHashTagParams {
+    pub tag: String,
+    pub tenant_id: Option<String>,
+    pub delete_hash_tag_request: Option<models::DeleteHashTagRequest>
+}
+
+/// struct for passing parameters to the method [`delete_moderator`]
+#[derive(Clone, Debug)]
+pub struct DeleteModeratorParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub send_email: Option<String>
+}
+
+/// struct for passing parameters to the method [`delete_notification_count`]
+#[derive(Clone, Debug)]
+pub struct DeleteNotificationCountParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
 /// struct for passing parameters to the method [`delete_page`]
 #[derive(Clone, Debug)]
 pub struct DeletePageParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`delete_pending_webhook_event`]
+#[derive(Clone, Debug)]
+pub struct DeletePendingWebhookEventParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`delete_question_config`]
+#[derive(Clone, Debug)]
+pub struct DeleteQuestionConfigParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`delete_question_result`]
+#[derive(Clone, Debug)]
+pub struct DeleteQuestionResultParams {
     pub tenant_id: String,
     pub id: String
 }
@@ -153,11 +285,43 @@ pub struct DeleteSubscriptionParams {
     pub user_id: Option<String>
 }
 
+/// struct for passing parameters to the method [`delete_tenant`]
+#[derive(Clone, Debug)]
+pub struct DeleteTenantParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub sure: Option<String>
+}
+
+/// struct for passing parameters to the method [`delete_tenant_package`]
+#[derive(Clone, Debug)]
+pub struct DeleteTenantPackageParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`delete_tenant_user`]
+#[derive(Clone, Debug)]
+pub struct DeleteTenantUserParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub delete_comments: Option<String>,
+    pub comment_delete_mode: Option<String>
+}
+
 /// struct for passing parameters to the method [`delete_user_badge`]
 #[derive(Clone, Debug)]
 pub struct DeleteUserBadgeParams {
     pub tenant_id: String,
     pub id: String
+}
+
+/// struct for passing parameters to the method [`delete_vote`]
+#[derive(Clone, Debug)]
+pub struct DeleteVoteParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub edit_key: Option<String>
 }
 
 /// struct for passing parameters to the method [`flag_comment`]
@@ -178,6 +342,13 @@ pub struct GetAuditLogsParams {
     pub order: Option<models::SortDir>,
     pub after: Option<f64>,
     pub before: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_cached_notification_count`]
+#[derive(Clone, Debug)]
+pub struct GetCachedNotificationCountParams {
+    pub tenant_id: String,
+    pub id: String
 }
 
 /// struct for passing parameters to the method [`get_comment`]
@@ -220,6 +391,34 @@ pub struct GetDomainConfigsParams {
     pub tenant_id: String
 }
 
+/// struct for passing parameters to the method [`get_email_template`]
+#[derive(Clone, Debug)]
+pub struct GetEmailTemplateParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_email_template_definitions`]
+#[derive(Clone, Debug)]
+pub struct GetEmailTemplateDefinitionsParams {
+    pub tenant_id: String
+}
+
+/// struct for passing parameters to the method [`get_email_template_render_errors`]
+#[derive(Clone, Debug)]
+pub struct GetEmailTemplateRenderErrorsParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_email_templates`]
+#[derive(Clone, Debug)]
+pub struct GetEmailTemplatesParams {
+    pub tenant_id: String,
+    pub skip: Option<f64>
+}
+
 /// struct for passing parameters to the method [`get_feed_posts`]
 #[derive(Clone, Debug)]
 pub struct GetFeedPostsParams {
@@ -227,6 +426,50 @@ pub struct GetFeedPostsParams {
     pub after_id: Option<String>,
     pub limit: Option<i32>,
     pub tags: Option<Vec<String>>
+}
+
+/// struct for passing parameters to the method [`get_hash_tags`]
+#[derive(Clone, Debug)]
+pub struct GetHashTagsParams {
+    pub tenant_id: String,
+    pub page: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_moderator`]
+#[derive(Clone, Debug)]
+pub struct GetModeratorParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_moderators`]
+#[derive(Clone, Debug)]
+pub struct GetModeratorsParams {
+    pub tenant_id: String,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_notification_count`]
+#[derive(Clone, Debug)]
+pub struct GetNotificationCountParams {
+    pub tenant_id: String,
+    pub user_id: Option<String>,
+    pub url_id: Option<String>,
+    pub from_comment_id: Option<String>,
+    pub viewed: Option<bool>,
+    pub r#type: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_notifications`]
+#[derive(Clone, Debug)]
+pub struct GetNotificationsParams {
+    pub tenant_id: String,
+    pub user_id: Option<String>,
+    pub url_id: Option<String>,
+    pub from_comment_id: Option<String>,
+    pub viewed: Option<bool>,
+    pub r#type: Option<String>,
+    pub skip: Option<f64>
 }
 
 /// struct for passing parameters to the method [`get_page_by_urlid`]
@@ -240,6 +483,64 @@ pub struct GetPageByUrlidParams {
 #[derive(Clone, Debug)]
 pub struct GetPagesParams {
     pub tenant_id: String
+}
+
+/// struct for passing parameters to the method [`get_pending_webhook_event_count`]
+#[derive(Clone, Debug)]
+pub struct GetPendingWebhookEventCountParams {
+    pub tenant_id: String,
+    pub comment_id: Option<String>,
+    pub external_id: Option<String>,
+    pub event_type: Option<String>,
+    pub r#type: Option<String>,
+    pub domain: Option<String>,
+    pub attempt_count_gt: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_pending_webhook_events`]
+#[derive(Clone, Debug)]
+pub struct GetPendingWebhookEventsParams {
+    pub tenant_id: String,
+    pub comment_id: Option<String>,
+    pub external_id: Option<String>,
+    pub event_type: Option<String>,
+    pub r#type: Option<String>,
+    pub domain: Option<String>,
+    pub attempt_count_gt: Option<f64>,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_question_config`]
+#[derive(Clone, Debug)]
+pub struct GetQuestionConfigParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_question_configs`]
+#[derive(Clone, Debug)]
+pub struct GetQuestionConfigsParams {
+    pub tenant_id: String,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_question_result`]
+#[derive(Clone, Debug)]
+pub struct GetQuestionResultParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_question_results`]
+#[derive(Clone, Debug)]
+pub struct GetQuestionResultsParams {
+    pub tenant_id: String,
+    pub url_id: Option<String>,
+    pub user_id: Option<String>,
+    pub start_date: Option<String>,
+    pub question_id: Option<String>,
+    pub question_ids: Option<String>,
+    pub skip: Option<f64>
 }
 
 /// struct for passing parameters to the method [`get_sso_user_by_email`]
@@ -268,6 +569,66 @@ pub struct GetSsoUsersParams {
 pub struct GetSubscriptionsParams {
     pub tenant_id: String,
     pub user_id: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_tenant`]
+#[derive(Clone, Debug)]
+pub struct GetTenantParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_tenant_daily_usages`]
+#[derive(Clone, Debug)]
+pub struct GetTenantDailyUsagesParams {
+    pub tenant_id: String,
+    pub year_number: Option<f64>,
+    pub month_number: Option<f64>,
+    pub day_number: Option<f64>,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_tenant_package`]
+#[derive(Clone, Debug)]
+pub struct GetTenantPackageParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_tenant_packages`]
+#[derive(Clone, Debug)]
+pub struct GetTenantPackagesParams {
+    pub tenant_id: String,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_tenant_user`]
+#[derive(Clone, Debug)]
+pub struct GetTenantUserParams {
+    pub tenant_id: String,
+    pub id: String
+}
+
+/// struct for passing parameters to the method [`get_tenant_users`]
+#[derive(Clone, Debug)]
+pub struct GetTenantUsersParams {
+    pub tenant_id: String,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_tenants`]
+#[derive(Clone, Debug)]
+pub struct GetTenantsParams {
+    pub tenant_id: String,
+    pub meta: Option<String>,
+    pub skip: Option<f64>
+}
+
+/// struct for passing parameters to the method [`get_user`]
+#[derive(Clone, Debug)]
+pub struct GetUserParams {
+    pub tenant_id: String,
+    pub id: String
 }
 
 /// struct for passing parameters to the method [`get_user_badge`]
@@ -312,12 +673,36 @@ pub struct GetUserBadgesParams {
     pub skip: Option<f64>
 }
 
+/// struct for passing parameters to the method [`get_votes`]
+#[derive(Clone, Debug)]
+pub struct GetVotesParams {
+    pub tenant_id: String,
+    pub url_id: String
+}
+
+/// struct for passing parameters to the method [`get_votes_for_user`]
+#[derive(Clone, Debug)]
+pub struct GetVotesForUserParams {
+    pub tenant_id: String,
+    pub url_id: String,
+    pub user_id: Option<String>,
+    pub anon_user_id: Option<String>
+}
+
 /// struct for passing parameters to the method [`patch_domain_config`]
 #[derive(Clone, Debug)]
 pub struct PatchDomainConfigParams {
     pub tenant_id: String,
     pub domain_to_update: String,
     pub patch_domain_config_params: models::PatchDomainConfigParams
+}
+
+/// struct for passing parameters to the method [`patch_hash_tag`]
+#[derive(Clone, Debug)]
+pub struct PatchHashTagParams {
+    pub tag: String,
+    pub tenant_id: Option<String>,
+    pub update_hash_tag_body: Option<models::UpdateHashTagBody>
 }
 
 /// struct for passing parameters to the method [`patch_page`]
@@ -354,6 +739,31 @@ pub struct PutSsoUserParams {
     pub update_comments: Option<bool>
 }
 
+/// struct for passing parameters to the method [`render_email_template`]
+#[derive(Clone, Debug)]
+pub struct RenderEmailTemplateParams {
+    pub tenant_id: String,
+    pub render_email_template_body: models::RenderEmailTemplateBody,
+    pub locale: Option<String>
+}
+
+/// struct for passing parameters to the method [`replace_tenant_package`]
+#[derive(Clone, Debug)]
+pub struct ReplaceTenantPackageParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub replace_tenant_package_body: models::ReplaceTenantPackageBody
+}
+
+/// struct for passing parameters to the method [`replace_tenant_user`]
+#[derive(Clone, Debug)]
+pub struct ReplaceTenantUserParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub replace_tenant_user_body: models::ReplaceTenantUserBody,
+    pub update_comments: Option<String>
+}
+
 /// struct for passing parameters to the method [`save_comment`]
 #[derive(Clone, Debug)]
 pub struct SaveCommentParams {
@@ -374,6 +784,22 @@ pub struct SaveCommentsBulkParams {
     pub do_spam_check: Option<bool>,
     pub send_emails: Option<bool>,
     pub populate_notifications: Option<bool>
+}
+
+/// struct for passing parameters to the method [`send_invite`]
+#[derive(Clone, Debug)]
+pub struct SendInviteParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub from_name: String
+}
+
+/// struct for passing parameters to the method [`send_login_link`]
+#[derive(Clone, Debug)]
+pub struct SendLoginLinkParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub redirect_url: Option<String>
 }
 
 /// struct for passing parameters to the method [`un_block_user_from_comment`]
@@ -406,12 +832,78 @@ pub struct UpdateCommentParams {
     pub is_live: Option<bool>
 }
 
+/// struct for passing parameters to the method [`update_email_template`]
+#[derive(Clone, Debug)]
+pub struct UpdateEmailTemplateParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_email_template_body: models::UpdateEmailTemplateBody
+}
+
 /// struct for passing parameters to the method [`update_feed_post`]
 #[derive(Clone, Debug)]
 pub struct UpdateFeedPostParams {
     pub tenant_id: String,
     pub id: String,
     pub feed_post: models::FeedPost
+}
+
+/// struct for passing parameters to the method [`update_moderator`]
+#[derive(Clone, Debug)]
+pub struct UpdateModeratorParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_moderator_body: models::UpdateModeratorBody
+}
+
+/// struct for passing parameters to the method [`update_notification`]
+#[derive(Clone, Debug)]
+pub struct UpdateNotificationParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_notification_body: models::UpdateNotificationBody,
+    pub user_id: Option<String>
+}
+
+/// struct for passing parameters to the method [`update_question_config`]
+#[derive(Clone, Debug)]
+pub struct UpdateQuestionConfigParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_question_config_body: models::UpdateQuestionConfigBody
+}
+
+/// struct for passing parameters to the method [`update_question_result`]
+#[derive(Clone, Debug)]
+pub struct UpdateQuestionResultParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_question_result_body: models::UpdateQuestionResultBody
+}
+
+/// struct for passing parameters to the method [`update_tenant`]
+#[derive(Clone, Debug)]
+pub struct UpdateTenantParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_tenant_body: models::UpdateTenantBody
+}
+
+/// struct for passing parameters to the method [`update_tenant_package`]
+#[derive(Clone, Debug)]
+pub struct UpdateTenantPackageParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_tenant_package_body: models::UpdateTenantPackageBody
+}
+
+/// struct for passing parameters to the method [`update_tenant_user`]
+#[derive(Clone, Debug)]
+pub struct UpdateTenantUserParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_tenant_user_body: models::UpdateTenantUserBody,
+    pub update_comments: Option<String>
 }
 
 /// struct for passing parameters to the method [`update_user_badge`]
@@ -427,6 +919,20 @@ pub struct UpdateUserBadgeParams {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`add_hash_tag`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AddHashTagError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`add_hash_tags_bulk`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AddHashTagsBulkError {
     UnknownValue(serde_json::Value),
 }
 
@@ -479,10 +985,38 @@ pub enum CombineCommentsWithQuestionResultsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_email_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateEmailTemplateError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`create_feed_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateFeedPostError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_moderator`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateModeratorError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_question_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateQuestionConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_question_result`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateQuestionResultError {
     UnknownValue(serde_json::Value),
 }
 
@@ -493,10 +1027,38 @@ pub enum CreateSubscriptionError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_tenant`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateTenantError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_tenant_package`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateTenantPackageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_tenant_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateTenantUserError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`create_user_badge`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserBadgeError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_vote`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateVoteError {
     UnknownValue(serde_json::Value),
 }
 
@@ -514,10 +1076,66 @@ pub enum DeleteDomainConfigError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`delete_email_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteEmailTemplateError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_email_template_render_error`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteEmailTemplateRenderErrorError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_hash_tag`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteHashTagError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_moderator`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteModeratorError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_notification_count`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteNotificationCountError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`delete_page`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeletePageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_pending_webhook_event`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeletePendingWebhookEventError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_question_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteQuestionConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_question_result`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteQuestionResultError {
     UnknownValue(serde_json::Value),
 }
 
@@ -535,10 +1153,38 @@ pub enum DeleteSubscriptionError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`delete_tenant`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteTenantError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_tenant_package`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteTenantPackageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_tenant_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteTenantUserError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`delete_user_badge`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserBadgeError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_vote`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteVoteError {
     UnknownValue(serde_json::Value),
 }
 
@@ -553,6 +1199,13 @@ pub enum FlagCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAuditLogsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_cached_notification_count`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCachedNotificationCountError {
     UnknownValue(serde_json::Value),
 }
 
@@ -584,10 +1237,73 @@ pub enum GetDomainConfigsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_email_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetEmailTemplateError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_email_template_definitions`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetEmailTemplateDefinitionsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_email_template_render_errors`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetEmailTemplateRenderErrorsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_email_templates`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetEmailTemplatesError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_feed_posts`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFeedPostsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_hash_tags`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetHashTagsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_moderator`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetModeratorError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_moderators`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetModeratorsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_notification_count`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetNotificationCountError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_notifications`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetNotificationsError {
     UnknownValue(serde_json::Value),
 }
 
@@ -602,6 +1318,48 @@ pub enum GetPageByUrlidError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPagesError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_pending_webhook_event_count`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetPendingWebhookEventCountError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_pending_webhook_events`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetPendingWebhookEventsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_question_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetQuestionConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_question_configs`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetQuestionConfigsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_question_result`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetQuestionResultError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_question_results`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetQuestionResultsError {
     UnknownValue(serde_json::Value),
 }
 
@@ -630,6 +1388,62 @@ pub enum GetSsoUsersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSubscriptionsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tenant`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tenant_daily_usages`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantDailyUsagesError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tenant_package`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantPackageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tenant_packages`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantPackagesError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tenant_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantUserError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tenant_users`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantUsersError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tenants`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantsError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserError {
     UnknownValue(serde_json::Value),
 }
 
@@ -668,10 +1482,31 @@ pub enum GetUserBadgesError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_votes`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetVotesError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_votes_for_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetVotesForUserError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`patch_domain_config`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchDomainConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_hash_tag`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchHashTagError {
     UnknownValue(serde_json::Value),
 }
 
@@ -703,6 +1538,27 @@ pub enum PutSsoUserError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`render_email_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RenderEmailTemplateError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`replace_tenant_package`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ReplaceTenantPackageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`replace_tenant_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ReplaceTenantUserError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`save_comment`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -714,6 +1570,20 @@ pub enum SaveCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SaveCommentsBulkError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`send_invite`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SendInviteError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`send_login_link`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SendLoginLinkError {
     UnknownValue(serde_json::Value),
 }
 
@@ -738,10 +1608,66 @@ pub enum UpdateCommentError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_email_template`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateEmailTemplateError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`update_feed_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateFeedPostError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_moderator`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateModeratorError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_notification`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateNotificationError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_question_config`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateQuestionConfigError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_question_result`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateQuestionResultError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_tenant`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateTenantError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_tenant_package`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateTenantPackageError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_tenant_user`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateTenantUserError {
     UnknownValue(serde_json::Value),
 }
 
@@ -783,6 +1709,78 @@ pub async fn add_domain_config(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<AddDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn add_hash_tag(configuration: &configuration::Configuration, params: AddHashTagParams) -> Result<models::AddHashTag200Response, Error<AddHashTagError>> {
+
+    let uri_str = format!("{}/api/v1/hash-tags", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_hash_tag_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AddHashTagError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn add_hash_tags_bulk(configuration: &configuration::Configuration, params: AddHashTagsBulkParams) -> Result<models::AddHashTagsBulk200Response, Error<AddHashTagsBulkError>> {
+
+    let uri_str = format!("{}/api/v1/hash-tags/bulk", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.bulk_create_hash_tags_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AddHashTagsBulkError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1087,6 +2085,40 @@ pub async fn combine_comments_with_question_results(configuration: &configuratio
     }
 }
 
+pub async fn create_email_template(configuration: &configuration::Configuration, params: CreateEmailTemplateParams) -> Result<models::CreateEmailTemplate200Response, Error<CreateEmailTemplateError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_email_template_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateEmailTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn create_feed_post(configuration: &configuration::Configuration, params: CreateFeedPostParams) -> Result<models::CreateFeedPost200Response, Error<CreateFeedPostError>> {
 
     let uri_str = format!("{}/api/v1/feed-posts", configuration.base_path);
@@ -1133,6 +2165,108 @@ pub async fn create_feed_post(configuration: &configuration::Configuration, para
     }
 }
 
+pub async fn create_moderator(configuration: &configuration::Configuration, params: CreateModeratorParams) -> Result<models::CreateModerator200Response, Error<CreateModeratorError>> {
+
+    let uri_str = format!("{}/api/v1/moderators", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_moderator_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateModeratorError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_question_config(configuration: &configuration::Configuration, params: CreateQuestionConfigParams) -> Result<models::CreateQuestionConfig200Response, Error<CreateQuestionConfigError>> {
+
+    let uri_str = format!("{}/api/v1/question-configs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_question_config_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateQuestionConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_question_result(configuration: &configuration::Configuration, params: CreateQuestionResultParams) -> Result<models::CreateQuestionResult200Response, Error<CreateQuestionResultError>> {
+
+    let uri_str = format!("{}/api/v1/question-results", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_question_result_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateQuestionResultError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn create_subscription(configuration: &configuration::Configuration, params: CreateSubscriptionParams) -> Result<models::CreateSubscriptionApiResponse, Error<CreateSubscriptionError>> {
 
     let uri_str = format!("{}/api/v1/subscriptions", configuration.base_path);
@@ -1167,6 +2301,108 @@ pub async fn create_subscription(configuration: &configuration::Configuration, p
     }
 }
 
+pub async fn create_tenant(configuration: &configuration::Configuration, params: CreateTenantParams) -> Result<models::CreateTenant200Response, Error<CreateTenantError>> {
+
+    let uri_str = format!("{}/api/v1/tenants", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_tenant_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateTenantError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_tenant_package(configuration: &configuration::Configuration, params: CreateTenantPackageParams) -> Result<models::CreateTenantPackage200Response, Error<CreateTenantPackageError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-packages", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_tenant_package_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateTenantPackageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_tenant_user(configuration: &configuration::Configuration, params: CreateTenantUserParams) -> Result<models::CreateTenantUser200Response, Error<CreateTenantUserError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-users", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_tenant_user_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateTenantUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn create_user_badge(configuration: &configuration::Configuration, params: CreateUserBadgeParams) -> Result<models::CreateUserBadge200Response, Error<CreateUserBadgeError>> {
 
     let uri_str = format!("{}/api/v1/user-badges", configuration.base_path);
@@ -1197,6 +2433,47 @@ pub async fn create_user_badge(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<CreateUserBadgeError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_vote(configuration: &configuration::Configuration, params: CreateVoteParams) -> Result<models::CreateVote200Response, Error<CreateVoteError>> {
+
+    let uri_str = format!("{}/api/v1/votes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("commentId", &params.comment_id.to_string())]);
+    req_builder = req_builder.query(&[("direction", &params.direction.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.anon_user_id {
+        req_builder = req_builder.query(&[("anonUserId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateVoteError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1273,6 +2550,177 @@ pub async fn delete_domain_config(configuration: &configuration::Configuration, 
     }
 }
 
+pub async fn delete_email_template(configuration: &configuration::Configuration, params: DeleteEmailTemplateParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteEmailTemplateError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteEmailTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_email_template_render_error(configuration: &configuration::Configuration, params: DeleteEmailTemplateRenderErrorParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteEmailTemplateRenderErrorError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates/{id}/render-errors/{errorId}", configuration.base_path, id=crate::client::apis::urlencode(params.id), errorId=crate::client::apis::urlencode(params.error_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteEmailTemplateRenderErrorError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_hash_tag(configuration: &configuration::Configuration, params: DeleteHashTagParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteHashTagError>> {
+
+    let uri_str = format!("{}/api/v1/hash-tags/{tag}", configuration.base_path, tag=crate::client::apis::urlencode(params.tag));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.delete_hash_tag_request);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteHashTagError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_moderator(configuration: &configuration::Configuration, params: DeleteModeratorParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteModeratorError>> {
+
+    let uri_str = format!("{}/api/v1/moderators/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.send_email {
+        req_builder = req_builder.query(&[("sendEmail", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteModeratorError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_notification_count(configuration: &configuration::Configuration, params: DeleteNotificationCountParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteNotificationCountError>> {
+
+    let uri_str = format!("{}/api/v1/notification-count/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteNotificationCountError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn delete_page(configuration: &configuration::Configuration, params: DeletePageParams) -> Result<models::DeletePageApiResponse, Error<DeletePageError>> {
 
     let uri_str = format!("{}/api/v1/pages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
@@ -1302,6 +2750,105 @@ pub async fn delete_page(configuration: &configuration::Configuration, params: D
     } else {
         let content = resp.text().await?;
         let entity: Option<DeletePageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_pending_webhook_event(configuration: &configuration::Configuration, params: DeletePendingWebhookEventParams) -> Result<models::FlagCommentPublic200Response, Error<DeletePendingWebhookEventError>> {
+
+    let uri_str = format!("{}/api/v1/pending-webhook-events/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeletePendingWebhookEventError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_question_config(configuration: &configuration::Configuration, params: DeleteQuestionConfigParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteQuestionConfigError>> {
+
+    let uri_str = format!("{}/api/v1/question-configs/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteQuestionConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_question_result(configuration: &configuration::Configuration, params: DeleteQuestionResultParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteQuestionResultError>> {
+
+    let uri_str = format!("{}/api/v1/question-results/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteQuestionResultError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1381,6 +2928,114 @@ pub async fn delete_subscription(configuration: &configuration::Configuration, p
     }
 }
 
+pub async fn delete_tenant(configuration: &configuration::Configuration, params: DeleteTenantParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteTenantError>> {
+
+    let uri_str = format!("{}/api/v1/tenants/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.sure {
+        req_builder = req_builder.query(&[("sure", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteTenantError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_tenant_package(configuration: &configuration::Configuration, params: DeleteTenantPackageParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteTenantPackageError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteTenantPackageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_tenant_user(configuration: &configuration::Configuration, params: DeleteTenantUserParams) -> Result<models::FlagCommentPublic200Response, Error<DeleteTenantUserError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.delete_comments {
+        req_builder = req_builder.query(&[("deleteComments", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.comment_delete_mode {
+        req_builder = req_builder.query(&[("commentDeleteMode", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteTenantUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn delete_user_badge(configuration: &configuration::Configuration, params: DeleteUserBadgeParams) -> Result<models::UpdateUserBadge200Response, Error<DeleteUserBadgeError>> {
 
     let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
@@ -1410,6 +3065,42 @@ pub async fn delete_user_badge(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<DeleteUserBadgeError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn delete_vote(configuration: &configuration::Configuration, params: DeleteVoteParams) -> Result<models::DeleteVote200Response, Error<DeleteVoteError>> {
+
+    let uri_str = format!("{}/api/v1/votes/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.edit_key {
+        req_builder = req_builder.query(&[("editKey", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<DeleteVoteError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1497,6 +3188,39 @@ pub async fn get_audit_logs(configuration: &configuration::Configuration, params
     } else {
         let content = resp.text().await?;
         let entity: Option<GetAuditLogsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_cached_notification_count(configuration: &configuration::Configuration, params: GetCachedNotificationCountParams) -> Result<models::GetCachedNotificationCount200Response, Error<GetCachedNotificationCountError>> {
+
+    let uri_str = format!("{}/api/v1/notification-count/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetCachedNotificationCountError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1675,6 +3399,144 @@ pub async fn get_domain_configs(configuration: &configuration::Configuration, pa
     }
 }
 
+pub async fn get_email_template(configuration: &configuration::Configuration, params: GetEmailTemplateParams) -> Result<models::GetEmailTemplate200Response, Error<GetEmailTemplateError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetEmailTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_email_template_definitions(configuration: &configuration::Configuration, params: GetEmailTemplateDefinitionsParams) -> Result<models::GetEmailTemplateDefinitions200Response, Error<GetEmailTemplateDefinitionsError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates/definitions", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetEmailTemplateDefinitionsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_email_template_render_errors(configuration: &configuration::Configuration, params: GetEmailTemplateRenderErrorsParams) -> Result<models::GetEmailTemplateRenderErrors200Response, Error<GetEmailTemplateRenderErrorsError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates/{id}/render-errors", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetEmailTemplateRenderErrorsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_email_templates(configuration: &configuration::Configuration, params: GetEmailTemplatesParams) -> Result<models::GetEmailTemplates200Response, Error<GetEmailTemplatesError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetEmailTemplatesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 ///  req tenantId afterId
 pub async fn get_feed_posts(configuration: &configuration::Configuration, params: GetFeedPostsParams) -> Result<models::GetFeedPosts200Response, Error<GetFeedPostsError>> {
 
@@ -1717,6 +3579,210 @@ pub async fn get_feed_posts(configuration: &configuration::Configuration, params
     } else {
         let content = resp.text().await?;
         let entity: Option<GetFeedPostsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_hash_tags(configuration: &configuration::Configuration, params: GetHashTagsParams) -> Result<models::GetHashTags200Response, Error<GetHashTagsError>> {
+
+    let uri_str = format!("{}/api/v1/hash-tags", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.page {
+        req_builder = req_builder.query(&[("page", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetHashTagsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_moderator(configuration: &configuration::Configuration, params: GetModeratorParams) -> Result<models::GetModerator200Response, Error<GetModeratorError>> {
+
+    let uri_str = format!("{}/api/v1/moderators/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetModeratorError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_moderators(configuration: &configuration::Configuration, params: GetModeratorsParams) -> Result<models::GetModerators200Response, Error<GetModeratorsError>> {
+
+    let uri_str = format!("{}/api/v1/moderators", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetModeratorsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_notification_count(configuration: &configuration::Configuration, params: GetNotificationCountParams) -> Result<models::GetNotificationCount200Response, Error<GetNotificationCountError>> {
+
+    let uri_str = format!("{}/api/v1/notifications/count", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.url_id {
+        req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.from_comment_id {
+        req_builder = req_builder.query(&[("fromCommentId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.viewed {
+        req_builder = req_builder.query(&[("viewed", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.r#type {
+        req_builder = req_builder.query(&[("type", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetNotificationCountError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_notifications(configuration: &configuration::Configuration, params: GetNotificationsParams) -> Result<models::GetNotifications200Response, Error<GetNotificationsError>> {
+
+    let uri_str = format!("{}/api/v1/notifications", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.url_id {
+        req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.from_comment_id {
+        req_builder = req_builder.query(&[("fromCommentId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.viewed {
+        req_builder = req_builder.query(&[("viewed", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.r#type {
+        req_builder = req_builder.query(&[("type", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetNotificationsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1784,6 +3850,264 @@ pub async fn get_pages(configuration: &configuration::Configuration, params: Get
     } else {
         let content = resp.text().await?;
         let entity: Option<GetPagesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_pending_webhook_event_count(configuration: &configuration::Configuration, params: GetPendingWebhookEventCountParams) -> Result<models::GetPendingWebhookEventCount200Response, Error<GetPendingWebhookEventCountError>> {
+
+    let uri_str = format!("{}/api/v1/pending-webhook-events/count", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.comment_id {
+        req_builder = req_builder.query(&[("commentId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.external_id {
+        req_builder = req_builder.query(&[("externalId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.event_type {
+        req_builder = req_builder.query(&[("eventType", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.r#type {
+        req_builder = req_builder.query(&[("type", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.domain {
+        req_builder = req_builder.query(&[("domain", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.attempt_count_gt {
+        req_builder = req_builder.query(&[("attemptCountGT", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetPendingWebhookEventCountError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_pending_webhook_events(configuration: &configuration::Configuration, params: GetPendingWebhookEventsParams) -> Result<models::GetPendingWebhookEvents200Response, Error<GetPendingWebhookEventsError>> {
+
+    let uri_str = format!("{}/api/v1/pending-webhook-events", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.comment_id {
+        req_builder = req_builder.query(&[("commentId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.external_id {
+        req_builder = req_builder.query(&[("externalId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.event_type {
+        req_builder = req_builder.query(&[("eventType", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.r#type {
+        req_builder = req_builder.query(&[("type", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.domain {
+        req_builder = req_builder.query(&[("domain", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.attempt_count_gt {
+        req_builder = req_builder.query(&[("attemptCountGT", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetPendingWebhookEventsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_question_config(configuration: &configuration::Configuration, params: GetQuestionConfigParams) -> Result<models::GetQuestionConfig200Response, Error<GetQuestionConfigError>> {
+
+    let uri_str = format!("{}/api/v1/question-configs/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetQuestionConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_question_configs(configuration: &configuration::Configuration, params: GetQuestionConfigsParams) -> Result<models::GetQuestionConfigs200Response, Error<GetQuestionConfigsError>> {
+
+    let uri_str = format!("{}/api/v1/question-configs", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetQuestionConfigsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_question_result(configuration: &configuration::Configuration, params: GetQuestionResultParams) -> Result<models::GetQuestionResult200Response, Error<GetQuestionResultError>> {
+
+    let uri_str = format!("{}/api/v1/question-results/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetQuestionResultError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_question_results(configuration: &configuration::Configuration, params: GetQuestionResultsParams) -> Result<models::GetQuestionResults200Response, Error<GetQuestionResultsError>> {
+
+    let uri_str = format!("{}/api/v1/question-results", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.url_id {
+        req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.start_date {
+        req_builder = req_builder.query(&[("startDate", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.question_id {
+        req_builder = req_builder.query(&[("questionId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.question_ids {
+        req_builder = req_builder.query(&[("questionIds", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetQuestionResultsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -1922,6 +4246,294 @@ pub async fn get_subscriptions(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<GetSubscriptionsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tenant(configuration: &configuration::Configuration, params: GetTenantParams) -> Result<models::GetTenant200Response, Error<GetTenantError>> {
+
+    let uri_str = format!("{}/api/v1/tenants/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTenantError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tenant_daily_usages(configuration: &configuration::Configuration, params: GetTenantDailyUsagesParams) -> Result<models::GetTenantDailyUsages200Response, Error<GetTenantDailyUsagesError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-daily-usage", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.year_number {
+        req_builder = req_builder.query(&[("yearNumber", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.month_number {
+        req_builder = req_builder.query(&[("monthNumber", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.day_number {
+        req_builder = req_builder.query(&[("dayNumber", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTenantDailyUsagesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tenant_package(configuration: &configuration::Configuration, params: GetTenantPackageParams) -> Result<models::GetTenantPackage200Response, Error<GetTenantPackageError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTenantPackageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tenant_packages(configuration: &configuration::Configuration, params: GetTenantPackagesParams) -> Result<models::GetTenantPackages200Response, Error<GetTenantPackagesError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-packages", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTenantPackagesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tenant_user(configuration: &configuration::Configuration, params: GetTenantUserParams) -> Result<models::GetTenantUser200Response, Error<GetTenantUserError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTenantUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tenant_users(configuration: &configuration::Configuration, params: GetTenantUsersParams) -> Result<models::GetTenantUsers200Response, Error<GetTenantUsersError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-users", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTenantUsersError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tenants(configuration: &configuration::Configuration, params: GetTenantsParams) -> Result<models::GetTenants200Response, Error<GetTenantsError>> {
+
+    let uri_str = format!("{}/api/v1/tenants", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.meta {
+        req_builder = req_builder.query(&[("meta", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTenantsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_user(configuration: &configuration::Configuration, params: GetUserParams) -> Result<models::GetUser200Response, Error<GetUserError>> {
+
+    let uri_str = format!("{}/api/v1/users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetUserError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2118,6 +4730,80 @@ pub async fn get_user_badges(configuration: &configuration::Configuration, param
     }
 }
 
+pub async fn get_votes(configuration: &configuration::Configuration, params: GetVotesParams) -> Result<models::GetVotes200Response, Error<GetVotesError>> {
+
+    let uri_str = format!("{}/api/v1/votes", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetVotesError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_votes_for_user(configuration: &configuration::Configuration, params: GetVotesForUserParams) -> Result<models::GetVotesForUser200Response, Error<GetVotesForUserError>> {
+
+    let uri_str = format!("{}/api/v1/votes/for-user", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.anon_user_id {
+        req_builder = req_builder.query(&[("anonUserId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetVotesForUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn patch_domain_config(configuration: &configuration::Configuration, params: PatchDomainConfigParams) -> Result<models::GetDomainConfig200Response, Error<PatchDomainConfigError>> {
 
     let uri_str = format!("{}/api/v1/domain-configs/{domainToUpdate}", configuration.base_path, domainToUpdate=crate::client::apis::urlencode(params.domain_to_update));
@@ -2148,6 +4834,42 @@ pub async fn patch_domain_config(configuration: &configuration::Configuration, p
     } else {
         let content = resp.text().await?;
         let entity: Option<PatchDomainConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn patch_hash_tag(configuration: &configuration::Configuration, params: PatchHashTagParams) -> Result<models::PatchHashTag200Response, Error<PatchHashTagError>> {
+
+    let uri_str = format!("{}/api/v1/hash-tags/{tag}", configuration.base_path, tag=crate::client::apis::urlencode(params.tag));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_hash_tag_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<PatchHashTagError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2294,6 +5016,114 @@ pub async fn put_sso_user(configuration: &configuration::Configuration, params: 
     }
 }
 
+pub async fn render_email_template(configuration: &configuration::Configuration, params: RenderEmailTemplateParams) -> Result<models::RenderEmailTemplate200Response, Error<RenderEmailTemplateError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates/render", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.locale {
+        req_builder = req_builder.query(&[("locale", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.render_email_template_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<RenderEmailTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn replace_tenant_package(configuration: &configuration::Configuration, params: ReplaceTenantPackageParams) -> Result<models::FlagCommentPublic200Response, Error<ReplaceTenantPackageError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.replace_tenant_package_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ReplaceTenantPackageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn replace_tenant_user(configuration: &configuration::Configuration, params: ReplaceTenantUserParams) -> Result<models::FlagCommentPublic200Response, Error<ReplaceTenantUserError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.update_comments {
+        req_builder = req_builder.query(&[("updateComments", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.replace_tenant_user_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ReplaceTenantUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn save_comment(configuration: &configuration::Configuration, params: SaveCommentParams) -> Result<models::SaveComment200Response, Error<SaveCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments", configuration.base_path);
@@ -2382,6 +5212,76 @@ pub async fn save_comments_bulk(configuration: &configuration::Configuration, pa
     } else {
         let content = resp.text().await?;
         let entity: Option<SaveCommentsBulkError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn send_invite(configuration: &configuration::Configuration, params: SendInviteParams) -> Result<models::FlagCommentPublic200Response, Error<SendInviteError>> {
+
+    let uri_str = format!("{}/api/v1/moderators/{id}/send-invite", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("fromName", &params.from_name.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SendInviteError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn send_login_link(configuration: &configuration::Configuration, params: SendLoginLinkParams) -> Result<models::FlagCommentPublic200Response, Error<SendLoginLinkError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-users/{id}/send-login-link", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.redirect_url {
+        req_builder = req_builder.query(&[("redirectURL", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<SendLoginLinkError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2508,6 +5408,40 @@ pub async fn update_comment(configuration: &configuration::Configuration, params
     }
 }
 
+pub async fn update_email_template(configuration: &configuration::Configuration, params: UpdateEmailTemplateParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateEmailTemplateError>> {
+
+    let uri_str = format!("{}/api/v1/email-templates/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_email_template_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateEmailTemplateError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn update_feed_post(configuration: &configuration::Configuration, params: UpdateFeedPostParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateFeedPostError>> {
 
     let uri_str = format!("{}/api/v1/feed-posts/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
@@ -2538,6 +5472,250 @@ pub async fn update_feed_post(configuration: &configuration::Configuration, para
     } else {
         let content = resp.text().await?;
         let entity: Option<UpdateFeedPostError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_moderator(configuration: &configuration::Configuration, params: UpdateModeratorParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateModeratorError>> {
+
+    let uri_str = format!("{}/api/v1/moderators/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_moderator_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateModeratorError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_notification(configuration: &configuration::Configuration, params: UpdateNotificationParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateNotificationError>> {
+
+    let uri_str = format!("{}/api/v1/notifications/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_notification_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateNotificationError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_question_config(configuration: &configuration::Configuration, params: UpdateQuestionConfigParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateQuestionConfigError>> {
+
+    let uri_str = format!("{}/api/v1/question-configs/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_question_config_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateQuestionConfigError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_question_result(configuration: &configuration::Configuration, params: UpdateQuestionResultParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateQuestionResultError>> {
+
+    let uri_str = format!("{}/api/v1/question-results/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_question_result_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateQuestionResultError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_tenant(configuration: &configuration::Configuration, params: UpdateTenantParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateTenantError>> {
+
+    let uri_str = format!("{}/api/v1/tenants/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_tenant_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateTenantError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_tenant_package(configuration: &configuration::Configuration, params: UpdateTenantPackageParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateTenantPackageError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_tenant_package_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateTenantPackageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_tenant_user(configuration: &configuration::Configuration, params: UpdateTenantUserParams) -> Result<models::FlagCommentPublic200Response, Error<UpdateTenantUserError>> {
+
+    let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.update_comments {
+        req_builder = req_builder.query(&[("updateComments", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_tenant_user_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        serde_json::from_str(&content).map_err(Error::from)
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateTenantUserError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
