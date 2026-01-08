@@ -59,6 +59,7 @@
 | Variant52 | 52 |
 | Variant53 | 53 |
 | Variant54 | 54 |
+| Variant55 | 55 |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

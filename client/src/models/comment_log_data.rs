@@ -99,6 +99,12 @@ pub struct CommentLogData {
     pub trust_factor_after: Option<f64>,
     #[serde(rename = "referencedCommentId", skip_serializing_if = "Option::is_none")]
     pub referenced_comment_id: Option<String>,
+    #[serde(rename = "invalidLocale", skip_serializing_if = "Option::is_none")]
+    pub invalid_locale: Option<String>,
+    #[serde(rename = "detectedLocale", skip_serializing_if = "Option::is_none")]
+    pub detected_locale: Option<String>,
+    #[serde(rename = "detectedLanguage", skip_serializing_if = "Option::is_none")]
+    pub detected_language: Option<String>,
 }
 
 impl CommentLogData {
@@ -147,6 +153,9 @@ impl CommentLogData {
             trust_factor_before: None,
             trust_factor_after: None,
             referenced_comment_id: None,
+            invalid_locale: None,
+            detected_locale: None,
+            detected_language: None,
         }
     }
 }

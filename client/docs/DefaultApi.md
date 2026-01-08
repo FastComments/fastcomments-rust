@@ -5,6 +5,8 @@ All URIs are relative to *https://fastcomments.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_domain_config**](DefaultApi.md#add_domain_config) | **POST** /api/v1/domain-configs | 
+[**add_hash_tag**](DefaultApi.md#add_hash_tag) | **POST** /api/v1/hash-tags | 
+[**add_hash_tags_bulk**](DefaultApi.md#add_hash_tags_bulk) | **POST** /api/v1/hash-tags/bulk | 
 [**add_page**](DefaultApi.md#add_page) | **POST** /api/v1/pages | 
 [**add_sso_user**](DefaultApi.md#add_sso_user) | **POST** /api/v1/sso-users | 
 [**aggregate**](DefaultApi.md#aggregate) | **POST** /api/v1/aggregate | 
@@ -12,44 +14,104 @@ Method | HTTP request | Description
 [**block_user_from_comment**](DefaultApi.md#block_user_from_comment) | **POST** /api/v1/comments/{id}/block | 
 [**bulk_aggregate_question_results**](DefaultApi.md#bulk_aggregate_question_results) | **POST** /api/v1/question-results-aggregation/bulk | 
 [**combine_comments_with_question_results**](DefaultApi.md#combine_comments_with_question_results) | **GET** /api/v1/question-results-aggregation/combine/comments | 
+[**create_email_template**](DefaultApi.md#create_email_template) | **POST** /api/v1/email-templates | 
 [**create_feed_post**](DefaultApi.md#create_feed_post) | **POST** /api/v1/feed-posts | 
+[**create_moderator**](DefaultApi.md#create_moderator) | **POST** /api/v1/moderators | 
+[**create_question_config**](DefaultApi.md#create_question_config) | **POST** /api/v1/question-configs | 
+[**create_question_result**](DefaultApi.md#create_question_result) | **POST** /api/v1/question-results | 
 [**create_subscription**](DefaultApi.md#create_subscription) | **POST** /api/v1/subscriptions | 
+[**create_tenant**](DefaultApi.md#create_tenant) | **POST** /api/v1/tenants | 
+[**create_tenant_package**](DefaultApi.md#create_tenant_package) | **POST** /api/v1/tenant-packages | 
+[**create_tenant_user**](DefaultApi.md#create_tenant_user) | **POST** /api/v1/tenant-users | 
 [**create_user_badge**](DefaultApi.md#create_user_badge) | **POST** /api/v1/user-badges | 
+[**create_vote**](DefaultApi.md#create_vote) | **POST** /api/v1/votes | 
 [**delete_comment**](DefaultApi.md#delete_comment) | **DELETE** /api/v1/comments/{id} | 
 [**delete_domain_config**](DefaultApi.md#delete_domain_config) | **DELETE** /api/v1/domain-configs/{domain} | 
+[**delete_email_template**](DefaultApi.md#delete_email_template) | **DELETE** /api/v1/email-templates/{id} | 
+[**delete_email_template_render_error**](DefaultApi.md#delete_email_template_render_error) | **DELETE** /api/v1/email-templates/{id}/render-errors/{errorId} | 
+[**delete_hash_tag**](DefaultApi.md#delete_hash_tag) | **DELETE** /api/v1/hash-tags/{tag} | 
+[**delete_moderator**](DefaultApi.md#delete_moderator) | **DELETE** /api/v1/moderators/{id} | 
+[**delete_notification_count**](DefaultApi.md#delete_notification_count) | **DELETE** /api/v1/notification-count/{id} | 
 [**delete_page**](DefaultApi.md#delete_page) | **DELETE** /api/v1/pages/{id} | 
+[**delete_pending_webhook_event**](DefaultApi.md#delete_pending_webhook_event) | **DELETE** /api/v1/pending-webhook-events/{id} | 
+[**delete_question_config**](DefaultApi.md#delete_question_config) | **DELETE** /api/v1/question-configs/{id} | 
+[**delete_question_result**](DefaultApi.md#delete_question_result) | **DELETE** /api/v1/question-results/{id} | 
 [**delete_sso_user**](DefaultApi.md#delete_sso_user) | **DELETE** /api/v1/sso-users/{id} | 
 [**delete_subscription**](DefaultApi.md#delete_subscription) | **DELETE** /api/v1/subscriptions/{id} | 
+[**delete_tenant**](DefaultApi.md#delete_tenant) | **DELETE** /api/v1/tenants/{id} | 
+[**delete_tenant_package**](DefaultApi.md#delete_tenant_package) | **DELETE** /api/v1/tenant-packages/{id} | 
+[**delete_tenant_user**](DefaultApi.md#delete_tenant_user) | **DELETE** /api/v1/tenant-users/{id} | 
 [**delete_user_badge**](DefaultApi.md#delete_user_badge) | **DELETE** /api/v1/user-badges/{id} | 
+[**delete_vote**](DefaultApi.md#delete_vote) | **DELETE** /api/v1/votes/{id} | 
 [**flag_comment**](DefaultApi.md#flag_comment) | **POST** /api/v1/comments/{id}/flag | 
 [**get_audit_logs**](DefaultApi.md#get_audit_logs) | **GET** /api/v1/audit-logs | 
+[**get_cached_notification_count**](DefaultApi.md#get_cached_notification_count) | **GET** /api/v1/notification-count/{id} | 
 [**get_comment**](DefaultApi.md#get_comment) | **GET** /api/v1/comments/{id} | 
 [**get_comments**](DefaultApi.md#get_comments) | **GET** /api/v1/comments | 
 [**get_domain_config**](DefaultApi.md#get_domain_config) | **GET** /api/v1/domain-configs/{domain} | 
 [**get_domain_configs**](DefaultApi.md#get_domain_configs) | **GET** /api/v1/domain-configs | 
+[**get_email_template**](DefaultApi.md#get_email_template) | **GET** /api/v1/email-templates/{id} | 
+[**get_email_template_definitions**](DefaultApi.md#get_email_template_definitions) | **GET** /api/v1/email-templates/definitions | 
+[**get_email_template_render_errors**](DefaultApi.md#get_email_template_render_errors) | **GET** /api/v1/email-templates/{id}/render-errors | 
+[**get_email_templates**](DefaultApi.md#get_email_templates) | **GET** /api/v1/email-templates | 
 [**get_feed_posts**](DefaultApi.md#get_feed_posts) | **GET** /api/v1/feed-posts | 
+[**get_hash_tags**](DefaultApi.md#get_hash_tags) | **GET** /api/v1/hash-tags | 
+[**get_moderator**](DefaultApi.md#get_moderator) | **GET** /api/v1/moderators/{id} | 
+[**get_moderators**](DefaultApi.md#get_moderators) | **GET** /api/v1/moderators | 
+[**get_notification_count**](DefaultApi.md#get_notification_count) | **GET** /api/v1/notifications/count | 
+[**get_notifications**](DefaultApi.md#get_notifications) | **GET** /api/v1/notifications | 
 [**get_page_by_urlid**](DefaultApi.md#get_page_by_urlid) | **GET** /api/v1/pages/by-url-id | 
 [**get_pages**](DefaultApi.md#get_pages) | **GET** /api/v1/pages | 
+[**get_pending_webhook_event_count**](DefaultApi.md#get_pending_webhook_event_count) | **GET** /api/v1/pending-webhook-events/count | 
+[**get_pending_webhook_events**](DefaultApi.md#get_pending_webhook_events) | **GET** /api/v1/pending-webhook-events | 
+[**get_question_config**](DefaultApi.md#get_question_config) | **GET** /api/v1/question-configs/{id} | 
+[**get_question_configs**](DefaultApi.md#get_question_configs) | **GET** /api/v1/question-configs | 
+[**get_question_result**](DefaultApi.md#get_question_result) | **GET** /api/v1/question-results/{id} | 
+[**get_question_results**](DefaultApi.md#get_question_results) | **GET** /api/v1/question-results | 
 [**get_sso_user_by_email**](DefaultApi.md#get_sso_user_by_email) | **GET** /api/v1/sso-users/by-email/{email} | 
 [**get_sso_user_by_id**](DefaultApi.md#get_sso_user_by_id) | **GET** /api/v1/sso-users/by-id/{id} | 
 [**get_sso_users**](DefaultApi.md#get_sso_users) | **GET** /api/v1/sso-users | 
 [**get_subscriptions**](DefaultApi.md#get_subscriptions) | **GET** /api/v1/subscriptions | 
+[**get_tenant**](DefaultApi.md#get_tenant) | **GET** /api/v1/tenants/{id} | 
+[**get_tenant_daily_usages**](DefaultApi.md#get_tenant_daily_usages) | **GET** /api/v1/tenant-daily-usage | 
+[**get_tenant_package**](DefaultApi.md#get_tenant_package) | **GET** /api/v1/tenant-packages/{id} | 
+[**get_tenant_packages**](DefaultApi.md#get_tenant_packages) | **GET** /api/v1/tenant-packages | 
+[**get_tenant_user**](DefaultApi.md#get_tenant_user) | **GET** /api/v1/tenant-users/{id} | 
+[**get_tenant_users**](DefaultApi.md#get_tenant_users) | **GET** /api/v1/tenant-users | 
+[**get_tenants**](DefaultApi.md#get_tenants) | **GET** /api/v1/tenants | 
+[**get_user**](DefaultApi.md#get_user) | **GET** /api/v1/users/{id} | 
 [**get_user_badge**](DefaultApi.md#get_user_badge) | **GET** /api/v1/user-badges/{id} | 
 [**get_user_badge_progress_by_id**](DefaultApi.md#get_user_badge_progress_by_id) | **GET** /api/v1/user-badge-progress/{id} | 
 [**get_user_badge_progress_by_user_id**](DefaultApi.md#get_user_badge_progress_by_user_id) | **GET** /api/v1/user-badge-progress/user/{userId} | 
 [**get_user_badge_progress_list**](DefaultApi.md#get_user_badge_progress_list) | **GET** /api/v1/user-badge-progress | 
 [**get_user_badges**](DefaultApi.md#get_user_badges) | **GET** /api/v1/user-badges | 
+[**get_votes**](DefaultApi.md#get_votes) | **GET** /api/v1/votes | 
+[**get_votes_for_user**](DefaultApi.md#get_votes_for_user) | **GET** /api/v1/votes/for-user | 
 [**patch_domain_config**](DefaultApi.md#patch_domain_config) | **PATCH** /api/v1/domain-configs/{domainToUpdate} | 
+[**patch_hash_tag**](DefaultApi.md#patch_hash_tag) | **PATCH** /api/v1/hash-tags/{tag} | 
 [**patch_page**](DefaultApi.md#patch_page) | **PATCH** /api/v1/pages/{id} | 
 [**patch_sso_user**](DefaultApi.md#patch_sso_user) | **PATCH** /api/v1/sso-users/{id} | 
 [**put_domain_config**](DefaultApi.md#put_domain_config) | **PUT** /api/v1/domain-configs/{domainToUpdate} | 
 [**put_sso_user**](DefaultApi.md#put_sso_user) | **PUT** /api/v1/sso-users/{id} | 
+[**render_email_template**](DefaultApi.md#render_email_template) | **POST** /api/v1/email-templates/render | 
+[**replace_tenant_package**](DefaultApi.md#replace_tenant_package) | **PUT** /api/v1/tenant-packages/{id} | 
+[**replace_tenant_user**](DefaultApi.md#replace_tenant_user) | **PUT** /api/v1/tenant-users/{id} | 
 [**save_comment**](DefaultApi.md#save_comment) | **POST** /api/v1/comments | 
 [**save_comments_bulk**](DefaultApi.md#save_comments_bulk) | **POST** /api/v1/comments/bulk | 
+[**send_invite**](DefaultApi.md#send_invite) | **POST** /api/v1/moderators/{id}/send-invite | 
+[**send_login_link**](DefaultApi.md#send_login_link) | **POST** /api/v1/tenant-users/{id}/send-login-link | 
 [**un_block_user_from_comment**](DefaultApi.md#un_block_user_from_comment) | **POST** /api/v1/comments/{id}/un-block | 
 [**un_flag_comment**](DefaultApi.md#un_flag_comment) | **POST** /api/v1/comments/{id}/un-flag | 
 [**update_comment**](DefaultApi.md#update_comment) | **PATCH** /api/v1/comments/{id} | 
+[**update_email_template**](DefaultApi.md#update_email_template) | **PATCH** /api/v1/email-templates/{id} | 
 [**update_feed_post**](DefaultApi.md#update_feed_post) | **PATCH** /api/v1/feed-posts/{id} | 
+[**update_moderator**](DefaultApi.md#update_moderator) | **PATCH** /api/v1/moderators/{id} | 
+[**update_notification**](DefaultApi.md#update_notification) | **PATCH** /api/v1/notifications/{id} | 
+[**update_question_config**](DefaultApi.md#update_question_config) | **PATCH** /api/v1/question-configs/{id} | 
+[**update_question_result**](DefaultApi.md#update_question_result) | **PATCH** /api/v1/question-results/{id} | 
+[**update_tenant**](DefaultApi.md#update_tenant) | **PATCH** /api/v1/tenants/{id} | 
+[**update_tenant_package**](DefaultApi.md#update_tenant_package) | **PATCH** /api/v1/tenant-packages/{id} | 
+[**update_tenant_user**](DefaultApi.md#update_tenant_user) | **PATCH** /api/v1/tenant-users/{id} | 
 [**update_user_badge**](DefaultApi.md#update_user_badge) | **PUT** /api/v1/user-badges/{id} | 
 
 
@@ -70,6 +132,64 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::AddDomainConfig200Response**](AddDomainConfig_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## add_hash_tag
+
+> models::AddHashTag200Response add_hash_tag(tenant_id, create_hash_tag_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**String**> |  |  |
+**create_hash_tag_body** | Option<[**CreateHashTagBody**](CreateHashTagBody.md)> |  |  |
+
+### Return type
+
+[**models::AddHashTag200Response**](AddHashTag_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## add_hash_tags_bulk
+
+> models::AddHashTagsBulk200Response add_hash_tags_bulk(tenant_id, bulk_create_hash_tags_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**String**> |  |  |
+**bulk_create_hash_tags_body** | Option<[**BulkCreateHashTagsBody**](BulkCreateHashTagsBody.md)> |  |  |
+
+### Return type
+
+[**models::AddHashTagsBulk200Response**](AddHashTagsBulk_200_response.md)
 
 ### Authorization
 
@@ -306,6 +426,35 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## create_email_template
+
+> models::CreateEmailTemplate200Response create_email_template(tenant_id, create_email_template_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_email_template_body** | [**CreateEmailTemplateBody**](CreateEmailTemplateBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateEmailTemplate200Response**](CreateEmailTemplate_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## create_feed_post
 
 > models::CreateFeedPost200Response create_feed_post(tenant_id, create_feed_post_params, broadcast_id, is_live, do_spam_check, skip_dup_check)
@@ -326,6 +475,93 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::CreateFeedPost200Response**](CreateFeedPost_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_moderator
+
+> models::CreateModerator200Response create_moderator(tenant_id, create_moderator_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_moderator_body** | [**CreateModeratorBody**](CreateModeratorBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateModerator200Response**](CreateModerator_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_question_config
+
+> models::CreateQuestionConfig200Response create_question_config(tenant_id, create_question_config_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_question_config_body** | [**CreateQuestionConfigBody**](CreateQuestionConfigBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateQuestionConfig200Response**](CreateQuestionConfig_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_question_result
+
+> models::CreateQuestionResult200Response create_question_result(tenant_id, create_question_result_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_question_result_body** | [**CreateQuestionResultBody**](CreateQuestionResultBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateQuestionResult200Response**](CreateQuestionResult_200_response.md)
 
 ### Authorization
 
@@ -368,6 +604,93 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## create_tenant
+
+> models::CreateTenant200Response create_tenant(tenant_id, create_tenant_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_tenant_body** | [**CreateTenantBody**](CreateTenantBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateTenant200Response**](CreateTenant_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_tenant_package
+
+> models::CreateTenantPackage200Response create_tenant_package(tenant_id, create_tenant_package_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_tenant_package_body** | [**CreateTenantPackageBody**](CreateTenantPackageBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateTenantPackage200Response**](CreateTenantPackage_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_tenant_user
+
+> models::CreateTenantUser200Response create_tenant_user(tenant_id, create_tenant_user_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**create_tenant_user_body** | [**CreateTenantUserBody**](CreateTenantUserBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateTenantUser200Response**](CreateTenantUser_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## create_user_badge
 
 > models::CreateUserBadge200Response create_user_badge(tenant_id, create_user_badge_params)
@@ -392,6 +715,38 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_vote
+
+> models::CreateVote200Response create_vote(tenant_id, comment_id, direction, user_id, anon_user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**comment_id** | **String** |  | [required] |
+**direction** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**anon_user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::CreateVote200Response**](CreateVote_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -457,6 +812,154 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## delete_email_template
+
+> models::FlagCommentPublic200Response delete_email_template(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_email_template_render_error
+
+> models::FlagCommentPublic200Response delete_email_template_render_error(tenant_id, id, error_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**error_id** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_hash_tag
+
+> models::FlagCommentPublic200Response delete_hash_tag(tag, tenant_id, delete_hash_tag_request)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tag** | **String** |  | [required] |
+**tenant_id** | Option<**String**> |  |  |
+**delete_hash_tag_request** | Option<[**DeleteHashTagRequest**](DeleteHashTagRequest.md)> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_moderator
+
+> models::FlagCommentPublic200Response delete_moderator(tenant_id, id, send_email)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**send_email** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_notification_count
+
+> models::FlagCommentPublic200Response delete_notification_count(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## delete_page
 
 > models::DeletePageApiResponse delete_page(tenant_id, id)
@@ -473,6 +976,93 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::DeletePageApiResponse**](DeletePageAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_pending_webhook_event
+
+> models::FlagCommentPublic200Response delete_pending_webhook_event(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_question_config
+
+> models::FlagCommentPublic200Response delete_question_config(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_question_result
+
+> models::FlagCommentPublic200Response delete_question_result(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
 
 ### Authorization
 
@@ -547,6 +1137,96 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## delete_tenant
+
+> models::FlagCommentPublic200Response delete_tenant(tenant_id, id, sure)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**sure** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_tenant_package
+
+> models::FlagCommentPublic200Response delete_tenant_package(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_tenant_user
+
+> models::FlagCommentPublic200Response delete_tenant_user(tenant_id, id, delete_comments, comment_delete_mode)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**delete_comments** | Option<**String**> |  |  |
+**comment_delete_mode** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## delete_user_badge
 
 > models::UpdateUserBadge200Response delete_user_badge(tenant_id, id)
@@ -563,6 +1243,36 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::UpdateUserBadge200Response**](UpdateUserBadge_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_vote
+
+> models::DeleteVote200Response delete_vote(tenant_id, id, edit_key)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**edit_key** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::DeleteVote200Response**](DeleteVote_200_response.md)
 
 ### Authorization
 
@@ -627,6 +1337,35 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetAuditLogs200Response**](GetAuditLogs_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_cached_notification_count
+
+> models::GetCachedNotificationCount200Response get_cached_notification_count(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetCachedNotificationCount200Response**](GetCachedNotificationCount_200_response.md)
 
 ### Authorization
 
@@ -768,6 +1507,122 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_email_template
+
+> models::GetEmailTemplate200Response get_email_template(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetEmailTemplate200Response**](GetEmailTemplate_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_email_template_definitions
+
+> models::GetEmailTemplateDefinitions200Response get_email_template_definitions(tenant_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetEmailTemplateDefinitions200Response**](GetEmailTemplateDefinitions_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_email_template_render_errors
+
+> models::GetEmailTemplateRenderErrors200Response get_email_template_render_errors(tenant_id, id, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetEmailTemplateRenderErrors200Response**](GetEmailTemplateRenderErrors_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_email_templates
+
+> models::GetEmailTemplates200Response get_email_templates(tenant_id, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetEmailTemplates200Response**](GetEmailTemplates_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_feed_posts
 
 > models::GetFeedPosts200Response get_feed_posts(tenant_id, after_id, limit, tags)
@@ -788,6 +1643,160 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetFeedPosts200Response**](GetFeedPosts_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_hash_tags
+
+> models::GetHashTags200Response get_hash_tags(tenant_id, page)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**page** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetHashTags200Response**](GetHashTags_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_moderator
+
+> models::GetModerator200Response get_moderator(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetModerator200Response**](GetModerator_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_moderators
+
+> models::GetModerators200Response get_moderators(tenant_id, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetModerators200Response**](GetModerators_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_notification_count
+
+> models::GetNotificationCount200Response get_notification_count(tenant_id, user_id, url_id, from_comment_id, viewed, r#type)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**url_id** | Option<**String**> |  |  |
+**from_comment_id** | Option<**String**> |  |  |
+**viewed** | Option<**bool**> |  |  |
+**r#type** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::GetNotificationCount200Response**](GetNotificationCount_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_notifications
+
+> models::GetNotifications200Response get_notifications(tenant_id, user_id, url_id, from_comment_id, viewed, r#type, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**url_id** | Option<**String**> |  |  |
+**from_comment_id** | Option<**String**> |  |  |
+**viewed** | Option<**bool**> |  |  |
+**r#type** | Option<**String**> |  |  |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetNotifications200Response**](GetNotifications_200_response.md)
 
 ### Authorization
 
@@ -845,6 +1854,196 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetPagesApiResponse**](GetPagesAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_pending_webhook_event_count
+
+> models::GetPendingWebhookEventCount200Response get_pending_webhook_event_count(tenant_id, comment_id, external_id, event_type, r#type, domain, attempt_count_gt)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**comment_id** | Option<**String**> |  |  |
+**external_id** | Option<**String**> |  |  |
+**event_type** | Option<**String**> |  |  |
+**r#type** | Option<**String**> |  |  |
+**domain** | Option<**String**> |  |  |
+**attempt_count_gt** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetPendingWebhookEventCount200Response**](GetPendingWebhookEventCount_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_pending_webhook_events
+
+> models::GetPendingWebhookEvents200Response get_pending_webhook_events(tenant_id, comment_id, external_id, event_type, r#type, domain, attempt_count_gt, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**comment_id** | Option<**String**> |  |  |
+**external_id** | Option<**String**> |  |  |
+**event_type** | Option<**String**> |  |  |
+**r#type** | Option<**String**> |  |  |
+**domain** | Option<**String**> |  |  |
+**attempt_count_gt** | Option<**f64**> |  |  |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetPendingWebhookEvents200Response**](GetPendingWebhookEvents_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_question_config
+
+> models::GetQuestionConfig200Response get_question_config(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetQuestionConfig200Response**](GetQuestionConfig_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_question_configs
+
+> models::GetQuestionConfigs200Response get_question_configs(tenant_id, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetQuestionConfigs200Response**](GetQuestionConfigs_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_question_result
+
+> models::GetQuestionResult200Response get_question_result(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetQuestionResult200Response**](GetQuestionResult_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_question_results
+
+> models::GetQuestionResults200Response get_question_results(tenant_id, url_id, user_id, start_date, question_id, question_ids, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id** | Option<**String**> |  |  |
+**user_id** | Option<**String**> |  |  |
+**start_date** | Option<**String**> |  |  |
+**question_id** | Option<**String**> |  |  |
+**question_ids** | Option<**String**> |  |  |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetQuestionResults200Response**](GetQuestionResults_200_response.md)
 
 ### Authorization
 
@@ -961,6 +2160,242 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetSubscriptionsApiResponse**](GetSubscriptionsAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tenant
+
+> models::GetTenant200Response get_tenant(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetTenant200Response**](GetTenant_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tenant_daily_usages
+
+> models::GetTenantDailyUsages200Response get_tenant_daily_usages(tenant_id, year_number, month_number, day_number, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**year_number** | Option<**f64**> |  |  |
+**month_number** | Option<**f64**> |  |  |
+**day_number** | Option<**f64**> |  |  |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetTenantDailyUsages200Response**](GetTenantDailyUsages_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tenant_package
+
+> models::GetTenantPackage200Response get_tenant_package(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetTenantPackage200Response**](GetTenantPackage_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tenant_packages
+
+> models::GetTenantPackages200Response get_tenant_packages(tenant_id, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetTenantPackages200Response**](GetTenantPackages_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tenant_user
+
+> models::GetTenantUser200Response get_tenant_user(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetTenantUser200Response**](GetTenantUser_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tenant_users
+
+> models::GetTenantUsers200Response get_tenant_users(tenant_id, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetTenantUsers200Response**](GetTenantUsers_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tenants
+
+> models::GetTenants200Response get_tenants(tenant_id, meta, skip)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**meta** | Option<**String**> |  |  |
+**skip** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetTenants200Response**](GetTenants_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_user
+
+> models::GetUser200Response get_user(tenant_id, id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetUser200Response**](GetUser_200_response.md)
 
 ### Authorization
 
@@ -1126,6 +2561,66 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_votes
+
+> models::GetVotes200Response get_votes(tenant_id, url_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id** | **String** |  | [required] |
+
+### Return type
+
+[**models::GetVotes200Response**](GetVotes_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_votes_for_user
+
+> models::GetVotesForUser200Response get_votes_for_user(tenant_id, url_id, user_id, anon_user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**url_id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**anon_user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::GetVotesForUser200Response**](GetVotesForUser_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## patch_domain_config
 
 > models::GetDomainConfig200Response patch_domain_config(tenant_id, domain_to_update, patch_domain_config_params)
@@ -1143,6 +2638,36 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_hash_tag
+
+> models::PatchHashTag200Response patch_hash_tag(tag, tenant_id, update_hash_tag_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tag** | **String** |  | [required] |
+**tenant_id** | Option<**String**> |  |  |
+**update_hash_tag_body** | Option<[**UpdateHashTagBody**](UpdateHashTagBody.md)> |  |  |
+
+### Return type
+
+[**models::PatchHashTag200Response**](PatchHashTag_200_response.md)
 
 ### Authorization
 
@@ -1278,6 +2803,97 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## render_email_template
+
+> models::RenderEmailTemplate200Response render_email_template(tenant_id, render_email_template_body, locale)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**render_email_template_body** | [**RenderEmailTemplateBody**](RenderEmailTemplateBody.md) |  | [required] |
+**locale** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::RenderEmailTemplate200Response**](RenderEmailTemplate_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## replace_tenant_package
+
+> models::FlagCommentPublic200Response replace_tenant_package(tenant_id, id, replace_tenant_package_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**replace_tenant_package_body** | [**ReplaceTenantPackageBody**](ReplaceTenantPackageBody.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## replace_tenant_user
+
+> models::FlagCommentPublic200Response replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**replace_tenant_user_body** | [**ReplaceTenantUserBody**](ReplaceTenantUserBody.md) |  | [required] |
+**update_comments** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## save_comment
 
 > models::SaveComment200Response save_comment(tenant_id, create_comment_params, is_live, do_spam_check, send_emails, populate_notifications)
@@ -1339,6 +2955,66 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## send_invite
+
+> models::FlagCommentPublic200Response send_invite(tenant_id, id, from_name)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**from_name** | **String** |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## send_login_link
+
+> models::FlagCommentPublic200Response send_login_link(tenant_id, id, redirect_url)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**redirect_url** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1440,6 +3116,36 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## update_email_template
+
+> models::FlagCommentPublic200Response update_email_template(tenant_id, id, update_email_template_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_email_template_body** | [**UpdateEmailTemplateBody**](UpdateEmailTemplateBody.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## update_feed_post
 
 > models::FlagCommentPublic200Response update_feed_post(tenant_id, id, feed_post)
@@ -1453,6 +3159,218 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **id** | **String** |  | [required] |
 **feed_post** | [**FeedPost**](FeedPost.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_moderator
+
+> models::FlagCommentPublic200Response update_moderator(tenant_id, id, update_moderator_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_moderator_body** | [**UpdateModeratorBody**](UpdateModeratorBody.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_notification
+
+> models::FlagCommentPublic200Response update_notification(tenant_id, id, update_notification_body, user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_notification_body** | [**UpdateNotificationBody**](UpdateNotificationBody.md) |  | [required] |
+**user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_question_config
+
+> models::FlagCommentPublic200Response update_question_config(tenant_id, id, update_question_config_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_question_config_body** | [**UpdateQuestionConfigBody**](UpdateQuestionConfigBody.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_question_result
+
+> models::FlagCommentPublic200Response update_question_result(tenant_id, id, update_question_result_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_question_result_body** | [**UpdateQuestionResultBody**](UpdateQuestionResultBody.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_tenant
+
+> models::FlagCommentPublic200Response update_tenant(tenant_id, id, update_tenant_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_tenant_body** | [**UpdateTenantBody**](UpdateTenantBody.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_tenant_package
+
+> models::FlagCommentPublic200Response update_tenant_package(tenant_id, id, update_tenant_package_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_tenant_package_body** | [**UpdateTenantPackageBody**](UpdateTenantPackageBody.md) |  | [required] |
+
+### Return type
+
+[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_tenant_user
+
+> models::FlagCommentPublic200Response update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_tenant_user_body** | [**UpdateTenantUserBody**](UpdateTenantUserBody.md) |  | [required] |
+**update_comments** | Option<**String**> |  |  |
 
 ### Return type
 

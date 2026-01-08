@@ -1,6 +1,6 @@
 [package]
 name = "fastcomments-sdk"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["FastComments <support@fastcomments.com>"]
 description = "Official FastComments Rust SDK (Typed API Client & Utilities)"
 license = "MIT"
