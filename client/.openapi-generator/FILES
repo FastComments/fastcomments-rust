@@ -106,8 +106,6 @@ docs/CreateTenantUserBody.md
 docs/CreateTenantUserResponse.md
 docs/CreateUserBadge200Response.md
 docs/CreateUserBadgeParams.md
-docs/CreateVote200Response.md
-docs/CreateVoteResponse.md
 docs/CustomConfigParameters.md
 docs/CustomEmailTemplate.md
 docs/DefaultApi.md
@@ -123,8 +121,6 @@ docs/DeleteHashTagRequest.md
 docs/DeletePageApiResponse.md
 docs/DeleteSsoUserApiResponse.md
 docs/DeleteSubscriptionApiResponse.md
-docs/DeleteVote200Response.md
-docs/DeleteVoteResponse.md
 docs/DeletedCommentResultComment.md
 docs/DigestEmailFrequency.md
 docs/EmailTemplateDefinition.md
@@ -455,8 +451,6 @@ src/models/create_tenant_user_body.rs
 src/models/create_tenant_user_response.rs
 src/models/create_user_badge_200_response.rs
 src/models/create_user_badge_params.rs
-src/models/create_vote_200_response.rs
-src/models/create_vote_response.rs
 src/models/custom_config_parameters.rs
 src/models/custom_email_template.rs
 src/models/delete_comment_200_response.rs
@@ -471,8 +465,6 @@ src/models/delete_hash_tag_request.rs
 src/models/delete_page_api_response.rs
 src/models/delete_sso_user_api_response.rs
 src/models/delete_subscription_api_response.rs
-src/models/delete_vote_200_response.rs
-src/models/delete_vote_response.rs
 src/models/deleted_comment_result_comment.rs
 src/models/digest_email_frequency.rs
 src/models/email_template_definition.rs

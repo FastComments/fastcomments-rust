@@ -722,7 +722,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_vote
 
-> models::CreateVote200Response create_vote(tenant_id, comment_id, direction, user_id, anon_user_id)
+> models::VoteComment200Response create_vote(tenant_id, comment_id, direction, user_id, anon_user_id)
 
 
 ### Parameters
@@ -738,7 +738,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateVote200Response**](CreateVote_200_response.md)
+[**models::VoteComment200Response**](VoteComment_200_response.md)
 
 ### Authorization
 
@@ -1258,7 +1258,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_vote
 
-> models::DeleteVote200Response delete_vote(tenant_id, id, edit_key)
+> models::DeleteCommentVote200Response delete_vote(tenant_id, id, edit_key)
 
 
 ### Parameters
@@ -1272,7 +1272,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::DeleteVote200Response**](DeleteVote_200_response.md)
+[**models::DeleteCommentVote200Response**](DeleteCommentVote_200_response.md)
 
 ### Authorization
 

@@ -2437,7 +2437,7 @@ pub async fn create_user_badge(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn create_vote(configuration: &configuration::Configuration, params: CreateVoteParams) -> Result<models::CreateVote200Response, Error<CreateVoteError>> {
+pub async fn create_vote(configuration: &configuration::Configuration, params: CreateVoteParams) -> Result<models::VoteComment200Response, Error<CreateVoteError>> {
 
     let uri_str = format!("{}/api/v1/votes", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -3069,7 +3069,7 @@ pub async fn delete_user_badge(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn delete_vote(configuration: &configuration::Configuration, params: DeleteVoteParams) -> Result<models::DeleteVote200Response, Error<DeleteVoteError>> {
+pub async fn delete_vote(configuration: &configuration::Configuration, params: DeleteVoteParams) -> Result<models::DeleteCommentVote200Response, Error<DeleteVoteError>> {
 
     let uri_str = format!("{}/api/v1/votes/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
