@@ -13,8 +13,7 @@ else
 fi
 
 # Generate the Rust client using openapi-generator
-# Using npx to ensure consistent version with JS/Python SDKs
-npx @openapitools/openapi-generator-cli generate \
+java -jar ../openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate \
     -i "$SPEC_FILE" \
     -g rust \
     -o ./client \
