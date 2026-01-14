@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**my_reacts** | Option<[**std::collections::HashMap<String, std::collections::HashMap<String, bool>>**](std::collections::HashMap.md)> |  | [optional]
+**my_reacts** | Option<**std::collections::HashMap<String, std::collections::HashMap<String, bool>>**> |  | [optional]
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **feed_posts** | [**Vec<models::FeedPost>**](FeedPost.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | [optional]

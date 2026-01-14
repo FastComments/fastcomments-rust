@@ -339,7 +339,6 @@ docs/VoteBodyParams.md
 docs/VoteComment200Response.md
 docs/VoteDeleteResponse.md
 docs/VoteResponse.md
-docs/VoteResponseStatus.md
 docs/VoteResponseUser.md
 docs/VoteStyle.md
 git_push.sh
@@ -683,6 +682,5 @@ src/models/vote_body_params.rs
 src/models/vote_comment_200_response.rs
 src/models/vote_delete_response.rs
 src/models/vote_response.rs
-src/models/vote_response_status.rs
 src/models/vote_response_user.rs
 src/models/vote_style.rs

@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **local_date_string** | Option<**String**> |  | [optional]
 **locale** | Option<**String**> |  | 
 **mentions** | Option<[**Vec<models::CommentUserMentionInfo>**](CommentUserMentionInfo.md)> |  | [optional]
-**meta** | Option<[**models::FCommentMeta**](FComment_meta.md)> |  | [optional]
+**meta** | Option<[**models::FCommentMeta**](FCommentMeta.md)> |  | [optional]
 **moderation_group_ids** | Option<**Vec<String>**> |  | [optional]
 **notification_sent_for_parent** | Option<**bool**> |  | [optional]
 **notification_sent_for_parent_tenant** | Option<**bool**> |  | [optional]

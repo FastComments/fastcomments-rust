@@ -372,7 +372,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **url_id** | **String** |  | [required] |
 **page** | Option<**i32**> |  |  |
-**direction** | Option<[**SortDirections**](.md)> |  |  |
+**direction** | Option<[**SortDirections**](SortDirections.md)> |  |  |
 **sso** | Option<**String**> |  |  |
 **skip** | Option<**i32**> |  |  |
 **skip_children** | Option<**i32**> |  |  |
@@ -1136,7 +1136,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **String** |  | [required] |
 **file** | **std::path::PathBuf** |  | [required] |
-**size_preset** | Option<[**SizePreset**](.md)> | Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices) |  |
+**size_preset** | Option<[**SizePreset**](SizePreset.md)> | Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices) |  |
 **url_id** | Option<**String**> | Page id that upload is happening from, to configure |  |
 
 ### Return type

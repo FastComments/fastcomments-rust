@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **default_value** | **f64** |  | 
 **label_negative** | **String** |  | 
 **label_positive** | **String** |  | 
-**custom_options** | [**Vec<models::QuestionConfigCustomOptionsInner>**](QuestionConfig_customOptions_inner.md) |  | 
+**custom_options** | [**Vec<models::QuestionConfigCustomOptionsInner>**](QuestionConfigCustomOptionsInner.md) |  | 
 **sub_question_ids** | **Vec<String>** |  | 
 **always_show_sub_questions** | **bool** |  | 
 **reporting_order** | **f64** |  | 

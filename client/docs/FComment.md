@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **rating** | Option<**f64**> |  | [optional]
 **display_label** | Option<**String**> |  | [optional]
 **from_product_id** | Option<**i32**> |  | [optional]
-**meta** | Option<[**models::FCommentMeta**](FComment_meta.md)> |  | [optional]
+**meta** | Option<[**models::FCommentMeta**](FCommentMeta.md)> |  | [optional]
 **ip_hash** | Option<**String**> |  | [optional]
 **mentions** | Option<[**Vec<models::CommentUserMentionInfo>**](CommentUserMentionInfo.md)> |  | [optional]
 **hash_tags** | Option<[**Vec<models::CommentUserHashTagInfo>**](CommentUserHashTagInfo.md)> |  | [optional]
