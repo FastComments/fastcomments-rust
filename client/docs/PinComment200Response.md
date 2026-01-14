@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment_positions** | [**std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>**](Record_string__before_string_or_null__after_string_or_null___value.md) | Construct a type with a set of properties K of type T | 
+**comment_positions** | [**std::collections::HashMap<String, models::RecordStringBeforeStringOrNullAfterStringOrNullValue>**](RecordStringBeforeStringOrNullAfterStringOrNullValue.md) | Construct a type with a set of properties K of type T | 
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 

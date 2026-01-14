@@ -666,8 +666,6 @@ pub mod vote_delete_response;
 pub use self::vote_delete_response::VoteDeleteResponse;
 pub mod vote_response;
 pub use self::vote_response::VoteResponse;
-pub mod vote_response_status;
-pub use self::vote_response_status::VoteResponseStatus;
 pub mod vote_response_user;
 pub use self::vote_response_user::VoteResponseUser;
 pub mod vote_style;

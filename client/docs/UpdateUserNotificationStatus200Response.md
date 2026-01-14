@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **matched_count** | **i64** |  | 
 **modified_count** | **i64** |  | 
-**note** | **String** |  | 
+**note** | **Note** |  (enum: ignored-since-impersonated, demo-noop) | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

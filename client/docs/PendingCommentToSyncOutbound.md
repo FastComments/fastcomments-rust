@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **event_type** | **f64** |  | 
 **r#type** | **f64** |  | 
 **domain** | **String** |  | 
-**last_error** | [**serde_json::Value**](.md) |  | 
+**last_error** | **serde_json::Value** |  | 
 **webhook_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

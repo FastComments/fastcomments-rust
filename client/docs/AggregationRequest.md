@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **resource_name** | **String** |  | 
 **group_by** | Option<**Vec<String>**> |  | [optional]
 **operations** | [**Vec<models::AggregationOperation>**](AggregationOperation.md) |  | 
-**sort** | Option<[**models::AggregationRequestSort**](AggregationRequest_sort.md)> |  | [optional]
+**sort** | Option<[**models::AggregationRequestSort**](AggregationRequestSort.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

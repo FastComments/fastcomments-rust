@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct VoteResponse {
     #[serde(rename = "status")]
-    pub status: Box<models::VoteResponseStatus>,
+    pub status: Status,
     #[serde(rename = "voteId", skip_serializing_if = "Option::is_none")]
     pub vote_id: Option<String>,
     #[serde(rename = "isVerified", skip_serializing_if = "Option::is_none")]
@@ -26,14 +26,30 @@ pub struct VoteResponse {
 }
 
 impl VoteResponse {
-    pub fn new(status: models::VoteResponseStatus) -> VoteResponse {
+    pub fn new(status: Status) -> VoteResponse {
         VoteResponse {
-            status: Box::new(status),
+            status,
             vote_id: None,
             is_verified: None,
             user: None,
             edit_key: None,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Status {
+    #[serde(rename = "success")]
+    Success,
+    #[serde(rename = "failed")]
+    Failed,
+    #[serde(rename = "pending-verification")]
+    PendingVerification,
+}
+
+impl Default for Status {
+    fn default() -> Status {
+        Self::Success
     }
 }
 

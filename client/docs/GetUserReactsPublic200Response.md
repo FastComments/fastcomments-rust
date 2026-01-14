@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
-**reacts** | [**std::collections::HashMap<String, std::collections::HashMap<String, bool>>**](std::collections::HashMap.md) |  | 
+**reacts** | **std::collections::HashMap<String, std::collections::HashMap<String, bool>>** |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

@@ -308,7 +308,7 @@ Name | Type | Description  | Required | Notes
 **question_id** | Option<**String**> |  |  |
 **question_ids** | Option<[**Vec<String>**](String.md)> |  |  |
 **url_id** | Option<**String**> |  |  |
-**time_bucket** | Option<[**AggregateTimeBucket**](.md)> |  |  |
+**time_bucket** | Option<[**AggregateTimeBucket**](AggregateTimeBucket.md)> |  |  |
 **start_date** | Option<**String**> |  |  |
 **force_recalculate** | Option<**bool**> |  |  |
 
@@ -1330,7 +1330,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **limit** | Option<**f64**> |  |  |
 **skip** | Option<**f64**> |  |  |
-**order** | Option<[**SortDir**](.md)> |  |  |
+**order** | Option<[**SortDir**](SortDir.md)> |  |  |
 **after** | Option<**f64**> |  |  |
 **before** | Option<**f64**> |  |  |
 
@@ -1432,7 +1432,7 @@ Name | Type | Description  | Required | Notes
 **context_user_id** | Option<**String**> |  |  |
 **hash_tag** | Option<**String**> |  |  |
 **parent_id** | Option<**String**> |  |  |
-**direction** | Option<[**SortDirections**](.md)> |  |  |
+**direction** | Option<[**SortDirections**](SortDirections.md)> |  |  |
 
 ### Return type
 
