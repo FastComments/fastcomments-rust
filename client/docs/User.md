@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **website_url** | Option<**String**> |  | [optional]
 **email** | Option<**String**> |  | 
 **pending_email** | Option<**String**> |  | [optional]
+**backup_email** | Option<**String**> |  | [optional]
+**pending_backup_email** | Option<**String**> |  | [optional]
 **sign_up_date** | **i64** |  | 
 **created_from_url_id** | Option<**String**> |  | [optional]
 **created_from_tenant_id** | Option<**String**> |  | 
@@ -33,11 +35,16 @@ Name | Type | Description | Notes
 **is_manage_data_admin** | Option<**bool**> |  | [optional]
 **is_comment_moderator_admin** | Option<**bool**> |  | [optional]
 **is_api_admin** | Option<**bool**> |  | [optional]
+**is_site_admin** | Option<**bool**> |  | [optional]
 **moderator_ids** | Option<**Vec<String>**> |  | [optional]
 **is_impersonator** | Option<**bool**> |  | [optional]
 **is_coupon_manager** | Option<**bool**> |  | [optional]
 **locale** | Option<**String**> |  | [optional]
 **digest_email_frequency** | Option<[**models::DigestEmailFrequency**](DigestEmailFrequency.md)> |  | [optional]
+**notification_frequency** | Option<**f64**> |  | [optional]
+**admin_notification_frequency** | Option<**f64**> |  | [optional]
+**last_tenant_notification_sent_date** | Option<**String**> |  | [optional]
+**last_reply_notification_sent_date** | Option<**String**> |  | [optional]
 **ignored_add_to_my_site_messages** | Option<**bool**> |  | [optional]
 **last_login_date** | Option<**String**> |  | [optional]
 **display_label** | Option<**String**> |  | [optional]
@@ -55,6 +62,7 @@ Name | Type | Description | Notes
 **country_flag** | Option<**String**> |  | [optional]
 **social_links** | Option<**Vec<String>**> |  | [optional]
 **has_two_factor** | Option<**bool**> |  | [optional]
+**is_email_suppressed** | Option<**bool**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**notification_frequency** | Option<**f64**> |  | [optional]
 **page_title** | Option<**String**> |  | [optional]
 **url** | Option<**String**> |  | [optional]
 **url_id** | **String** |  | 

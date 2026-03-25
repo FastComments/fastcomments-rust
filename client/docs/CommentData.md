@@ -21,13 +21,14 @@ Name | Type | Description | Notes
 **is_from_my_account_page** | Option<**bool**> |  | [optional]
 **url** | **String** |  | 
 **url_id** | **String** |  | 
-**meta** | Option<**serde_json::Value**> |  | [optional]
+**meta** | Option<[**serde_json::Value**](.md)> |  | [optional]
 **moderation_group_ids** | Option<**Vec<String>**> |  | [optional]
 **rating** | Option<**f64**> |  | [optional]
 **from_offline_restore** | Option<**bool**> |  | [optional]
 **autoplay_delay_ms** | Option<**i64**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
-**question_values** | Option<[**std::collections::HashMap<String, models::RecordStringStringOrNumberValue>**](RecordStringStringOrNumberValue.md)> | Construct a type with a set of properties K of type T | [optional]
+**question_values** | Option<[**std::collections::HashMap<String, models::RecordStringStringOrNumberValue>**](Record_string_string_or_number__value.md)> | Construct a type with a set of properties K of type T | [optional]
+**tos** | Option<**bool**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

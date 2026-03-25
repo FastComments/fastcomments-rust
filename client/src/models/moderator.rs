@@ -49,6 +49,8 @@ pub struct Moderator {
     pub created_at: String,
     #[serde(rename = "moderationGroupIds", deserialize_with = "Option::deserialize")]
     pub moderation_group_ids: Option<Vec<String>>,
+    #[serde(rename = "isEmailSuppressed", skip_serializing_if = "Option::is_none")]
+    pub is_email_suppressed: Option<bool>,
 }
 
 impl Moderator {
@@ -72,6 +74,7 @@ impl Moderator {
             verification_id,
             created_at,
             moderation_group_ids,
+            is_email_suppressed: None,
         }
     }
 }

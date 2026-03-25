@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
-**results** | [**Vec<models::AddHashTag200Response>**](AddHashTag200Response.md) |  | 
+**results** | [**Vec<models::AddHashTag200Response>**](AddHashTag_200_response.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]

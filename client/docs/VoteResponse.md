@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **Status** |  (enum: success, failed, pending-verification) | 
+**status** | **String** |  | 
 **vote_id** | Option<**String**> |  | [optional]
 **is_verified** | Option<**bool**> |  | [optional]
 **user** | Option<[**models::VoteResponseUser**](VoteResponseUser.md)> |  | [optional]

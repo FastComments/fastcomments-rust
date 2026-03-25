@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
+**sections** | [**Vec<models::UserSearchSectionResult>**](UserSearchSectionResult.md) |  | 
 **users** | [**Vec<models::UserSearchResult>**](UserSearchResult.md) |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 

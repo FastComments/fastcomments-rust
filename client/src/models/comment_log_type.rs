@@ -11,187 +11,132 @@
 use crate::client::models;
 use serde::{Deserialize, Serialize};
 
+use serde_repr::{Serialize_repr,Deserialize_repr};
 /// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[repr(i64)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum CommentLogType {
-    #[serde(rename = "0")]
-    Variant0,
-    #[serde(rename = "1")]
-    Variant1,
-    #[serde(rename = "2")]
-    Variant2,
-    #[serde(rename = "3")]
-    Variant3,
-    #[serde(rename = "4")]
-    Variant4,
-    #[serde(rename = "5")]
-    Variant5,
-    #[serde(rename = "6")]
-    Variant6,
-    #[serde(rename = "7")]
-    Variant7,
-    #[serde(rename = "8")]
-    Variant8,
-    #[serde(rename = "9")]
-    Variant9,
-    #[serde(rename = "10")]
-    Variant10,
-    #[serde(rename = "11")]
-    Variant11,
-    #[serde(rename = "12")]
-    Variant12,
-    #[serde(rename = "13")]
-    Variant13,
-    #[serde(rename = "14")]
-    Variant14,
-    #[serde(rename = "15")]
-    Variant15,
-    #[serde(rename = "16")]
-    Variant16,
-    #[serde(rename = "17")]
-    Variant17,
-    #[serde(rename = "18")]
-    Variant18,
-    #[serde(rename = "19")]
-    Variant19,
-    #[serde(rename = "20")]
-    Variant20,
-    #[serde(rename = "21")]
-    Variant21,
-    #[serde(rename = "22")]
-    Variant22,
-    #[serde(rename = "23")]
-    Variant23,
-    #[serde(rename = "24")]
-    Variant24,
-    #[serde(rename = "25")]
-    Variant25,
-    #[serde(rename = "26")]
-    Variant26,
-    #[serde(rename = "27")]
-    Variant27,
-    #[serde(rename = "28")]
-    Variant28,
-    #[serde(rename = "29")]
-    Variant29,
-    #[serde(rename = "30")]
-    Variant30,
-    #[serde(rename = "31")]
-    Variant31,
-    #[serde(rename = "32")]
-    Variant32,
-    #[serde(rename = "33")]
-    Variant33,
-    #[serde(rename = "34")]
-    Variant34,
-    #[serde(rename = "35")]
-    Variant35,
-    #[serde(rename = "36")]
-    Variant36,
-    #[serde(rename = "37")]
-    Variant37,
-    #[serde(rename = "38")]
-    Variant38,
-    #[serde(rename = "39")]
-    Variant39,
-    #[serde(rename = "40")]
-    Variant40,
-    #[serde(rename = "41")]
-    Variant41,
-    #[serde(rename = "42")]
-    Variant42,
-    #[serde(rename = "43")]
-    Variant43,
-    #[serde(rename = "44")]
-    Variant44,
-    #[serde(rename = "45")]
-    Variant45,
-    #[serde(rename = "46")]
-    Variant46,
-    #[serde(rename = "47")]
-    Variant47,
-    #[serde(rename = "48")]
-    Variant48,
-    #[serde(rename = "49")]
-    Variant49,
-    #[serde(rename = "50")]
-    Variant50,
-    #[serde(rename = "51")]
-    Variant51,
-    #[serde(rename = "52")]
-    Variant52,
-    #[serde(rename = "53")]
-    Variant53,
-    #[serde(rename = "54")]
-    Variant54,
-    #[serde(rename = "55")]
-    Variant55,
+    Variant0 = 0,
+    Variant1 = 1,
+    Variant2 = 2,
+    Variant3 = 3,
+    Variant4 = 4,
+    Variant5 = 5,
+    Variant6 = 6,
+    Variant7 = 7,
+    Variant8 = 8,
+    Variant9 = 9,
+    Variant10 = 10,
+    Variant11 = 11,
+    Variant12 = 12,
+    Variant13 = 13,
+    Variant14 = 14,
+    Variant15 = 15,
+    Variant16 = 16,
+    Variant17 = 17,
+    Variant18 = 18,
+    Variant19 = 19,
+    Variant20 = 20,
+    Variant21 = 21,
+    Variant22 = 22,
+    Variant23 = 23,
+    Variant24 = 24,
+    Variant25 = 25,
+    Variant26 = 26,
+    Variant27 = 27,
+    Variant28 = 28,
+    Variant29 = 29,
+    Variant30 = 30,
+    Variant31 = 31,
+    Variant32 = 32,
+    Variant33 = 33,
+    Variant34 = 34,
+    Variant35 = 35,
+    Variant36 = 36,
+    Variant37 = 37,
+    Variant38 = 38,
+    Variant39 = 39,
+    Variant40 = 40,
+    Variant41 = 41,
+    Variant42 = 42,
+    Variant43 = 43,
+    Variant44 = 44,
+    Variant45 = 45,
+    Variant46 = 46,
+    Variant47 = 47,
+    Variant48 = 48,
+    Variant49 = 49,
+    Variant50 = 50,
+    Variant51 = 51,
+    Variant52 = 52,
+    Variant53 = 53,
+    Variant54 = 54,
+    Variant55 = 55,
 
 }
 
 impl std::fmt::Display for CommentLogType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match self {
-            Self::Variant0 => write!(f, "0"),
-            Self::Variant1 => write!(f, "1"),
-            Self::Variant2 => write!(f, "2"),
-            Self::Variant3 => write!(f, "3"),
-            Self::Variant4 => write!(f, "4"),
-            Self::Variant5 => write!(f, "5"),
-            Self::Variant6 => write!(f, "6"),
-            Self::Variant7 => write!(f, "7"),
-            Self::Variant8 => write!(f, "8"),
-            Self::Variant9 => write!(f, "9"),
-            Self::Variant10 => write!(f, "10"),
-            Self::Variant11 => write!(f, "11"),
-            Self::Variant12 => write!(f, "12"),
-            Self::Variant13 => write!(f, "13"),
-            Self::Variant14 => write!(f, "14"),
-            Self::Variant15 => write!(f, "15"),
-            Self::Variant16 => write!(f, "16"),
-            Self::Variant17 => write!(f, "17"),
-            Self::Variant18 => write!(f, "18"),
-            Self::Variant19 => write!(f, "19"),
-            Self::Variant20 => write!(f, "20"),
-            Self::Variant21 => write!(f, "21"),
-            Self::Variant22 => write!(f, "22"),
-            Self::Variant23 => write!(f, "23"),
-            Self::Variant24 => write!(f, "24"),
-            Self::Variant25 => write!(f, "25"),
-            Self::Variant26 => write!(f, "26"),
-            Self::Variant27 => write!(f, "27"),
-            Self::Variant28 => write!(f, "28"),
-            Self::Variant29 => write!(f, "29"),
-            Self::Variant30 => write!(f, "30"),
-            Self::Variant31 => write!(f, "31"),
-            Self::Variant32 => write!(f, "32"),
-            Self::Variant33 => write!(f, "33"),
-            Self::Variant34 => write!(f, "34"),
-            Self::Variant35 => write!(f, "35"),
-            Self::Variant36 => write!(f, "36"),
-            Self::Variant37 => write!(f, "37"),
-            Self::Variant38 => write!(f, "38"),
-            Self::Variant39 => write!(f, "39"),
-            Self::Variant40 => write!(f, "40"),
-            Self::Variant41 => write!(f, "41"),
-            Self::Variant42 => write!(f, "42"),
-            Self::Variant43 => write!(f, "43"),
-            Self::Variant44 => write!(f, "44"),
-            Self::Variant45 => write!(f, "45"),
-            Self::Variant46 => write!(f, "46"),
-            Self::Variant47 => write!(f, "47"),
-            Self::Variant48 => write!(f, "48"),
-            Self::Variant49 => write!(f, "49"),
-            Self::Variant50 => write!(f, "50"),
-            Self::Variant51 => write!(f, "51"),
-            Self::Variant52 => write!(f, "52"),
-            Self::Variant53 => write!(f, "53"),
-            Self::Variant54 => write!(f, "54"),
-            Self::Variant55 => write!(f, "55"),
-        }
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", match self {
+            Self::Variant0 => "0",
+            Self::Variant1 => "1",
+            Self::Variant2 => "2",
+            Self::Variant3 => "3",
+            Self::Variant4 => "4",
+            Self::Variant5 => "5",
+            Self::Variant6 => "6",
+            Self::Variant7 => "7",
+            Self::Variant8 => "8",
+            Self::Variant9 => "9",
+            Self::Variant10 => "10",
+            Self::Variant11 => "11",
+            Self::Variant12 => "12",
+            Self::Variant13 => "13",
+            Self::Variant14 => "14",
+            Self::Variant15 => "15",
+            Self::Variant16 => "16",
+            Self::Variant17 => "17",
+            Self::Variant18 => "18",
+            Self::Variant19 => "19",
+            Self::Variant20 => "20",
+            Self::Variant21 => "21",
+            Self::Variant22 => "22",
+            Self::Variant23 => "23",
+            Self::Variant24 => "24",
+            Self::Variant25 => "25",
+            Self::Variant26 => "26",
+            Self::Variant27 => "27",
+            Self::Variant28 => "28",
+            Self::Variant29 => "29",
+            Self::Variant30 => "30",
+            Self::Variant31 => "31",
+            Self::Variant32 => "32",
+            Self::Variant33 => "33",
+            Self::Variant34 => "34",
+            Self::Variant35 => "35",
+            Self::Variant36 => "36",
+            Self::Variant37 => "37",
+            Self::Variant38 => "38",
+            Self::Variant39 => "39",
+            Self::Variant40 => "40",
+            Self::Variant41 => "41",
+            Self::Variant42 => "42",
+            Self::Variant43 => "43",
+            Self::Variant44 => "44",
+            Self::Variant45 => "45",
+            Self::Variant46 => "46",
+            Self::Variant47 => "47",
+            Self::Variant48 => "48",
+            Self::Variant49 => "49",
+            Self::Variant50 => "50",
+            Self::Variant51 => "51",
+            Self::Variant52 => "52",
+            Self::Variant53 => "53",
+            Self::Variant54 => "54",
+            Self::Variant55 => "55",
+        })
     }
 }
-
 impl Default for CommentLogType {
     fn default() -> CommentLogType {
         Self::Variant0

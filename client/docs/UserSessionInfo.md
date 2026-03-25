@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **group_ids** | Option<**Vec<String>**> |  | [optional]
 **has_blocked_users** | Option<**bool**> |  | [optional]
 **is_anon_session** | Option<**bool**> |  | [optional]
+**needs_tos** | Option<**bool**> |  | [optional]
 **session_id** | Option<**String**> |  | [optional]
 **username** | Option<**String**> |  | [optional]
 **website_url** | Option<**String**> |  | [optional]

@@ -62,6 +62,8 @@ pub struct CommentData {
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "questionValues", skip_serializing_if = "Option::is_none")]
     pub question_values: Option<std::collections::HashMap<String, models::RecordStringStringOrNumberValue>>,
+    #[serde(rename = "tos", skip_serializing_if = "Option::is_none")]
+    pub tos: Option<bool>,
 }
 
 impl CommentData {
@@ -91,6 +93,7 @@ impl CommentData {
             autoplay_delay_ms: None,
             feedback_ids: None,
             question_values: None,
+            tos: None,
         }
     }
 }

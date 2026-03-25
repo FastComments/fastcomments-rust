@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**aggregate_question_results**](DefaultApi.md#aggregate_question_results) | **GET** /api/v1/question-results-aggregation | 
 [**block_user_from_comment**](DefaultApi.md#block_user_from_comment) | **POST** /api/v1/comments/{id}/block | 
 [**bulk_aggregate_question_results**](DefaultApi.md#bulk_aggregate_question_results) | **POST** /api/v1/question-results-aggregation/bulk | 
+[**change_ticket_state**](DefaultApi.md#change_ticket_state) | **PATCH** /api/v1/tickets/{id}/state | 
 [**combine_comments_with_question_results**](DefaultApi.md#combine_comments_with_question_results) | **GET** /api/v1/question-results-aggregation/combine/comments | 
 [**create_email_template**](DefaultApi.md#create_email_template) | **POST** /api/v1/email-templates | 
 [**create_feed_post**](DefaultApi.md#create_feed_post) | **POST** /api/v1/feed-posts | 
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**create_tenant**](DefaultApi.md#create_tenant) | **POST** /api/v1/tenants | 
 [**create_tenant_package**](DefaultApi.md#create_tenant_package) | **POST** /api/v1/tenant-packages | 
 [**create_tenant_user**](DefaultApi.md#create_tenant_user) | **POST** /api/v1/tenant-users | 
+[**create_ticket**](DefaultApi.md#create_ticket) | **POST** /api/v1/tickets | 
 [**create_user_badge**](DefaultApi.md#create_user_badge) | **POST** /api/v1/user-badges | 
 [**create_vote**](DefaultApi.md#create_vote) | **POST** /api/v1/votes | 
 [**delete_comment**](DefaultApi.md#delete_comment) | **DELETE** /api/v1/comments/{id} | 
@@ -79,6 +81,8 @@ Method | HTTP request | Description
 [**get_tenant_user**](DefaultApi.md#get_tenant_user) | **GET** /api/v1/tenant-users/{id} | 
 [**get_tenant_users**](DefaultApi.md#get_tenant_users) | **GET** /api/v1/tenant-users | 
 [**get_tenants**](DefaultApi.md#get_tenants) | **GET** /api/v1/tenants | 
+[**get_ticket**](DefaultApi.md#get_ticket) | **GET** /api/v1/tickets/{id} | 
+[**get_tickets**](DefaultApi.md#get_tickets) | **GET** /api/v1/tickets | 
 [**get_user**](DefaultApi.md#get_user) | **GET** /api/v1/users/{id} | 
 [**get_user_badge**](DefaultApi.md#get_user_badge) | **GET** /api/v1/user-badges/{id} | 
 [**get_user_badge_progress_by_id**](DefaultApi.md#get_user_badge_progress_by_id) | **GET** /api/v1/user-badge-progress/{id} | 
@@ -109,6 +113,7 @@ Method | HTTP request | Description
 [**update_notification**](DefaultApi.md#update_notification) | **PATCH** /api/v1/notifications/{id} | 
 [**update_question_config**](DefaultApi.md#update_question_config) | **PATCH** /api/v1/question-configs/{id} | 
 [**update_question_result**](DefaultApi.md#update_question_result) | **PATCH** /api/v1/question-results/{id} | 
+[**update_subscription**](DefaultApi.md#update_subscription) | **PATCH** /api/v1/subscriptions/{id} | 
 [**update_tenant**](DefaultApi.md#update_tenant) | **PATCH** /api/v1/tenants/{id} | 
 [**update_tenant_package**](DefaultApi.md#update_tenant_package) | **PATCH** /api/v1/tenant-packages/{id} | 
 [**update_tenant_user**](DefaultApi.md#update_tenant_user) | **PATCH** /api/v1/tenant-users/{id} | 
@@ -308,7 +313,7 @@ Name | Type | Description  | Required | Notes
 **question_id** | Option<**String**> |  |  |
 **question_ids** | Option<[**Vec<String>**](String.md)> |  |  |
 **url_id** | Option<**String**> |  |  |
-**time_bucket** | Option<[**AggregateTimeBucket**](AggregateTimeBucket.md)> |  |  |
+**time_bucket** | Option<[**AggregateTimeBucket**](.md)> |  |  |
 **start_date** | Option<**String**> |  |  |
 **force_recalculate** | Option<**bool**> |  |  |
 
@@ -377,6 +382,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::BulkAggregateQuestionResults200Response**](BulkAggregateQuestionResults_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## change_ticket_state
+
+> models::ChangeTicketState200Response change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**user_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**change_ticket_state_body** | [**ChangeTicketStateBody**](ChangeTicketStateBody.md) |  | [required] |
+
+### Return type
+
+[**models::ChangeTicketState200Response**](ChangeTicketState_200_response.md)
 
 ### Authorization
 
@@ -678,6 +714,36 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::CreateTenantUser200Response**](CreateTenantUser_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_ticket
+
+> models::CreateTicket200Response create_ticket(tenant_id, user_id, create_ticket_body)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**user_id** | **String** |  | [required] |
+**create_ticket_body** | [**CreateTicketBody**](CreateTicketBody.md) |  | [required] |
+
+### Return type
+
+[**models::CreateTicket200Response**](CreateTicket_200_response.md)
 
 ### Authorization
 
@@ -1330,7 +1396,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **limit** | Option<**f64**> |  |  |
 **skip** | Option<**f64**> |  |  |
-**order** | Option<[**SortDir**](SortDir.md)> |  |  |
+**order** | Option<[**SortDir**](.md)> |  |  |
 **after** | Option<**f64**> |  |  |
 **before** | Option<**f64**> |  |  |
 
@@ -1432,7 +1498,7 @@ Name | Type | Description  | Required | Notes
 **context_user_id** | Option<**String**> |  |  |
 **hash_tag** | Option<**String**> |  |  |
 **parent_id** | Option<**String**> |  |  |
-**direction** | Option<[**SortDirections**](SortDirections.md)> |  |  |
+**direction** | Option<[**SortDirections**](.md)> |  |  |
 
 ### Return type
 
@@ -2380,6 +2446,68 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_ticket
+
+> models::GetTicket200Response get_ticket(tenant_id, id, user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::GetTicket200Response**](GetTicket_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tickets
+
+> models::GetTickets200Response get_tickets(tenant_id, user_id, state, skip, limit)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**user_id** | Option<**String**> |  |  |
+**state** | Option<**f64**> |  |  |
+**skip** | Option<**f64**> |  |  |
+**limit** | Option<**f64**> |  |  |
+
+### Return type
+
+[**models::GetTickets200Response**](GetTickets_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_user
 
 > models::GetUser200Response get_user(tenant_id, id)
@@ -3284,6 +3412,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_subscription
+
+> models::UpdateSubscriptionApiResponse update_subscription(tenant_id, id, update_api_user_subscription_data, user_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
+**id** | **String** |  | [required] |
+**update_api_user_subscription_data** | [**UpdateApiUserSubscriptionData**](UpdateApiUserSubscriptionData.md) |  | [required] |
+**user_id** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::UpdateSubscriptionApiResponse**](UpdateSubscriptionAPIResponse.md)
 
 ### Authorization
 

@@ -11,58 +11,46 @@
 use crate::client::models;
 use serde::{Deserialize, Serialize};
 
+use serde_repr::{Serialize_repr,Deserialize_repr};
 /// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[repr(i64)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum NotificationType {
-    #[serde(rename = "0")]
-    Variant0,
-    #[serde(rename = "1")]
-    Variant1,
-    #[serde(rename = "2")]
-    Variant2,
-    #[serde(rename = "3")]
-    Variant3,
-    #[serde(rename = "4")]
-    Variant4,
-    #[serde(rename = "5")]
-    Variant5,
-    #[serde(rename = "6")]
-    Variant6,
-    #[serde(rename = "7")]
-    Variant7,
-    #[serde(rename = "8")]
-    Variant8,
-    #[serde(rename = "81")]
-    Variant81,
-    #[serde(rename = "82")]
-    Variant82,
-    #[serde(rename = "9")]
-    Variant9,
-    #[serde(rename = "10")]
-    Variant10,
+    Variant0 = 0,
+    Variant1 = 1,
+    Variant2 = 2,
+    Variant3 = 3,
+    Variant4 = 4,
+    Variant5 = 5,
+    Variant6 = 6,
+    Variant7 = 7,
+    Variant8 = 8,
+    Variant81 = 81,
+    Variant82 = 82,
+    Variant9 = 9,
+    Variant10 = 10,
 
 }
 
 impl std::fmt::Display for NotificationType {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match self {
-            Self::Variant0 => write!(f, "0"),
-            Self::Variant1 => write!(f, "1"),
-            Self::Variant2 => write!(f, "2"),
-            Self::Variant3 => write!(f, "3"),
-            Self::Variant4 => write!(f, "4"),
-            Self::Variant5 => write!(f, "5"),
-            Self::Variant6 => write!(f, "6"),
-            Self::Variant7 => write!(f, "7"),
-            Self::Variant8 => write!(f, "8"),
-            Self::Variant81 => write!(f, "81"),
-            Self::Variant82 => write!(f, "82"),
-            Self::Variant9 => write!(f, "9"),
-            Self::Variant10 => write!(f, "10"),
-        }
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", match self {
+            Self::Variant0 => "0",
+            Self::Variant1 => "1",
+            Self::Variant2 => "2",
+            Self::Variant3 => "3",
+            Self::Variant4 => "4",
+            Self::Variant5 => "5",
+            Self::Variant6 => "6",
+            Self::Variant7 => "7",
+            Self::Variant8 => "8",
+            Self::Variant81 => "81",
+            Self::Variant82 => "82",
+            Self::Variant9 => "9",
+            Self::Variant10 => "10",
+        })
     }
 }
-
 impl Default for NotificationType {
     fn default() -> NotificationType {
         Self::Variant0

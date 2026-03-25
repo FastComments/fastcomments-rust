@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **displayed_on_comments** | **bool** |  | 
 **received_at** | **String** |  | 
 **order** | Option<**i32**> |  | [optional]
+**url_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

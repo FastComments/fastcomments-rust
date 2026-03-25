@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **verification_id** | Option<**String**> |  | 
 **created_at** | **String** |  | 
 **moderation_group_ids** | Option<**Vec<String>**> |  | 
+**is_email_suppressed** | Option<**bool**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

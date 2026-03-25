@@ -35,6 +35,8 @@ pub struct ReplaceTenantPackageBody {
     pub max_moderators: f64,
     #[serde(rename = "maxDomains")]
     pub max_domains: f64,
+    #[serde(rename = "maxCustomCollectionSize", skip_serializing_if = "Option::is_none")]
+    pub max_custom_collection_size: Option<f64>,
     #[serde(rename = "hasDebranding")]
     pub has_debranding: bool,
     #[serde(rename = "forWhoText")]
@@ -89,6 +91,7 @@ impl ReplaceTenantPackageBody {
             max_sso_users,
             max_moderators,
             max_domains,
+            max_custom_collection_size: None,
             has_debranding,
             for_who_text,
             feature_taglines,

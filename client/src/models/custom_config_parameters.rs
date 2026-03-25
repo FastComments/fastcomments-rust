@@ -61,6 +61,10 @@ pub struct CustomConfigParameters {
     pub disable_live_commenting: Option<bool>,
     #[serde(rename = "disableNotificationBell", skip_serializing_if = "Option::is_none")]
     pub disable_notification_bell: Option<bool>,
+    #[serde(rename = "disableProfileComments", skip_serializing_if = "Option::is_none")]
+    pub disable_profile_comments: Option<bool>,
+    #[serde(rename = "disableProfileDirectMessages", skip_serializing_if = "Option::is_none")]
+    pub disable_profile_direct_messages: Option<bool>,
     #[serde(rename = "disableProfiles", skip_serializing_if = "Option::is_none")]
     pub disable_profiles: Option<bool>,
     #[serde(rename = "disableSuccessMessage", skip_serializing_if = "Option::is_none")]
@@ -109,6 +113,8 @@ pub struct CustomConfigParameters {
     pub max_comment_created_count_pupm: Option<Option<i32>>,
     #[serde(rename = "noCustomConfig", skip_serializing_if = "Option::is_none")]
     pub no_custom_config: Option<bool>,
+    #[serde(rename = "mentionAutoCompleteMode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub mention_auto_complete_mode: Option<Option<models::MentionAutoCompleteMode>>,
     #[serde(rename = "noImageUploads", skip_serializing_if = "Option::is_none")]
     pub no_image_uploads: Option<bool>,
     #[serde(rename = "noStyles", skip_serializing_if = "Option::is_none")]
@@ -150,6 +156,8 @@ pub struct CustomConfigParameters {
     pub widget_question_id: Option<String>,
     #[serde(rename = "widgetQuestionResultsStyle", skip_serializing_if = "Option::is_none")]
     pub widget_question_results_style: Option<models::CommentQuestionResultsRenderingType>,
+    #[serde(rename = "widgetQuestionShowBreakdown", skip_serializing_if = "Option::is_none")]
+    pub widget_question_show_breakdown: Option<bool>,
     #[serde(rename = "widgetQuestionStyle", skip_serializing_if = "Option::is_none")]
     pub widget_question_style: Option<models::QuestionRenderingType>,
     #[serde(rename = "widgetQuestionWhenToSave", skip_serializing_if = "Option::is_none")]
@@ -160,6 +168,18 @@ pub struct CustomConfigParameters {
     pub widget_sub_question_visibility: Option<models::QuestionSubQuestionVisibility>,
     #[serde(rename = "wrap", skip_serializing_if = "Option::is_none")]
     pub wrap: Option<bool>,
+    #[serde(rename = "ticketBaseUrl", skip_serializing_if = "Option::is_none")]
+    pub ticket_base_url: Option<String>,
+    #[serde(rename = "ticketKBSearchEndpoint", skip_serializing_if = "Option::is_none")]
+    pub ticket_kb_search_endpoint: Option<String>,
+    #[serde(rename = "ticketFileUploadsEnabled", skip_serializing_if = "Option::is_none")]
+    pub ticket_file_uploads_enabled: Option<bool>,
+    #[serde(rename = "ticketMaxFileSize", skip_serializing_if = "Option::is_none")]
+    pub ticket_max_file_size: Option<i32>,
+    #[serde(rename = "ticketAutoAssignUserIds", skip_serializing_if = "Option::is_none")]
+    pub ticket_auto_assign_user_ids: Option<Vec<String>>,
+    #[serde(rename = "tos", skip_serializing_if = "Option::is_none")]
+    pub tos: Option<Box<models::TosConfig>>,
 }
 
 impl CustomConfigParameters {
@@ -189,6 +209,8 @@ impl CustomConfigParameters {
             disable_email_inputs: None,
             disable_live_commenting: None,
             disable_notification_bell: None,
+            disable_profile_comments: None,
+            disable_profile_direct_messages: None,
             disable_profiles: None,
             disable_success_message: None,
             disable_toolbar: None,
@@ -213,6 +235,7 @@ impl CustomConfigParameters {
             max_comment_character_length: None,
             max_comment_created_count_pupm: None,
             no_custom_config: None,
+            mention_auto_complete_mode: None,
             no_image_uploads: None,
             no_styles: None,
             page_size: None,
@@ -233,11 +256,18 @@ impl CustomConfigParameters {
             vote_style: None,
             widget_question_id: None,
             widget_question_results_style: None,
+            widget_question_show_breakdown: None,
             widget_question_style: None,
             widget_question_when_to_save: None,
             widget_questions_required: None,
             widget_sub_question_visibility: None,
             wrap: None,
+            ticket_base_url: None,
+            ticket_kb_search_endpoint: None,
+            ticket_file_uploads_enabled: None,
+            ticket_max_file_size: None,
+            ticket_auto_assign_user_ids: None,
+            tos: None,
         }
     }
 }

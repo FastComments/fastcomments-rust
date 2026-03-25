@@ -13,6 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateApiUserSubscriptionData {
+    #[serde(rename = "notificationFrequency", skip_serializing_if = "Option::is_none")]
+    pub notification_frequency: Option<f64>,
     #[serde(rename = "pageTitle", skip_serializing_if = "Option::is_none")]
     pub page_title: Option<String>,
     #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
@@ -28,6 +30,7 @@ pub struct CreateApiUserSubscriptionData {
 impl CreateApiUserSubscriptionData {
     pub fn new(url_id: String) -> CreateApiUserSubscriptionData {
         CreateApiUserSubscriptionData {
+            notification_frequency: None,
             page_title: None,
             url: None,
             url_id,

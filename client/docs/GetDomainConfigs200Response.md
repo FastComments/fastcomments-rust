@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configurations** | Option<**serde_json::Value**> |  | 
-**status** | Option<**serde_json::Value**> |  | 
+**configurations** | Option<[**serde_json::Value**](.md)> |  | 
+**status** | Option<[**serde_json::Value**](.md)> |  | 
 **reason** | **String** |  | 
 **code** | **String** |  | 
 

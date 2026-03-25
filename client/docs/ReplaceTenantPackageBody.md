@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **max_sso_users** | **f64** |  | 
 **max_moderators** | **f64** |  | 
 **max_domains** | **f64** |  | 
+**max_custom_collection_size** | Option<**f64**> |  | [optional]
 **has_debranding** | **bool** |  | 
 **for_who_text** | **String** |  | 
 **feature_taglines** | **Vec<String>** |  | 

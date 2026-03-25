@@ -57,7 +57,7 @@ Name | Type | Description | Notes
 **rating** | Option<**f64**> |  | [optional]
 **display_label** | Option<**String**> |  | [optional]
 **from_product_id** | Option<**i32**> |  | [optional]
-**meta** | Option<[**models::FCommentMeta**](FCommentMeta.md)> |  | [optional]
+**meta** | Option<[**models::FCommentMeta**](FComment_meta.md)> |  | [optional]
 **ip_hash** | Option<**String**> |  | [optional]
 **mentions** | Option<[**Vec<models::CommentUserMentionInfo>**](CommentUserMentionInfo.md)> |  | [optional]
 **hash_tags** | Option<[**Vec<models::CommentUserHashTagInfo>**](CommentUserHashTagInfo.md)> |  | [optional]
@@ -75,6 +75,7 @@ Name | Type | Description | Notes
 **view_count** | Option<**i64**> |  | [optional]
 **requires_verification** | Option<**bool**> |  | [optional]
 **edit_key** | Option<**String**> |  | [optional]
+**tos_accepted_at** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

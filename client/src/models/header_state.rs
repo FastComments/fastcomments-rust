@@ -23,16 +23,19 @@ pub struct HeaderState {
     pub user_id_ws: String,
     #[serde(rename = "notificationCounts")]
     pub notification_counts: Vec<models::NotificationAndCount>,
+    #[serde(rename = "accountNotifications")]
+    pub account_notifications: Vec<models::HeaderAccountNotification>,
 }
 
 impl HeaderState {
-    pub fn new(status: models::ApiStatus, notification_type: serde_json::Value, user_id: String, user_id_ws: String, notification_counts: Vec<models::NotificationAndCount>) -> HeaderState {
+    pub fn new(status: models::ApiStatus, notification_type: serde_json::Value, user_id: String, user_id_ws: String, notification_counts: Vec<models::NotificationAndCount>, account_notifications: Vec<models::HeaderAccountNotification>) -> HeaderState {
         HeaderState {
             status,
             notification_type,
             user_id,
             user_id_ws,
             notification_counts,
+            account_notifications,
         }
     }
 }

@@ -88,6 +88,15 @@ pub struct BulkAggregateQuestionResultsParams {
     pub force_recalculate: Option<bool>
 }
 
+/// struct for passing parameters to the method [`change_ticket_state`]
+#[derive(Clone, Debug)]
+pub struct ChangeTicketStateParams {
+    pub tenant_id: String,
+    pub user_id: String,
+    pub id: String,
+    pub change_ticket_state_body: models::ChangeTicketStateBody
+}
+
 /// struct for passing parameters to the method [`combine_comments_with_question_results`]
 #[derive(Clone, Debug)]
 pub struct CombineCommentsWithQuestionResultsParams {
@@ -167,6 +176,14 @@ pub struct CreateTenantPackageParams {
 pub struct CreateTenantUserParams {
     pub tenant_id: String,
     pub create_tenant_user_body: models::CreateTenantUserBody
+}
+
+/// struct for passing parameters to the method [`create_ticket`]
+#[derive(Clone, Debug)]
+pub struct CreateTicketParams {
+    pub tenant_id: String,
+    pub user_id: String,
+    pub create_ticket_body: models::CreateTicketBody
 }
 
 /// struct for passing parameters to the method [`create_user_badge`]
@@ -624,6 +641,24 @@ pub struct GetTenantsParams {
     pub skip: Option<f64>
 }
 
+/// struct for passing parameters to the method [`get_ticket`]
+#[derive(Clone, Debug)]
+pub struct GetTicketParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub user_id: Option<String>
+}
+
+/// struct for passing parameters to the method [`get_tickets`]
+#[derive(Clone, Debug)]
+pub struct GetTicketsParams {
+    pub tenant_id: String,
+    pub user_id: Option<String>,
+    pub state: Option<f64>,
+    pub skip: Option<f64>,
+    pub limit: Option<f64>
+}
+
 /// struct for passing parameters to the method [`get_user`]
 #[derive(Clone, Debug)]
 pub struct GetUserParams {
@@ -881,6 +916,15 @@ pub struct UpdateQuestionResultParams {
     pub update_question_result_body: models::UpdateQuestionResultBody
 }
 
+/// struct for passing parameters to the method [`update_subscription`]
+#[derive(Clone, Debug)]
+pub struct UpdateSubscriptionParams {
+    pub tenant_id: String,
+    pub id: String,
+    pub update_api_user_subscription_data: models::UpdateApiUserSubscriptionData,
+    pub user_id: Option<String>
+}
+
 /// struct for passing parameters to the method [`update_tenant`]
 #[derive(Clone, Debug)]
 pub struct UpdateTenantParams {
@@ -978,6 +1022,13 @@ pub enum BulkAggregateQuestionResultsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`change_ticket_state`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ChangeTicketStateError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`combine_comments_with_question_results`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -1045,6 +1096,13 @@ pub enum CreateTenantPackageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateTenantUserError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_ticket`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateTicketError {
     UnknownValue(serde_json::Value),
 }
 
@@ -1440,6 +1498,20 @@ pub enum GetTenantsError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_ticket`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTicketError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tickets`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTicketsError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_user`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -1647,6 +1719,13 @@ pub enum UpdateQuestionConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateQuestionResultError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_subscription`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateSubscriptionError {
     UnknownValue(serde_json::Value),
 }
 
@@ -1973,7 +2052,7 @@ pub async fn aggregate_question_results(configuration: &configuration::Configura
         req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.time_bucket {
-        req_builder = req_builder.query(&[("timeBucket", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("timeBucket", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.start_date {
         req_builder = req_builder.query(&[("startDate", &param_value.to_string())]);
@@ -2111,6 +2190,51 @@ pub async fn bulk_aggregate_question_results(configuration: &configuration::Conf
     } else {
         let content = resp.text().await?;
         let entity: Option<BulkAggregateQuestionResultsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn change_ticket_state(configuration: &configuration::Configuration, params: ChangeTicketStateParams) -> Result<models::ChangeTicketState200Response, Error<ChangeTicketStateError>> {
+
+    let uri_str = format!("{}/api/v1/tickets/{id}/state", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("userId", &params.user_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.change_ticket_state_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ChangeTicketState200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ChangeTicketState200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<ChangeTicketStateError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2589,6 +2713,51 @@ pub async fn create_tenant_user(configuration: &configuration::Configuration, pa
     } else {
         let content = resp.text().await?;
         let entity: Option<CreateTenantUserError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn create_ticket(configuration: &configuration::Configuration, params: CreateTicketParams) -> Result<models::CreateTicket200Response, Error<CreateTicketError>> {
+
+    let uri_str = format!("{}/api/v1/tickets", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    req_builder = req_builder.query(&[("userId", &params.user_id.to_string())]);
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.create_ticket_body);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTicket200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTicket200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<CreateTicketError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -3557,7 +3726,7 @@ pub async fn get_audit_logs(configuration: &configuration::Configuration, params
         req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.order {
-        req_builder = req_builder.query(&[("order", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("order", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.after {
         req_builder = req_builder.query(&[("after", &param_value.to_string())]);
@@ -3734,7 +3903,7 @@ pub async fn get_comments(configuration: &configuration::Configuration, params: 
         req_builder = req_builder.query(&[("parentId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.direction {
-        req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("direction", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -5255,6 +5424,107 @@ pub async fn get_tenants(configuration: &configuration::Configuration, params: G
     }
 }
 
+pub async fn get_ticket(configuration: &configuration::Configuration, params: GetTicketParams) -> Result<models::GetTicket200Response, Error<GetTicketError>> {
+
+    let uri_str = format!("{}/api/v1/tickets/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTicket200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTicket200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTicketError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn get_tickets(configuration: &configuration::Configuration, params: GetTicketsParams) -> Result<models::GetTickets200Response, Error<GetTicketsError>> {
+
+    let uri_str = format!("{}/api/v1/tickets", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.state {
+        req_builder = req_builder.query(&[("state", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.skip {
+        req_builder = req_builder.query(&[("skip", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.limit {
+        req_builder = req_builder.query(&[("limit", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTickets200Response`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTickets200Response`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<GetTicketsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 pub async fn get_user(configuration: &configuration::Configuration, params: GetUserParams) -> Result<models::GetUser200Response, Error<GetUserError>> {
 
     let uri_str = format!("{}/api/v1/users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
@@ -6661,6 +6931,53 @@ pub async fn update_question_result(configuration: &configuration::Configuration
     } else {
         let content = resp.text().await?;
         let entity: Option<UpdateQuestionResultError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+pub async fn update_subscription(configuration: &configuration::Configuration, params: UpdateSubscriptionParams) -> Result<models::UpdateSubscriptionApiResponse, Error<UpdateSubscriptionError>> {
+
+    let uri_str = format!("{}/api/v1/subscriptions/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
+    let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
+
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
+    if let Some(ref param_value) = params.user_id {
+        req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("x-api-key", value);
+    };
+    req_builder = req_builder.json(&params.update_api_user_subscription_data);
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateSubscriptionApiResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateSubscriptionApiResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<UpdateSubscriptionError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

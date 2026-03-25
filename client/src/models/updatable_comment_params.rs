@@ -86,7 +86,7 @@ pub struct UpdatableCommentParams {
     #[serde(rename = "displayLabel", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub display_label: Option<Option<String>>,
     #[serde(rename = "meta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub meta: Option<Option<models::FCommentMeta>>,
+    pub meta: Option<Option<models::ApiCommentBaseMeta>>,
     #[serde(rename = "moderationGroupIds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub moderation_group_ids: Option<Option<Vec<String>>>,
     #[serde(rename = "feedbackIds", skip_serializing_if = "Option::is_none")]

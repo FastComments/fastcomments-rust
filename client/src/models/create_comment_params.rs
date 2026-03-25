@@ -62,6 +62,8 @@ pub struct CreateCommentParams {
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "questionValues", skip_serializing_if = "Option::is_none")]
     pub question_values: Option<std::collections::HashMap<String, models::RecordStringStringOrNumberValue>>,
+    #[serde(rename = "tos", skip_serializing_if = "Option::is_none")]
+    pub tos: Option<bool>,
     #[serde(rename = "approved", skip_serializing_if = "Option::is_none")]
     pub approved: Option<bool>,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
@@ -112,6 +114,7 @@ impl CreateCommentParams {
             autoplay_delay_ms: None,
             feedback_ids: None,
             question_values: None,
+            tos: None,
             approved: None,
             domain: None,
             ip: None,

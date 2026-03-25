@@ -35,6 +35,8 @@ pub struct UpdateTenantPackageBody {
     pub max_moderators: Option<f64>,
     #[serde(rename = "maxDomains", skip_serializing_if = "Option::is_none")]
     pub max_domains: Option<f64>,
+    #[serde(rename = "maxCustomCollectionSize", skip_serializing_if = "Option::is_none")]
+    pub max_custom_collection_size: Option<f64>,
     #[serde(rename = "hasDebranding", skip_serializing_if = "Option::is_none")]
     pub has_debranding: Option<bool>,
     #[serde(rename = "hasWhiteLabeling", skip_serializing_if = "Option::is_none")]
@@ -91,6 +93,7 @@ impl UpdateTenantPackageBody {
             max_sso_users: None,
             max_moderators: None,
             max_domains: None,
+            max_custom_collection_size: None,
             has_debranding: None,
             has_white_labeling: None,
             for_who_text: None,

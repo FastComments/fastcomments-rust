@@ -27,6 +27,10 @@ pub struct User {
     pub email: Option<String>,
     #[serde(rename = "pendingEmail", skip_serializing_if = "Option::is_none")]
     pub pending_email: Option<String>,
+    #[serde(rename = "backupEmail", skip_serializing_if = "Option::is_none")]
+    pub backup_email: Option<String>,
+    #[serde(rename = "pendingBackupEmail", skip_serializing_if = "Option::is_none")]
+    pub pending_backup_email: Option<String>,
     #[serde(rename = "signUpDate")]
     pub sign_up_date: i64,
     #[serde(rename = "createdFromUrlId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -71,6 +75,8 @@ pub struct User {
     pub is_comment_moderator_admin: Option<bool>,
     #[serde(rename = "isAPIAdmin", skip_serializing_if = "Option::is_none")]
     pub is_api_admin: Option<bool>,
+    #[serde(rename = "isSiteAdmin", skip_serializing_if = "Option::is_none")]
+    pub is_site_admin: Option<bool>,
     #[serde(rename = "moderatorIds", skip_serializing_if = "Option::is_none")]
     pub moderator_ids: Option<Vec<String>>,
     #[serde(rename = "isImpersonator", skip_serializing_if = "Option::is_none")]
@@ -81,6 +87,14 @@ pub struct User {
     pub locale: Option<String>,
     #[serde(rename = "digestEmailFrequency", skip_serializing_if = "Option::is_none")]
     pub digest_email_frequency: Option<models::DigestEmailFrequency>,
+    #[serde(rename = "notificationFrequency", skip_serializing_if = "Option::is_none")]
+    pub notification_frequency: Option<f64>,
+    #[serde(rename = "adminNotificationFrequency", skip_serializing_if = "Option::is_none")]
+    pub admin_notification_frequency: Option<f64>,
+    #[serde(rename = "lastTenantNotificationSentDate", skip_serializing_if = "Option::is_none")]
+    pub last_tenant_notification_sent_date: Option<String>,
+    #[serde(rename = "lastReplyNotificationSentDate", skip_serializing_if = "Option::is_none")]
+    pub last_reply_notification_sent_date: Option<String>,
     #[serde(rename = "ignoredAddToMySiteMessages", skip_serializing_if = "Option::is_none")]
     pub ignored_add_to_my_site_messages: Option<bool>,
     #[serde(rename = "lastLoginDate", skip_serializing_if = "Option::is_none")]
@@ -115,6 +129,8 @@ pub struct User {
     pub social_links: Option<Vec<String>>,
     #[serde(rename = "hasTwoFactor", skip_serializing_if = "Option::is_none")]
     pub has_two_factor: Option<bool>,
+    #[serde(rename = "isEmailSuppressed", skip_serializing_if = "Option::is_none")]
+    pub is_email_suppressed: Option<bool>,
 }
 
 impl User {
@@ -127,6 +143,8 @@ impl User {
             website_url: None,
             email,
             pending_email: None,
+            backup_email: None,
+            pending_backup_email: None,
             sign_up_date,
             created_from_url_id: None,
             created_from_tenant_id,
@@ -149,11 +167,16 @@ impl User {
             is_manage_data_admin: None,
             is_comment_moderator_admin: None,
             is_api_admin: None,
+            is_site_admin: None,
             moderator_ids: None,
             is_impersonator: None,
             is_coupon_manager: None,
             locale: None,
             digest_email_frequency: None,
+            notification_frequency: None,
+            admin_notification_frequency: None,
+            last_tenant_notification_sent_date: None,
+            last_reply_notification_sent_date: None,
             ignored_add_to_my_site_messages: None,
             last_login_date: None,
             display_label: None,
@@ -171,6 +194,7 @@ impl User {
             country_flag: None,
             social_links: None,
             has_two_factor: None,
+            is_email_suppressed: None,
         }
     }
 }

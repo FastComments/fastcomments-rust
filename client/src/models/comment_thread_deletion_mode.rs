@@ -11,31 +11,28 @@
 use crate::client::models;
 use serde::{Deserialize, Serialize};
 
+use serde_repr::{Serialize_repr,Deserialize_repr};
 /// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+#[repr(i64)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize_repr, Deserialize_repr)]
 pub enum CommentThreadDeletionMode {
-    #[serde(rename = "0")]
-    Variant0,
-    #[serde(rename = "1")]
-    Variant1,
-    #[serde(rename = "2")]
-    Variant2,
-    #[serde(rename = "3")]
-    Variant3,
+    Variant0 = 0,
+    Variant1 = 1,
+    Variant2 = 2,
+    Variant3 = 3,
 
 }
 
 impl std::fmt::Display for CommentThreadDeletionMode {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match self {
-            Self::Variant0 => write!(f, "0"),
-            Self::Variant1 => write!(f, "1"),
-            Self::Variant2 => write!(f, "2"),
-            Self::Variant3 => write!(f, "3"),
-        }
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", match self {
+            Self::Variant0 => "0",
+            Self::Variant1 => "1",
+            Self::Variant2 => "2",
+            Self::Variant3 => "3",
+        })
     }
 }
-
 impl Default for CommentThreadDeletionMode {
     fn default() -> CommentThreadDeletionMode {
         Self::Variant0

@@ -13,6 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FCommentMeta {
+    #[serde(rename = "wpId", skip_serializing_if = "Option::is_none")]
+    pub wp_id: Option<String>,
     #[serde(rename = "wpUserId", skip_serializing_if = "Option::is_none")]
     pub wp_user_id: Option<String>,
     #[serde(rename = "wpPostId", skip_serializing_if = "Option::is_none")]
@@ -22,6 +24,7 @@ pub struct FCommentMeta {
 impl FCommentMeta {
     pub fn new() -> FCommentMeta {
         FCommentMeta {
+            wp_id: None,
             wp_user_id: None,
             wp_post_id: None,
         }

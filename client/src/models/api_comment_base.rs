@@ -84,7 +84,7 @@ pub struct ApiCommentBase {
     #[serde(rename = "mentions", skip_serializing_if = "Option::is_none")]
     pub mentions: Option<Vec<models::CommentUserMentionInfo>>,
     #[serde(rename = "meta", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub meta: Option<Option<models::FCommentMeta>>,
+    pub meta: Option<Option<models::ApiCommentBaseMeta>>,
     #[serde(rename = "moderationGroupIds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub moderation_group_ids: Option<Option<Vec<String>>>,
     #[serde(rename = "notificationSentForParent", skip_serializing_if = "Option::is_none")]

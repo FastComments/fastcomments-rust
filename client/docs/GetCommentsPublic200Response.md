@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **comment_count** | Option<**i32**> |  | [optional]
 **is_site_admin** | Option<**bool**> |  | [optional]
 **has_billing_issue** | Option<**bool**> |  | [optional]
-**module_data** | Option<**std::collections::HashMap<String, serde_json::Value>**> | Construct a type with a set of properties K of type T | [optional]
+**module_data** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | Construct a type with a set of properties K of type T | [optional]
 **page_number** | **i32** |  | 
 **is_white_labeled** | Option<**bool**> |  | [optional]
 **is_prod** | Option<**bool**> |  | [optional]

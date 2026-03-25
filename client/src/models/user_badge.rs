@@ -49,6 +49,8 @@ pub struct UserBadge {
     pub received_at: String,
     #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
     pub order: Option<i32>,
+    #[serde(rename = "urlId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub url_id: Option<Option<String>>,
 }
 
 impl UserBadge {
@@ -72,6 +74,7 @@ impl UserBadge {
             displayed_on_comments,
             received_at,
             order: None,
+            url_id: None,
         }
     }
 }

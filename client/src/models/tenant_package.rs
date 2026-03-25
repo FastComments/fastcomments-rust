@@ -51,6 +51,8 @@ pub struct TenantPackage {
     pub max_white_labeled_tenants: f64,
     #[serde(rename = "maxMonthlyEventLogRequests")]
     pub max_monthly_event_log_requests: f64,
+    #[serde(rename = "maxCustomCollectionSize")]
+    pub max_custom_collection_size: f64,
     #[serde(rename = "hasWhiteLabeling")]
     pub has_white_labeling: bool,
     #[serde(rename = "hasDebranding")]
@@ -67,6 +69,8 @@ pub struct TenantPackage {
     pub has_flex_pricing: bool,
     #[serde(rename = "enableSAML", skip_serializing_if = "Option::is_none")]
     pub enable_saml: Option<bool>,
+    #[serde(rename = "enableCanvasLTI", skip_serializing_if = "Option::is_none")]
+    pub enable_canvas_lti: Option<bool>,
     #[serde(rename = "flexPageLoadCostCents", skip_serializing_if = "Option::is_none")]
     pub flex_page_load_cost_cents: Option<f64>,
     #[serde(rename = "flexPageLoadUnit", skip_serializing_if = "Option::is_none")]
@@ -120,7 +124,7 @@ pub struct TenantPackage {
 }
 
 impl TenantPackage {
-    pub fn new(_id: String, name: String, tenant_id: String, created_at: String, monthly_cost_usd: Option<f64>, yearly_cost_usd: Option<f64>, monthly_stripe_plan_id: Option<String>, yearly_stripe_plan_id: Option<String>, max_monthly_page_loads: f64, max_monthly_api_credits: f64, max_monthly_small_widgets_credits: f64, max_monthly_comments: f64, max_concurrent_users: f64, max_tenant_users: f64, max_sso_users: f64, max_moderators: f64, max_domains: f64, max_white_labeled_tenants: f64, max_monthly_event_log_requests: f64, has_white_labeling: bool, has_debranding: bool, has_llm_spam_detection: bool, for_who_text: String, feature_taglines: Vec<String>, has_auditing: bool, has_flex_pricing: bool) -> TenantPackage {
+    pub fn new(_id: String, name: String, tenant_id: String, created_at: String, monthly_cost_usd: Option<f64>, yearly_cost_usd: Option<f64>, monthly_stripe_plan_id: Option<String>, yearly_stripe_plan_id: Option<String>, max_monthly_page_loads: f64, max_monthly_api_credits: f64, max_monthly_small_widgets_credits: f64, max_monthly_comments: f64, max_concurrent_users: f64, max_tenant_users: f64, max_sso_users: f64, max_moderators: f64, max_domains: f64, max_white_labeled_tenants: f64, max_monthly_event_log_requests: f64, max_custom_collection_size: f64, has_white_labeling: bool, has_debranding: bool, has_llm_spam_detection: bool, for_who_text: String, feature_taglines: Vec<String>, has_auditing: bool, has_flex_pricing: bool) -> TenantPackage {
         TenantPackage {
             _id,
             name,
@@ -141,6 +145,7 @@ impl TenantPackage {
             max_domains,
             max_white_labeled_tenants,
             max_monthly_event_log_requests,
+            max_custom_collection_size,
             has_white_labeling,
             has_debranding,
             has_llm_spam_detection,
@@ -149,6 +154,7 @@ impl TenantPackage {
             has_auditing,
             has_flex_pricing,
             enable_saml: None,
+            enable_canvas_lti: None,
             flex_page_load_cost_cents: None,
             flex_page_load_unit: None,
             flex_comment_cost_cents: None,

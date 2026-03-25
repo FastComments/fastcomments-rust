@@ -13,8 +13,6 @@ use reqwest;
 use serde::{Deserialize, Serialize, de::Error as _};
 use crate::client::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
-use tokio::fs::File as TokioFile;
-use tokio_util::codec::{BytesCodec, FramedRead};
 
 /// struct for passing parameters to the method [`block_from_comment_public`]
 #[derive(Clone, Debug)]
@@ -278,7 +276,8 @@ pub struct SearchUsersParams {
     pub url_id: String,
     pub username_starts_with: Option<String>,
     pub mention_group_ids: Option<Vec<String>>,
-    pub sso: Option<String>
+    pub sso: Option<String>,
+    pub search_section: Option<String>
 }
 
 /// struct for passing parameters to the method [`set_comment_text`]
@@ -1043,7 +1042,7 @@ pub async fn get_comments_public(configuration: &configuration::Configuration, p
         req_builder = req_builder.query(&[("page", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.direction {
-        req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("direction", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1733,6 +1732,9 @@ pub async fn search_users(configuration: &configuration::Configuration, params: 
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.search_section {
+        req_builder = req_builder.query(&[("searchSection", &serde_json::to_string(param_value)?)]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -2087,7 +2089,7 @@ pub async fn upload_image(configuration: &configuration::Configuration, params: 
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = params.size_preset {
-        req_builder = req_builder.query(&[("sizePreset", &param_value.to_string())]);
+        req_builder = req_builder.query(&[("sizePreset", &serde_json::to_string(param_value)?)]);
     }
     if let Some(ref param_value) = params.url_id {
         req_builder = req_builder.query(&[("urlId", &param_value.to_string())]);
@@ -2096,11 +2098,7 @@ pub async fn upload_image(configuration: &configuration::Configuration, params: 
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
     let mut multipart_form = reqwest::multipart::Form::new();
-    let file = TokioFile::open(&params.file).await?;
-    let stream = FramedRead::new(file, BytesCodec::new());
-    let file_name = params.file.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
-    let file_part = reqwest::multipart::Part::stream(reqwest::Body::wrap_stream(stream)).file_name(file_name);
-    multipart_form = multipart_form.part("file", file_part);
+    multipart_form = multipart_form.file("file", params.file.as_os_str()).await?;
     req_builder = req_builder.multipart(multipart_form);
 
     let req = req_builder.build()?;

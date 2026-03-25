@@ -33,6 +33,8 @@ pub struct UserSessionInfo {
     pub has_blocked_users: Option<bool>,
     #[serde(rename = "isAnonSession", skip_serializing_if = "Option::is_none")]
     pub is_anon_session: Option<bool>,
+    #[serde(rename = "needsTOS", skip_serializing_if = "Option::is_none")]
+    pub needs_tos: Option<bool>,
     #[serde(rename = "sessionId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub session_id: Option<Option<String>>,
     #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
@@ -54,6 +56,7 @@ impl UserSessionInfo {
             group_ids: None,
             has_blocked_users: None,
             is_anon_session: None,
+            needs_tos: None,
             session_id: None,
             username: None,
             website_url: None,

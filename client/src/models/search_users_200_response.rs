@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct SearchUsers200Response {
     #[serde(rename = "status")]
     pub status: models::ApiStatus,
+    #[serde(rename = "sections")]
+    pub sections: Vec<models::UserSearchSectionResult>,
     #[serde(rename = "users")]
     pub users: Vec<models::UserSearchResult>,
     #[serde(rename = "reason")]
@@ -34,9 +36,10 @@ pub struct SearchUsers200Response {
 }
 
 impl SearchUsers200Response {
-    pub fn new(status: models::ApiStatus, users: Vec<models::UserSearchResult>, reason: String, code: String) -> SearchUsers200Response {
+    pub fn new(status: models::ApiStatus, sections: Vec<models::UserSearchSectionResult>, users: Vec<models::UserSearchResult>, reason: String, code: String) -> SearchUsers200Response {
         SearchUsers200Response {
             status,
+            sections,
             users,
             reason,
             code,

@@ -24,6 +24,7 @@ docs/AggregationValue.md
 docs/ApiAuditLog.md
 docs/ApiComment.md
 docs/ApiCommentBase.md
+docs/ApiCommentBaseMeta.md
 docs/ApiCreateUserBadgeResponse.md
 docs/ApiDomainConfiguration.md
 docs/ApiEmptyResponse.md
@@ -39,6 +40,9 @@ docs/ApiPage.md
 docs/ApiStatus.md
 docs/ApiTenant.md
 docs/ApiTenantDailyUsage.md
+docs/ApiTicket.md
+docs/ApiTicketDetail.md
+docs/ApiTicketFile.md
 docs/ApiUserSubscription.md
 docs/ApissoUser.md
 docs/BillingInfo.md
@@ -53,6 +57,9 @@ docs/BulkCreateHashTagsBody.md
 docs/BulkCreateHashTagsBodyTagsInner.md
 docs/BulkCreateHashTagsResponse.md
 docs/ChangeCommentPinStatusResponse.md
+docs/ChangeTicketState200Response.md
+docs/ChangeTicketStateBody.md
+docs/ChangeTicketStateResponse.md
 docs/CheckBlockedCommentsResponse.md
 docs/CheckedCommentsForBlocked200Response.md
 docs/CombineCommentsWithQuestionResults200Response.md
@@ -104,6 +111,9 @@ docs/CreateTenantResponse.md
 docs/CreateTenantUser200Response.md
 docs/CreateTenantUserBody.md
 docs/CreateTenantUserResponse.md
+docs/CreateTicket200Response.md
+docs/CreateTicketBody.md
+docs/CreateTicketResponse.md
 docs/CreateUserBadge200Response.md
 docs/CreateUserBadgeParams.md
 docs/CustomConfigParameters.md
@@ -213,6 +223,10 @@ docs/GetTenantUsers200Response.md
 docs/GetTenantUsersResponse.md
 docs/GetTenants200Response.md
 docs/GetTenantsResponse.md
+docs/GetTicket200Response.md
+docs/GetTicketResponse.md
+docs/GetTickets200Response.md
+docs/GetTicketsResponse.md
 docs/GetUser200Response.md
 docs/GetUserBadge200Response.md
 docs/GetUserBadgeProgressById200Response.md
@@ -230,6 +244,7 @@ docs/GetVotesForUser200Response.md
 docs/GetVotesForUserResponse.md
 docs/GetVotesResponse.md
 docs/GifRating.md
+docs/HeaderAccountNotification.md
 docs/HeaderState.md
 docs/IgnoredResponse.md
 docs/ImageContentProfanityLevel.md
@@ -239,6 +254,7 @@ docs/LiveEventExtraInfo.md
 docs/LiveEventType.md
 docs/LockComment200Response.md
 docs/MediaAsset.md
+docs/MentionAutoCompleteMode.md
 docs/MetaItem.md
 docs/Moderator.md
 docs/NotificationAndCount.md
@@ -294,6 +310,7 @@ docs/SaveCommentResponseOptimized.md
 docs/SaveCommentsResponseWithPresence.md
 docs/SearchUsers200Response.md
 docs/SearchUsersResponse.md
+docs/SearchUsersSectionedResponse.md
 docs/SetCommentText200Response.md
 docs/SetCommentTextResult.md
 docs/SizePreset.md
@@ -303,11 +320,13 @@ docs/SpamRule.md
 docs/SsoSecurityLevel.md
 docs/TenantHashTag.md
 docs/TenantPackage.md
+docs/TosConfig.md
 docs/UnBlockCommentPublic200Response.md
 docs/UnBlockFromCommentParams.md
 docs/UnblockSuccess.md
 docs/UpdatableCommentParams.md
 docs/UpdateApiPageData.md
+docs/UpdateApiUserSubscriptionData.md
 docs/UpdateApissoUserData.md
 docs/UpdateDomainConfigParams.md
 docs/UpdateEmailTemplateBody.md
@@ -318,6 +337,7 @@ docs/UpdateModeratorBody.md
 docs/UpdateNotificationBody.md
 docs/UpdateQuestionConfigBody.md
 docs/UpdateQuestionResultBody.md
+docs/UpdateSubscriptionApiResponse.md
 docs/UpdateTenantBody.md
 docs/UpdateTenantPackageBody.md
 docs/UpdateTenantUserBody.md
@@ -334,6 +354,8 @@ docs/UserNotificationWriteResponse.md
 docs/UserPresenceData.md
 docs/UserReactsResponse.md
 docs/UserSearchResult.md
+docs/UserSearchSection.md
+docs/UserSearchSectionResult.md
 docs/UserSessionInfo.md
 docs/VoteBodyParams.md
 docs/VoteComment200Response.md
@@ -368,6 +390,7 @@ src/models/aggregation_value.rs
 src/models/api_audit_log.rs
 src/models/api_comment.rs
 src/models/api_comment_base.rs
+src/models/api_comment_base_meta.rs
 src/models/api_create_user_badge_response.rs
 src/models/api_domain_configuration.rs
 src/models/api_empty_response.rs
@@ -383,6 +406,9 @@ src/models/api_page.rs
 src/models/api_status.rs
 src/models/api_tenant.rs
 src/models/api_tenant_daily_usage.rs
+src/models/api_ticket.rs
+src/models/api_ticket_detail.rs
+src/models/api_ticket_file.rs
 src/models/api_user_subscription.rs
 src/models/apisso_user.rs
 src/models/billing_info.rs
@@ -397,6 +423,9 @@ src/models/bulk_create_hash_tags_body.rs
 src/models/bulk_create_hash_tags_body_tags_inner.rs
 src/models/bulk_create_hash_tags_response.rs
 src/models/change_comment_pin_status_response.rs
+src/models/change_ticket_state_200_response.rs
+src/models/change_ticket_state_body.rs
+src/models/change_ticket_state_response.rs
 src/models/check_blocked_comments_response.rs
 src/models/checked_comments_for_blocked_200_response.rs
 src/models/combine_comments_with_question_results_200_response.rs
@@ -448,6 +477,9 @@ src/models/create_tenant_response.rs
 src/models/create_tenant_user_200_response.rs
 src/models/create_tenant_user_body.rs
 src/models/create_tenant_user_response.rs
+src/models/create_ticket_200_response.rs
+src/models/create_ticket_body.rs
+src/models/create_ticket_response.rs
 src/models/create_user_badge_200_response.rs
 src/models/create_user_badge_params.rs
 src/models/custom_config_parameters.rs
@@ -556,6 +588,10 @@ src/models/get_tenant_users_200_response.rs
 src/models/get_tenant_users_response.rs
 src/models/get_tenants_200_response.rs
 src/models/get_tenants_response.rs
+src/models/get_ticket_200_response.rs
+src/models/get_ticket_response.rs
+src/models/get_tickets_200_response.rs
+src/models/get_tickets_response.rs
 src/models/get_user_200_response.rs
 src/models/get_user_badge_200_response.rs
 src/models/get_user_badge_progress_by_id_200_response.rs
@@ -573,6 +609,7 @@ src/models/get_votes_for_user_200_response.rs
 src/models/get_votes_for_user_response.rs
 src/models/get_votes_response.rs
 src/models/gif_rating.rs
+src/models/header_account_notification.rs
 src/models/header_state.rs
 src/models/ignored_response.rs
 src/models/image_content_profanity_level.rs
@@ -582,6 +619,7 @@ src/models/live_event_extra_info.rs
 src/models/live_event_type.rs
 src/models/lock_comment_200_response.rs
 src/models/media_asset.rs
+src/models/mention_auto_complete_mode.rs
 src/models/meta_item.rs
 src/models/mod.rs
 src/models/moderator.rs
@@ -637,6 +675,7 @@ src/models/save_comment_response_optimized.rs
 src/models/save_comments_response_with_presence.rs
 src/models/search_users_200_response.rs
 src/models/search_users_response.rs
+src/models/search_users_sectioned_response.rs
 src/models/set_comment_text_200_response.rs
 src/models/set_comment_text_result.rs
 src/models/size_preset.rs
@@ -646,11 +685,13 @@ src/models/spam_rule.rs
 src/models/sso_security_level.rs
 src/models/tenant_hash_tag.rs
 src/models/tenant_package.rs
+src/models/tos_config.rs
 src/models/un_block_comment_public_200_response.rs
 src/models/un_block_from_comment_params.rs
 src/models/unblock_success.rs
 src/models/updatable_comment_params.rs
 src/models/update_api_page_data.rs
+src/models/update_api_user_subscription_data.rs
 src/models/update_apisso_user_data.rs
 src/models/update_domain_config_params.rs
 src/models/update_email_template_body.rs
@@ -661,6 +702,7 @@ src/models/update_moderator_body.rs
 src/models/update_notification_body.rs
 src/models/update_question_config_body.rs
 src/models/update_question_result_body.rs
+src/models/update_subscription_api_response.rs
 src/models/update_tenant_body.rs
 src/models/update_tenant_package_body.rs
 src/models/update_tenant_user_body.rs
@@ -677,6 +719,8 @@ src/models/user_notification_write_response.rs
 src/models/user_presence_data.rs
 src/models/user_reacts_response.rs
 src/models/user_search_result.rs
+src/models/user_search_section.rs
+src/models/user_search_section_result.rs
 src/models/user_session_info.rs
 src/models/vote_body_params.rs
 src/models/vote_comment_200_response.rs

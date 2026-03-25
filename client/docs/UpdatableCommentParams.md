@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **is_locked** | Option<**bool**> |  | [optional]
 **flag_count** | Option<**i32**> |  | [optional]
 **display_label** | Option<**String**> |  | [optional]
-**meta** | Option<[**models::FCommentMeta**](FCommentMeta.md)> |  | [optional]
+**meta** | Option<[**models::ApiCommentBaseMeta**](APICommentBase_meta.md)> |  | [optional]
 **moderation_group_ids** | Option<**Vec<String>**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 

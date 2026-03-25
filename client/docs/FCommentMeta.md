@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**wp_id** | Option<**String**> |  | [optional]
 **wp_user_id** | Option<**String**> |  | [optional]
 **wp_post_id** | Option<**String**> |  | [optional]
 

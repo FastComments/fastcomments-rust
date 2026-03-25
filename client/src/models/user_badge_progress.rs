@@ -30,6 +30,8 @@ pub struct UserBadgeProgress {
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "progress")]
     pub progress: std::collections::HashMap<String, f64>,
+    #[serde(rename = "tosAcceptedAt", skip_serializing_if = "Option::is_none")]
+    pub tos_accepted_at: Option<String>,
 }
 
 impl UserBadgeProgress {
@@ -43,6 +45,7 @@ impl UserBadgeProgress {
             auto_trust_factor: None,
             manual_trust_factor: None,
             progress,
+            tos_accepted_at: None,
         }
     }
 }

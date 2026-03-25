@@ -45,6 +45,8 @@ pub struct CreateTenantPackageBody {
     pub max_white_labeled_tenants: Option<f64>,
     #[serde(rename = "maxMonthlyEventLogRequests", skip_serializing_if = "Option::is_none")]
     pub max_monthly_event_log_requests: Option<f64>,
+    #[serde(rename = "maxCustomCollectionSize", skip_serializing_if = "Option::is_none")]
+    pub max_custom_collection_size: Option<f64>,
     #[serde(rename = "hasWhiteLabeling", skip_serializing_if = "Option::is_none")]
     pub has_white_labeling: Option<bool>,
     #[serde(rename = "hasDebranding")]
@@ -130,6 +132,7 @@ impl CreateTenantPackageBody {
             max_domains,
             max_white_labeled_tenants: None,
             max_monthly_event_log_requests: None,
+            max_custom_collection_size: None,
             has_white_labeling: None,
             has_debranding,
             has_llm_spam_detection: None,

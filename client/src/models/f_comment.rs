@@ -155,6 +155,8 @@ pub struct FComment {
     pub requires_verification: Option<bool>,
     #[serde(rename = "editKey", skip_serializing_if = "Option::is_none")]
     pub edit_key: Option<String>,
+    #[serde(rename = "tosAcceptedAt", skip_serializing_if = "Option::is_none")]
+    pub tos_accepted_at: Option<String>,
 }
 
 impl FComment {
@@ -231,6 +233,7 @@ impl FComment {
             view_count: None,
             requires_verification: None,
             edit_key: None,
+            tos_accepted_at: None,
         }
     }
 }

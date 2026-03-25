@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
 **comment** | [**models::FComment**](FComment.md) |  | 
 **user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | 
-**module_data** | Option<**std::collections::HashMap<String, serde_json::Value>**> | Construct a type with a set of properties K of type T | [optional]
+**module_data** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | Construct a type with a set of properties K of type T | [optional]
 **reason** | **String** |  | 
 **code** | **String** |  | 
 **secondary_code** | Option<**String**> |  | [optional]
