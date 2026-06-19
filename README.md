@@ -14,9 +14,12 @@ The SDK requires Rust 2021 edition or later.
 
 The FastComments Rust SDK consists of several modules:
 
-- **Client Module** - Auto-generated API client for FastComments REST APIs
+- **Client Module** - API client for FastComments REST APIs
   - Complete type definitions for all API models
-  - Both authenticated (`DefaultApi`) and public (`PublicApi`) endpoints
+  - Three API clients covering all FastComments methods:
+    - `default_api` (**DefaultApi**) - API-key-authenticated methods for server-side use
+    - `public_api` (**PublicApi**) - public, no-API-key methods that are safe to call from browsers and mobile apps
+    - `moderation_api` (**ModerationApi**) - methods backing the moderator dashboard, including comment moderation (list, count, search, logs, export), moderation actions (remove/restore, flag, set review/spam/approval status, votes, reopen/close thread), bans (ban from a comment, undo, pre-ban summaries, ban status/preferences, banned-user counts), and badges & trust (award/remove badges, manual badges, get/set trust factor, user internal profile). Every Moderation method accepts an `sso` parameter so the call can be made on behalf of an SSO-authenticated moderator.
   - Full async/await support with tokio
   - See [client/README.md](client/README.md) for detailed API documentation
 
@@ -128,6 +131,44 @@ async fn main() {
                 println!("Comment ID: {}, Text: {}", comment.id, comment.comment);
             }
         }
+        Err(e) => eprintln!("Error: {:?}", e),
+    }
+}
+```
+
+### Using the Moderation API
+
+The moderation methods back the moderator dashboard. They use an API-key `Configuration` just like the authenticated API, and each method accepts an optional `sso` token so the call can be made on behalf of an SSO-authenticated moderator.
+
+```rust
+use fastcomments_sdk::client::apis::configuration::{ApiKey, Configuration};
+use fastcomments_sdk::client::apis::moderation_api;
+
+#[tokio::main]
+async fn main() {
+    // Create configuration with API key
+    let mut config = Configuration::new();
+    config.api_key = Some(ApiKey {
+        prefix: None,
+        key: "your-api-key".to_string(),
+    });
+
+    // Count comments waiting in the moderation queue
+    let result = moderation_api::get_count(
+        &config,
+        moderation_api::GetCountParams {
+            text_search: None,
+            by_ip_from_comment: None,
+            filter: None,
+            search_filters: None,
+            demo: None,
+            sso: None, // pass an SSO token to act as an SSO-authenticated moderator
+        },
+    )
+    .await;
+
+    match result {
+        Ok(response) => println!("Comments to moderate: {}", response.count),
         Err(e) => eprintln!("Error: {:?}", e),
     }
 }
