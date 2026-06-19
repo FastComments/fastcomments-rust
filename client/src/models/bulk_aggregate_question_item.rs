@@ -24,7 +24,7 @@ pub struct BulkAggregateQuestionItem {
     #[serde(rename = "timeBucket", skip_serializing_if = "Option::is_none")]
     pub time_bucket: Option<models::AggregateTimeBucket>,
     #[serde(rename = "startDate", skip_serializing_if = "Option::is_none")]
-    pub start_date: Option<String>,
+    pub start_date: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl BulkAggregateQuestionItem {

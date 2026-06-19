@@ -123,7 +123,7 @@ Method | HTTP request | Description
 
 ## add_domain_config
 
-> models::AddDomainConfig200Response add_domain_config(tenant_id, add_domain_config_params)
+> models::AddDomainConfigResponse add_domain_config(tenant_id, add_domain_config_params)
 
 
 ### Parameters
@@ -136,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::AddDomainConfig200Response**](AddDomainConfig_200_response.md)
+[**models::AddDomainConfigResponse**](AddDomainConfigResponse.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Required | Notes
 
 ## add_hash_tag
 
-> models::AddHashTag200Response add_hash_tag(tenant_id, create_hash_tag_body)
+> models::CreateHashTagResponse add_hash_tag(tenant_id, create_hash_tag_body)
 
 
 ### Parameters
@@ -165,7 +165,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::AddHashTag200Response**](AddHashTag_200_response.md)
+[**models::CreateHashTagResponse**](CreateHashTagResponse.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Required | Notes
 
 ## add_hash_tags_bulk
 
-> models::AddHashTagsBulk200Response add_hash_tags_bulk(tenant_id, bulk_create_hash_tags_body)
+> models::BulkCreateHashTagsResponse add_hash_tags_bulk(tenant_id, bulk_create_hash_tags_body)
 
 
 ### Parameters
@@ -194,7 +194,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::AddHashTagsBulk200Response**](AddHashTagsBulk_200_response.md)
+[**models::BulkCreateHashTagsResponse**](BulkCreateHashTagsResponse.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Required | Notes
 
 ## aggregate
 
-> models::AggregationResponse aggregate(tenant_id, aggregation_request, parent_tenant_id, include_stats)
+> models::AggregateResponse aggregate(tenant_id, aggregation_request, parent_tenant_id, include_stats)
 
 
 Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
@@ -285,7 +285,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::AggregationResponse**](AggregationResponse.md)
+[**models::AggregateResponse**](AggregateResponse.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Required | Notes
 
 ## aggregate_question_results
 
-> models::AggregateQuestionResults200Response aggregate_question_results(tenant_id, question_id, question_ids, url_id, time_bucket, start_date, force_recalculate)
+> models::AggregateQuestionResultsResponse aggregate_question_results(tenant_id, question_id, question_ids, url_id, time_bucket, start_date, force_recalculate)
 
 
 ### Parameters
@@ -313,13 +313,13 @@ Name | Type | Description  | Required | Notes
 **question_id** | Option<**String**> |  |  |
 **question_ids** | Option<[**Vec<String>**](String.md)> |  |  |
 **url_id** | Option<**String**> |  |  |
-**time_bucket** | Option<[**AggregateTimeBucket**](.md)> |  |  |
-**start_date** | Option<**String**> |  |  |
+**time_bucket** | Option<[**AggregateTimeBucket**](AggregateTimeBucket.md)> |  |  |
+**start_date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  |  |
 **force_recalculate** | Option<**bool**> |  |  |
 
 ### Return type
 
-[**models::AggregateQuestionResults200Response**](AggregateQuestionResults_200_response.md)
+[**models::AggregateQuestionResultsResponse**](AggregateQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -335,7 +335,7 @@ Name | Type | Description  | Required | Notes
 
 ## block_user_from_comment
 
-> models::BlockFromCommentPublic200Response block_user_from_comment(tenant_id, id, block_from_comment_params, user_id, anon_user_id)
+> models::BlockSuccess block_user_from_comment(tenant_id, id, block_from_comment_params, user_id, anon_user_id)
 
 
 ### Parameters
@@ -351,7 +351,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BlockFromCommentPublic200Response**](BlockFromCommentPublic_200_response.md)
+[**models::BlockSuccess**](BlockSuccess.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Required | Notes
 
 ## bulk_aggregate_question_results
 
-> models::BulkAggregateQuestionResults200Response bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, force_recalculate)
+> models::BulkAggregateQuestionResultsResponse bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, force_recalculate)
 
 
 ### Parameters
@@ -381,7 +381,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BulkAggregateQuestionResults200Response**](BulkAggregateQuestionResults_200_response.md)
+[**models::BulkAggregateQuestionResultsResponse**](BulkAggregateQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -397,7 +397,7 @@ Name | Type | Description  | Required | Notes
 
 ## change_ticket_state
 
-> models::ChangeTicketState200Response change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
+> models::ChangeTicketStateResponse change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
 
 
 ### Parameters
@@ -412,7 +412,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ChangeTicketState200Response**](ChangeTicketState_200_response.md)
+[**models::ChangeTicketStateResponse**](ChangeTicketStateResponse.md)
 
 ### Authorization
 
@@ -428,7 +428,7 @@ Name | Type | Description  | Required | Notes
 
 ## combine_comments_with_question_results
 
-> models::CombineCommentsWithQuestionResults200Response combine_comments_with_question_results(tenant_id, question_id, question_ids, url_id, start_date, force_recalculate, min_value, max_value, limit)
+> models::CombineQuestionResultsWithCommentsResponse combine_comments_with_question_results(tenant_id, question_id, question_ids, url_id, start_date, force_recalculate, min_value, max_value, limit)
 
 
 ### Parameters
@@ -440,7 +440,7 @@ Name | Type | Description  | Required | Notes
 **question_id** | Option<**String**> |  |  |
 **question_ids** | Option<[**Vec<String>**](String.md)> |  |  |
 **url_id** | Option<**String**> |  |  |
-**start_date** | Option<**String**> |  |  |
+**start_date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  |  |
 **force_recalculate** | Option<**bool**> |  |  |
 **min_value** | Option<**f64**> |  |  |
 **max_value** | Option<**f64**> |  |  |
@@ -448,7 +448,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CombineCommentsWithQuestionResults200Response**](CombineCommentsWithQuestionResults_200_response.md)
+[**models::CombineQuestionResultsWithCommentsResponse**](CombineQuestionResultsWithCommentsResponse.md)
 
 ### Authorization
 
@@ -464,7 +464,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_email_template
 
-> models::CreateEmailTemplate200Response create_email_template(tenant_id, create_email_template_body)
+> models::CreateEmailTemplateResponse create_email_template(tenant_id, create_email_template_body)
 
 
 ### Parameters
@@ -477,7 +477,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateEmailTemplate200Response**](CreateEmailTemplate_200_response.md)
+[**models::CreateEmailTemplateResponse**](CreateEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -493,7 +493,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_feed_post
 
-> models::CreateFeedPost200Response create_feed_post(tenant_id, create_feed_post_params, broadcast_id, is_live, do_spam_check, skip_dup_check)
+> models::CreateFeedPostsResponse create_feed_post(tenant_id, create_feed_post_params, broadcast_id, is_live, do_spam_check, skip_dup_check)
 
 
 ### Parameters
@@ -510,7 +510,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateFeedPost200Response**](CreateFeedPost_200_response.md)
+[**models::CreateFeedPostsResponse**](CreateFeedPostsResponse.md)
 
 ### Authorization
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_moderator
 
-> models::CreateModerator200Response create_moderator(tenant_id, create_moderator_body)
+> models::CreateModeratorResponse create_moderator(tenant_id, create_moderator_body)
 
 
 ### Parameters
@@ -539,7 +539,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateModerator200Response**](CreateModerator_200_response.md)
+[**models::CreateModeratorResponse**](CreateModeratorResponse.md)
 
 ### Authorization
 
@@ -555,7 +555,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_question_config
 
-> models::CreateQuestionConfig200Response create_question_config(tenant_id, create_question_config_body)
+> models::CreateQuestionConfigResponse create_question_config(tenant_id, create_question_config_body)
 
 
 ### Parameters
@@ -568,7 +568,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateQuestionConfig200Response**](CreateQuestionConfig_200_response.md)
+[**models::CreateQuestionConfigResponse**](CreateQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_question_result
 
-> models::CreateQuestionResult200Response create_question_result(tenant_id, create_question_result_body)
+> models::CreateQuestionResultResponse create_question_result(tenant_id, create_question_result_body)
 
 
 ### Parameters
@@ -597,7 +597,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateQuestionResult200Response**](CreateQuestionResult_200_response.md)
+[**models::CreateQuestionResultResponse**](CreateQuestionResultResponse.md)
 
 ### Authorization
 
@@ -642,7 +642,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_tenant
 
-> models::CreateTenant200Response create_tenant(tenant_id, create_tenant_body)
+> models::CreateTenantResponse create_tenant(tenant_id, create_tenant_body)
 
 
 ### Parameters
@@ -655,7 +655,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateTenant200Response**](CreateTenant_200_response.md)
+[**models::CreateTenantResponse**](CreateTenantResponse.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_tenant_package
 
-> models::CreateTenantPackage200Response create_tenant_package(tenant_id, create_tenant_package_body)
+> models::CreateTenantPackageResponse create_tenant_package(tenant_id, create_tenant_package_body)
 
 
 ### Parameters
@@ -684,7 +684,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateTenantPackage200Response**](CreateTenantPackage_200_response.md)
+[**models::CreateTenantPackageResponse**](CreateTenantPackageResponse.md)
 
 ### Authorization
 
@@ -700,7 +700,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_tenant_user
 
-> models::CreateTenantUser200Response create_tenant_user(tenant_id, create_tenant_user_body)
+> models::CreateTenantUserResponse create_tenant_user(tenant_id, create_tenant_user_body)
 
 
 ### Parameters
@@ -713,7 +713,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateTenantUser200Response**](CreateTenantUser_200_response.md)
+[**models::CreateTenantUserResponse**](CreateTenantUserResponse.md)
 
 ### Authorization
 
@@ -729,7 +729,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_ticket
 
-> models::CreateTicket200Response create_ticket(tenant_id, user_id, create_ticket_body)
+> models::CreateTicketResponse create_ticket(tenant_id, user_id, create_ticket_body)
 
 
 ### Parameters
@@ -743,7 +743,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateTicket200Response**](CreateTicket_200_response.md)
+[**models::CreateTicketResponse**](CreateTicketResponse.md)
 
 ### Authorization
 
@@ -759,7 +759,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_user_badge
 
-> models::CreateUserBadge200Response create_user_badge(tenant_id, create_user_badge_params)
+> models::ApiCreateUserBadgeResponse create_user_badge(tenant_id, create_user_badge_params)
 
 
 ### Parameters
@@ -772,7 +772,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateUserBadge200Response**](CreateUserBadge_200_response.md)
+[**models::ApiCreateUserBadgeResponse**](APICreateUserBadgeResponse.md)
 
 ### Authorization
 
@@ -788,7 +788,7 @@ Name | Type | Description  | Required | Notes
 
 ## create_vote
 
-> models::VoteComment200Response create_vote(tenant_id, comment_id, direction, user_id, anon_user_id)
+> models::VoteResponse create_vote(tenant_id, comment_id, direction, user_id, anon_user_id)
 
 
 ### Parameters
@@ -804,7 +804,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::VoteComment200Response**](VoteComment_200_response.md)
+[**models::VoteResponse**](VoteResponse.md)
 
 ### Authorization
 
@@ -820,7 +820,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_comment
 
-> models::DeleteComment200Response delete_comment(tenant_id, id, context_user_id, is_live)
+> models::DeleteCommentResult delete_comment(tenant_id, id, context_user_id, is_live)
 
 
 ### Parameters
@@ -835,7 +835,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::DeleteComment200Response**](DeleteComment_200_response.md)
+[**models::DeleteCommentResult**](DeleteCommentResult.md)
 
 ### Authorization
 
@@ -851,7 +851,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_domain_config
 
-> models::DeleteDomainConfig200Response delete_domain_config(tenant_id, domain)
+> models::DeleteDomainConfigResponse delete_domain_config(tenant_id, domain)
 
 
 ### Parameters
@@ -864,7 +864,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::DeleteDomainConfig200Response**](DeleteDomainConfig_200_response.md)
+[**models::DeleteDomainConfigResponse**](DeleteDomainConfigResponse.md)
 
 ### Authorization
 
@@ -880,7 +880,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_email_template
 
-> models::FlagCommentPublic200Response delete_email_template(tenant_id, id)
+> models::ApiEmptyResponse delete_email_template(tenant_id, id)
 
 
 ### Parameters
@@ -893,7 +893,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -909,7 +909,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_email_template_render_error
 
-> models::FlagCommentPublic200Response delete_email_template_render_error(tenant_id, id, error_id)
+> models::ApiEmptyResponse delete_email_template_render_error(tenant_id, id, error_id)
 
 
 ### Parameters
@@ -923,7 +923,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -939,7 +939,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_hash_tag
 
-> models::FlagCommentPublic200Response delete_hash_tag(tag, tenant_id, delete_hash_tag_request)
+> models::ApiEmptyResponse delete_hash_tag(tag, tenant_id, delete_hash_tag_request_body)
 
 
 ### Parameters
@@ -949,11 +949,11 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tag** | **String** |  | [required] |
 **tenant_id** | Option<**String**> |  |  |
-**delete_hash_tag_request** | Option<[**DeleteHashTagRequest**](DeleteHashTagRequest.md)> |  |  |
+**delete_hash_tag_request_body** | Option<[**DeleteHashTagRequestBody**](DeleteHashTagRequestBody.md)> |  |  |
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -969,7 +969,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_moderator
 
-> models::FlagCommentPublic200Response delete_moderator(tenant_id, id, send_email)
+> models::ApiEmptyResponse delete_moderator(tenant_id, id, send_email)
 
 
 ### Parameters
@@ -983,7 +983,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -999,7 +999,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_notification_count
 
-> models::FlagCommentPublic200Response delete_notification_count(tenant_id, id)
+> models::ApiEmptyResponse delete_notification_count(tenant_id, id)
 
 
 ### Parameters
@@ -1012,7 +1012,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1057,7 +1057,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_pending_webhook_event
 
-> models::FlagCommentPublic200Response delete_pending_webhook_event(tenant_id, id)
+> models::ApiEmptyResponse delete_pending_webhook_event(tenant_id, id)
 
 
 ### Parameters
@@ -1070,7 +1070,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_question_config
 
-> models::FlagCommentPublic200Response delete_question_config(tenant_id, id)
+> models::ApiEmptyResponse delete_question_config(tenant_id, id)
 
 
 ### Parameters
@@ -1099,7 +1099,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1115,7 +1115,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_question_result
 
-> models::FlagCommentPublic200Response delete_question_result(tenant_id, id)
+> models::ApiEmptyResponse delete_question_result(tenant_id, id)
 
 
 ### Parameters
@@ -1128,7 +1128,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1205,7 +1205,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_tenant
 
-> models::FlagCommentPublic200Response delete_tenant(tenant_id, id, sure)
+> models::ApiEmptyResponse delete_tenant(tenant_id, id, sure)
 
 
 ### Parameters
@@ -1219,7 +1219,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1235,7 +1235,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_tenant_package
 
-> models::FlagCommentPublic200Response delete_tenant_package(tenant_id, id)
+> models::ApiEmptyResponse delete_tenant_package(tenant_id, id)
 
 
 ### Parameters
@@ -1248,7 +1248,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1264,7 +1264,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_tenant_user
 
-> models::FlagCommentPublic200Response delete_tenant_user(tenant_id, id, delete_comments, comment_delete_mode)
+> models::ApiEmptyResponse delete_tenant_user(tenant_id, id, delete_comments, comment_delete_mode)
 
 
 ### Parameters
@@ -1279,7 +1279,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1295,7 +1295,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_user_badge
 
-> models::UpdateUserBadge200Response delete_user_badge(tenant_id, id)
+> models::ApiEmptySuccessResponse delete_user_badge(tenant_id, id)
 
 
 ### Parameters
@@ -1308,7 +1308,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::UpdateUserBadge200Response**](UpdateUserBadge_200_response.md)
+[**models::ApiEmptySuccessResponse**](APIEmptySuccessResponse.md)
 
 ### Authorization
 
@@ -1324,7 +1324,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_vote
 
-> models::DeleteCommentVote200Response delete_vote(tenant_id, id, edit_key)
+> models::VoteDeleteResponse delete_vote(tenant_id, id, edit_key)
 
 
 ### Parameters
@@ -1338,7 +1338,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::DeleteCommentVote200Response**](DeleteCommentVote_200_response.md)
+[**models::VoteDeleteResponse**](VoteDeleteResponse.md)
 
 ### Authorization
 
@@ -1354,7 +1354,7 @@ Name | Type | Description  | Required | Notes
 
 ## flag_comment
 
-> models::FlagComment200Response flag_comment(tenant_id, id, user_id, anon_user_id)
+> models::FlagCommentResponse flag_comment(tenant_id, id, user_id, anon_user_id)
 
 
 ### Parameters
@@ -1369,7 +1369,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagComment200Response**](FlagComment_200_response.md)
+[**models::FlagCommentResponse**](FlagCommentResponse.md)
 
 ### Authorization
 
@@ -1385,7 +1385,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_audit_logs
 
-> models::GetAuditLogs200Response get_audit_logs(tenant_id, limit, skip, order, after, before)
+> models::GetAuditLogsResponse get_audit_logs(tenant_id, limit, skip, order, after, before)
 
 
 ### Parameters
@@ -1396,13 +1396,13 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **String** |  | [required] |
 **limit** | Option<**f64**> |  |  |
 **skip** | Option<**f64**> |  |  |
-**order** | Option<[**SortDir**](.md)> |  |  |
+**order** | Option<[**SortDir**](SortDir.md)> |  |  |
 **after** | Option<**f64**> |  |  |
 **before** | Option<**f64**> |  |  |
 
 ### Return type
 
-[**models::GetAuditLogs200Response**](GetAuditLogs_200_response.md)
+[**models::GetAuditLogsResponse**](GetAuditLogsResponse.md)
 
 ### Authorization
 
@@ -1418,7 +1418,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_cached_notification_count
 
-> models::GetCachedNotificationCount200Response get_cached_notification_count(tenant_id, id)
+> models::GetCachedNotificationCountResponse get_cached_notification_count(tenant_id, id)
 
 
 ### Parameters
@@ -1431,7 +1431,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetCachedNotificationCount200Response**](GetCachedNotificationCount_200_response.md)
+[**models::GetCachedNotificationCountResponse**](GetCachedNotificationCountResponse.md)
 
 ### Authorization
 
@@ -1447,7 +1447,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_comment
 
-> models::GetComment200Response get_comment(tenant_id, id)
+> models::ApiGetCommentResponse get_comment(tenant_id, id)
 
 
 ### Parameters
@@ -1460,7 +1460,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetComment200Response**](GetComment_200_response.md)
+[**models::ApiGetCommentResponse**](APIGetCommentResponse.md)
 
 ### Authorization
 
@@ -1476,7 +1476,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_comments
 
-> models::GetComments200Response get_comments(tenant_id, page, limit, skip, as_tree, skip_children, limit_children, max_tree_depth, url_id, user_id, anon_user_id, context_user_id, hash_tag, parent_id, direction)
+> models::ApiGetCommentsResponse get_comments(tenant_id, page, limit, skip, as_tree, skip_children, limit_children, max_tree_depth, url_id, user_id, anon_user_id, context_user_id, hash_tag, parent_id, direction, from_date, to_date)
 
 
 ### Parameters
@@ -1498,11 +1498,13 @@ Name | Type | Description  | Required | Notes
 **context_user_id** | Option<**String**> |  |  |
 **hash_tag** | Option<**String**> |  |  |
 **parent_id** | Option<**String**> |  |  |
-**direction** | Option<[**SortDirections**](.md)> |  |  |
+**direction** | Option<[**SortDirections**](SortDirections.md)> |  |  |
+**from_date** | Option<**i64**> |  |  |
+**to_date** | Option<**i64**> |  |  |
 
 ### Return type
 
-[**models::GetComments200Response**](GetComments_200_response.md)
+[**models::ApiGetCommentsResponse**](APIGetCommentsResponse.md)
 
 ### Authorization
 
@@ -1518,7 +1520,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_domain_config
 
-> models::GetDomainConfig200Response get_domain_config(tenant_id, domain)
+> models::GetDomainConfigResponse get_domain_config(tenant_id, domain)
 
 
 ### Parameters
@@ -1531,7 +1533,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+[**models::GetDomainConfigResponse**](GetDomainConfigResponse.md)
 
 ### Authorization
 
@@ -1547,7 +1549,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_domain_configs
 
-> models::GetDomainConfigs200Response get_domain_configs(tenant_id)
+> models::GetDomainConfigsResponse get_domain_configs(tenant_id)
 
 
 ### Parameters
@@ -1559,7 +1561,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetDomainConfigs200Response**](GetDomainConfigs_200_response.md)
+[**models::GetDomainConfigsResponse**](GetDomainConfigsResponse.md)
 
 ### Authorization
 
@@ -1575,7 +1577,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_email_template
 
-> models::GetEmailTemplate200Response get_email_template(tenant_id, id)
+> models::GetEmailTemplateResponse get_email_template(tenant_id, id)
 
 
 ### Parameters
@@ -1588,7 +1590,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetEmailTemplate200Response**](GetEmailTemplate_200_response.md)
+[**models::GetEmailTemplateResponse**](GetEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -1604,7 +1606,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_email_template_definitions
 
-> models::GetEmailTemplateDefinitions200Response get_email_template_definitions(tenant_id)
+> models::GetEmailTemplateDefinitionsResponse get_email_template_definitions(tenant_id)
 
 
 ### Parameters
@@ -1616,7 +1618,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetEmailTemplateDefinitions200Response**](GetEmailTemplateDefinitions_200_response.md)
+[**models::GetEmailTemplateDefinitionsResponse**](GetEmailTemplateDefinitionsResponse.md)
 
 ### Authorization
 
@@ -1632,7 +1634,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_email_template_render_errors
 
-> models::GetEmailTemplateRenderErrors200Response get_email_template_render_errors(tenant_id, id, skip)
+> models::GetEmailTemplateRenderErrorsResponse get_email_template_render_errors(tenant_id, id, skip)
 
 
 ### Parameters
@@ -1646,7 +1648,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetEmailTemplateRenderErrors200Response**](GetEmailTemplateRenderErrors_200_response.md)
+[**models::GetEmailTemplateRenderErrorsResponse**](GetEmailTemplateRenderErrorsResponse.md)
 
 ### Authorization
 
@@ -1662,7 +1664,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_email_templates
 
-> models::GetEmailTemplates200Response get_email_templates(tenant_id, skip)
+> models::GetEmailTemplatesResponse get_email_templates(tenant_id, skip)
 
 
 ### Parameters
@@ -1675,7 +1677,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetEmailTemplates200Response**](GetEmailTemplates_200_response.md)
+[**models::GetEmailTemplatesResponse**](GetEmailTemplatesResponse.md)
 
 ### Authorization
 
@@ -1691,7 +1693,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_feed_posts
 
-> models::GetFeedPosts200Response get_feed_posts(tenant_id, after_id, limit, tags)
+> models::GetFeedPostsResponse get_feed_posts(tenant_id, after_id, limit, tags)
 
 
  req tenantId afterId
@@ -1708,7 +1710,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetFeedPosts200Response**](GetFeedPosts_200_response.md)
+[**models::GetFeedPostsResponse**](GetFeedPostsResponse.md)
 
 ### Authorization
 
@@ -1724,7 +1726,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_hash_tags
 
-> models::GetHashTags200Response get_hash_tags(tenant_id, page)
+> models::GetHashTagsResponse get_hash_tags(tenant_id, page)
 
 
 ### Parameters
@@ -1737,7 +1739,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetHashTags200Response**](GetHashTags_200_response.md)
+[**models::GetHashTagsResponse**](GetHashTagsResponse.md)
 
 ### Authorization
 
@@ -1753,7 +1755,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_moderator
 
-> models::GetModerator200Response get_moderator(tenant_id, id)
+> models::GetModeratorResponse get_moderator(tenant_id, id)
 
 
 ### Parameters
@@ -1766,7 +1768,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetModerator200Response**](GetModerator_200_response.md)
+[**models::GetModeratorResponse**](GetModeratorResponse.md)
 
 ### Authorization
 
@@ -1782,7 +1784,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_moderators
 
-> models::GetModerators200Response get_moderators(tenant_id, skip)
+> models::GetModeratorsResponse get_moderators(tenant_id, skip)
 
 
 ### Parameters
@@ -1795,7 +1797,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetModerators200Response**](GetModerators_200_response.md)
+[**models::GetModeratorsResponse**](GetModeratorsResponse.md)
 
 ### Authorization
 
@@ -1811,7 +1813,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_notification_count
 
-> models::GetNotificationCount200Response get_notification_count(tenant_id, user_id, url_id, from_comment_id, viewed, r#type)
+> models::GetNotificationCountResponse get_notification_count(tenant_id, user_id, url_id, from_comment_id, viewed, r#type)
 
 
 ### Parameters
@@ -1828,7 +1830,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetNotificationCount200Response**](GetNotificationCount_200_response.md)
+[**models::GetNotificationCountResponse**](GetNotificationCountResponse.md)
 
 ### Authorization
 
@@ -1844,7 +1846,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_notifications
 
-> models::GetNotifications200Response get_notifications(tenant_id, user_id, url_id, from_comment_id, viewed, r#type, skip)
+> models::GetNotificationsResponse get_notifications(tenant_id, user_id, url_id, from_comment_id, viewed, r#type, skip)
 
 
 ### Parameters
@@ -1862,7 +1864,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetNotifications200Response**](GetNotifications_200_response.md)
+[**models::GetNotificationsResponse**](GetNotificationsResponse.md)
 
 ### Authorization
 
@@ -1935,7 +1937,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_pending_webhook_event_count
 
-> models::GetPendingWebhookEventCount200Response get_pending_webhook_event_count(tenant_id, comment_id, external_id, event_type, r#type, domain, attempt_count_gt)
+> models::GetPendingWebhookEventCountResponse get_pending_webhook_event_count(tenant_id, comment_id, external_id, event_type, r#type, domain, attempt_count_gt)
 
 
 ### Parameters
@@ -1953,7 +1955,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetPendingWebhookEventCount200Response**](GetPendingWebhookEventCount_200_response.md)
+[**models::GetPendingWebhookEventCountResponse**](GetPendingWebhookEventCountResponse.md)
 
 ### Authorization
 
@@ -1969,7 +1971,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_pending_webhook_events
 
-> models::GetPendingWebhookEvents200Response get_pending_webhook_events(tenant_id, comment_id, external_id, event_type, r#type, domain, attempt_count_gt, skip)
+> models::GetPendingWebhookEventsResponse get_pending_webhook_events(tenant_id, comment_id, external_id, event_type, r#type, domain, attempt_count_gt, skip)
 
 
 ### Parameters
@@ -1988,7 +1990,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetPendingWebhookEvents200Response**](GetPendingWebhookEvents_200_response.md)
+[**models::GetPendingWebhookEventsResponse**](GetPendingWebhookEventsResponse.md)
 
 ### Authorization
 
@@ -2004,7 +2006,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_question_config
 
-> models::GetQuestionConfig200Response get_question_config(tenant_id, id)
+> models::GetQuestionConfigResponse get_question_config(tenant_id, id)
 
 
 ### Parameters
@@ -2017,7 +2019,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetQuestionConfig200Response**](GetQuestionConfig_200_response.md)
+[**models::GetQuestionConfigResponse**](GetQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -2033,7 +2035,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_question_configs
 
-> models::GetQuestionConfigs200Response get_question_configs(tenant_id, skip)
+> models::GetQuestionConfigsResponse get_question_configs(tenant_id, skip)
 
 
 ### Parameters
@@ -2046,7 +2048,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetQuestionConfigs200Response**](GetQuestionConfigs_200_response.md)
+[**models::GetQuestionConfigsResponse**](GetQuestionConfigsResponse.md)
 
 ### Authorization
 
@@ -2062,7 +2064,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_question_result
 
-> models::GetQuestionResult200Response get_question_result(tenant_id, id)
+> models::GetQuestionResultResponse get_question_result(tenant_id, id)
 
 
 ### Parameters
@@ -2075,7 +2077,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetQuestionResult200Response**](GetQuestionResult_200_response.md)
+[**models::GetQuestionResultResponse**](GetQuestionResultResponse.md)
 
 ### Authorization
 
@@ -2091,7 +2093,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_question_results
 
-> models::GetQuestionResults200Response get_question_results(tenant_id, url_id, user_id, start_date, question_id, question_ids, skip)
+> models::GetQuestionResultsResponse get_question_results(tenant_id, url_id, user_id, start_date, question_id, question_ids, skip)
 
 
 ### Parameters
@@ -2109,7 +2111,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetQuestionResults200Response**](GetQuestionResults_200_response.md)
+[**models::GetQuestionResultsResponse**](GetQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -2183,7 +2185,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_sso_users
 
-> models::GetSsoUsers200Response get_sso_users(tenant_id, skip)
+> models::GetSsoUsersResponse get_sso_users(tenant_id, skip)
 
 
 ### Parameters
@@ -2196,7 +2198,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetSsoUsers200Response**](GetSSOUsers_200_response.md)
+[**models::GetSsoUsersResponse**](GetSSOUsersResponse.md)
 
 ### Authorization
 
@@ -2241,7 +2243,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tenant
 
-> models::GetTenant200Response get_tenant(tenant_id, id)
+> models::GetTenantResponse get_tenant(tenant_id, id)
 
 
 ### Parameters
@@ -2254,7 +2256,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTenant200Response**](GetTenant_200_response.md)
+[**models::GetTenantResponse**](GetTenantResponse.md)
 
 ### Authorization
 
@@ -2270,7 +2272,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tenant_daily_usages
 
-> models::GetTenantDailyUsages200Response get_tenant_daily_usages(tenant_id, year_number, month_number, day_number, skip)
+> models::GetTenantDailyUsagesResponse get_tenant_daily_usages(tenant_id, year_number, month_number, day_number, skip)
 
 
 ### Parameters
@@ -2286,7 +2288,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTenantDailyUsages200Response**](GetTenantDailyUsages_200_response.md)
+[**models::GetTenantDailyUsagesResponse**](GetTenantDailyUsagesResponse.md)
 
 ### Authorization
 
@@ -2302,7 +2304,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tenant_package
 
-> models::GetTenantPackage200Response get_tenant_package(tenant_id, id)
+> models::GetTenantPackageResponse get_tenant_package(tenant_id, id)
 
 
 ### Parameters
@@ -2315,7 +2317,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTenantPackage200Response**](GetTenantPackage_200_response.md)
+[**models::GetTenantPackageResponse**](GetTenantPackageResponse.md)
 
 ### Authorization
 
@@ -2331,7 +2333,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tenant_packages
 
-> models::GetTenantPackages200Response get_tenant_packages(tenant_id, skip)
+> models::GetTenantPackagesResponse get_tenant_packages(tenant_id, skip)
 
 
 ### Parameters
@@ -2344,7 +2346,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTenantPackages200Response**](GetTenantPackages_200_response.md)
+[**models::GetTenantPackagesResponse**](GetTenantPackagesResponse.md)
 
 ### Authorization
 
@@ -2360,7 +2362,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tenant_user
 
-> models::GetTenantUser200Response get_tenant_user(tenant_id, id)
+> models::GetTenantUserResponse get_tenant_user(tenant_id, id)
 
 
 ### Parameters
@@ -2373,7 +2375,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTenantUser200Response**](GetTenantUser_200_response.md)
+[**models::GetTenantUserResponse**](GetTenantUserResponse.md)
 
 ### Authorization
 
@@ -2389,7 +2391,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tenant_users
 
-> models::GetTenantUsers200Response get_tenant_users(tenant_id, skip)
+> models::GetTenantUsersResponse get_tenant_users(tenant_id, skip)
 
 
 ### Parameters
@@ -2402,7 +2404,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTenantUsers200Response**](GetTenantUsers_200_response.md)
+[**models::GetTenantUsersResponse**](GetTenantUsersResponse.md)
 
 ### Authorization
 
@@ -2418,7 +2420,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tenants
 
-> models::GetTenants200Response get_tenants(tenant_id, meta, skip)
+> models::GetTenantsResponse get_tenants(tenant_id, meta, skip)
 
 
 ### Parameters
@@ -2432,7 +2434,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTenants200Response**](GetTenants_200_response.md)
+[**models::GetTenantsResponse**](GetTenantsResponse.md)
 
 ### Authorization
 
@@ -2448,7 +2450,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_ticket
 
-> models::GetTicket200Response get_ticket(tenant_id, id, user_id)
+> models::GetTicketResponse get_ticket(tenant_id, id, user_id)
 
 
 ### Parameters
@@ -2462,7 +2464,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTicket200Response**](GetTicket_200_response.md)
+[**models::GetTicketResponse**](GetTicketResponse.md)
 
 ### Authorization
 
@@ -2478,7 +2480,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_tickets
 
-> models::GetTickets200Response get_tickets(tenant_id, user_id, state, skip, limit)
+> models::GetTicketsResponse get_tickets(tenant_id, user_id, state, skip, limit)
 
 
 ### Parameters
@@ -2494,7 +2496,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTickets200Response**](GetTickets_200_response.md)
+[**models::GetTicketsResponse**](GetTicketsResponse.md)
 
 ### Authorization
 
@@ -2510,7 +2512,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_user
 
-> models::GetUser200Response get_user(tenant_id, id)
+> models::GetUserResponse get_user(tenant_id, id)
 
 
 ### Parameters
@@ -2523,7 +2525,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUser200Response**](GetUser_200_response.md)
+[**models::GetUserResponse**](GetUserResponse.md)
 
 ### Authorization
 
@@ -2539,7 +2541,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_user_badge
 
-> models::GetUserBadge200Response get_user_badge(tenant_id, id)
+> models::ApiGetUserBadgeResponse get_user_badge(tenant_id, id)
 
 
 ### Parameters
@@ -2552,7 +2554,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUserBadge200Response**](GetUserBadge_200_response.md)
+[**models::ApiGetUserBadgeResponse**](APIGetUserBadgeResponse.md)
 
 ### Authorization
 
@@ -2568,7 +2570,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_user_badge_progress_by_id
 
-> models::GetUserBadgeProgressById200Response get_user_badge_progress_by_id(tenant_id, id)
+> models::ApiGetUserBadgeProgressResponse get_user_badge_progress_by_id(tenant_id, id)
 
 
 ### Parameters
@@ -2581,7 +2583,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUserBadgeProgressById200Response**](GetUserBadgeProgressById_200_response.md)
+[**models::ApiGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
 
 ### Authorization
 
@@ -2597,7 +2599,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_user_badge_progress_by_user_id
 
-> models::GetUserBadgeProgressById200Response get_user_badge_progress_by_user_id(tenant_id, user_id)
+> models::ApiGetUserBadgeProgressResponse get_user_badge_progress_by_user_id(tenant_id, user_id)
 
 
 ### Parameters
@@ -2610,7 +2612,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUserBadgeProgressById200Response**](GetUserBadgeProgressById_200_response.md)
+[**models::ApiGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
 
 ### Authorization
 
@@ -2626,7 +2628,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_user_badge_progress_list
 
-> models::GetUserBadgeProgressList200Response get_user_badge_progress_list(tenant_id, user_id, limit, skip)
+> models::ApiGetUserBadgeProgressListResponse get_user_badge_progress_list(tenant_id, user_id, limit, skip)
 
 
 ### Parameters
@@ -2641,7 +2643,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUserBadgeProgressList200Response**](GetUserBadgeProgressList_200_response.md)
+[**models::ApiGetUserBadgeProgressListResponse**](APIGetUserBadgeProgressListResponse.md)
 
 ### Authorization
 
@@ -2657,7 +2659,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_user_badges
 
-> models::GetUserBadges200Response get_user_badges(tenant_id, user_id, badge_id, r#type, displayed_on_comments, limit, skip)
+> models::ApiGetUserBadgesResponse get_user_badges(tenant_id, user_id, badge_id, r#type, displayed_on_comments, limit, skip)
 
 
 ### Parameters
@@ -2675,7 +2677,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUserBadges200Response**](GetUserBadges_200_response.md)
+[**models::ApiGetUserBadgesResponse**](APIGetUserBadgesResponse.md)
 
 ### Authorization
 
@@ -2691,7 +2693,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_votes
 
-> models::GetVotes200Response get_votes(tenant_id, url_id)
+> models::GetVotesResponse get_votes(tenant_id, url_id)
 
 
 ### Parameters
@@ -2704,7 +2706,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetVotes200Response**](GetVotes_200_response.md)
+[**models::GetVotesResponse**](GetVotesResponse.md)
 
 ### Authorization
 
@@ -2720,7 +2722,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_votes_for_user
 
-> models::GetVotesForUser200Response get_votes_for_user(tenant_id, url_id, user_id, anon_user_id)
+> models::GetVotesForUserResponse get_votes_for_user(tenant_id, url_id, user_id, anon_user_id)
 
 
 ### Parameters
@@ -2735,7 +2737,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetVotesForUser200Response**](GetVotesForUser_200_response.md)
+[**models::GetVotesForUserResponse**](GetVotesForUserResponse.md)
 
 ### Authorization
 
@@ -2751,7 +2753,7 @@ Name | Type | Description  | Required | Notes
 
 ## patch_domain_config
 
-> models::GetDomainConfig200Response patch_domain_config(tenant_id, domain_to_update, patch_domain_config_params)
+> models::PatchDomainConfigResponse patch_domain_config(tenant_id, domain_to_update, patch_domain_config_params)
 
 
 ### Parameters
@@ -2765,7 +2767,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+[**models::PatchDomainConfigResponse**](PatchDomainConfigResponse.md)
 
 ### Authorization
 
@@ -2781,7 +2783,7 @@ Name | Type | Description  | Required | Notes
 
 ## patch_hash_tag
 
-> models::PatchHashTag200Response patch_hash_tag(tag, tenant_id, update_hash_tag_body)
+> models::UpdateHashTagResponse patch_hash_tag(tag, tenant_id, update_hash_tag_body)
 
 
 ### Parameters
@@ -2795,7 +2797,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PatchHashTag200Response**](PatchHashTag_200_response.md)
+[**models::UpdateHashTagResponse**](UpdateHashTagResponse.md)
 
 ### Authorization
 
@@ -2872,7 +2874,7 @@ Name | Type | Description  | Required | Notes
 
 ## put_domain_config
 
-> models::GetDomainConfig200Response put_domain_config(tenant_id, domain_to_update, update_domain_config_params)
+> models::PutDomainConfigResponse put_domain_config(tenant_id, domain_to_update, update_domain_config_params)
 
 
 ### Parameters
@@ -2886,7 +2888,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetDomainConfig200Response**](GetDomainConfig_200_response.md)
+[**models::PutDomainConfigResponse**](PutDomainConfigResponse.md)
 
 ### Authorization
 
@@ -2933,7 +2935,7 @@ Name | Type | Description  | Required | Notes
 
 ## render_email_template
 
-> models::RenderEmailTemplate200Response render_email_template(tenant_id, render_email_template_body, locale)
+> models::RenderEmailTemplateResponse render_email_template(tenant_id, render_email_template_body, locale)
 
 
 ### Parameters
@@ -2947,7 +2949,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::RenderEmailTemplate200Response**](RenderEmailTemplate_200_response.md)
+[**models::RenderEmailTemplateResponse**](RenderEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -2963,7 +2965,7 @@ Name | Type | Description  | Required | Notes
 
 ## replace_tenant_package
 
-> models::FlagCommentPublic200Response replace_tenant_package(tenant_id, id, replace_tenant_package_body)
+> models::ApiEmptyResponse replace_tenant_package(tenant_id, id, replace_tenant_package_body)
 
 
 ### Parameters
@@ -2977,7 +2979,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2993,7 +2995,7 @@ Name | Type | Description  | Required | Notes
 
 ## replace_tenant_user
 
-> models::FlagCommentPublic200Response replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments)
+> models::ApiEmptyResponse replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments)
 
 
 ### Parameters
@@ -3008,7 +3010,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3024,7 +3026,7 @@ Name | Type | Description  | Required | Notes
 
 ## save_comment
 
-> models::SaveComment200Response save_comment(tenant_id, create_comment_params, is_live, do_spam_check, send_emails, populate_notifications)
+> models::ApiSaveCommentResponse save_comment(tenant_id, create_comment_params, is_live, do_spam_check, send_emails, populate_notifications)
 
 
 ### Parameters
@@ -3041,7 +3043,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::SaveComment200Response**](SaveComment_200_response.md)
+[**models::ApiSaveCommentResponse**](APISaveCommentResponse.md)
 
 ### Authorization
 
@@ -3057,7 +3059,7 @@ Name | Type | Description  | Required | Notes
 
 ## save_comments_bulk
 
-> Vec<models::SaveComment200Response> save_comments_bulk(tenant_id, create_comment_params, is_live, do_spam_check, send_emails, populate_notifications)
+> Vec<models::SaveCommentsBulkResponse> save_comments_bulk(tenant_id, create_comment_params, is_live, do_spam_check, send_emails, populate_notifications)
 
 
 ### Parameters
@@ -3074,7 +3076,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::SaveComment200Response>**](SaveComment_200_response.md)
+[**Vec<models::SaveCommentsBulkResponse>**](SaveCommentsBulkResponse.md)
 
 ### Authorization
 
@@ -3090,7 +3092,7 @@ Name | Type | Description  | Required | Notes
 
 ## send_invite
 
-> models::FlagCommentPublic200Response send_invite(tenant_id, id, from_name)
+> models::ApiEmptyResponse send_invite(tenant_id, id, from_name)
 
 
 ### Parameters
@@ -3104,7 +3106,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3120,7 +3122,7 @@ Name | Type | Description  | Required | Notes
 
 ## send_login_link
 
-> models::FlagCommentPublic200Response send_login_link(tenant_id, id, redirect_url)
+> models::ApiEmptyResponse send_login_link(tenant_id, id, redirect_url)
 
 
 ### Parameters
@@ -3134,7 +3136,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3150,7 +3152,7 @@ Name | Type | Description  | Required | Notes
 
 ## un_block_user_from_comment
 
-> models::UnBlockCommentPublic200Response un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, user_id, anon_user_id)
+> models::UnblockSuccess un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, user_id, anon_user_id)
 
 
 ### Parameters
@@ -3166,7 +3168,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::UnBlockCommentPublic200Response**](UnBlockCommentPublic_200_response.md)
+[**models::UnblockSuccess**](UnblockSuccess.md)
 
 ### Authorization
 
@@ -3182,7 +3184,7 @@ Name | Type | Description  | Required | Notes
 
 ## un_flag_comment
 
-> models::FlagComment200Response un_flag_comment(tenant_id, id, user_id, anon_user_id)
+> models::FlagCommentResponse un_flag_comment(tenant_id, id, user_id, anon_user_id)
 
 
 ### Parameters
@@ -3197,7 +3199,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagComment200Response**](FlagComment_200_response.md)
+[**models::FlagCommentResponse**](FlagCommentResponse.md)
 
 ### Authorization
 
@@ -3213,7 +3215,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_comment
 
-> models::FlagCommentPublic200Response update_comment(tenant_id, id, updatable_comment_params, context_user_id, do_spam_check, is_live)
+> models::ApiEmptyResponse update_comment(tenant_id, id, updatable_comment_params, context_user_id, do_spam_check, is_live)
 
 
 ### Parameters
@@ -3230,7 +3232,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3246,7 +3248,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_email_template
 
-> models::FlagCommentPublic200Response update_email_template(tenant_id, id, update_email_template_body)
+> models::ApiEmptyResponse update_email_template(tenant_id, id, update_email_template_body)
 
 
 ### Parameters
@@ -3260,7 +3262,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3276,7 +3278,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_feed_post
 
-> models::FlagCommentPublic200Response update_feed_post(tenant_id, id, feed_post)
+> models::ApiEmptyResponse update_feed_post(tenant_id, id, feed_post)
 
 
 ### Parameters
@@ -3290,7 +3292,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3306,7 +3308,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_moderator
 
-> models::FlagCommentPublic200Response update_moderator(tenant_id, id, update_moderator_body)
+> models::ApiEmptyResponse update_moderator(tenant_id, id, update_moderator_body)
 
 
 ### Parameters
@@ -3320,7 +3322,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3336,7 +3338,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_notification
 
-> models::FlagCommentPublic200Response update_notification(tenant_id, id, update_notification_body, user_id)
+> models::ApiEmptyResponse update_notification(tenant_id, id, update_notification_body, user_id)
 
 
 ### Parameters
@@ -3351,7 +3353,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3367,7 +3369,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_question_config
 
-> models::FlagCommentPublic200Response update_question_config(tenant_id, id, update_question_config_body)
+> models::ApiEmptyResponse update_question_config(tenant_id, id, update_question_config_body)
 
 
 ### Parameters
@@ -3381,7 +3383,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3397,7 +3399,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_question_result
 
-> models::FlagCommentPublic200Response update_question_result(tenant_id, id, update_question_result_body)
+> models::ApiEmptyResponse update_question_result(tenant_id, id, update_question_result_body)
 
 
 ### Parameters
@@ -3411,7 +3413,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3458,7 +3460,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_tenant
 
-> models::FlagCommentPublic200Response update_tenant(tenant_id, id, update_tenant_body)
+> models::ApiEmptyResponse update_tenant(tenant_id, id, update_tenant_body)
 
 
 ### Parameters
@@ -3472,7 +3474,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3488,7 +3490,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_tenant_package
 
-> models::FlagCommentPublic200Response update_tenant_package(tenant_id, id, update_tenant_package_body)
+> models::ApiEmptyResponse update_tenant_package(tenant_id, id, update_tenant_package_body)
 
 
 ### Parameters
@@ -3502,7 +3504,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3518,7 +3520,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_tenant_user
 
-> models::FlagCommentPublic200Response update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments)
+> models::ApiEmptyResponse update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments)
 
 
 ### Parameters
@@ -3533,7 +3535,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FlagCommentPublic200Response**](FlagCommentPublic_200_response.md)
+[**models::ApiEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3549,7 +3551,7 @@ Name | Type | Description  | Required | Notes
 
 ## update_user_badge
 
-> models::UpdateUserBadge200Response update_user_badge(tenant_id, id, update_user_badge_params)
+> models::ApiEmptySuccessResponse update_user_badge(tenant_id, id, update_user_badge_params)
 
 
 ### Parameters
@@ -3563,7 +3565,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::UpdateUserBadge200Response**](UpdateUserBadge_200_response.md)
+[**models::ApiEmptySuccessResponse**](APIEmptySuccessResponse.md)
 
 ### Authorization
 

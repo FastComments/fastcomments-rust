@@ -18,13 +18,13 @@ pub struct UserNotificationCount {
     #[serde(rename = "count")]
     pub count: f64,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "expireAt")]
-    pub expire_at: String,
+    pub expire_at: chrono::DateTime<chrono::FixedOffset>,
 }
 
 impl UserNotificationCount {
-    pub fn new(_id: String, count: f64, created_at: String, expire_at: String) -> UserNotificationCount {
+    pub fn new(_id: String, count: f64, created_at: chrono::DateTime<chrono::FixedOffset>, expire_at: chrono::DateTime<chrono::FixedOffset>) -> UserNotificationCount {
         UserNotificationCount {
             _id,
             count,

@@ -24,7 +24,7 @@ pub struct QuestionResult {
     #[serde(rename = "userId")]
     pub user_id: String,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "value")]
     pub value: i32,
     #[serde(rename = "commentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -38,7 +38,7 @@ pub struct QuestionResult {
 }
 
 impl QuestionResult {
-    pub fn new(_id: String, tenant_id: String, url_id: String, anon_user_id: String, user_id: String, created_at: String, value: i32, question_id: String, ip_hash: String) -> QuestionResult {
+    pub fn new(_id: String, tenant_id: String, url_id: String, anon_user_id: String, user_id: String, created_at: chrono::DateTime<chrono::FixedOffset>, value: i32, question_id: String, ip_hash: String) -> QuestionResult {
         QuestionResult {
             _id,
             tenant_id,

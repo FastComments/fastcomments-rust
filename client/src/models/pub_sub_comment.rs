@@ -80,7 +80,7 @@ pub struct PubSubComment {
     #[serde(rename = "pageTitle", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub page_title: Option<Option<String>>,
     #[serde(rename = "expireAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expire_at: Option<Option<String>>,
+    pub expire_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "reviewed", skip_serializing_if = "Option::is_none")]
     pub reviewed: Option<bool>,
     #[serde(rename = "hasCode", skip_serializing_if = "Option::is_none")]

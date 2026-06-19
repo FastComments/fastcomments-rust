@@ -48,11 +48,11 @@ pub struct UpdatableCommentParams {
     #[serde(rename = "votesDown", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub votes_down: Option<Option<i32>>,
     #[serde(rename = "expireAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expire_at: Option<Option<String>>,
+    pub expire_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "verified", skip_serializing_if = "Option::is_none")]
     pub verified: Option<bool>,
     #[serde(rename = "verifiedDate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub verified_date: Option<Option<String>>,
+    pub verified_date: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "notificationSentForParent", skip_serializing_if = "Option::is_none")]
     pub notification_sent_for_parent: Option<bool>,
     #[serde(rename = "notificationSentForParentTenant", skip_serializing_if = "Option::is_none")]

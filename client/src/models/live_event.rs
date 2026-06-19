@@ -43,6 +43,8 @@ pub struct LiveEvent {
     pub uj: Option<Vec<String>>,
     #[serde(rename = "ul", skip_serializing_if = "Option::is_none")]
     pub ul: Option<Vec<String>>,
+    #[serde(rename = "sc", skip_serializing_if = "Option::is_none")]
+    pub sc: Option<i32>,
     #[serde(rename = "changes", skip_serializing_if = "Option::is_none")]
     pub changes: Option<std::collections::HashMap<String, i32>>,
 }
@@ -65,6 +67,7 @@ impl LiveEvent {
             is_closed: None,
             uj: None,
             ul: None,
+            sc: None,
             changes: None,
         }
     }

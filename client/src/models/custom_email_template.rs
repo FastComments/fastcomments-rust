@@ -22,9 +22,9 @@ pub struct CustomEmailTemplate {
     #[serde(rename = "displayName")]
     pub display_name: String,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "updatedAt", deserialize_with = "Option::deserialize")]
-    pub updated_at: Option<String>,
+    pub updated_at: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "updatedByUserId", deserialize_with = "Option::deserialize")]
     pub updated_by_user_id: Option<String>,
     #[serde(rename = "domain", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -39,7 +39,7 @@ pub struct CustomEmailTemplate {
 }
 
 impl CustomEmailTemplate {
-    pub fn new(_id: String, tenant_id: String, email_template_id: String, display_name: String, created_at: String, updated_at: Option<String>, updated_by_user_id: Option<String>, ejs: String, translation_overrides_by_locale: std::collections::HashMap<String, std::collections::HashMap<String, String>>, test_data: Option<serde_json::Value>) -> CustomEmailTemplate {
+    pub fn new(_id: String, tenant_id: String, email_template_id: String, display_name: String, created_at: chrono::DateTime<chrono::FixedOffset>, updated_at: Option<chrono::DateTime<chrono::FixedOffset>>, updated_by_user_id: Option<String>, ejs: String, translation_overrides_by_locale: std::collections::HashMap<String, std::collections::HashMap<String, String>>, test_data: Option<serde_json::Value>) -> CustomEmailTemplate {
         CustomEmailTemplate {
             _id,
             tenant_id,

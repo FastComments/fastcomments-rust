@@ -24,13 +24,13 @@ pub struct EmailTemplateRenderErrorResponse {
     #[serde(rename = "count")]
     pub count: f64,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "lastOccurredAt")]
-    pub last_occurred_at: String,
+    pub last_occurred_at: chrono::DateTime<chrono::FixedOffset>,
 }
 
 impl EmailTemplateRenderErrorResponse {
-    pub fn new(id: String, tenant_id: String, custom_template_id: String, error: String, count: f64, created_at: String, last_occurred_at: String) -> EmailTemplateRenderErrorResponse {
+    pub fn new(id: String, tenant_id: String, custom_template_id: String, error: String, count: f64, created_at: chrono::DateTime<chrono::FixedOffset>, last_occurred_at: chrono::DateTime<chrono::FixedOffset>) -> EmailTemplateRenderErrorResponse {
         EmailTemplateRenderErrorResponse {
             id,
             tenant_id,

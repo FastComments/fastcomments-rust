@@ -22,7 +22,7 @@ pub struct UserBadgeProgress {
     #[serde(rename = "firstCommentId")]
     pub first_comment_id: String,
     #[serde(rename = "firstCommentDate")]
-    pub first_comment_date: String,
+    pub first_comment_date: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "autoTrustFactor", skip_serializing_if = "Option::is_none")]
     pub auto_trust_factor: Option<f64>,
     #[serde(rename = "manualTrustFactor", skip_serializing_if = "Option::is_none")]
@@ -31,11 +31,11 @@ pub struct UserBadgeProgress {
     #[serde(rename = "progress")]
     pub progress: std::collections::HashMap<String, f64>,
     #[serde(rename = "tosAcceptedAt", skip_serializing_if = "Option::is_none")]
-    pub tos_accepted_at: Option<String>,
+    pub tos_accepted_at: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl UserBadgeProgress {
-    pub fn new(_id: String, tenant_id: String, user_id: String, first_comment_id: String, first_comment_date: String, progress: std::collections::HashMap<String, f64>) -> UserBadgeProgress {
+    pub fn new(_id: String, tenant_id: String, user_id: String, first_comment_id: String, first_comment_date: chrono::DateTime<chrono::FixedOffset>, progress: std::collections::HashMap<String, f64>) -> UserBadgeProgress {
         UserBadgeProgress {
             _id,
             tenant_id,

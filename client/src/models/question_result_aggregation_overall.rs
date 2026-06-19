@@ -26,11 +26,11 @@ pub struct QuestionResultAggregationOverall {
     #[serde(rename = "average", skip_serializing_if = "Option::is_none")]
     pub average: Option<f64>,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
 }
 
 impl QuestionResultAggregationOverall {
-    pub fn new(total: i64, created_at: String) -> QuestionResultAggregationOverall {
+    pub fn new(total: i64, created_at: chrono::DateTime<chrono::FixedOffset>) -> QuestionResultAggregationOverall {
         QuestionResultAggregationOverall {
             data_by_date_bucket: None,
             data_by_url_id: None,

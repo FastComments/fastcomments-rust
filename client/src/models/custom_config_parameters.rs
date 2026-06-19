@@ -117,6 +117,10 @@ pub struct CustomConfigParameters {
     pub mention_auto_complete_mode: Option<Option<models::MentionAutoCompleteMode>>,
     #[serde(rename = "noImageUploads", skip_serializing_if = "Option::is_none")]
     pub no_image_uploads: Option<bool>,
+    #[serde(rename = "allowEmbeds", skip_serializing_if = "Option::is_none")]
+    pub allow_embeds: Option<bool>,
+    #[serde(rename = "allowedEmbedDomains", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub allowed_embed_domains: Option<Option<Vec<String>>>,
     #[serde(rename = "noStyles", skip_serializing_if = "Option::is_none")]
     pub no_styles: Option<bool>,
     #[serde(rename = "pageSize", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -127,6 +131,8 @@ pub struct CustomConfigParameters {
     pub no_new_root_comments: Option<bool>,
     #[serde(rename = "requireSSO", skip_serializing_if = "Option::is_none")]
     pub require_sso: Option<bool>,
+    #[serde(rename = "enableFChat", skip_serializing_if = "Option::is_none")]
+    pub enable_f_chat: Option<bool>,
     #[serde(rename = "enableResizeHandle", skip_serializing_if = "Option::is_none")]
     pub enable_resize_handle: Option<bool>,
     #[serde(rename = "restrictedLinkDomains", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -168,6 +174,10 @@ pub struct CustomConfigParameters {
     pub widget_sub_question_visibility: Option<models::QuestionSubQuestionVisibility>,
     #[serde(rename = "wrap", skip_serializing_if = "Option::is_none")]
     pub wrap: Option<bool>,
+    #[serde(rename = "usersListLocation", skip_serializing_if = "Option::is_none")]
+    pub users_list_location: Option<models::UsersListLocation>,
+    #[serde(rename = "usersListIncludeOffline", skip_serializing_if = "Option::is_none")]
+    pub users_list_include_offline: Option<bool>,
     #[serde(rename = "ticketBaseUrl", skip_serializing_if = "Option::is_none")]
     pub ticket_base_url: Option<String>,
     #[serde(rename = "ticketKBSearchEndpoint", skip_serializing_if = "Option::is_none")]
@@ -237,11 +247,14 @@ impl CustomConfigParameters {
             no_custom_config: None,
             mention_auto_complete_mode: None,
             no_image_uploads: None,
+            allow_embeds: None,
+            allowed_embed_domains: None,
             no_styles: None,
             page_size: None,
             readonly: None,
             no_new_root_comments: None,
             require_sso: None,
+            enable_f_chat: None,
             enable_resize_handle: None,
             restricted_link_domains: None,
             show_badges_in_top_bar: None,
@@ -262,6 +275,8 @@ impl CustomConfigParameters {
             widget_questions_required: None,
             widget_sub_question_visibility: None,
             wrap: None,
+            users_list_location: None,
+            users_list_include_offline: None,
             ticket_base_url: None,
             ticket_kb_search_endpoint: None,
             ticket_file_uploads_enabled: None,

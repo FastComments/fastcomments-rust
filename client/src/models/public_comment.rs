@@ -26,7 +26,7 @@ pub struct PublicComment {
     #[serde(rename = "parentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_id: Option<Option<String>>,
     #[serde(rename = "date", deserialize_with = "Option::deserialize")]
-    pub date: Option<String>,
+    pub date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "votes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub votes: Option<Option<i32>>,
     #[serde(rename = "votesUp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -97,7 +97,7 @@ pub struct PublicComment {
 }
 
 impl PublicComment {
-    pub fn new(_id: String, commenter_name: String, comment_html: String, date: Option<String>, verified: bool) -> PublicComment {
+    pub fn new(_id: String, commenter_name: String, comment_html: String, date: Option<chrono::DateTime<chrono::FixedOffset>>, verified: bool) -> PublicComment {
         PublicComment {
             _id,
             user_id: None,

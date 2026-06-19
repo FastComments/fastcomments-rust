@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **viewed** | **bool** |  | 
 **is_unread_message** | **bool** |  | 
 **sent** | **bool** |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **r#type** | [**models::NotificationType**](NotificationType.md) |  | 
 **from_comment_id** | Option<**String**> |  | [optional]
 **from_vote_id** | Option<**String**> |  | [optional]

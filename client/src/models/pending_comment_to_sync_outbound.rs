@@ -22,13 +22,13 @@ pub struct PendingCommentToSyncOutbound {
     #[serde(rename = "externalId", deserialize_with = "Option::deserialize")]
     pub external_id: Option<String>,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "tenantId")]
     pub tenant_id: String,
     #[serde(rename = "attemptCount")]
     pub attempt_count: f64,
     #[serde(rename = "nextAttemptAt")]
-    pub next_attempt_at: String,
+    pub next_attempt_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "eventType")]
     pub event_type: f64,
     #[serde(rename = "type")]
@@ -42,7 +42,7 @@ pub struct PendingCommentToSyncOutbound {
 }
 
 impl PendingCommentToSyncOutbound {
-    pub fn new(_id: String, comment_id: String, external_id: Option<String>, created_at: String, tenant_id: String, attempt_count: f64, next_attempt_at: String, event_type: f64, r#type: f64, domain: String, last_error: serde_json::Value) -> PendingCommentToSyncOutbound {
+    pub fn new(_id: String, comment_id: String, external_id: Option<String>, created_at: chrono::DateTime<chrono::FixedOffset>, tenant_id: String, attempt_count: f64, next_attempt_at: chrono::DateTime<chrono::FixedOffset>, event_type: f64, r#type: f64, domain: String, last_error: serde_json::Value) -> PendingCommentToSyncOutbound {
         PendingCommentToSyncOutbound {
             _id,
             comment_id,

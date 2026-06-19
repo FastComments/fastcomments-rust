@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **content_html** | Option<**String**> |  | [optional]
 **media** | Option<[**Vec<models::FeedPostMediaItem>**](FeedPostMediaItem.md)> |  | [optional]
 **links** | Option<[**Vec<models::FeedPostLink>**](FeedPostLink.md)> |  | [optional]
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **reacts** | Option<**std::collections::HashMap<String, i32>**> |  | [optional]
 **comment_count** | Option<**i32**> |  | [optional]
 

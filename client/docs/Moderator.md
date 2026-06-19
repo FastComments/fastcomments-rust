@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **banned_count** | **f64** |  | 
 **un_flagged_count** | **f64** |  | 
 **verification_id** | Option<**String**> |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **moderation_group_ids** | Option<**Vec<String>**> |  | 
 **is_email_suppressed** | Option<**bool**> |  | [optional]
 

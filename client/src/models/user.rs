@@ -91,14 +91,16 @@ pub struct User {
     pub notification_frequency: Option<f64>,
     #[serde(rename = "adminNotificationFrequency", skip_serializing_if = "Option::is_none")]
     pub admin_notification_frequency: Option<f64>,
+    #[serde(rename = "agentApprovalNotificationFrequency", skip_serializing_if = "Option::is_none")]
+    pub agent_approval_notification_frequency: Option<models::ImportedAgentApprovalNotificationFrequency>,
     #[serde(rename = "lastTenantNotificationSentDate", skip_serializing_if = "Option::is_none")]
-    pub last_tenant_notification_sent_date: Option<String>,
+    pub last_tenant_notification_sent_date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "lastReplyNotificationSentDate", skip_serializing_if = "Option::is_none")]
-    pub last_reply_notification_sent_date: Option<String>,
+    pub last_reply_notification_sent_date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "ignoredAddToMySiteMessages", skip_serializing_if = "Option::is_none")]
     pub ignored_add_to_my_site_messages: Option<bool>,
     #[serde(rename = "lastLoginDate", skip_serializing_if = "Option::is_none")]
-    pub last_login_date: Option<String>,
+    pub last_login_date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "displayLabel", skip_serializing_if = "Option::is_none")]
     pub display_label: Option<String>,
     #[serde(rename = "isProfileActivityPrivate", skip_serializing_if = "Option::is_none")]
@@ -175,6 +177,7 @@ impl User {
             digest_email_frequency: None,
             notification_frequency: None,
             admin_notification_frequency: None,
+            agent_approval_notification_frequency: None,
             last_tenant_notification_sent_date: None,
             last_reply_notification_sent_date: None,
             ignored_add_to_my_site_messages: None,

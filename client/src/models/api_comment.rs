@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ApiComment {
-    #[serde(rename = "_id")]
-    pub _id: String,
+    #[serde(rename = "id")]
+    pub id: String,
     #[serde(rename = "aiDeterminedSpam", skip_serializing_if = "Option::is_none")]
     pub ai_determined_spam: Option<bool>,
     #[serde(rename = "anonUserId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -46,7 +46,7 @@ pub struct ApiComment {
     #[serde(rename = "externalParentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub external_parent_id: Option<Option<String>>,
     #[serde(rename = "expireAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expire_at: Option<Option<String>>,
+    pub expire_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "feedbackIds", skip_serializing_if = "Option::is_none")]
     pub feedback_ids: Option<Vec<String>>,
     #[serde(rename = "flagCount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -112,7 +112,7 @@ pub struct ApiComment {
     #[serde(rename = "verified")]
     pub verified: bool,
     #[serde(rename = "verifiedDate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub verified_date: Option<Option<String>>,
+    pub verified_date: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "votes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub votes: Option<Option<i32>>,
     #[serde(rename = "votesDown", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -122,9 +122,9 @@ pub struct ApiComment {
 }
 
 impl ApiComment {
-    pub fn new(_id: String, approved: bool, comment: String, comment_html: String, commenter_name: String, date: Option<f64>, locale: Option<String>, tenant_id: String, url: String, url_id: String, verified: bool) -> ApiComment {
+    pub fn new(id: String, approved: bool, comment: String, comment_html: String, commenter_name: String, date: Option<f64>, locale: Option<String>, tenant_id: String, url: String, url_id: String, verified: bool) -> ApiComment {
         ApiComment {
-            _id,
+            id,
             ai_determined_spam: None,
             anon_user_id: None,
             approved,

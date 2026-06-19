@@ -28,6 +28,9 @@ serde_with = { version = "^3.8", default-features = false, features = ["base64",
 serde_json = "^1.0"
 serde_repr = "^0.1"
 
+# Date/time (required by generated models with date-time fields)
+chrono = { version = "^0.4", features = ["serde"] }
+
 # HTTP client
 reqwest = { version = "^0.12", features = ["json", "multipart", "stream"] }
 url = "^2.5"

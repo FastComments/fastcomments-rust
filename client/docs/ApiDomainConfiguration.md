@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **wp_sync_token** | Option<**String**> |  | [optional]
 **wp_synced** | Option<**bool**> |  | [optional]
 **wp_url** | Option<**String**> |  | [optional]
-**created_at** | **String** |  | 
-**auto_added_date** | Option<**String**> |  | [optional]
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
+**auto_added_date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **site_type** | Option<[**models::ImportedSiteType**](ImportedSiteType.md)> |  | [optional]
 **logo_src** | Option<**String**> |  | [optional]
 **logo_src100px** | Option<**String**> |  | [optional]

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **default_value** | Option<**f64**> |  | [optional]
 **label_negative** | Option<**String**> |  | [optional]
 **label_positive** | Option<**String**> |  | [optional]
-**custom_options** | Option<[**Vec<models::QuestionConfigCustomOptionsInner>**](QuestionConfig_customOptions_inner.md)> |  | [optional]
+**custom_options** | Option<[**Vec<models::QuestionConfigCustomOptionsInner>**](QuestionConfigCustomOptionsInner.md)> |  | [optional]
 **sub_question_ids** | Option<**Vec<String>**> |  | [optional]
 **always_show_sub_questions** | Option<**bool**> |  | [optional]
 **reporting_order** | **f64** |  | 

@@ -95,10 +95,10 @@ pub struct CreateTenantPackageBody {
     pub flex_domain_cost_cents: Option<f64>,
     #[serde(rename = "flexDomainUnit", skip_serializing_if = "Option::is_none")]
     pub flex_domain_unit: Option<f64>,
-    #[serde(rename = "flexChatGPTCostCents", skip_serializing_if = "Option::is_none")]
-    pub flex_chat_gpt_cost_cents: Option<f64>,
-    #[serde(rename = "flexChatGPTUnit", skip_serializing_if = "Option::is_none")]
-    pub flex_chat_gpt_unit: Option<f64>,
+    #[serde(rename = "flexLLMCostCents", skip_serializing_if = "Option::is_none")]
+    pub flex_llm_cost_cents: Option<f64>,
+    #[serde(rename = "flexLLMUnit", skip_serializing_if = "Option::is_none")]
+    pub flex_llm_unit: Option<f64>,
     #[serde(rename = "flexMinimumCostCents", skip_serializing_if = "Option::is_none")]
     pub flex_minimum_cost_cents: Option<f64>,
     #[serde(rename = "flexManagedTenantCostCents", skip_serializing_if = "Option::is_none")]
@@ -157,8 +157,8 @@ impl CreateTenantPackageBody {
             flex_admin_unit: None,
             flex_domain_cost_cents: None,
             flex_domain_unit: None,
-            flex_chat_gpt_cost_cents: None,
-            flex_chat_gpt_unit: None,
+            flex_llm_cost_cents: None,
+            flex_llm_unit: None,
             flex_minimum_cost_cents: None,
             flex_managed_tenant_cost_cents: None,
             flex_sso_admin_cost_cents: None,

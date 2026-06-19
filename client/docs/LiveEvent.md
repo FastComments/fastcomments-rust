@@ -14,11 +14,12 @@ Name | Type | Description | Notes
 **vote** | Option<[**models::PubSubVote**](PubSubVote.md)> |  | [optional]
 **comment** | Option<[**models::PubSubComment**](PubSubComment.md)> |  | [optional]
 **feed_post** | Option<[**models::FeedPost**](FeedPost.md)> |  | [optional]
-**extra_info** | Option<[**models::LiveEventExtraInfo**](LiveEvent_extraInfo.md)> |  | [optional]
-**config** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**extra_info** | Option<[**models::LiveEventExtraInfo**](LiveEventExtraInfo.md)> |  | [optional]
+**config** | Option<**serde_json::Value**> |  | [optional]
 **is_closed** | Option<**bool**> |  | [optional]
 **uj** | Option<**Vec<String>**> |  | [optional]
 **ul** | Option<**Vec<String>**> |  | [optional]
+**sc** | Option<**i32**> |  | [optional]
 **changes** | Option<**std::collections::HashMap<String, i32>**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

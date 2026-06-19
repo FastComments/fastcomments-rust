@@ -32,11 +32,14 @@ pub struct HeaderAccountNotification {
     #[serde(rename = "linkText", deserialize_with = "Option::deserialize")]
     pub link_text: Option<String>,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
+    /// Discriminator for notifications with a special layout/click handler (e.g. \"feedback-offer\").
+    #[serde(rename = "type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<Option<String>>,
 }
 
 impl HeaderAccountNotification {
-    pub fn new(_id: String, title: String, message: String, messages_by_locale: Option<std::collections::HashMap<String, String>>, dates: Option<std::collections::HashMap<String, String>>, severity: String, link_url: Option<String>, link_text: Option<String>, created_at: String) -> HeaderAccountNotification {
+    pub fn new(_id: String, title: String, message: String, messages_by_locale: Option<std::collections::HashMap<String, String>>, dates: Option<std::collections::HashMap<String, String>>, severity: String, link_url: Option<String>, link_text: Option<String>, created_at: chrono::DateTime<chrono::FixedOffset>) -> HeaderAccountNotification {
         HeaderAccountNotification {
             _id,
             title,
@@ -47,6 +50,7 @@ impl HeaderAccountNotification {
             link_url,
             link_text,
             created_at,
+            r#type: None,
         }
     }
 }

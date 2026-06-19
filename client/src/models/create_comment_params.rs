@@ -61,9 +61,11 @@ pub struct CreateCommentParams {
     pub feedback_ids: Option<Vec<String>>,
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "questionValues", skip_serializing_if = "Option::is_none")]
-    pub question_values: Option<std::collections::HashMap<String, models::RecordStringStringOrNumberValue>>,
+    pub question_values: Option<std::collections::HashMap<String, models::GifSearchResponseImagesInnerInner>>,
     #[serde(rename = "tos", skip_serializing_if = "Option::is_none")]
     pub tos: Option<bool>,
+    #[serde(rename = "botId", skip_serializing_if = "Option::is_none")]
+    pub bot_id: Option<String>,
     #[serde(rename = "approved", skip_serializing_if = "Option::is_none")]
     pub approved: Option<bool>,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
@@ -115,6 +117,7 @@ impl CreateCommentParams {
             feedback_ids: None,
             question_values: None,
             tos: None,
+            bot_id: None,
             approved: None,
             domain: None,
             ip: None,

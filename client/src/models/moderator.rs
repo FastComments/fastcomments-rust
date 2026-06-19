@@ -46,7 +46,7 @@ pub struct Moderator {
     #[serde(rename = "verificationId", deserialize_with = "Option::deserialize")]
     pub verification_id: Option<String>,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "moderationGroupIds", deserialize_with = "Option::deserialize")]
     pub moderation_group_ids: Option<Vec<String>>,
     #[serde(rename = "isEmailSuppressed", skip_serializing_if = "Option::is_none")]
@@ -54,7 +54,7 @@ pub struct Moderator {
 }
 
 impl Moderator {
-    pub fn new(_id: String, tenant_id: String, name: Option<String>, user_id: Option<String>, accepted_invite: bool, email: Option<String>, mark_reviewed_count: f64, deleted_count: f64, marked_spam_count: f64, marked_not_spam_count: f64, approved_count: f64, un_approved_count: f64, edited_count: f64, banned_count: f64, un_flagged_count: f64, verification_id: Option<String>, created_at: String, moderation_group_ids: Option<Vec<String>>) -> Moderator {
+    pub fn new(_id: String, tenant_id: String, name: Option<String>, user_id: Option<String>, accepted_invite: bool, email: Option<String>, mark_reviewed_count: f64, deleted_count: f64, marked_spam_count: f64, marked_not_spam_count: f64, approved_count: f64, un_approved_count: f64, edited_count: f64, banned_count: f64, un_flagged_count: f64, verification_id: Option<String>, created_at: chrono::DateTime<chrono::FixedOffset>, moderation_group_ids: Option<Vec<String>>) -> Moderator {
         Moderator {
             _id,
             tenant_id,

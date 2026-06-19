@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **commenter_link** | Option<**String**> |  | [optional]
 **comment_html** | **String** |  | 
 **parent_id** | Option<**String**> |  | [optional]
-**date** | Option<**String**> |  | 
+**date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | 
 **votes** | Option<**i32**> |  | [optional]
 **votes_up** | Option<**i32**> |  | [optional]
 **votes_down** | Option<**i32**> |  | [optional]

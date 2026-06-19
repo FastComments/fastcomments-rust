@@ -20,7 +20,9 @@ pub struct TenantPackage {
     #[serde(rename = "tenantId")]
     pub tenant_id: String,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
+    #[serde(rename = "templateId", skip_serializing_if = "Option::is_none")]
+    pub template_id: Option<String>,
     #[serde(rename = "monthlyCostUSD", deserialize_with = "Option::deserialize")]
     pub monthly_cost_usd: Option<f64>,
     #[serde(rename = "yearlyCostUSD", deserialize_with = "Option::deserialize")]
@@ -107,6 +109,10 @@ pub struct TenantPackage {
     pub flex_chat_gpt_cost_cents: Option<f64>,
     #[serde(rename = "flexChatGPTUnit", skip_serializing_if = "Option::is_none")]
     pub flex_chat_gpt_unit: Option<f64>,
+    #[serde(rename = "flexLLMCostCents", skip_serializing_if = "Option::is_none")]
+    pub flex_llm_cost_cents: Option<f64>,
+    #[serde(rename = "flexLLMUnit", skip_serializing_if = "Option::is_none")]
+    pub flex_llm_unit: Option<f64>,
     #[serde(rename = "flexMinimumCostCents", skip_serializing_if = "Option::is_none")]
     pub flex_minimum_cost_cents: Option<f64>,
     #[serde(rename = "flexManagedTenantCostCents", skip_serializing_if = "Option::is_none")]
@@ -121,15 +127,24 @@ pub struct TenantPackage {
     pub flex_sso_moderator_unit: Option<f64>,
     #[serde(rename = "isSSOBillingMonthlyActiveUsers", skip_serializing_if = "Option::is_none")]
     pub is_sso_billing_monthly_active_users: Option<bool>,
+    #[serde(rename = "hasAIAgents", skip_serializing_if = "Option::is_none")]
+    pub has_ai_agents: Option<bool>,
+    #[serde(rename = "maxAIAgents", skip_serializing_if = "Option::is_none")]
+    pub max_ai_agents: Option<f64>,
+    #[serde(rename = "aiAgentDailyBudgetCents", skip_serializing_if = "Option::is_none")]
+    pub ai_agent_daily_budget_cents: Option<f64>,
+    #[serde(rename = "aiAgentMonthlyBudgetCents", skip_serializing_if = "Option::is_none")]
+    pub ai_agent_monthly_budget_cents: Option<f64>,
 }
 
 impl TenantPackage {
-    pub fn new(_id: String, name: String, tenant_id: String, created_at: String, monthly_cost_usd: Option<f64>, yearly_cost_usd: Option<f64>, monthly_stripe_plan_id: Option<String>, yearly_stripe_plan_id: Option<String>, max_monthly_page_loads: f64, max_monthly_api_credits: f64, max_monthly_small_widgets_credits: f64, max_monthly_comments: f64, max_concurrent_users: f64, max_tenant_users: f64, max_sso_users: f64, max_moderators: f64, max_domains: f64, max_white_labeled_tenants: f64, max_monthly_event_log_requests: f64, max_custom_collection_size: f64, has_white_labeling: bool, has_debranding: bool, has_llm_spam_detection: bool, for_who_text: String, feature_taglines: Vec<String>, has_auditing: bool, has_flex_pricing: bool) -> TenantPackage {
+    pub fn new(_id: String, name: String, tenant_id: String, created_at: chrono::DateTime<chrono::FixedOffset>, monthly_cost_usd: Option<f64>, yearly_cost_usd: Option<f64>, monthly_stripe_plan_id: Option<String>, yearly_stripe_plan_id: Option<String>, max_monthly_page_loads: f64, max_monthly_api_credits: f64, max_monthly_small_widgets_credits: f64, max_monthly_comments: f64, max_concurrent_users: f64, max_tenant_users: f64, max_sso_users: f64, max_moderators: f64, max_domains: f64, max_white_labeled_tenants: f64, max_monthly_event_log_requests: f64, max_custom_collection_size: f64, has_white_labeling: bool, has_debranding: bool, has_llm_spam_detection: bool, for_who_text: String, feature_taglines: Vec<String>, has_auditing: bool, has_flex_pricing: bool) -> TenantPackage {
         TenantPackage {
             _id,
             name,
             tenant_id,
             created_at,
+            template_id: None,
             monthly_cost_usd,
             yearly_cost_usd,
             monthly_stripe_plan_id,
@@ -173,6 +188,8 @@ impl TenantPackage {
             flex_domain_unit: None,
             flex_chat_gpt_cost_cents: None,
             flex_chat_gpt_unit: None,
+            flex_llm_cost_cents: None,
+            flex_llm_unit: None,
             flex_minimum_cost_cents: None,
             flex_managed_tenant_cost_cents: None,
             flex_sso_admin_cost_cents: None,
@@ -180,6 +197,10 @@ impl TenantPackage {
             flex_sso_moderator_cost_cents: None,
             flex_sso_moderator_unit: None,
             is_sso_billing_monthly_active_users: None,
+            has_ai_agents: None,
+            max_ai_agents: None,
+            ai_agent_daily_budget_cents: None,
+            ai_agent_monthly_budget_cents: None,
         }
     }
 }

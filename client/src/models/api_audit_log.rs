@@ -30,11 +30,11 @@ pub struct ApiAuditLog {
     #[serde(rename = "ip", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ip: Option<Option<String>>,
     #[serde(rename = "when", skip_serializing_if = "Option::is_none")]
-    pub when: Option<String>,
+    pub when: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
     #[serde(rename = "serverStartDate", skip_serializing_if = "Option::is_none")]
-    pub server_start_date: Option<String>,
+    pub server_start_date: Option<chrono::DateTime<chrono::FixedOffset>>,
     /// Construct a type with a set of properties K of type T
     #[serde(rename = "objectDetails", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub object_details: Option<Option<std::collections::HashMap<String, serde_json::Value>>>,

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**models::ApiStatus**](APIStatus.md) |  | 
-**notification_type** | [**serde_json::Value**](.md) |  | 
+**notification_type** | **serde_json::Value** |  | 
 **user_id** | **String** |  | 
 **user_id_ws** | **String** |  | 
 **notification_counts** | [**Vec<models::NotificationAndCount>**](NotificationAndCount.md) |  | 

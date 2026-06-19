@@ -12,7 +12,8 @@ Name | Type | Description | Notes
 **severity** | **String** |  | 
 **link_url** | Option<**String**> |  | 
 **link_text** | Option<**String**> |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
+**r#type** | Option<**String**> | Discriminator for notifications with a special layout/click handler (e.g. \"feedback-offer\"). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_id** | **String** |  | 
+**id** | **String** |  | 
 **ai_determined_spam** | Option<**bool**> |  | [optional]
 **anon_user_id** | Option<**String**> |  | [optional]
 **approved** | **bool** |  | 
@@ -15,12 +15,12 @@ Name | Type | Description | Notes
 **commenter_email** | Option<**String**> |  | [optional]
 **commenter_link** | Option<**String**> |  | [optional]
 **commenter_name** | **String** |  | 
-**date** | Option<**String**> |  | 
+**date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | 
 **display_label** | Option<**String**> |  | [optional]
 **domain** | Option<**String**> |  | [optional]
 **external_id** | Option<**String**> |  | [optional]
 **external_parent_id** | Option<**String**> |  | [optional]
-**expire_at** | Option<**String**> |  | [optional]
+**expire_at** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **feedback_ids** | Option<**Vec<String>**> |  | [optional]
 **flag_count** | Option<**i32**> |  | [optional]
 **from_product_id** | Option<**i32**> |  | [optional]
@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **local_date_string** | Option<**String**> |  | [optional]
 **locale** | Option<**String**> |  | 
 **mentions** | Option<[**Vec<models::CommentUserMentionInfo>**](CommentUserMentionInfo.md)> |  | [optional]
-**meta** | Option<[**models::ApiCommentBaseMeta**](APICommentBase_meta.md)> |  | [optional]
+**meta** | Option<[**models::ApiCommentBaseMeta**](APICommentBaseMeta.md)> |  | [optional]
 **moderation_group_ids** | Option<**Vec<String>**> |  | [optional]
 **notification_sent_for_parent** | Option<**bool**> |  | [optional]
 **notification_sent_for_parent_tenant** | Option<**bool**> |  | [optional]
@@ -53,7 +53,7 @@ Name | Type | Description | Notes
 **url_id_raw** | Option<**String**> |  | [optional]
 **user_id** | Option<**String**> |  | [optional]
 **verified** | **bool** |  | 
-**verified_date** | Option<**String**> |  | [optional]
+**verified_date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **votes** | Option<**i32**> |  | [optional]
 **votes_down** | Option<**i32**> |  | [optional]
 **votes_up** | Option<**i32**> |  | [optional]

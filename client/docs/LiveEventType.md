@@ -21,6 +21,12 @@
 | NewFeedPost | new-feed-post |
 | UpdatedFeedPost | updated-feed-post |
 | DeletedFeedPost | deleted-feed-post |
+| NewTicket | new-ticket |
+| UpdatedTicketState | updated-ticket-state |
+| UpdatedTicketAssignment | updated-ticket-assignment |
+| DeletedTicket | deleted-ticket |
+| PageReact | page-react |
+| QuestionResult | question-result |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

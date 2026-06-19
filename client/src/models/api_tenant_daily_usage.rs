@@ -44,7 +44,7 @@ pub struct ApiTenantDailyUsage {
     #[serde(rename = "apiCreditsUsed")]
     pub api_credits_used: f64,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "billed")]
     pub billed: bool,
     #[serde(rename = "ignored")]
@@ -54,7 +54,7 @@ pub struct ApiTenantDailyUsage {
 }
 
 impl ApiTenantDailyUsage {
-    pub fn new(id: String, tenant_id: String, year_number: f64, month_number: f64, day_number: f64, comment_fetch_count: f64, comment_create_count: f64, conversation_create_count: f64, vote_count: f64, account_created_count: f64, user_mention_search: f64, hash_tag_search: f64, gif_search_trending: f64, gif_search: f64, api_credits_used: f64, created_at: String, billed: bool, ignored: bool, api_error_count: f64) -> ApiTenantDailyUsage {
+    pub fn new(id: String, tenant_id: String, year_number: f64, month_number: f64, day_number: f64, comment_fetch_count: f64, comment_create_count: f64, conversation_create_count: f64, vote_count: f64, account_created_count: f64, user_mention_search: f64, hash_tag_search: f64, gif_search_trending: f64, gif_search: f64, api_credits_used: f64, created_at: chrono::DateTime<chrono::FixedOffset>, billed: bool, ignored: bool, api_error_count: f64) -> ApiTenantDailyUsage {
         ApiTenantDailyUsage {
             id,
             tenant_id,

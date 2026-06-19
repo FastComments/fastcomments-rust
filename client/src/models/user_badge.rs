@@ -22,7 +22,7 @@ pub struct UserBadge {
     #[serde(rename = "fromTenantId")]
     pub from_tenant_id: String,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "type")]
     pub r#type: i32,
     #[serde(rename = "threshold")]
@@ -46,7 +46,7 @@ pub struct UserBadge {
     #[serde(rename = "displayedOnComments")]
     pub displayed_on_comments: bool,
     #[serde(rename = "receivedAt")]
-    pub received_at: String,
+    pub received_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
     pub order: Option<i32>,
     #[serde(rename = "urlId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -54,7 +54,7 @@ pub struct UserBadge {
 }
 
 impl UserBadge {
-    pub fn new(_id: String, user_id: String, badge_id: String, from_tenant_id: String, created_at: String, r#type: i32, threshold: i64, description: String, display_label: String, veteran_user_threshold_millis: i64, displayed_on_comments: bool, received_at: String) -> UserBadge {
+    pub fn new(_id: String, user_id: String, badge_id: String, from_tenant_id: String, created_at: chrono::DateTime<chrono::FixedOffset>, r#type: i32, threshold: i64, description: String, display_label: String, veteran_user_threshold_millis: i64, displayed_on_comments: bool, received_at: chrono::DateTime<chrono::FixedOffset>) -> UserBadge {
         UserBadge {
             _id,
             user_id,

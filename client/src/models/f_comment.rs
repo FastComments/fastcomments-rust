@@ -42,7 +42,7 @@ pub struct FComment {
     #[serde(rename = "parentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_id: Option<Option<String>>,
     #[serde(rename = "date", deserialize_with = "Option::deserialize")]
-    pub date: Option<String>,
+    pub date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "localDateString", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub local_date_string: Option<Option<String>>,
     #[serde(rename = "localDateHours", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -54,11 +54,11 @@ pub struct FComment {
     #[serde(rename = "votesDown", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub votes_down: Option<Option<i32>>,
     #[serde(rename = "expireAt", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expire_at: Option<Option<String>>,
+    pub expire_at: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "verified")]
     pub verified: bool,
     #[serde(rename = "verifiedDate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub verified_date: Option<Option<String>>,
+    pub verified_date: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "verificationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub verification_id: Option<Option<String>>,
     #[serde(rename = "notificationSentForParent", skip_serializing_if = "Option::is_none")]
@@ -156,11 +156,13 @@ pub struct FComment {
     #[serde(rename = "editKey", skip_serializing_if = "Option::is_none")]
     pub edit_key: Option<String>,
     #[serde(rename = "tosAcceptedAt", skip_serializing_if = "Option::is_none")]
-    pub tos_accepted_at: Option<String>,
+    pub tos_accepted_at: Option<chrono::DateTime<chrono::FixedOffset>>,
+    #[serde(rename = "botId", skip_serializing_if = "Option::is_none")]
+    pub bot_id: Option<String>,
 }
 
 impl FComment {
-    pub fn new(_id: String, tenant_id: String, url_id: String, url: String, commenter_name: String, comment: String, comment_html: String, date: Option<String>, verified: bool, approved: bool, locale: Option<String>) -> FComment {
+    pub fn new(_id: String, tenant_id: String, url_id: String, url: String, commenter_name: String, comment: String, comment_html: String, date: Option<chrono::DateTime<chrono::FixedOffset>>, verified: bool, approved: bool, locale: Option<String>) -> FComment {
         FComment {
             _id,
             tenant_id,
@@ -234,6 +236,7 @@ impl FComment {
             requires_verification: None,
             edit_key: None,
             tos_accepted_at: None,
+            bot_id: None,
         }
     }
 }

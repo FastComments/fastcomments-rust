@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **_id** | **String** |  | 
 **name** | **String** |  | 
 **tenant_id** | **String** |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
+**template_id** | Option<**String**> |  | [optional]
 **monthly_cost_usd** | Option<**f64**> |  | 
 **yearly_cost_usd** | Option<**f64**> |  | 
 **monthly_stripe_plan_id** | Option<**String**> |  | 
@@ -51,6 +52,8 @@ Name | Type | Description | Notes
 **flex_domain_unit** | Option<**f64**> |  | [optional]
 **flex_chat_gpt_cost_cents** | Option<**f64**> |  | [optional]
 **flex_chat_gpt_unit** | Option<**f64**> |  | [optional]
+**flex_llm_cost_cents** | Option<**f64**> |  | [optional]
+**flex_llm_unit** | Option<**f64**> |  | [optional]
 **flex_minimum_cost_cents** | Option<**f64**> |  | [optional]
 **flex_managed_tenant_cost_cents** | Option<**f64**> |  | [optional]
 **flex_sso_admin_cost_cents** | Option<**f64**> |  | [optional]
@@ -58,6 +61,10 @@ Name | Type | Description | Notes
 **flex_sso_moderator_cost_cents** | Option<**f64**> |  | [optional]
 **flex_sso_moderator_unit** | Option<**f64**> |  | [optional]
 **is_sso_billing_monthly_active_users** | Option<**bool**> |  | [optional]
+**has_ai_agents** | Option<**bool**> |  | [optional]
+**max_ai_agents** | Option<**f64**> |  | [optional]
+**ai_agent_daily_budget_cents** | Option<**f64**> |  | [optional]
+**ai_agent_monthly_budget_cents** | Option<**f64**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

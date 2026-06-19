@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **accessible_by_group_ids** | Option<**Vec<String>**> |  | [optional]
 **root_comment_count** | **i64** |  | 
 **comment_count** | **i64** |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **title** | **String** |  | 
 **url** | Option<**String**> |  | [optional]
 **url_id** | **String** |  | 
