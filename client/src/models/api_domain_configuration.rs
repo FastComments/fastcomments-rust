@@ -31,9 +31,9 @@ pub struct ApiDomainConfiguration {
     #[serde(rename = "wpURL", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub wp_url: Option<Option<String>>,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "autoAddedDate", skip_serializing_if = "Option::is_none")]
-    pub auto_added_date: Option<String>,
+    pub auto_added_date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "siteType", skip_serializing_if = "Option::is_none")]
     pub site_type: Option<models::ImportedSiteType>,
     #[serde(rename = "logoSrc", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -47,7 +47,7 @@ pub struct ApiDomainConfiguration {
 }
 
 impl ApiDomainConfiguration {
-    pub fn new(id: String, domain: String, created_at: String) -> ApiDomainConfiguration {
+    pub fn new(id: String, domain: String, created_at: chrono::DateTime<chrono::FixedOffset>) -> ApiDomainConfiguration {
         ApiDomainConfiguration {
             id,
             domain,

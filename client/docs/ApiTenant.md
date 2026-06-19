@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **stripe_plan_id** | Option<**String**> |  | [optional]
 **enable_profanity_filter** | **bool** |  | 
 **enable_spam_filter** | **bool** |  | 
-**last_billing_issue_reminder_date** | Option<**String**> |  | [optional]
+**last_billing_issue_reminder_date** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **remove_unverified_comments** | Option<**bool**> |  | [optional]
 **unverified_comments_tt_lms** | Option<**f64**> |  | [optional]
 **comments_require_approval** | Option<**bool**> |  | [optional]

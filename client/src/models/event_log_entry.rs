@@ -16,7 +16,7 @@ pub struct EventLogEntry {
     #[serde(rename = "_id")]
     pub _id: String,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "tenantId")]
     pub tenant_id: String,
     #[serde(rename = "urlId")]
@@ -28,7 +28,7 @@ pub struct EventLogEntry {
 }
 
 impl EventLogEntry {
-    pub fn new(_id: String, created_at: String, tenant_id: String, url_id: String, broadcast_id: String, data: String) -> EventLogEntry {
+    pub fn new(_id: String, created_at: chrono::DateTime<chrono::FixedOffset>, tenant_id: String, url_id: String, broadcast_id: String, data: String) -> EventLogEntry {
         EventLogEntry {
             _id,
             created_at,

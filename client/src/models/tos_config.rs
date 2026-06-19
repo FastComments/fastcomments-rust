@@ -19,7 +19,7 @@ pub struct TosConfig {
     #[serde(rename = "textByLocale", skip_serializing_if = "Option::is_none")]
     pub text_by_locale: Option<std::collections::HashMap<String, String>>,
     #[serde(rename = "lastUpdated", skip_serializing_if = "Option::is_none")]
-    pub last_updated: Option<String>,
+    pub last_updated: Option<chrono::DateTime<chrono::FixedOffset>>,
 }
 
 impl TosConfig {

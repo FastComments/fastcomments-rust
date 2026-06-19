@@ -22,7 +22,7 @@ pub struct ApiPage {
     #[serde(rename = "commentCount")]
     pub comment_count: i64,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "title")]
     pub title: String,
     #[serde(rename = "url", skip_serializing_if = "Option::is_none")]
@@ -34,7 +34,7 @@ pub struct ApiPage {
 }
 
 impl ApiPage {
-    pub fn new(root_comment_count: i64, comment_count: i64, created_at: String, title: String, url_id: String, id: String) -> ApiPage {
+    pub fn new(root_comment_count: i64, comment_count: i64, created_at: chrono::DateTime<chrono::FixedOffset>, title: String, url_id: String, id: String) -> ApiPage {
         ApiPage {
             is_closed: None,
             accessible_by_group_ids: None,

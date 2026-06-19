@@ -48,7 +48,7 @@ pub struct ApiTenant {
     #[serde(rename = "enableSpamFilter")]
     pub enable_spam_filter: bool,
     #[serde(rename = "lastBillingIssueReminderDate", skip_serializing_if = "Option::is_none")]
-    pub last_billing_issue_reminder_date: Option<String>,
+    pub last_billing_issue_reminder_date: Option<chrono::DateTime<chrono::FixedOffset>>,
     #[serde(rename = "removeUnverifiedComments", skip_serializing_if = "Option::is_none")]
     pub remove_unverified_comments: Option<bool>,
     #[serde(rename = "unverifiedCommentsTTLms", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

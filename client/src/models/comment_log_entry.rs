@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CommentLogEntry {
     #[serde(rename = "d")]
-    pub d: String,
+    pub d: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "t")]
     pub t: models::CommentLogType,
     #[serde(rename = "da", skip_serializing_if = "Option::is_none")]
@@ -22,7 +22,7 @@ pub struct CommentLogEntry {
 }
 
 impl CommentLogEntry {
-    pub fn new(d: String, t: models::CommentLogType) -> CommentLogEntry {
+    pub fn new(d: chrono::DateTime<chrono::FixedOffset>, t: models::CommentLogType) -> CommentLogEntry {
         CommentLogEntry {
             d,
             t,

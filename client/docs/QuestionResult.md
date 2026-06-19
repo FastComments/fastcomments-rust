@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **url_id** | **String** |  | 
 **anon_user_id** | **String** |  | 
 **user_id** | **String** |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **value** | **i32** |  | 
 **comment_id** | Option<**String**> |  | [optional]
 **question_id** | **String** |  | 

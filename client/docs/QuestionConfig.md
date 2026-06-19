@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **question** | **String** |  | 
 **summary_label** | Option<**String**> |  | [optional]
 **help_text** | **String** |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **created_by** | **String** |  | 
 **used_count** | **f64** |  | 
-**last_used** | **String** |  | 
+**last_used** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **r#type** | **String** |  | 
 **num_stars** | **f64** |  | 
 **min** | **f64** |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **default_value** | **f64** |  | 
 **label_negative** | **String** |  | 
 **label_positive** | **String** |  | 
-**custom_options** | [**Vec<models::QuestionConfigCustomOptionsInner>**](QuestionConfig_customOptions_inner.md) |  | 
+**custom_options** | [**Vec<models::QuestionConfigCustomOptionsInner>**](QuestionConfigCustomOptionsInner.md) |  | 
 **sub_question_ids** | **Vec<String>** |  | 
 **always_show_sub_questions** | **bool** |  | 
 **reporting_order** | **f64** |  | 

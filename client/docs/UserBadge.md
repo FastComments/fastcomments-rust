@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **user_id** | **String** |  | 
 **badge_id** | **String** |  | 
 **from_tenant_id** | **String** |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **r#type** | **i32** |  | 
 **threshold** | **i64** |  | 
 **description** | **String** |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **css_class** | Option<**String**> |  | [optional]
 **veteran_user_threshold_millis** | **i64** |  | 
 **displayed_on_comments** | **bool** |  | 
-**received_at** | **String** |  | 
+**received_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **order** | Option<**i32**> |  | [optional]
 **url_id** | Option<**String**> |  | [optional]
 

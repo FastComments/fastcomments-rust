@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**d** | **String** |  | 
+**d** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **t** | [**models::CommentLogType**](CommentLogType.md) |  | 
 **da** | Option<[**models::CommentLogData**](CommentLogData.md)> |  | [optional]
 

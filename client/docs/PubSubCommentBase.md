@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **domain** | Option<**String**> |  | [optional]
 **url** | **String** |  | 
 **page_title** | Option<**String**> |  | [optional]
-**expire_at** | Option<**String**> |  | [optional]
+**expire_at** | Option<**chrono::DateTime<chrono::FixedOffset>**> |  | [optional]
 **reviewed** | Option<**bool**> |  | [optional]
 **has_code** | Option<**bool**> |  | [optional]
 **approved** | **bool** |  | 

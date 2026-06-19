@@ -16,11 +16,11 @@ pub struct BulkCreateHashTagsResponse {
     #[serde(rename = "status")]
     pub status: models::ApiStatus,
     #[serde(rename = "results")]
-    pub results: Vec<models::AddHashTag200Response>,
+    pub results: Vec<models::BulkCreateHashTagsResponseResultsInner>,
 }
 
 impl BulkCreateHashTagsResponse {
-    pub fn new(status: models::ApiStatus, results: Vec<models::AddHashTag200Response>) -> BulkCreateHashTagsResponse {
+    pub fn new(status: models::ApiStatus, results: Vec<models::BulkCreateHashTagsResponseResultsInner>) -> BulkCreateHashTagsResponse {
         BulkCreateHashTagsResponse {
             status,
             results,

@@ -24,11 +24,11 @@ pub struct PublicVote {
     #[serde(rename = "direction")]
     pub direction: String,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
 }
 
 impl PublicVote {
-    pub fn new(id: String, url_id: String, comment_id: String, user_id: String, direction: String, created_at: String) -> PublicVote {
+    pub fn new(id: String, url_id: String, comment_id: String, user_id: String, direction: String, created_at: chrono::DateTime<chrono::FixedOffset>) -> PublicVote {
         PublicVote {
             id,
             url_id,

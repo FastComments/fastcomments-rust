@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecordStringBeforeStringOrNullAfterStringOrNullValue {
-    #[serde(rename = "after")]
-    pub after: String,
-    #[serde(rename = "before")]
-    pub before: String,
+    #[serde(rename = "after", deserialize_with = "Option::deserialize")]
+    pub after: Option<String>,
+    #[serde(rename = "before", deserialize_with = "Option::deserialize")]
+    pub before: Option<String>,
 }
 
 impl RecordStringBeforeStringOrNullAfterStringOrNullValue {
-    pub fn new(after: String, before: String) -> RecordStringBeforeStringOrNullAfterStringOrNullValue {
+    pub fn new(after: Option<String>, before: Option<String>) -> RecordStringBeforeStringOrNullAfterStringOrNullValue {
         RecordStringBeforeStringOrNullAfterStringOrNullValue {
             after,
             before,

@@ -112,6 +112,7 @@ impl From<&str> for ContentType {
 }
 
 pub mod default_api;
+pub mod moderation_api;
 pub mod public_api;
 
 pub mod configuration;

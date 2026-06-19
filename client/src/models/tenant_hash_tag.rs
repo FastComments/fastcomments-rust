@@ -16,7 +16,7 @@ pub struct TenantHashTag {
     #[serde(rename = "_id")]
     pub _id: String,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "tenantId")]
     pub tenant_id: String,
     #[serde(rename = "tag")]
@@ -26,7 +26,7 @@ pub struct TenantHashTag {
 }
 
 impl TenantHashTag {
-    pub fn new(_id: String, created_at: String, tenant_id: String, tag: String) -> TenantHashTag {
+    pub fn new(_id: String, created_at: chrono::DateTime<chrono::FixedOffset>, tenant_id: String, tag: String) -> TenantHashTag {
         TenantHashTag {
             _id,
             created_at,

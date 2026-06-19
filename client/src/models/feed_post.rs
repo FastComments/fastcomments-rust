@@ -41,7 +41,7 @@ pub struct FeedPost {
     #[serde(rename = "links", skip_serializing_if = "Option::is_none")]
     pub links: Option<Vec<models::FeedPostLink>>,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "reacts", skip_serializing_if = "Option::is_none")]
     pub reacts: Option<std::collections::HashMap<String, i32>>,
     #[serde(rename = "commentCount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -49,7 +49,7 @@ pub struct FeedPost {
 }
 
 impl FeedPost {
-    pub fn new(_id: String, tenant_id: String, created_at: String) -> FeedPost {
+    pub fn new(_id: String, tenant_id: String, created_at: chrono::DateTime<chrono::FixedOffset>) -> FeedPost {
         FeedPost {
             _id,
             tenant_id,

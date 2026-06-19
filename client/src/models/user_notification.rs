@@ -38,7 +38,7 @@ pub struct UserNotification {
     #[serde(rename = "sent")]
     pub sent: bool,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
     #[serde(rename = "type")]
     pub r#type: models::NotificationType,
     #[serde(rename = "fromCommentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -64,7 +64,7 @@ pub struct UserNotification {
 }
 
 impl UserNotification {
-    pub fn new(_id: String, tenant_id: String, url_id: String, url: String, related_object_type: models::NotificationObjectType, related_object_id: String, viewed: bool, is_unread_message: bool, sent: bool, created_at: String, r#type: models::NotificationType, opted_out: bool) -> UserNotification {
+    pub fn new(_id: String, tenant_id: String, url_id: String, url: String, related_object_type: models::NotificationObjectType, related_object_id: String, viewed: bool, is_unread_message: bool, sent: bool, created_at: chrono::DateTime<chrono::FixedOffset>, r#type: models::NotificationType, opted_out: bool) -> UserNotification {
         UserNotification {
             _id,
             tenant_id,

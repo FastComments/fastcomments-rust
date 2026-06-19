@@ -43,6 +43,8 @@ pub struct CommentLogData {
     pub engine_tokens: Option<f64>,
     #[serde(rename = "trustFactor", skip_serializing_if = "Option::is_none")]
     pub trust_factor: Option<f64>,
+    #[serde(rename = "source", skip_serializing_if = "Option::is_none")]
+    pub source: Option<String>,
     #[serde(rename = "rule", skip_serializing_if = "Option::is_none")]
     pub rule: Option<Box<models::SpamRule>>,
     #[serde(rename = "userId", skip_serializing_if = "Option::is_none")]
@@ -88,9 +90,9 @@ pub struct CommentLogData {
     #[serde(rename = "textAfter", skip_serializing_if = "Option::is_none")]
     pub text_after: Option<String>,
     #[serde(rename = "expireBefore", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expire_before: Option<Option<String>>,
+    pub expire_before: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "expireAfter", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub expire_after: Option<Option<String>>,
+    pub expire_after: Option<Option<chrono::DateTime<chrono::FixedOffset>>>,
     #[serde(rename = "flagCountBefore", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub flag_count_before: Option<Option<f64>>,
     #[serde(rename = "trustFactorBefore", skip_serializing_if = "Option::is_none")]
@@ -125,6 +127,7 @@ impl CommentLogData {
             engine_response: None,
             engine_tokens: None,
             trust_factor: None,
+            source: None,
             rule: None,
             user_id: None,
             subscribers: None,

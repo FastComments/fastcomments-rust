@@ -48,6 +48,18 @@ pub enum LiveEventType {
     UpdatedFeedPost,
     #[serde(rename = "deleted-feed-post")]
     DeletedFeedPost,
+    #[serde(rename = "new-ticket")]
+    NewTicket,
+    #[serde(rename = "updated-ticket-state")]
+    UpdatedTicketState,
+    #[serde(rename = "updated-ticket-assignment")]
+    UpdatedTicketAssignment,
+    #[serde(rename = "deleted-ticket")]
+    DeletedTicket,
+    #[serde(rename = "page-react")]
+    PageReact,
+    #[serde(rename = "question-result")]
+    QuestionResult,
 
 }
 
@@ -71,6 +83,12 @@ impl std::fmt::Display for LiveEventType {
             Self::NewFeedPost => write!(f, "new-feed-post"),
             Self::UpdatedFeedPost => write!(f, "updated-feed-post"),
             Self::DeletedFeedPost => write!(f, "deleted-feed-post"),
+            Self::NewTicket => write!(f, "new-ticket"),
+            Self::UpdatedTicketState => write!(f, "updated-ticket-state"),
+            Self::UpdatedTicketAssignment => write!(f, "updated-ticket-assignment"),
+            Self::DeletedTicket => write!(f, "deleted-ticket"),
+            Self::PageReact => write!(f, "page-react"),
+            Self::QuestionResult => write!(f, "question-result"),
         }
     }
 }

@@ -16,11 +16,11 @@ pub struct FindCommentsByRangeResponse {
     #[serde(rename = "results")]
     pub results: Vec<models::FindCommentsByRangeItem>,
     #[serde(rename = "createdAt")]
-    pub created_at: String,
+    pub created_at: chrono::DateTime<chrono::FixedOffset>,
 }
 
 impl FindCommentsByRangeResponse {
-    pub fn new(results: Vec<models::FindCommentsByRangeItem>, created_at: String) -> FindCommentsByRangeResponse {
+    pub fn new(results: Vec<models::FindCommentsByRangeItem>, created_at: chrono::DateTime<chrono::FixedOffset>) -> FindCommentsByRangeResponse {
         FindCommentsByRangeResponse {
             results,
             created_at,

@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **gif_search_trending** | **f64** |  | 
 **gif_search** | **f64** |  | 
 **api_credits_used** | **f64** |  | 
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **billed** | **bool** |  | 
 **ignored** | **bool** |  | 
 **api_error_count** | **f64** |  | 

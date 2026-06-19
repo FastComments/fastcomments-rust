@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **notification_frequency** | Option<**f64**> |  | [optional]
-**created_at** | **String** |  | 
+**created_at** | **chrono::DateTime<chrono::FixedOffset>** |  | 
 **page_title** | Option<**String**> |  | [optional]
 **url** | Option<**String**> |  | [optional]
 **url_id** | **String** |  | 
