@@ -61,7 +61,7 @@ Method | HTTP request | Description
 
 ## block_from_comment_public
 
-> models::BlockSuccess block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso)
+> models::BlockFromCommentPublicResponse block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso)
 
 
 ### Parameters
@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::BlockSuccess**](BlockSuccess.md)
+[**models::BlockFromCommentPublicResponse**](BlockFromCommentPublicResponse.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ No authorization required
 
 ## checked_comments_for_blocked
 
-> models::CheckBlockedCommentsResponse checked_comments_for_blocked(tenant_id, comment_ids, sso)
+> models::CheckedCommentsForBlockedResponse checked_comments_for_blocked(tenant_id, comment_ids, sso)
 
 
 ### Parameters
@@ -106,7 +106,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CheckBlockedCommentsResponse**](CheckBlockedCommentsResponse.md)
+[**models::CheckedCommentsForBlockedResponse**](CheckedCommentsForBlockedResponse.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ No authorization required
 
 ## create_comment_public
 
-> models::SaveCommentsResponseWithPresence create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id, sso)
+> models::CreateCommentPublicResponse create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id, sso)
 
 
 ### Parameters
@@ -139,7 +139,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::SaveCommentsResponseWithPresence**](SaveCommentsResponseWithPresence.md)
+[**models::CreateCommentPublicResponse**](CreateCommentPublicResponse.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ No authorization required
 
 ## create_feed_post_public
 
-> models::CreateFeedPostResponse create_feed_post_public(tenant_id, create_feed_post_params, broadcast_id, sso)
+> models::CreateFeedPostPublicResponse create_feed_post_public(tenant_id, create_feed_post_params, broadcast_id, sso)
 
 
 ### Parameters
@@ -170,7 +170,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**models::CreateFeedPostPublicResponse**](CreateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ No authorization required
 
 ## create_v1_page_react
 
-> models::CreateV1PageReact create_v1_page_react(tenant_id, url_id, title)
+> models::CreateV1PageReactResponse create_v1_page_react(tenant_id, url_id, title)
 
 
 ### Parameters
@@ -200,7 +200,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateV1PageReact**](CreateV1PageReact.md)
+[**models::CreateV1PageReactResponse**](CreateV1PageReactResponse.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ No authorization required
 
 ## create_v2_page_react
 
-> models::CreateV1PageReact create_v2_page_react(tenant_id, url_id, id, title)
+> models::CreateV2PageReactResponse create_v2_page_react(tenant_id, url_id, id, title)
 
 
 ### Parameters
@@ -231,7 +231,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateV1PageReact**](CreateV1PageReact.md)
+[**models::CreateV2PageReactResponse**](CreateV2PageReactResponse.md)
 
 ### Authorization
 
@@ -247,7 +247,7 @@ No authorization required
 
 ## delete_comment_public
 
-> models::PublicApiDeleteCommentResponse delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key, sso)
+> models::DeleteCommentPublicResponse delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key, sso)
 
 
 ### Parameters
@@ -263,7 +263,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PublicApiDeleteCommentResponse**](PublicAPIDeleteCommentResponse.md)
+[**models::DeleteCommentPublicResponse**](DeleteCommentPublicResponse.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ No authorization required
 
 ## delete_comment_vote
 
-> models::VoteDeleteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, edit_key, sso)
+> models::DeleteCommentVoteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, edit_key, sso)
 
 
 ### Parameters
@@ -297,7 +297,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::VoteDeleteResponse**](VoteDeleteResponse.md)
+[**models::DeleteCommentVoteResponse**](DeleteCommentVoteResponse.md)
 
 ### Authorization
 
@@ -344,7 +344,7 @@ No authorization required
 
 ## delete_v1_page_react
 
-> models::CreateV1PageReact delete_v1_page_react(tenant_id, url_id)
+> models::DeleteV1PageReactResponse delete_v1_page_react(tenant_id, url_id)
 
 
 ### Parameters
@@ -357,7 +357,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateV1PageReact**](CreateV1PageReact.md)
+[**models::DeleteV1PageReactResponse**](DeleteV1PageReactResponse.md)
 
 ### Authorization
 
@@ -373,7 +373,7 @@ No authorization required
 
 ## delete_v2_page_react
 
-> models::CreateV1PageReact delete_v2_page_react(tenant_id, url_id, id)
+> models::DeleteV2PageReactResponse delete_v2_page_react(tenant_id, url_id, id)
 
 
 ### Parameters
@@ -387,7 +387,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateV1PageReact**](CreateV1PageReact.md)
+[**models::DeleteV2PageReactResponse**](DeleteV2PageReactResponse.md)
 
 ### Authorization
 
@@ -403,7 +403,7 @@ No authorization required
 
 ## flag_comment_public
 
-> models::ApiEmptyResponse flag_comment_public(tenant_id, comment_id, is_flagged, sso)
+> models::FlagCommentPublicResponse flag_comment_public(tenant_id, comment_id, is_flagged, sso)
 
 
 ### Parameters
@@ -418,7 +418,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ApiEmptyResponse**](APIEmptyResponse.md)
+[**models::FlagCommentPublicResponse**](FlagCommentPublicResponse.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ No authorization required
 
 ## get_comment_text
 
-> models::PublicApiGetCommentTextResponse get_comment_text(tenant_id, comment_id, edit_key, sso)
+> models::GetCommentTextResponse1 get_comment_text(tenant_id, comment_id, edit_key, sso)
 
 
 ### Parameters
@@ -449,7 +449,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PublicApiGetCommentTextResponse**](PublicAPIGetCommentTextResponse.md)
+[**models::GetCommentTextResponse1**](GetCommentTextResponse_1.md)
 
 ### Authorization
 
@@ -465,7 +465,7 @@ No authorization required
 
 ## get_comment_vote_user_names
 
-> models::GetCommentVoteUserNamesSuccessResponse get_comment_vote_user_names(tenant_id, comment_id, dir, sso)
+> models::GetCommentVoteUserNamesResponse get_comment_vote_user_names(tenant_id, comment_id, dir, sso)
 
 
 ### Parameters
@@ -480,7 +480,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetCommentVoteUserNamesSuccessResponse**](GetCommentVoteUserNamesSuccessResponse.md)
+[**models::GetCommentVoteUserNamesResponse**](GetCommentVoteUserNamesResponse.md)
 
 ### Authorization
 
@@ -496,7 +496,7 @@ No authorization required
 
 ## get_comments_for_user
 
-> models::GetCommentsForUserResponse get_comments_for_user(user_id, direction, replies_to_user_id, page, includei10n, locale, is_crawler)
+> models::GetCommentsForUserResponse1 get_comments_for_user(user_id, direction, replies_to_user_id, page, includei10n, locale, is_crawler)
 
 
 ### Parameters
@@ -514,7 +514,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetCommentsForUserResponse**](GetCommentsForUserResponse.md)
+[**models::GetCommentsForUserResponse1**](GetCommentsForUserResponse_1.md)
 
 ### Authorization
 
@@ -530,7 +530,7 @@ No authorization required
 
 ## get_comments_public
 
-> models::GetCommentsResponseWithPresencePublicComment get_comments_public(tenant_id, url_id, page, direction, sso, skip, skip_children, limit, limit_children, count_children, fetch_page_for_comment_id, include_config, count_all, includei10n, locale, modules, is_crawler, include_notification_count, as_tree, max_tree_depth, use_full_translation_ids, parent_id, search_text, hash_tags, user_id, custom_config_str, after_comment_id, before_comment_id)
+> models::GetCommentsPublicResponse get_comments_public(tenant_id, url_id, page, direction, sso, skip, skip_children, limit, limit_children, count_children, fetch_page_for_comment_id, include_config, count_all, includei10n, locale, modules, is_crawler, include_notification_count, as_tree, max_tree_depth, use_full_translation_ids, parent_id, search_text, hash_tags, user_id, custom_config_str, after_comment_id, before_comment_id)
 
 
  req tenantId urlId
@@ -571,7 +571,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetCommentsResponseWithPresencePublicComment**](GetCommentsResponseWithPresence_PublicComment_.md)
+[**models::GetCommentsPublicResponse**](GetCommentsPublicResponse.md)
 
 ### Authorization
 
@@ -587,7 +587,7 @@ No authorization required
 
 ## get_event_log
 
-> models::GetEventLogResponse get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time)
+> models::GetEventLogResponse1 get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time)
 
 
  req tenantId urlId userIdWS
@@ -605,7 +605,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetEventLogResponse**](GetEventLogResponse.md)
+[**models::GetEventLogResponse1**](GetEventLogResponse_1.md)
 
 ### Authorization
 
@@ -621,7 +621,7 @@ No authorization required
 
 ## get_feed_posts_public
 
-> models::PublicFeedPostsResponse get_feed_posts_public(tenant_id, after_id, limit, tags, sso, is_crawler, include_user_info)
+> models::GetFeedPostsPublicResponse get_feed_posts_public(tenant_id, after_id, limit, tags, sso, is_crawler, include_user_info)
 
 
  req tenantId afterId
@@ -641,7 +641,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PublicFeedPostsResponse**](PublicFeedPostsResponse.md)
+[**models::GetFeedPostsPublicResponse**](GetFeedPostsPublicResponse.md)
 
 ### Authorization
 
@@ -657,7 +657,7 @@ No authorization required
 
 ## get_feed_posts_stats
 
-> models::FeedPostsStatsResponse get_feed_posts_stats(tenant_id, post_ids, sso)
+> models::GetFeedPostsStatsResponse get_feed_posts_stats(tenant_id, post_ids, sso)
 
 
 ### Parameters
@@ -671,7 +671,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::FeedPostsStatsResponse**](FeedPostsStatsResponse.md)
+[**models::GetFeedPostsStatsResponse**](GetFeedPostsStatsResponse.md)
 
 ### Authorization
 
@@ -687,7 +687,7 @@ No authorization required
 
 ## get_gif_large
 
-> models::GifGetLargeResponse get_gif_large(tenant_id, large_internal_url_sanitized)
+> models::GetGifLargeResponse get_gif_large(tenant_id, large_internal_url_sanitized)
 
 
 ### Parameters
@@ -700,7 +700,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GifGetLargeResponse**](GifGetLargeResponse.md)
+[**models::GetGifLargeResponse**](GetGifLargeResponse.md)
 
 ### Authorization
 
@@ -779,7 +779,7 @@ No authorization required
 
 ## get_global_event_log
 
-> models::GetEventLogResponse get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time)
+> models::GetGlobalEventLogResponse get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time)
 
 
  req tenantId urlId userIdWS
@@ -797,7 +797,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetEventLogResponse**](GetEventLogResponse.md)
+[**models::GetGlobalEventLogResponse**](GetGlobalEventLogResponse.md)
 
 ### Authorization
 
@@ -813,7 +813,7 @@ No authorization required
 
 ## get_offline_users
 
-> models::PageUsersOfflineResponse get_offline_users(tenant_id, url_id, after_name, after_user_id)
+> models::GetOfflineUsersResponse get_offline_users(tenant_id, url_id, after_name, after_user_id)
 
 
 Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
@@ -830,7 +830,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PageUsersOfflineResponse**](PageUsersOfflineResponse.md)
+[**models::GetOfflineUsersResponse**](GetOfflineUsersResponse.md)
 
 ### Authorization
 
@@ -846,7 +846,7 @@ No authorization required
 
 ## get_online_users
 
-> models::PageUsersOnlineResponse get_online_users(tenant_id, url_id, after_name, after_user_id)
+> models::GetOnlineUsersResponse get_online_users(tenant_id, url_id, after_name, after_user_id)
 
 
 Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
@@ -863,7 +863,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PageUsersOnlineResponse**](PageUsersOnlineResponse.md)
+[**models::GetOnlineUsersResponse**](GetOnlineUsersResponse.md)
 
 ### Authorization
 
@@ -879,7 +879,7 @@ No authorization required
 
 ## get_pages_public
 
-> models::GetPublicPagesResponse get_pages_public(tenant_id, cursor, limit, q, sort_by, has_comments)
+> models::GetPagesPublicResponse get_pages_public(tenant_id, cursor, limit, q, sort_by, has_comments)
 
 
 List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
@@ -898,7 +898,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetPublicPagesResponse**](GetPublicPagesResponse.md)
+[**models::GetPagesPublicResponse**](GetPagesPublicResponse.md)
 
 ### Authorization
 
@@ -914,7 +914,7 @@ No authorization required
 
 ## get_translations
 
-> models::GetTranslationsResponse get_translations(namespace, component, locale, use_full_translation_ids)
+> models::GetTranslationsResponse1 get_translations(namespace, component, locale, use_full_translation_ids)
 
 
 ### Parameters
@@ -929,7 +929,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetTranslationsResponse**](GetTranslationsResponse.md)
+[**models::GetTranslationsResponse1**](GetTranslationsResponse_1.md)
 
 ### Authorization
 
@@ -945,7 +945,7 @@ No authorization required
 
 ## get_user_notification_count
 
-> models::GetUserNotificationCountResponse get_user_notification_count(tenant_id, sso)
+> models::GetUserNotificationCountResponse1 get_user_notification_count(tenant_id, sso)
 
 
 ### Parameters
@@ -958,7 +958,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUserNotificationCountResponse**](GetUserNotificationCountResponse.md)
+[**models::GetUserNotificationCountResponse1**](GetUserNotificationCountResponse_1.md)
 
 ### Authorization
 
@@ -974,7 +974,7 @@ No authorization required
 
 ## get_user_notifications
 
-> models::GetMyNotificationsResponse get_user_notifications(tenant_id, url_id, page_size, after_id, include_context, after_created_at, unread_only, dm_only, no_dm, include_translations, include_tenant_notifications, sso)
+> models::GetUserNotificationsResponse get_user_notifications(tenant_id, url_id, page_size, after_id, include_context, after_created_at, unread_only, dm_only, no_dm, include_translations, include_tenant_notifications, sso)
 
 
 ### Parameters
@@ -997,7 +997,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetMyNotificationsResponse**](GetMyNotificationsResponse.md)
+[**models::GetUserNotificationsResponse**](GetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -1013,7 +1013,7 @@ No authorization required
 
 ## get_user_presence_statuses
 
-> models::GetUserPresenceStatusesResponse get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
+> models::GetUserPresenceStatusesResponse1 get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
 
 
 ### Parameters
@@ -1027,7 +1027,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetUserPresenceStatusesResponse**](GetUserPresenceStatusesResponse.md)
+[**models::GetUserPresenceStatusesResponse1**](GetUserPresenceStatusesResponse_1.md)
 
 ### Authorization
 
@@ -1043,7 +1043,7 @@ No authorization required
 
 ## get_user_reacts_public
 
-> models::UserReactsResponse get_user_reacts_public(tenant_id, post_ids, sso)
+> models::GetUserReactsPublicResponse get_user_reacts_public(tenant_id, post_ids, sso)
 
 
 ### Parameters
@@ -1057,7 +1057,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::UserReactsResponse**](UserReactsResponse.md)
+[**models::GetUserReactsPublicResponse**](GetUserReactsPublicResponse.md)
 
 ### Authorization
 
@@ -1073,7 +1073,7 @@ No authorization required
 
 ## get_users_info
 
-> models::PageUsersInfoResponse get_users_info(tenant_id, ids)
+> models::GetUsersInfoResponse get_users_info(tenant_id, ids)
 
 
 Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
@@ -1088,7 +1088,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PageUsersInfoResponse**](PageUsersInfoResponse.md)
+[**models::GetUsersInfoResponse**](GetUsersInfoResponse.md)
 
 ### Authorization
 
@@ -1104,7 +1104,7 @@ No authorization required
 
 ## get_v1_page_likes
 
-> models::GetV1PageLikes get_v1_page_likes(tenant_id, url_id)
+> models::GetV1PageLikesResponse get_v1_page_likes(tenant_id, url_id)
 
 
 ### Parameters
@@ -1117,7 +1117,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetV1PageLikes**](GetV1PageLikes.md)
+[**models::GetV1PageLikesResponse**](GetV1PageLikesResponse.md)
 
 ### Authorization
 
@@ -1133,7 +1133,7 @@ No authorization required
 
 ## get_v2_page_react_users
 
-> models::GetV2PageReactUsersResponse get_v2_page_react_users(tenant_id, url_id, id)
+> models::GetV2PageReactUsersResponse1 get_v2_page_react_users(tenant_id, url_id, id)
 
 
 ### Parameters
@@ -1147,7 +1147,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetV2PageReactUsersResponse**](GetV2PageReactUsersResponse.md)
+[**models::GetV2PageReactUsersResponse1**](GetV2PageReactUsersResponse_1.md)
 
 ### Authorization
 
@@ -1163,7 +1163,7 @@ No authorization required
 
 ## get_v2_page_reacts
 
-> models::GetV2PageReacts get_v2_page_reacts(tenant_id, url_id)
+> models::GetV2PageReactsResponse get_v2_page_reacts(tenant_id, url_id)
 
 
 ### Parameters
@@ -1176,7 +1176,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetV2PageReacts**](GetV2PageReacts.md)
+[**models::GetV2PageReactsResponse**](GetV2PageReactsResponse.md)
 
 ### Authorization
 
@@ -1192,7 +1192,7 @@ No authorization required
 
 ## lock_comment
 
-> models::ApiEmptyResponse lock_comment(tenant_id, comment_id, broadcast_id, sso)
+> models::LockCommentResponse lock_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -1207,7 +1207,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ApiEmptyResponse**](APIEmptyResponse.md)
+[**models::LockCommentResponse**](LockCommentResponse.md)
 
 ### Authorization
 
@@ -1248,7 +1248,7 @@ No authorization required
 
 ## pin_comment
 
-> models::ChangeCommentPinStatusResponse pin_comment(tenant_id, comment_id, broadcast_id, sso)
+> models::PinCommentResponse pin_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -1263,7 +1263,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**models::PinCommentResponse**](PinCommentResponse.md)
 
 ### Authorization
 
@@ -1279,7 +1279,7 @@ No authorization required
 
 ## react_feed_post_public
 
-> models::ReactFeedPostResponse react_feed_post_public(tenant_id, post_id, react_body_params, is_undo, broadcast_id, sso)
+> models::ReactFeedPostPublicResponse react_feed_post_public(tenant_id, post_id, react_body_params, is_undo, broadcast_id, sso)
 
 
 ### Parameters
@@ -1296,7 +1296,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ReactFeedPostResponse**](ReactFeedPostResponse.md)
+[**models::ReactFeedPostPublicResponse**](ReactFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -1312,7 +1312,7 @@ No authorization required
 
 ## reset_user_notification_count
 
-> models::ResetUserNotificationsResponse reset_user_notification_count(tenant_id, sso)
+> models::ResetUserNotificationCountResponse reset_user_notification_count(tenant_id, sso)
 
 
 ### Parameters
@@ -1325,7 +1325,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**models::ResetUserNotificationCountResponse**](ResetUserNotificationCountResponse.md)
 
 ### Authorization
 
@@ -1341,7 +1341,7 @@ No authorization required
 
 ## reset_user_notifications
 
-> models::ResetUserNotificationsResponse reset_user_notifications(tenant_id, after_id, after_created_at, unread_only, dm_only, no_dm, sso)
+> models::ResetUserNotificationsResponse1 reset_user_notifications(tenant_id, after_id, after_created_at, unread_only, dm_only, no_dm, sso)
 
 
 ### Parameters
@@ -1359,7 +1359,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**models::ResetUserNotificationsResponse1**](ResetUserNotificationsResponse_1.md)
 
 ### Authorization
 
@@ -1375,7 +1375,7 @@ No authorization required
 
 ## search_users
 
-> models::SearchUsersResult search_users(tenant_id, url_id, username_starts_with, mention_group_ids, sso, search_section)
+> models::SearchUsersResponse1 search_users(tenant_id, url_id, username_starts_with, mention_group_ids, sso, search_section)
 
 
 ### Parameters
@@ -1392,7 +1392,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::SearchUsersResult**](SearchUsersResult.md)
+[**models::SearchUsersResponse1**](SearchUsersResponse_1.md)
 
 ### Authorization
 
@@ -1408,7 +1408,7 @@ No authorization required
 
 ## set_comment_text
 
-> models::PublicApiSetCommentTextResponse set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key, sso)
+> models::SetCommentTextResponse1 set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key, sso)
 
 
 ### Parameters
@@ -1425,7 +1425,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::PublicApiSetCommentTextResponse**](PublicAPISetCommentTextResponse.md)
+[**models::SetCommentTextResponse1**](SetCommentTextResponse_1.md)
 
 ### Authorization
 
@@ -1441,7 +1441,7 @@ No authorization required
 
 ## un_block_comment_public
 
-> models::UnblockSuccess un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso)
+> models::UnBlockCommentPublicResponse un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso)
 
 
 ### Parameters
@@ -1456,7 +1456,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::UnblockSuccess**](UnblockSuccess.md)
+[**models::UnBlockCommentPublicResponse**](UnBlockCommentPublicResponse.md)
 
 ### Authorization
 
@@ -1472,7 +1472,7 @@ No authorization required
 
 ## un_lock_comment
 
-> models::ApiEmptyResponse un_lock_comment(tenant_id, comment_id, broadcast_id, sso)
+> models::UnLockCommentResponse un_lock_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -1487,7 +1487,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ApiEmptyResponse**](APIEmptyResponse.md)
+[**models::UnLockCommentResponse**](UnLockCommentResponse.md)
 
 ### Authorization
 
@@ -1503,7 +1503,7 @@ No authorization required
 
 ## un_pin_comment
 
-> models::ChangeCommentPinStatusResponse un_pin_comment(tenant_id, comment_id, broadcast_id, sso)
+> models::UnPinCommentResponse un_pin_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -1518,7 +1518,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**models::UnPinCommentResponse**](UnPinCommentResponse.md)
 
 ### Authorization
 
@@ -1534,7 +1534,7 @@ No authorization required
 
 ## update_feed_post_public
 
-> models::CreateFeedPostResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, broadcast_id, sso)
+> models::UpdateFeedPostPublicResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, broadcast_id, sso)
 
 
 ### Parameters
@@ -1550,7 +1550,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**models::UpdateFeedPostPublicResponse**](UpdateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -1699,7 +1699,7 @@ No authorization required
 
 ## vote_comment
 
-> models::VoteResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, session_id, sso)
+> models::VoteCommentResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, session_id, sso)
 
 
 ### Parameters
@@ -1717,7 +1717,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::VoteResponse**](VoteResponse.md)
+[**models::VoteCommentResponse**](VoteCommentResponse.md)
 
 ### Authorization
 

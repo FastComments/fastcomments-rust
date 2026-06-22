@@ -1,0 +1,22 @@
+# CreateCommentPublicResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**status** | [**models::ApiStatus**](APIStatus.md) |  | 
+**comment** | Option<[**models::PublicComment**](PublicComment.md)> |  | [optional]
+**user** | Option<[**models::UserSessionInfo**](UserSessionInfo.md)> |  | [optional]
+**module_data** | Option<**std::collections::HashMap<String, serde_json::Value>**> | Construct a type with a set of properties K of type T | [optional]
+**user_id_ws** | Option<**String**> |  | [optional]
+**reason** | Option<**String**> |  | [optional]
+**code** | Option<**String**> |  | [optional]
+**secondary_code** | Option<**String**> |  | [optional]
+**banned_until** | Option<**i64**> |  | [optional]
+**max_character_length** | Option<**i32**> |  | [optional]
+**translated_error** | Option<**String**> |  | [optional]
+**custom_config** | Option<[**models::CustomConfigParameters**](CustomConfigParameters.md)> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

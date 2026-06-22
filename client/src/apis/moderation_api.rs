@@ -19,6 +19,8 @@ use super::{Error, configuration, ContentType};
 pub struct DeleteModerationVoteParams {
     pub comment_id: String,
     pub vote_id: String,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -33,6 +35,7 @@ pub struct GetApiCommentsParams {
     pub search_filters: Option<String>,
     pub sorts: Option<String>,
     pub demo: Option<bool>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -40,6 +43,7 @@ pub struct GetApiCommentsParams {
 #[derive(Clone, Debug)]
 pub struct GetApiExportStatusParams {
     pub batch_job_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -52,6 +56,7 @@ pub struct GetApiIdsParams {
     pub search_filters: Option<String>,
     pub after_id: Option<String>,
     pub demo: Option<bool>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -59,6 +64,7 @@ pub struct GetApiIdsParams {
 #[derive(Clone, Debug)]
 pub struct GetBanUsersFromCommentParams {
     pub comment_id: String,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -66,6 +72,7 @@ pub struct GetBanUsersFromCommentParams {
 #[derive(Clone, Debug)]
 pub struct GetCommentBanStatusParams {
     pub comment_id: String,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -73,6 +80,7 @@ pub struct GetCommentBanStatusParams {
 #[derive(Clone, Debug)]
 pub struct GetCommentChildrenParams {
     pub comment_id: String,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -84,12 +92,14 @@ pub struct GetCountParams {
     pub filter: Option<String>,
     pub search_filters: Option<String>,
     pub demo: Option<bool>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_counts`]
 #[derive(Clone, Debug)]
 pub struct GetCountsParams {
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -97,12 +107,14 @@ pub struct GetCountsParams {
 #[derive(Clone, Debug)]
 pub struct GetLogsParams {
     pub comment_id: String,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_manual_badges`]
 #[derive(Clone, Debug)]
 pub struct GetManualBadgesParams {
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -111,6 +123,7 @@ pub struct GetManualBadgesParams {
 pub struct GetManualBadgesForUserParams {
     pub badges_user_id: Option<String>,
     pub comment_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -120,6 +133,7 @@ pub struct GetModerationCommentParams {
     pub comment_id: String,
     pub include_email: Option<bool>,
     pub include_ip: Option<bool>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -127,6 +141,7 @@ pub struct GetModerationCommentParams {
 #[derive(Clone, Debug)]
 pub struct GetModerationCommentTextParams {
     pub comment_id: String,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -137,6 +152,7 @@ pub struct GetPreBanSummaryParams {
     pub include_by_user_id_and_email: Option<bool>,
     pub include_by_ip: Option<bool>,
     pub include_by_email_domain: Option<bool>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -146,6 +162,7 @@ pub struct GetSearchCommentsSummaryParams {
     pub value: Option<String>,
     pub filters: Option<String>,
     pub search_filters: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -153,6 +170,7 @@ pub struct GetSearchCommentsSummaryParams {
 #[derive(Clone, Debug)]
 pub struct GetSearchPagesParams {
     pub value: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -160,6 +178,7 @@ pub struct GetSearchPagesParams {
 #[derive(Clone, Debug)]
 pub struct GetSearchSitesParams {
     pub value: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -167,6 +186,7 @@ pub struct GetSearchSitesParams {
 #[derive(Clone, Debug)]
 pub struct GetSearchSuggestParams {
     pub text_search: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -174,6 +194,7 @@ pub struct GetSearchSuggestParams {
 #[derive(Clone, Debug)]
 pub struct GetSearchUsersParams {
     pub value: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -181,12 +202,14 @@ pub struct GetSearchUsersParams {
 #[derive(Clone, Debug)]
 pub struct GetTrustFactorParams {
     pub user_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_user_ban_preference`]
 #[derive(Clone, Debug)]
 pub struct GetUserBanPreferenceParams {
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -194,6 +217,7 @@ pub struct GetUserBanPreferenceParams {
 #[derive(Clone, Debug)]
 pub struct GetUserInternalProfileParams {
     pub comment_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -202,6 +226,8 @@ pub struct GetUserInternalProfileParams {
 pub struct PostAdjustCommentVotesParams {
     pub comment_id: String,
     pub adjust_comment_votes_params: models::AdjustCommentVotesParams,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -213,6 +239,7 @@ pub struct PostApiExportParams {
     pub filters: Option<String>,
     pub search_filters: Option<String>,
     pub sorts: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -228,6 +255,7 @@ pub struct PostBanUserFromCommentParams {
     pub is_shadow_ban: Option<bool>,
     pub update_id: Option<String>,
     pub ban_reason: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -235,6 +263,7 @@ pub struct PostBanUserFromCommentParams {
 #[derive(Clone, Debug)]
 pub struct PostBanUserUndoParams {
     pub ban_user_undo_params: models::BanUserUndoParams,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -245,6 +274,7 @@ pub struct PostBulkPreBanSummaryParams {
     pub include_by_user_id_and_email: Option<bool>,
     pub include_by_ip: Option<bool>,
     pub include_by_email_domain: Option<bool>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -252,6 +282,7 @@ pub struct PostBulkPreBanSummaryParams {
 #[derive(Clone, Debug)]
 pub struct PostCommentsByIdsParams {
     pub comments_by_ids_params: models::CommentsByIdsParams,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -259,6 +290,8 @@ pub struct PostCommentsByIdsParams {
 #[derive(Clone, Debug)]
 pub struct PostFlagCommentParams {
     pub comment_id: String,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -266,6 +299,8 @@ pub struct PostFlagCommentParams {
 #[derive(Clone, Debug)]
 pub struct PostRemoveCommentParams {
     pub comment_id: String,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -273,6 +308,8 @@ pub struct PostRemoveCommentParams {
 #[derive(Clone, Debug)]
 pub struct PostRestoreDeletedCommentParams {
     pub comment_id: String,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -281,6 +318,8 @@ pub struct PostRestoreDeletedCommentParams {
 pub struct PostSetCommentApprovalStatusParams {
     pub comment_id: String,
     pub approved: Option<bool>,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -289,6 +328,8 @@ pub struct PostSetCommentApprovalStatusParams {
 pub struct PostSetCommentReviewStatusParams {
     pub comment_id: String,
     pub reviewed: Option<bool>,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -298,6 +339,8 @@ pub struct PostSetCommentSpamStatusParams {
     pub comment_id: String,
     pub spam: Option<bool>,
     pub perm_not_spam: Option<bool>,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -306,6 +349,8 @@ pub struct PostSetCommentSpamStatusParams {
 pub struct PostSetCommentTextParams {
     pub comment_id: String,
     pub set_comment_text_params: models::SetCommentTextParams,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -313,6 +358,8 @@ pub struct PostSetCommentTextParams {
 #[derive(Clone, Debug)]
 pub struct PostUnFlagCommentParams {
     pub comment_id: String,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -321,6 +368,8 @@ pub struct PostUnFlagCommentParams {
 pub struct PostVoteParams {
     pub comment_id: String,
     pub direction: Option<String>,
+    pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -331,6 +380,7 @@ pub struct PutAwardBadgeParams {
     pub user_id: Option<String>,
     pub comment_id: Option<String>,
     pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -338,6 +388,7 @@ pub struct PutAwardBadgeParams {
 #[derive(Clone, Debug)]
 pub struct PutCloseThreadParams {
     pub url_id: String,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -348,6 +399,7 @@ pub struct PutRemoveBadgeParams {
     pub user_id: Option<String>,
     pub comment_id: Option<String>,
     pub broadcast_id: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -355,6 +407,7 @@ pub struct PutRemoveBadgeParams {
 #[derive(Clone, Debug)]
 pub struct PutReopenThreadParams {
     pub url_id: String,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -363,6 +416,7 @@ pub struct PutReopenThreadParams {
 pub struct SetTrustFactorParams {
     pub user_id: Option<String>,
     pub trust_factor: Option<String>,
+    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -371,7 +425,6 @@ pub struct SetTrustFactorParams {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteModerationVoteError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -379,7 +432,6 @@ pub enum DeleteModerationVoteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetApiCommentsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -387,7 +439,6 @@ pub enum GetApiCommentsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetApiExportStatusError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -395,7 +446,6 @@ pub enum GetApiExportStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetApiIdsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -403,7 +453,6 @@ pub enum GetApiIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetBanUsersFromCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -411,7 +460,6 @@ pub enum GetBanUsersFromCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCommentBanStatusError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -419,7 +467,6 @@ pub enum GetCommentBanStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCommentChildrenError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -427,7 +474,6 @@ pub enum GetCommentChildrenError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCountError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -435,7 +481,6 @@ pub enum GetCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCountsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -443,7 +488,6 @@ pub enum GetCountsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLogsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -451,7 +495,6 @@ pub enum GetLogsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetManualBadgesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -459,7 +502,6 @@ pub enum GetManualBadgesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetManualBadgesForUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -467,7 +509,6 @@ pub enum GetManualBadgesForUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetModerationCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -475,7 +516,6 @@ pub enum GetModerationCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetModerationCommentTextError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -483,7 +523,6 @@ pub enum GetModerationCommentTextError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPreBanSummaryError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -491,7 +530,6 @@ pub enum GetPreBanSummaryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSearchCommentsSummaryError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -499,7 +537,6 @@ pub enum GetSearchCommentsSummaryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSearchPagesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -507,7 +544,6 @@ pub enum GetSearchPagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSearchSitesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -515,7 +551,6 @@ pub enum GetSearchSitesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSearchSuggestError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -523,7 +558,6 @@ pub enum GetSearchSuggestError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSearchUsersError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -531,7 +565,6 @@ pub enum GetSearchUsersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTrustFactorError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -539,7 +572,6 @@ pub enum GetTrustFactorError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserBanPreferenceError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -547,7 +579,6 @@ pub enum GetUserBanPreferenceError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserInternalProfileError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -555,7 +586,6 @@ pub enum GetUserInternalProfileError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostAdjustCommentVotesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -563,7 +593,6 @@ pub enum PostAdjustCommentVotesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostApiExportError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -571,7 +600,6 @@ pub enum PostApiExportError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostBanUserFromCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -579,7 +607,6 @@ pub enum PostBanUserFromCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostBanUserUndoError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -587,7 +614,6 @@ pub enum PostBanUserUndoError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostBulkPreBanSummaryError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -595,7 +621,6 @@ pub enum PostBulkPreBanSummaryError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostCommentsByIdsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -603,7 +628,6 @@ pub enum PostCommentsByIdsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostFlagCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -611,7 +635,6 @@ pub enum PostFlagCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostRemoveCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -619,7 +642,6 @@ pub enum PostRemoveCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostRestoreDeletedCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -627,7 +649,6 @@ pub enum PostRestoreDeletedCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostSetCommentApprovalStatusError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -635,7 +656,6 @@ pub enum PostSetCommentApprovalStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostSetCommentReviewStatusError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -643,7 +663,6 @@ pub enum PostSetCommentReviewStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostSetCommentSpamStatusError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -651,7 +670,6 @@ pub enum PostSetCommentSpamStatusError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostSetCommentTextError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -659,7 +677,6 @@ pub enum PostSetCommentTextError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostUnFlagCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -667,7 +684,6 @@ pub enum PostUnFlagCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostVoteError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -675,7 +691,6 @@ pub enum PostVoteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutAwardBadgeError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -683,7 +698,6 @@ pub enum PutAwardBadgeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutCloseThreadError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -691,7 +705,6 @@ pub enum PutCloseThreadError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutRemoveBadgeError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -699,7 +712,6 @@ pub enum PutRemoveBadgeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutReopenThreadError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -707,16 +719,21 @@ pub enum PutReopenThreadError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SetTrustFactorError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
 
-pub async fn delete_moderation_vote(configuration: &configuration::Configuration, params: DeleteModerationVoteParams) -> Result<models::VoteDeleteResponse, Error<DeleteModerationVoteError>> {
+pub async fn delete_moderation_vote(configuration: &configuration::Configuration, params: DeleteModerationVoteParams) -> Result<models::DeleteModerationVoteResponse, Error<DeleteModerationVoteError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/vote/{commentId}/{voteId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id), voteId=crate::client::apis::urlencode(params.vote_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -739,8 +756,8 @@ pub async fn delete_moderation_vote(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VoteDeleteResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VoteDeleteResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteModerationVoteResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteModerationVoteResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -749,7 +766,7 @@ pub async fn delete_moderation_vote(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_api_comments(configuration: &configuration::Configuration, params: GetApiCommentsParams) -> Result<models::ModerationApiGetCommentsResponse, Error<GetApiCommentsError>> {
+pub async fn get_api_comments(configuration: &configuration::Configuration, params: GetApiCommentsParams) -> Result<models::GetApiCommentsResponse, Error<GetApiCommentsError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/api/comments", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -778,6 +795,9 @@ pub async fn get_api_comments(configuration: &configuration::Configuration, para
     if let Some(ref param_value) = params.demo {
         req_builder = req_builder.query(&[("demo", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -800,8 +820,8 @@ pub async fn get_api_comments(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationApiGetCommentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationApiGetCommentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetApiCommentsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetApiCommentsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -810,13 +830,16 @@ pub async fn get_api_comments(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn get_api_export_status(configuration: &configuration::Configuration, params: GetApiExportStatusParams) -> Result<models::ModerationExportStatusResponse, Error<GetApiExportStatusError>> {
+pub async fn get_api_export_status(configuration: &configuration::Configuration, params: GetApiExportStatusParams) -> Result<models::GetApiExportStatusResponse, Error<GetApiExportStatusError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/api/export/status", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.batch_job_id {
         req_builder = req_builder.query(&[("batchJobId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -840,8 +863,8 @@ pub async fn get_api_export_status(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationExportStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationExportStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetApiExportStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetApiExportStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -850,7 +873,7 @@ pub async fn get_api_export_status(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn get_api_ids(configuration: &configuration::Configuration, params: GetApiIdsParams) -> Result<models::ModerationApiGetCommentIdsResponse, Error<GetApiIdsError>> {
+pub async fn get_api_ids(configuration: &configuration::Configuration, params: GetApiIdsParams) -> Result<models::GetApiIdsResponse, Error<GetApiIdsError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/api/ids", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -873,6 +896,9 @@ pub async fn get_api_ids(configuration: &configuration::Configuration, params: G
     if let Some(ref param_value) = params.demo {
         req_builder = req_builder.query(&[("demo", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -895,8 +921,8 @@ pub async fn get_api_ids(configuration: &configuration::Configuration, params: G
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationApiGetCommentIdsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationApiGetCommentIdsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetApiIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetApiIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -905,11 +931,14 @@ pub async fn get_api_ids(configuration: &configuration::Configuration, params: G
     }
 }
 
-pub async fn get_ban_users_from_comment(configuration: &configuration::Configuration, params: GetBanUsersFromCommentParams) -> Result<models::GetBannedUsersFromCommentResponse, Error<GetBanUsersFromCommentError>> {
+pub async fn get_ban_users_from_comment(configuration: &configuration::Configuration, params: GetBanUsersFromCommentParams) -> Result<models::GetBanUsersFromCommentResponse, Error<GetBanUsersFromCommentError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/ban-users/from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -932,8 +961,8 @@ pub async fn get_ban_users_from_comment(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetBannedUsersFromCommentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetBannedUsersFromCommentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetBanUsersFromCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetBanUsersFromCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -942,11 +971,14 @@ pub async fn get_ban_users_from_comment(configuration: &configuration::Configura
     }
 }
 
-pub async fn get_comment_ban_status(configuration: &configuration::Configuration, params: GetCommentBanStatusParams) -> Result<models::GetCommentBanStatusResponse, Error<GetCommentBanStatusError>> {
+pub async fn get_comment_ban_status(configuration: &configuration::Configuration, params: GetCommentBanStatusParams) -> Result<models::GetCommentBanStatusResponse1, Error<GetCommentBanStatusError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/get-comment-ban-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -969,8 +1001,8 @@ pub async fn get_comment_ban_status(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentBanStatusResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentBanStatusResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentBanStatusResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentBanStatusResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -979,11 +1011,14 @@ pub async fn get_comment_ban_status(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_comment_children(configuration: &configuration::Configuration, params: GetCommentChildrenParams) -> Result<models::ModerationApiChildCommentsResponse, Error<GetCommentChildrenError>> {
+pub async fn get_comment_children(configuration: &configuration::Configuration, params: GetCommentChildrenParams) -> Result<models::GetCommentChildrenResponse, Error<GetCommentChildrenError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/comment-children/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1006,8 +1041,8 @@ pub async fn get_comment_children(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationApiChildCommentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationApiChildCommentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentChildrenResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentChildrenResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1016,7 +1051,7 @@ pub async fn get_comment_children(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn get_count(configuration: &configuration::Configuration, params: GetCountParams) -> Result<models::ModerationApiCountCommentsResponse, Error<GetCountError>> {
+pub async fn get_count(configuration: &configuration::Configuration, params: GetCountParams) -> Result<models::GetCountResponse, Error<GetCountError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1036,6 +1071,9 @@ pub async fn get_count(configuration: &configuration::Configuration, params: Get
     if let Some(ref param_value) = params.demo {
         req_builder = req_builder.query(&[("demo", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1058,8 +1096,8 @@ pub async fn get_count(configuration: &configuration::Configuration, params: Get
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationApiCountCommentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationApiCountCommentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1068,11 +1106,14 @@ pub async fn get_count(configuration: &configuration::Configuration, params: Get
     }
 }
 
-pub async fn get_counts(configuration: &configuration::Configuration, params: GetCountsParams) -> Result<models::GetBannedUsersCountResponse, Error<GetCountsError>> {
+pub async fn get_counts(configuration: &configuration::Configuration, params: GetCountsParams) -> Result<models::GetCountsResponse, Error<GetCountsError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/banned-users/counts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1095,8 +1136,8 @@ pub async fn get_counts(configuration: &configuration::Configuration, params: Ge
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetBannedUsersCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetBannedUsersCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCountsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCountsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1105,11 +1146,14 @@ pub async fn get_counts(configuration: &configuration::Configuration, params: Ge
     }
 }
 
-pub async fn get_logs(configuration: &configuration::Configuration, params: GetLogsParams) -> Result<models::ModerationApiGetLogsResponse, Error<GetLogsError>> {
+pub async fn get_logs(configuration: &configuration::Configuration, params: GetLogsParams) -> Result<models::GetLogsResponse, Error<GetLogsError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/logs/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1132,8 +1176,8 @@ pub async fn get_logs(configuration: &configuration::Configuration, params: GetL
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationApiGetLogsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationApiGetLogsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetLogsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetLogsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1142,11 +1186,14 @@ pub async fn get_logs(configuration: &configuration::Configuration, params: GetL
     }
 }
 
-pub async fn get_manual_badges(configuration: &configuration::Configuration, params: GetManualBadgesParams) -> Result<models::GetTenantManualBadgesResponse, Error<GetManualBadgesError>> {
+pub async fn get_manual_badges(configuration: &configuration::Configuration, params: GetManualBadgesParams) -> Result<models::GetManualBadgesResponse, Error<GetManualBadgesError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/get-manual-badges", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1169,8 +1216,8 @@ pub async fn get_manual_badges(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantManualBadgesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantManualBadgesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetManualBadgesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetManualBadgesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1179,7 +1226,7 @@ pub async fn get_manual_badges(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn get_manual_badges_for_user(configuration: &configuration::Configuration, params: GetManualBadgesForUserParams) -> Result<models::GetUserManualBadgesResponse, Error<GetManualBadgesForUserError>> {
+pub async fn get_manual_badges_for_user(configuration: &configuration::Configuration, params: GetManualBadgesForUserParams) -> Result<models::GetManualBadgesForUserResponse, Error<GetManualBadgesForUserError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/get-manual-badges-for-user", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1190,6 +1237,9 @@ pub async fn get_manual_badges_for_user(configuration: &configuration::Configura
     if let Some(ref param_value) = params.comment_id {
         req_builder = req_builder.query(&[("commentId", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1212,8 +1262,8 @@ pub async fn get_manual_badges_for_user(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserManualBadgesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserManualBadgesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetManualBadgesForUserResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetManualBadgesForUserResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1222,7 +1272,7 @@ pub async fn get_manual_badges_for_user(configuration: &configuration::Configura
     }
 }
 
-pub async fn get_moderation_comment(configuration: &configuration::Configuration, params: GetModerationCommentParams) -> Result<models::ModerationApiCommentResponse, Error<GetModerationCommentError>> {
+pub async fn get_moderation_comment(configuration: &configuration::Configuration, params: GetModerationCommentParams) -> Result<models::GetModerationCommentResponse, Error<GetModerationCommentError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1233,6 +1283,9 @@ pub async fn get_moderation_comment(configuration: &configuration::Configuration
     if let Some(ref param_value) = params.include_ip {
         req_builder = req_builder.query(&[("includeIP", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1255,8 +1308,8 @@ pub async fn get_moderation_comment(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationApiCommentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationApiCommentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetModerationCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetModerationCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1265,11 +1318,14 @@ pub async fn get_moderation_comment(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_moderation_comment_text(configuration: &configuration::Configuration, params: GetModerationCommentTextParams) -> Result<models::GetCommentTextResponse, Error<GetModerationCommentTextError>> {
+pub async fn get_moderation_comment_text(configuration: &configuration::Configuration, params: GetModerationCommentTextParams) -> Result<models::GetModerationCommentTextResponse, Error<GetModerationCommentTextError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/get-comment-text/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1292,8 +1348,8 @@ pub async fn get_moderation_comment_text(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentTextResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentTextResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetModerationCommentTextResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetModerationCommentTextResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1302,7 +1358,7 @@ pub async fn get_moderation_comment_text(configuration: &configuration::Configur
     }
 }
 
-pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, params: GetPreBanSummaryParams) -> Result<models::PreBanSummary, Error<GetPreBanSummaryError>> {
+pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, params: GetPreBanSummaryParams) -> Result<models::GetPreBanSummaryResponse, Error<GetPreBanSummaryError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/pre-ban-summary/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1316,6 +1372,9 @@ pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, p
     if let Some(ref param_value) = params.include_by_email_domain {
         req_builder = req_builder.query(&[("includeByEmailDomain", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1338,8 +1397,8 @@ pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PreBanSummary`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PreBanSummary`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetPreBanSummaryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetPreBanSummaryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1348,7 +1407,7 @@ pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn get_search_comments_summary(configuration: &configuration::Configuration, params: GetSearchCommentsSummaryParams) -> Result<models::ModerationCommentSearchResponse, Error<GetSearchCommentsSummaryError>> {
+pub async fn get_search_comments_summary(configuration: &configuration::Configuration, params: GetSearchCommentsSummaryParams) -> Result<models::GetSearchCommentsSummaryResponse, Error<GetSearchCommentsSummaryError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/search/comments/summary", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -1362,6 +1421,9 @@ pub async fn get_search_comments_summary(configuration: &configuration::Configur
     if let Some(ref param_value) = params.search_filters {
         req_builder = req_builder.query(&[("searchFilters", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1384,8 +1446,8 @@ pub async fn get_search_comments_summary(configuration: &configuration::Configur
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationCommentSearchResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationCommentSearchResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSearchCommentsSummaryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSearchCommentsSummaryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1394,13 +1456,16 @@ pub async fn get_search_comments_summary(configuration: &configuration::Configur
     }
 }
 
-pub async fn get_search_pages(configuration: &configuration::Configuration, params: GetSearchPagesParams) -> Result<models::ModerationPageSearchResponse, Error<GetSearchPagesError>> {
+pub async fn get_search_pages(configuration: &configuration::Configuration, params: GetSearchPagesParams) -> Result<models::GetSearchPagesResponse, Error<GetSearchPagesError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/search/pages", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.value {
         req_builder = req_builder.query(&[("value", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1424,8 +1489,8 @@ pub async fn get_search_pages(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationPageSearchResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationPageSearchResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSearchPagesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSearchPagesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1434,13 +1499,16 @@ pub async fn get_search_pages(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn get_search_sites(configuration: &configuration::Configuration, params: GetSearchSitesParams) -> Result<models::ModerationSiteSearchResponse, Error<GetSearchSitesError>> {
+pub async fn get_search_sites(configuration: &configuration::Configuration, params: GetSearchSitesParams) -> Result<models::GetSearchSitesResponse, Error<GetSearchSitesError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/search/sites", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.value {
         req_builder = req_builder.query(&[("value", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1464,8 +1532,8 @@ pub async fn get_search_sites(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationSiteSearchResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationSiteSearchResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSearchSitesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSearchSitesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1474,13 +1542,16 @@ pub async fn get_search_sites(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn get_search_suggest(configuration: &configuration::Configuration, params: GetSearchSuggestParams) -> Result<models::ModerationSuggestResponse, Error<GetSearchSuggestError>> {
+pub async fn get_search_suggest(configuration: &configuration::Configuration, params: GetSearchSuggestParams) -> Result<models::GetSearchSuggestResponse, Error<GetSearchSuggestError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/search/suggest", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.text_search {
         req_builder = req_builder.query(&[("text-search", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1504,8 +1575,8 @@ pub async fn get_search_suggest(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationSuggestResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationSuggestResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSearchSuggestResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSearchSuggestResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1514,13 +1585,16 @@ pub async fn get_search_suggest(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn get_search_users(configuration: &configuration::Configuration, params: GetSearchUsersParams) -> Result<models::ModerationUserSearchResponse, Error<GetSearchUsersError>> {
+pub async fn get_search_users(configuration: &configuration::Configuration, params: GetSearchUsersParams) -> Result<models::GetSearchUsersResponse, Error<GetSearchUsersError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/search/users", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.value {
         req_builder = req_builder.query(&[("value", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1544,8 +1618,8 @@ pub async fn get_search_users(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationUserSearchResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationUserSearchResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetSearchUsersResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetSearchUsersResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1554,13 +1628,16 @@ pub async fn get_search_users(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn get_trust_factor(configuration: &configuration::Configuration, params: GetTrustFactorParams) -> Result<models::GetUserTrustFactorResponse, Error<GetTrustFactorError>> {
+pub async fn get_trust_factor(configuration: &configuration::Configuration, params: GetTrustFactorParams) -> Result<models::GetTrustFactorResponse, Error<GetTrustFactorError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/get-trust-factor", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.user_id {
         req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1584,8 +1661,8 @@ pub async fn get_trust_factor(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserTrustFactorResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserTrustFactorResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTrustFactorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTrustFactorResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1594,11 +1671,14 @@ pub async fn get_trust_factor(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn get_user_ban_preference(configuration: &configuration::Configuration, params: GetUserBanPreferenceParams) -> Result<models::ApiModerateGetUserBanPreferencesResponse, Error<GetUserBanPreferenceError>> {
+pub async fn get_user_ban_preference(configuration: &configuration::Configuration, params: GetUserBanPreferenceParams) -> Result<models::GetUserBanPreferenceResponse, Error<GetUserBanPreferenceError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/user-ban-preference", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1621,8 +1701,8 @@ pub async fn get_user_ban_preference(configuration: &configuration::Configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiModerateGetUserBanPreferencesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiModerateGetUserBanPreferencesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserBanPreferenceResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserBanPreferenceResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1631,13 +1711,16 @@ pub async fn get_user_ban_preference(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_user_internal_profile(configuration: &configuration::Configuration, params: GetUserInternalProfileParams) -> Result<models::GetUserInternalProfileResponse, Error<GetUserInternalProfileError>> {
+pub async fn get_user_internal_profile(configuration: &configuration::Configuration, params: GetUserInternalProfileParams) -> Result<models::GetUserInternalProfileResponse1, Error<GetUserInternalProfileError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/get-user-internal-profile", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = params.comment_id {
         req_builder = req_builder.query(&[("commentId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1661,8 +1744,8 @@ pub async fn get_user_internal_profile(configuration: &configuration::Configurat
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserInternalProfileResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserInternalProfileResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserInternalProfileResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserInternalProfileResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1671,11 +1754,17 @@ pub async fn get_user_internal_profile(configuration: &configuration::Configurat
     }
 }
 
-pub async fn post_adjust_comment_votes(configuration: &configuration::Configuration, params: PostAdjustCommentVotesParams) -> Result<models::AdjustVotesResponse, Error<PostAdjustCommentVotesError>> {
+pub async fn post_adjust_comment_votes(configuration: &configuration::Configuration, params: PostAdjustCommentVotesParams) -> Result<models::PostAdjustCommentVotesResponse, Error<PostAdjustCommentVotesError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/adjust-comment-votes/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1699,8 +1788,8 @@ pub async fn post_adjust_comment_votes(configuration: &configuration::Configurat
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AdjustVotesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AdjustVotesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostAdjustCommentVotesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostAdjustCommentVotesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1709,7 +1798,7 @@ pub async fn post_adjust_comment_votes(configuration: &configuration::Configurat
     }
 }
 
-pub async fn post_api_export(configuration: &configuration::Configuration, params: PostApiExportParams) -> Result<models::ModerationExportResponse, Error<PostApiExportError>> {
+pub async fn post_api_export(configuration: &configuration::Configuration, params: PostApiExportParams) -> Result<models::PostApiExportResponse, Error<PostApiExportError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/api/export", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1728,6 +1817,9 @@ pub async fn post_api_export(configuration: &configuration::Configuration, param
     }
     if let Some(ref param_value) = params.sorts {
         req_builder = req_builder.query(&[("sorts", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1751,8 +1843,8 @@ pub async fn post_api_export(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationExportResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationExportResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostApiExportResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostApiExportResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1761,7 +1853,7 @@ pub async fn post_api_export(configuration: &configuration::Configuration, param
     }
 }
 
-pub async fn post_ban_user_from_comment(configuration: &configuration::Configuration, params: PostBanUserFromCommentParams) -> Result<models::BanUserFromCommentResult, Error<PostBanUserFromCommentError>> {
+pub async fn post_ban_user_from_comment(configuration: &configuration::Configuration, params: PostBanUserFromCommentParams) -> Result<models::PostBanUserFromCommentResponse, Error<PostBanUserFromCommentError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/ban-user/from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1790,6 +1882,9 @@ pub async fn post_ban_user_from_comment(configuration: &configuration::Configura
     if let Some(ref param_value) = params.ban_reason {
         req_builder = req_builder.query(&[("banReason", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1812,8 +1907,8 @@ pub async fn post_ban_user_from_comment(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BanUserFromCommentResult`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BanUserFromCommentResult`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostBanUserFromCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostBanUserFromCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1822,11 +1917,14 @@ pub async fn post_ban_user_from_comment(configuration: &configuration::Configura
     }
 }
 
-pub async fn post_ban_user_undo(configuration: &configuration::Configuration, params: PostBanUserUndoParams) -> Result<models::ApiEmptyResponse, Error<PostBanUserUndoError>> {
+pub async fn post_ban_user_undo(configuration: &configuration::Configuration, params: PostBanUserUndoParams) -> Result<models::PostBanUserUndoResponse, Error<PostBanUserUndoError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/ban-user/undo", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1850,8 +1948,8 @@ pub async fn post_ban_user_undo(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostBanUserUndoResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostBanUserUndoResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1860,7 +1958,7 @@ pub async fn post_ban_user_undo(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configuration, params: PostBulkPreBanSummaryParams) -> Result<models::BulkPreBanSummary, Error<PostBulkPreBanSummaryError>> {
+pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configuration, params: PostBulkPreBanSummaryParams) -> Result<models::PostBulkPreBanSummaryResponse, Error<PostBulkPreBanSummaryError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/bulk-pre-ban-summary", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1873,6 +1971,9 @@ pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configurat
     }
     if let Some(ref param_value) = params.include_by_email_domain {
         req_builder = req_builder.query(&[("includeByEmailDomain", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1897,8 +1998,8 @@ pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configurat
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BulkPreBanSummary`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BulkPreBanSummary`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostBulkPreBanSummaryResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostBulkPreBanSummaryResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1907,11 +2008,14 @@ pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configurat
     }
 }
 
-pub async fn post_comments_by_ids(configuration: &configuration::Configuration, params: PostCommentsByIdsParams) -> Result<models::ModerationApiChildCommentsResponse, Error<PostCommentsByIdsError>> {
+pub async fn post_comments_by_ids(configuration: &configuration::Configuration, params: PostCommentsByIdsParams) -> Result<models::PostCommentsByIdsResponse, Error<PostCommentsByIdsError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/comments-by-ids", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1935,8 +2039,8 @@ pub async fn post_comments_by_ids(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ModerationApiChildCommentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ModerationApiChildCommentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostCommentsByIdsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostCommentsByIdsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1945,11 +2049,17 @@ pub async fn post_comments_by_ids(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn post_flag_comment(configuration: &configuration::Configuration, params: PostFlagCommentParams) -> Result<models::ApiEmptyResponse, Error<PostFlagCommentError>> {
+pub async fn post_flag_comment(configuration: &configuration::Configuration, params: PostFlagCommentParams) -> Result<models::PostFlagCommentResponse, Error<PostFlagCommentError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/flag-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1972,8 +2082,8 @@ pub async fn post_flag_comment(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostFlagCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostFlagCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1987,6 +2097,12 @@ pub async fn post_remove_comment(configuration: &configuration::Configuration, p
     let uri_str = format!("{}/auth/my-account/moderate-comments/remove-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2019,11 +2135,17 @@ pub async fn post_remove_comment(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn post_restore_deleted_comment(configuration: &configuration::Configuration, params: PostRestoreDeletedCommentParams) -> Result<models::ApiEmptyResponse, Error<PostRestoreDeletedCommentError>> {
+pub async fn post_restore_deleted_comment(configuration: &configuration::Configuration, params: PostRestoreDeletedCommentParams) -> Result<models::PostRestoreDeletedCommentResponse, Error<PostRestoreDeletedCommentError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/restore-deleted-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2046,8 +2168,8 @@ pub async fn post_restore_deleted_comment(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostRestoreDeletedCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostRestoreDeletedCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2056,13 +2178,19 @@ pub async fn post_restore_deleted_comment(configuration: &configuration::Configu
     }
 }
 
-pub async fn post_set_comment_approval_status(configuration: &configuration::Configuration, params: PostSetCommentApprovalStatusParams) -> Result<models::SetCommentApprovedResponse, Error<PostSetCommentApprovalStatusError>> {
+pub async fn post_set_comment_approval_status(configuration: &configuration::Configuration, params: PostSetCommentApprovalStatusParams) -> Result<models::PostSetCommentApprovalStatusResponse, Error<PostSetCommentApprovalStatusError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-approval-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = params.approved {
         req_builder = req_builder.query(&[("approved", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2086,8 +2214,8 @@ pub async fn post_set_comment_approval_status(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SetCommentApprovedResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SetCommentApprovedResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostSetCommentApprovalStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostSetCommentApprovalStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2096,13 +2224,19 @@ pub async fn post_set_comment_approval_status(configuration: &configuration::Con
     }
 }
 
-pub async fn post_set_comment_review_status(configuration: &configuration::Configuration, params: PostSetCommentReviewStatusParams) -> Result<models::ApiEmptyResponse, Error<PostSetCommentReviewStatusError>> {
+pub async fn post_set_comment_review_status(configuration: &configuration::Configuration, params: PostSetCommentReviewStatusParams) -> Result<models::PostSetCommentReviewStatusResponse, Error<PostSetCommentReviewStatusError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-review-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = params.reviewed {
         req_builder = req_builder.query(&[("reviewed", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2126,8 +2260,8 @@ pub async fn post_set_comment_review_status(configuration: &configuration::Confi
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostSetCommentReviewStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostSetCommentReviewStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2136,7 +2270,7 @@ pub async fn post_set_comment_review_status(configuration: &configuration::Confi
     }
 }
 
-pub async fn post_set_comment_spam_status(configuration: &configuration::Configuration, params: PostSetCommentSpamStatusParams) -> Result<models::ApiEmptyResponse, Error<PostSetCommentSpamStatusError>> {
+pub async fn post_set_comment_spam_status(configuration: &configuration::Configuration, params: PostSetCommentSpamStatusParams) -> Result<models::PostSetCommentSpamStatusResponse, Error<PostSetCommentSpamStatusError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-spam-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2147,6 +2281,12 @@ pub async fn post_set_comment_spam_status(configuration: &configuration::Configu
     if let Some(ref param_value) = params.perm_not_spam {
         req_builder = req_builder.query(&[("permNotSpam", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2169,8 +2309,8 @@ pub async fn post_set_comment_spam_status(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostSetCommentSpamStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostSetCommentSpamStatusResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2179,11 +2319,17 @@ pub async fn post_set_comment_spam_status(configuration: &configuration::Configu
     }
 }
 
-pub async fn post_set_comment_text(configuration: &configuration::Configuration, params: PostSetCommentTextParams) -> Result<models::SetCommentTextResponse, Error<PostSetCommentTextError>> {
+pub async fn post_set_comment_text(configuration: &configuration::Configuration, params: PostSetCommentTextParams) -> Result<models::PostSetCommentTextResponse, Error<PostSetCommentTextError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-text/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2207,8 +2353,8 @@ pub async fn post_set_comment_text(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SetCommentTextResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SetCommentTextResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostSetCommentTextResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostSetCommentTextResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2217,11 +2363,17 @@ pub async fn post_set_comment_text(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn post_un_flag_comment(configuration: &configuration::Configuration, params: PostUnFlagCommentParams) -> Result<models::ApiEmptyResponse, Error<PostUnFlagCommentError>> {
+pub async fn post_un_flag_comment(configuration: &configuration::Configuration, params: PostUnFlagCommentParams) -> Result<models::PostUnFlagCommentResponse, Error<PostUnFlagCommentError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/un-flag-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2244,8 +2396,8 @@ pub async fn post_un_flag_comment(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostUnFlagCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostUnFlagCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2254,13 +2406,19 @@ pub async fn post_un_flag_comment(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn post_vote(configuration: &configuration::Configuration, params: PostVoteParams) -> Result<models::VoteResponse, Error<PostVoteError>> {
+pub async fn post_vote(configuration: &configuration::Configuration, params: PostVoteParams) -> Result<models::PostVoteResponse, Error<PostVoteError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/vote/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = params.direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.broadcast_id {
+        req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2284,8 +2442,8 @@ pub async fn post_vote(configuration: &configuration::Configuration, params: Pos
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VoteResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VoteResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostVoteResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostVoteResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2294,7 +2452,7 @@ pub async fn post_vote(configuration: &configuration::Configuration, params: Pos
     }
 }
 
-pub async fn put_award_badge(configuration: &configuration::Configuration, params: PutAwardBadgeParams) -> Result<models::AwardUserBadgeResponse, Error<PutAwardBadgeError>> {
+pub async fn put_award_badge(configuration: &configuration::Configuration, params: PutAwardBadgeParams) -> Result<models::PutAwardBadgeResponse, Error<PutAwardBadgeError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/award-badge", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -2309,6 +2467,9 @@ pub async fn put_award_badge(configuration: &configuration::Configuration, param
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2331,8 +2492,8 @@ pub async fn put_award_badge(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AwardUserBadgeResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AwardUserBadgeResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PutAwardBadgeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PutAwardBadgeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2341,12 +2502,15 @@ pub async fn put_award_badge(configuration: &configuration::Configuration, param
     }
 }
 
-pub async fn put_close_thread(configuration: &configuration::Configuration, params: PutCloseThreadParams) -> Result<models::ApiEmptyResponse, Error<PutCloseThreadError>> {
+pub async fn put_close_thread(configuration: &configuration::Configuration, params: PutCloseThreadParams) -> Result<models::PutCloseThreadResponse, Error<PutCloseThreadError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/close-thread", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2369,8 +2533,8 @@ pub async fn put_close_thread(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PutCloseThreadResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PutCloseThreadResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2379,7 +2543,7 @@ pub async fn put_close_thread(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn put_remove_badge(configuration: &configuration::Configuration, params: PutRemoveBadgeParams) -> Result<models::RemoveUserBadgeResponse, Error<PutRemoveBadgeError>> {
+pub async fn put_remove_badge(configuration: &configuration::Configuration, params: PutRemoveBadgeParams) -> Result<models::PutRemoveBadgeResponse, Error<PutRemoveBadgeError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/remove-badge", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -2394,6 +2558,9 @@ pub async fn put_remove_badge(configuration: &configuration::Configuration, para
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2416,8 +2583,8 @@ pub async fn put_remove_badge(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RemoveUserBadgeResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RemoveUserBadgeResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PutRemoveBadgeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PutRemoveBadgeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2426,12 +2593,15 @@ pub async fn put_remove_badge(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn put_reopen_thread(configuration: &configuration::Configuration, params: PutReopenThreadParams) -> Result<models::ApiEmptyResponse, Error<PutReopenThreadError>> {
+pub async fn put_reopen_thread(configuration: &configuration::Configuration, params: PutReopenThreadParams) -> Result<models::PutReopenThreadResponse, Error<PutReopenThreadError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/reopen-thread", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2454,8 +2624,8 @@ pub async fn put_reopen_thread(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PutReopenThreadResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PutReopenThreadResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2464,7 +2634,7 @@ pub async fn put_reopen_thread(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn set_trust_factor(configuration: &configuration::Configuration, params: SetTrustFactorParams) -> Result<models::SetUserTrustFactorResponse, Error<SetTrustFactorError>> {
+pub async fn set_trust_factor(configuration: &configuration::Configuration, params: SetTrustFactorParams) -> Result<models::SetTrustFactorResponse, Error<SetTrustFactorError>> {
 
     let uri_str = format!("{}/auth/my-account/moderate-comments/set-trust-factor", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -2475,6 +2645,9 @@ pub async fn set_trust_factor(configuration: &configuration::Configuration, para
     if let Some(ref param_value) = params.trust_factor {
         req_builder = req_builder.query(&[("trustFactor", &param_value.to_string())]);
     }
+    if let Some(ref param_value) = params.tenant_id {
+        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2497,8 +2670,8 @@ pub async fn set_trust_factor(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SetUserTrustFactorResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SetUserTrustFactorResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SetTrustFactorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SetTrustFactorResponse`")))),
         }
     } else {
         let content = resp.text().await?;

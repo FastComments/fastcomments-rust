@@ -972,7 +972,6 @@ pub enum AddDomainConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddHashTagError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -980,7 +979,6 @@ pub enum AddHashTagError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AddHashTagsBulkError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1009,7 +1007,6 @@ pub enum AggregateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AggregateQuestionResultsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1017,7 +1014,6 @@ pub enum AggregateQuestionResultsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BlockUserFromCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1025,7 +1021,6 @@ pub enum BlockUserFromCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BulkAggregateQuestionResultsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1033,7 +1028,6 @@ pub enum BulkAggregateQuestionResultsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ChangeTicketStateError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1041,7 +1035,6 @@ pub enum ChangeTicketStateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CombineCommentsWithQuestionResultsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1049,7 +1042,6 @@ pub enum CombineCommentsWithQuestionResultsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateEmailTemplateError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1057,7 +1049,6 @@ pub enum CreateEmailTemplateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateFeedPostError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1065,7 +1056,6 @@ pub enum CreateFeedPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateModeratorError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1073,7 +1063,6 @@ pub enum CreateModeratorError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateQuestionConfigError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1081,7 +1070,6 @@ pub enum CreateQuestionConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateQuestionResultError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1096,7 +1084,6 @@ pub enum CreateSubscriptionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateTenantError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1104,7 +1091,6 @@ pub enum CreateTenantError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateTenantPackageError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1112,7 +1098,6 @@ pub enum CreateTenantPackageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateTenantUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1120,7 +1105,6 @@ pub enum CreateTenantUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateTicketError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1128,7 +1112,6 @@ pub enum CreateTicketError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateUserBadgeError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1136,7 +1119,6 @@ pub enum CreateUserBadgeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum CreateVoteError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1144,7 +1126,6 @@ pub enum CreateVoteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1159,7 +1140,6 @@ pub enum DeleteDomainConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteEmailTemplateError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1167,7 +1147,6 @@ pub enum DeleteEmailTemplateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteEmailTemplateRenderErrorError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1175,7 +1154,6 @@ pub enum DeleteEmailTemplateRenderErrorError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteHashTagError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1183,7 +1161,6 @@ pub enum DeleteHashTagError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteModeratorError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1191,7 +1168,6 @@ pub enum DeleteModeratorError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteNotificationCountError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1206,7 +1182,6 @@ pub enum DeletePageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeletePendingWebhookEventError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1214,7 +1189,6 @@ pub enum DeletePendingWebhookEventError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteQuestionConfigError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1222,7 +1196,6 @@ pub enum DeleteQuestionConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteQuestionResultError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1244,7 +1217,6 @@ pub enum DeleteSubscriptionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteTenantError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1252,7 +1224,6 @@ pub enum DeleteTenantError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteTenantPackageError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1260,7 +1231,6 @@ pub enum DeleteTenantPackageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteTenantUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1268,7 +1238,6 @@ pub enum DeleteTenantUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteUserBadgeError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1276,7 +1245,6 @@ pub enum DeleteUserBadgeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteVoteError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1284,7 +1252,6 @@ pub enum DeleteVoteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum FlagCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1292,7 +1259,6 @@ pub enum FlagCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetAuditLogsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1300,7 +1266,6 @@ pub enum GetAuditLogsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCachedNotificationCountError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1308,7 +1273,6 @@ pub enum GetCachedNotificationCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1316,7 +1280,6 @@ pub enum GetCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetCommentsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1338,7 +1301,6 @@ pub enum GetDomainConfigsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEmailTemplateError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1346,7 +1308,6 @@ pub enum GetEmailTemplateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEmailTemplateDefinitionsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1354,7 +1315,6 @@ pub enum GetEmailTemplateDefinitionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEmailTemplateRenderErrorsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1362,7 +1322,6 @@ pub enum GetEmailTemplateRenderErrorsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetEmailTemplatesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1370,7 +1329,6 @@ pub enum GetEmailTemplatesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetFeedPostsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1378,7 +1336,6 @@ pub enum GetFeedPostsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetHashTagsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1386,7 +1343,6 @@ pub enum GetHashTagsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetModeratorError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1394,7 +1350,6 @@ pub enum GetModeratorError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetModeratorsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1402,7 +1357,6 @@ pub enum GetModeratorsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationCountError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1410,7 +1364,6 @@ pub enum GetNotificationCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetNotificationsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1432,7 +1385,6 @@ pub enum GetPagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPendingWebhookEventCountError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1440,7 +1392,6 @@ pub enum GetPendingWebhookEventCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetPendingWebhookEventsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1448,7 +1399,6 @@ pub enum GetPendingWebhookEventsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQuestionConfigError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1456,7 +1406,6 @@ pub enum GetQuestionConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQuestionConfigsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1464,7 +1413,6 @@ pub enum GetQuestionConfigsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQuestionResultError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1472,7 +1420,6 @@ pub enum GetQuestionResultError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetQuestionResultsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1508,7 +1455,6 @@ pub enum GetSubscriptionsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1516,7 +1462,6 @@ pub enum GetTenantError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantDailyUsagesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1524,7 +1469,6 @@ pub enum GetTenantDailyUsagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantPackageError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1532,7 +1476,6 @@ pub enum GetTenantPackageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantPackagesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1540,7 +1483,6 @@ pub enum GetTenantPackagesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1548,7 +1490,6 @@ pub enum GetTenantUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantUsersError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1556,7 +1497,6 @@ pub enum GetTenantUsersError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1564,7 +1504,6 @@ pub enum GetTenantsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTicketError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1572,7 +1511,6 @@ pub enum GetTicketError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTicketsError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1580,7 +1518,6 @@ pub enum GetTicketsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1588,7 +1525,6 @@ pub enum GetUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserBadgeError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1596,7 +1532,6 @@ pub enum GetUserBadgeError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserBadgeProgressByIdError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1604,7 +1539,6 @@ pub enum GetUserBadgeProgressByIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserBadgeProgressByUserIdError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1612,7 +1546,6 @@ pub enum GetUserBadgeProgressByUserIdError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserBadgeProgressListError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1620,7 +1553,6 @@ pub enum GetUserBadgeProgressListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetUserBadgesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1628,7 +1560,6 @@ pub enum GetUserBadgesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVotesError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1636,7 +1567,6 @@ pub enum GetVotesError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetVotesForUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1651,7 +1581,6 @@ pub enum PatchDomainConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchHashTagError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1687,7 +1616,6 @@ pub enum PutSsoUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RenderEmailTemplateError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1695,7 +1623,6 @@ pub enum RenderEmailTemplateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReplaceTenantPackageError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1703,7 +1630,6 @@ pub enum ReplaceTenantPackageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ReplaceTenantUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1711,7 +1637,6 @@ pub enum ReplaceTenantUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SaveCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1726,7 +1651,6 @@ pub enum SaveCommentsBulkError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SendInviteError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1734,7 +1658,6 @@ pub enum SendInviteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SendLoginLinkError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1742,7 +1665,6 @@ pub enum SendLoginLinkError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UnBlockUserFromCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1750,7 +1672,6 @@ pub enum UnBlockUserFromCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UnFlagCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1758,7 +1679,6 @@ pub enum UnFlagCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateCommentError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1766,7 +1686,6 @@ pub enum UpdateCommentError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateEmailTemplateError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1774,7 +1693,6 @@ pub enum UpdateEmailTemplateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateFeedPostError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1782,7 +1700,6 @@ pub enum UpdateFeedPostError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateModeratorError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1790,7 +1707,6 @@ pub enum UpdateModeratorError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateNotificationError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1798,7 +1714,6 @@ pub enum UpdateNotificationError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateQuestionConfigError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1806,7 +1721,6 @@ pub enum UpdateQuestionConfigError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateQuestionResultError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1821,7 +1735,6 @@ pub enum UpdateSubscriptionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateTenantError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1829,7 +1742,6 @@ pub enum UpdateTenantError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateTenantPackageError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1837,7 +1749,6 @@ pub enum UpdateTenantPackageError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateTenantUserError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1845,7 +1756,6 @@ pub enum UpdateTenantUserError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum UpdateUserBadgeError {
-    DefaultResponse(models::ApiError),
     UnknownValue(serde_json::Value),
 }
 
@@ -1894,7 +1804,7 @@ pub async fn add_domain_config(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn add_hash_tag(configuration: &configuration::Configuration, params: AddHashTagParams) -> Result<models::CreateHashTagResponse, Error<AddHashTagError>> {
+pub async fn add_hash_tag(configuration: &configuration::Configuration, params: AddHashTagParams) -> Result<models::AddHashTagResponse, Error<AddHashTagError>> {
 
     let uri_str = format!("{}/api/v1/hash-tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1930,8 +1840,8 @@ pub async fn add_hash_tag(configuration: &configuration::Configuration, params: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateHashTagResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateHashTagResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AddHashTagResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AddHashTagResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -1940,7 +1850,7 @@ pub async fn add_hash_tag(configuration: &configuration::Configuration, params: 
     }
 }
 
-pub async fn add_hash_tags_bulk(configuration: &configuration::Configuration, params: AddHashTagsBulkParams) -> Result<models::BulkCreateHashTagsResponse, Error<AddHashTagsBulkError>> {
+pub async fn add_hash_tags_bulk(configuration: &configuration::Configuration, params: AddHashTagsBulkParams) -> Result<models::AddHashTagsBulkResponse, Error<AddHashTagsBulkError>> {
 
     let uri_str = format!("{}/api/v1/hash-tags/bulk", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -1976,8 +1886,8 @@ pub async fn add_hash_tags_bulk(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BulkCreateHashTagsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BulkCreateHashTagsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AddHashTagsBulkResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AddHashTagsBulkResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2125,7 +2035,7 @@ pub async fn aggregate(configuration: &configuration::Configuration, params: Agg
     }
 }
 
-pub async fn aggregate_question_results(configuration: &configuration::Configuration, params: AggregateQuestionResultsParams) -> Result<models::AggregateQuestionResultsResponse, Error<AggregateQuestionResultsError>> {
+pub async fn aggregate_question_results(configuration: &configuration::Configuration, params: AggregateQuestionResultsParams) -> Result<models::AggregateQuestionResultsResponse1, Error<AggregateQuestionResultsError>> {
 
     let uri_str = format!("{}/api/v1/question-results-aggregation", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -2179,8 +2089,8 @@ pub async fn aggregate_question_results(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AggregateQuestionResultsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AggregateQuestionResultsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::AggregateQuestionResultsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::AggregateQuestionResultsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2189,7 +2099,7 @@ pub async fn aggregate_question_results(configuration: &configuration::Configura
     }
 }
 
-pub async fn block_user_from_comment(configuration: &configuration::Configuration, params: BlockUserFromCommentParams) -> Result<models::BlockSuccess, Error<BlockUserFromCommentError>> {
+pub async fn block_user_from_comment(configuration: &configuration::Configuration, params: BlockUserFromCommentParams) -> Result<models::BlockUserFromCommentResponse, Error<BlockUserFromCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments/{id}/block", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2229,8 +2139,8 @@ pub async fn block_user_from_comment(configuration: &configuration::Configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BlockSuccess`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BlockSuccess`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BlockUserFromCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BlockUserFromCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2239,7 +2149,7 @@ pub async fn block_user_from_comment(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn bulk_aggregate_question_results(configuration: &configuration::Configuration, params: BulkAggregateQuestionResultsParams) -> Result<models::BulkAggregateQuestionResultsResponse, Error<BulkAggregateQuestionResultsError>> {
+pub async fn bulk_aggregate_question_results(configuration: &configuration::Configuration, params: BulkAggregateQuestionResultsParams) -> Result<models::BulkAggregateQuestionResultsResponse1, Error<BulkAggregateQuestionResultsError>> {
 
     let uri_str = format!("{}/api/v1/question-results-aggregation/bulk", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2276,8 +2186,8 @@ pub async fn bulk_aggregate_question_results(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BulkAggregateQuestionResultsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BulkAggregateQuestionResultsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BulkAggregateQuestionResultsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BulkAggregateQuestionResultsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2286,7 +2196,7 @@ pub async fn bulk_aggregate_question_results(configuration: &configuration::Conf
     }
 }
 
-pub async fn change_ticket_state(configuration: &configuration::Configuration, params: ChangeTicketStateParams) -> Result<models::ChangeTicketStateResponse, Error<ChangeTicketStateError>> {
+pub async fn change_ticket_state(configuration: &configuration::Configuration, params: ChangeTicketStateParams) -> Result<models::ChangeTicketStateResponse1, Error<ChangeTicketStateError>> {
 
     let uri_str = format!("{}/api/v1/tickets/{id}/state", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -2321,8 +2231,8 @@ pub async fn change_ticket_state(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ChangeTicketStateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ChangeTicketStateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ChangeTicketStateResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ChangeTicketStateResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2331,7 +2241,7 @@ pub async fn change_ticket_state(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn combine_comments_with_question_results(configuration: &configuration::Configuration, params: CombineCommentsWithQuestionResultsParams) -> Result<models::CombineQuestionResultsWithCommentsResponse, Error<CombineCommentsWithQuestionResultsError>> {
+pub async fn combine_comments_with_question_results(configuration: &configuration::Configuration, params: CombineCommentsWithQuestionResultsParams) -> Result<models::CombineCommentsWithQuestionResultsResponse, Error<CombineCommentsWithQuestionResultsError>> {
 
     let uri_str = format!("{}/api/v1/question-results-aggregation/combine/comments", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -2391,8 +2301,8 @@ pub async fn combine_comments_with_question_results(configuration: &configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CombineQuestionResultsWithCommentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CombineQuestionResultsWithCommentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CombineCommentsWithQuestionResultsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CombineCommentsWithQuestionResultsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2401,7 +2311,7 @@ pub async fn combine_comments_with_question_results(configuration: &configuratio
     }
 }
 
-pub async fn create_email_template(configuration: &configuration::Configuration, params: CreateEmailTemplateParams) -> Result<models::CreateEmailTemplateResponse, Error<CreateEmailTemplateError>> {
+pub async fn create_email_template(configuration: &configuration::Configuration, params: CreateEmailTemplateParams) -> Result<models::CreateEmailTemplateResponse1, Error<CreateEmailTemplateError>> {
 
     let uri_str = format!("{}/api/v1/email-templates", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2435,8 +2345,8 @@ pub async fn create_email_template(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateEmailTemplateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateEmailTemplateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateEmailTemplateResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateEmailTemplateResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2445,7 +2355,7 @@ pub async fn create_email_template(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn create_feed_post(configuration: &configuration::Configuration, params: CreateFeedPostParams) -> Result<models::CreateFeedPostsResponse, Error<CreateFeedPostError>> {
+pub async fn create_feed_post(configuration: &configuration::Configuration, params: CreateFeedPostParams) -> Result<models::CreateFeedPostResponse1, Error<CreateFeedPostError>> {
 
     let uri_str = format!("{}/api/v1/feed-posts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2491,8 +2401,8 @@ pub async fn create_feed_post(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateFeedPostsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateFeedPostsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateFeedPostResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateFeedPostResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2501,7 +2411,7 @@ pub async fn create_feed_post(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn create_moderator(configuration: &configuration::Configuration, params: CreateModeratorParams) -> Result<models::CreateModeratorResponse, Error<CreateModeratorError>> {
+pub async fn create_moderator(configuration: &configuration::Configuration, params: CreateModeratorParams) -> Result<models::CreateModeratorResponse1, Error<CreateModeratorError>> {
 
     let uri_str = format!("{}/api/v1/moderators", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2535,8 +2445,8 @@ pub async fn create_moderator(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateModeratorResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateModeratorResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateModeratorResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateModeratorResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2545,7 +2455,7 @@ pub async fn create_moderator(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn create_question_config(configuration: &configuration::Configuration, params: CreateQuestionConfigParams) -> Result<models::CreateQuestionConfigResponse, Error<CreateQuestionConfigError>> {
+pub async fn create_question_config(configuration: &configuration::Configuration, params: CreateQuestionConfigParams) -> Result<models::CreateQuestionConfigResponse1, Error<CreateQuestionConfigError>> {
 
     let uri_str = format!("{}/api/v1/question-configs", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2579,8 +2489,8 @@ pub async fn create_question_config(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateQuestionConfigResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateQuestionConfigResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateQuestionConfigResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateQuestionConfigResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2589,7 +2499,7 @@ pub async fn create_question_config(configuration: &configuration::Configuration
     }
 }
 
-pub async fn create_question_result(configuration: &configuration::Configuration, params: CreateQuestionResultParams) -> Result<models::CreateQuestionResultResponse, Error<CreateQuestionResultError>> {
+pub async fn create_question_result(configuration: &configuration::Configuration, params: CreateQuestionResultParams) -> Result<models::CreateQuestionResultResponse1, Error<CreateQuestionResultError>> {
 
     let uri_str = format!("{}/api/v1/question-results", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2623,8 +2533,8 @@ pub async fn create_question_result(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateQuestionResultResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateQuestionResultResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateQuestionResultResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateQuestionResultResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2677,7 +2587,7 @@ pub async fn create_subscription(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn create_tenant(configuration: &configuration::Configuration, params: CreateTenantParams) -> Result<models::CreateTenantResponse, Error<CreateTenantError>> {
+pub async fn create_tenant(configuration: &configuration::Configuration, params: CreateTenantParams) -> Result<models::CreateTenantResponse1, Error<CreateTenantError>> {
 
     let uri_str = format!("{}/api/v1/tenants", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2711,8 +2621,8 @@ pub async fn create_tenant(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTenantResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTenantResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTenantResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTenantResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2721,7 +2631,7 @@ pub async fn create_tenant(configuration: &configuration::Configuration, params:
     }
 }
 
-pub async fn create_tenant_package(configuration: &configuration::Configuration, params: CreateTenantPackageParams) -> Result<models::CreateTenantPackageResponse, Error<CreateTenantPackageError>> {
+pub async fn create_tenant_package(configuration: &configuration::Configuration, params: CreateTenantPackageParams) -> Result<models::CreateTenantPackageResponse1, Error<CreateTenantPackageError>> {
 
     let uri_str = format!("{}/api/v1/tenant-packages", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2755,8 +2665,8 @@ pub async fn create_tenant_package(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTenantPackageResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTenantPackageResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTenantPackageResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTenantPackageResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2765,7 +2675,7 @@ pub async fn create_tenant_package(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn create_tenant_user(configuration: &configuration::Configuration, params: CreateTenantUserParams) -> Result<models::CreateTenantUserResponse, Error<CreateTenantUserError>> {
+pub async fn create_tenant_user(configuration: &configuration::Configuration, params: CreateTenantUserParams) -> Result<models::CreateTenantUserResponse1, Error<CreateTenantUserError>> {
 
     let uri_str = format!("{}/api/v1/tenant-users", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2799,8 +2709,8 @@ pub async fn create_tenant_user(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTenantUserResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTenantUserResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTenantUserResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTenantUserResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2809,7 +2719,7 @@ pub async fn create_tenant_user(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn create_ticket(configuration: &configuration::Configuration, params: CreateTicketParams) -> Result<models::CreateTicketResponse, Error<CreateTicketError>> {
+pub async fn create_ticket(configuration: &configuration::Configuration, params: CreateTicketParams) -> Result<models::CreateTicketResponse1, Error<CreateTicketError>> {
 
     let uri_str = format!("{}/api/v1/tickets", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2844,8 +2754,8 @@ pub async fn create_ticket(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTicketResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTicketResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateTicketResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateTicketResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2854,7 +2764,7 @@ pub async fn create_ticket(configuration: &configuration::Configuration, params:
     }
 }
 
-pub async fn create_user_badge(configuration: &configuration::Configuration, params: CreateUserBadgeParams) -> Result<models::ApiCreateUserBadgeResponse, Error<CreateUserBadgeError>> {
+pub async fn create_user_badge(configuration: &configuration::Configuration, params: CreateUserBadgeParams) -> Result<models::CreateUserBadgeResponse, Error<CreateUserBadgeError>> {
 
     let uri_str = format!("{}/api/v1/user-badges", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2888,8 +2798,8 @@ pub async fn create_user_badge(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiCreateUserBadgeResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiCreateUserBadgeResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateUserBadgeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateUserBadgeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2898,7 +2808,7 @@ pub async fn create_user_badge(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn create_vote(configuration: &configuration::Configuration, params: CreateVoteParams) -> Result<models::VoteResponse, Error<CreateVoteError>> {
+pub async fn create_vote(configuration: &configuration::Configuration, params: CreateVoteParams) -> Result<models::CreateVoteResponse, Error<CreateVoteError>> {
 
     let uri_str = format!("{}/api/v1/votes", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -2939,8 +2849,8 @@ pub async fn create_vote(configuration: &configuration::Configuration, params: C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VoteResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VoteResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::CreateVoteResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::CreateVoteResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2949,7 +2859,7 @@ pub async fn create_vote(configuration: &configuration::Configuration, params: C
     }
 }
 
-pub async fn delete_comment(configuration: &configuration::Configuration, params: DeleteCommentParams) -> Result<models::DeleteCommentResult, Error<DeleteCommentError>> {
+pub async fn delete_comment(configuration: &configuration::Configuration, params: DeleteCommentParams) -> Result<models::DeleteCommentResponse, Error<DeleteCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -2988,8 +2898,8 @@ pub async fn delete_comment(configuration: &configuration::Configuration, params
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteCommentResult`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteCommentResult`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3041,7 +2951,7 @@ pub async fn delete_domain_config(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn delete_email_template(configuration: &configuration::Configuration, params: DeleteEmailTemplateParams) -> Result<models::ApiEmptyResponse, Error<DeleteEmailTemplateError>> {
+pub async fn delete_email_template(configuration: &configuration::Configuration, params: DeleteEmailTemplateParams) -> Result<models::DeleteEmailTemplateResponse, Error<DeleteEmailTemplateError>> {
 
     let uri_str = format!("{}/api/v1/email-templates/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3074,8 +2984,8 @@ pub async fn delete_email_template(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteEmailTemplateResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteEmailTemplateResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3084,7 +2994,7 @@ pub async fn delete_email_template(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn delete_email_template_render_error(configuration: &configuration::Configuration, params: DeleteEmailTemplateRenderErrorParams) -> Result<models::ApiEmptyResponse, Error<DeleteEmailTemplateRenderErrorError>> {
+pub async fn delete_email_template_render_error(configuration: &configuration::Configuration, params: DeleteEmailTemplateRenderErrorParams) -> Result<models::DeleteEmailTemplateRenderErrorResponse, Error<DeleteEmailTemplateRenderErrorError>> {
 
     let uri_str = format!("{}/api/v1/email-templates/{id}/render-errors/{errorId}", configuration.base_path, id=crate::client::apis::urlencode(params.id), errorId=crate::client::apis::urlencode(params.error_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3117,8 +3027,8 @@ pub async fn delete_email_template_render_error(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteEmailTemplateRenderErrorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteEmailTemplateRenderErrorResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3127,7 +3037,7 @@ pub async fn delete_email_template_render_error(configuration: &configuration::C
     }
 }
 
-pub async fn delete_hash_tag(configuration: &configuration::Configuration, params: DeleteHashTagParams) -> Result<models::ApiEmptyResponse, Error<DeleteHashTagError>> {
+pub async fn delete_hash_tag(configuration: &configuration::Configuration, params: DeleteHashTagParams) -> Result<models::DeleteHashTagResponse, Error<DeleteHashTagError>> {
 
     let uri_str = format!("{}/api/v1/hash-tags/{tag}", configuration.base_path, tag=crate::client::apis::urlencode(params.tag));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3163,8 +3073,8 @@ pub async fn delete_hash_tag(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteHashTagResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteHashTagResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3173,7 +3083,7 @@ pub async fn delete_hash_tag(configuration: &configuration::Configuration, param
     }
 }
 
-pub async fn delete_moderator(configuration: &configuration::Configuration, params: DeleteModeratorParams) -> Result<models::ApiEmptyResponse, Error<DeleteModeratorError>> {
+pub async fn delete_moderator(configuration: &configuration::Configuration, params: DeleteModeratorParams) -> Result<models::DeleteModeratorResponse, Error<DeleteModeratorError>> {
 
     let uri_str = format!("{}/api/v1/moderators/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3209,8 +3119,8 @@ pub async fn delete_moderator(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteModeratorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteModeratorResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3219,7 +3129,7 @@ pub async fn delete_moderator(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn delete_notification_count(configuration: &configuration::Configuration, params: DeleteNotificationCountParams) -> Result<models::ApiEmptyResponse, Error<DeleteNotificationCountError>> {
+pub async fn delete_notification_count(configuration: &configuration::Configuration, params: DeleteNotificationCountParams) -> Result<models::DeleteNotificationCountResponse, Error<DeleteNotificationCountError>> {
 
     let uri_str = format!("{}/api/v1/notification-count/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3252,8 +3162,8 @@ pub async fn delete_notification_count(configuration: &configuration::Configurat
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteNotificationCountResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteNotificationCountResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3305,7 +3215,7 @@ pub async fn delete_page(configuration: &configuration::Configuration, params: D
     }
 }
 
-pub async fn delete_pending_webhook_event(configuration: &configuration::Configuration, params: DeletePendingWebhookEventParams) -> Result<models::ApiEmptyResponse, Error<DeletePendingWebhookEventError>> {
+pub async fn delete_pending_webhook_event(configuration: &configuration::Configuration, params: DeletePendingWebhookEventParams) -> Result<models::DeletePendingWebhookEventResponse, Error<DeletePendingWebhookEventError>> {
 
     let uri_str = format!("{}/api/v1/pending-webhook-events/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3338,8 +3248,8 @@ pub async fn delete_pending_webhook_event(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeletePendingWebhookEventResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeletePendingWebhookEventResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3348,7 +3258,7 @@ pub async fn delete_pending_webhook_event(configuration: &configuration::Configu
     }
 }
 
-pub async fn delete_question_config(configuration: &configuration::Configuration, params: DeleteQuestionConfigParams) -> Result<models::ApiEmptyResponse, Error<DeleteQuestionConfigError>> {
+pub async fn delete_question_config(configuration: &configuration::Configuration, params: DeleteQuestionConfigParams) -> Result<models::DeleteQuestionConfigResponse, Error<DeleteQuestionConfigError>> {
 
     let uri_str = format!("{}/api/v1/question-configs/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3381,8 +3291,8 @@ pub async fn delete_question_config(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteQuestionConfigResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteQuestionConfigResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3391,7 +3301,7 @@ pub async fn delete_question_config(configuration: &configuration::Configuration
     }
 }
 
-pub async fn delete_question_result(configuration: &configuration::Configuration, params: DeleteQuestionResultParams) -> Result<models::ApiEmptyResponse, Error<DeleteQuestionResultError>> {
+pub async fn delete_question_result(configuration: &configuration::Configuration, params: DeleteQuestionResultParams) -> Result<models::DeleteQuestionResultResponse, Error<DeleteQuestionResultError>> {
 
     let uri_str = format!("{}/api/v1/question-results/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3424,8 +3334,8 @@ pub async fn delete_question_result(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteQuestionResultResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteQuestionResultResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3529,7 +3439,7 @@ pub async fn delete_subscription(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn delete_tenant(configuration: &configuration::Configuration, params: DeleteTenantParams) -> Result<models::ApiEmptyResponse, Error<DeleteTenantError>> {
+pub async fn delete_tenant(configuration: &configuration::Configuration, params: DeleteTenantParams) -> Result<models::DeleteTenantResponse, Error<DeleteTenantError>> {
 
     let uri_str = format!("{}/api/v1/tenants/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3565,8 +3475,8 @@ pub async fn delete_tenant(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteTenantResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteTenantResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3575,7 +3485,7 @@ pub async fn delete_tenant(configuration: &configuration::Configuration, params:
     }
 }
 
-pub async fn delete_tenant_package(configuration: &configuration::Configuration, params: DeleteTenantPackageParams) -> Result<models::ApiEmptyResponse, Error<DeleteTenantPackageError>> {
+pub async fn delete_tenant_package(configuration: &configuration::Configuration, params: DeleteTenantPackageParams) -> Result<models::DeleteTenantPackageResponse, Error<DeleteTenantPackageError>> {
 
     let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3608,8 +3518,8 @@ pub async fn delete_tenant_package(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteTenantPackageResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteTenantPackageResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3618,7 +3528,7 @@ pub async fn delete_tenant_package(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn delete_tenant_user(configuration: &configuration::Configuration, params: DeleteTenantUserParams) -> Result<models::ApiEmptyResponse, Error<DeleteTenantUserError>> {
+pub async fn delete_tenant_user(configuration: &configuration::Configuration, params: DeleteTenantUserParams) -> Result<models::DeleteTenantUserResponse, Error<DeleteTenantUserError>> {
 
     let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3657,8 +3567,8 @@ pub async fn delete_tenant_user(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteTenantUserResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteTenantUserResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3667,7 +3577,7 @@ pub async fn delete_tenant_user(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn delete_user_badge(configuration: &configuration::Configuration, params: DeleteUserBadgeParams) -> Result<models::ApiEmptySuccessResponse, Error<DeleteUserBadgeError>> {
+pub async fn delete_user_badge(configuration: &configuration::Configuration, params: DeleteUserBadgeParams) -> Result<models::DeleteUserBadgeResponse, Error<DeleteUserBadgeError>> {
 
     let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3700,8 +3610,8 @@ pub async fn delete_user_badge(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptySuccessResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptySuccessResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteUserBadgeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteUserBadgeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3710,7 +3620,7 @@ pub async fn delete_user_badge(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn delete_vote(configuration: &configuration::Configuration, params: DeleteVoteParams) -> Result<models::VoteDeleteResponse, Error<DeleteVoteError>> {
+pub async fn delete_vote(configuration: &configuration::Configuration, params: DeleteVoteParams) -> Result<models::DeleteVoteResponse, Error<DeleteVoteError>> {
 
     let uri_str = format!("{}/api/v1/votes/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
@@ -3746,8 +3656,8 @@ pub async fn delete_vote(configuration: &configuration::Configuration, params: D
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::VoteDeleteResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::VoteDeleteResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::DeleteVoteResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::DeleteVoteResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3756,7 +3666,7 @@ pub async fn delete_vote(configuration: &configuration::Configuration, params: D
     }
 }
 
-pub async fn flag_comment(configuration: &configuration::Configuration, params: FlagCommentParams) -> Result<models::FlagCommentResponse, Error<FlagCommentError>> {
+pub async fn flag_comment(configuration: &configuration::Configuration, params: FlagCommentParams) -> Result<models::FlagCommentResponse1, Error<FlagCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments/{id}/flag", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -3795,8 +3705,8 @@ pub async fn flag_comment(configuration: &configuration::Configuration, params: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlagCommentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlagCommentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlagCommentResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlagCommentResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3805,7 +3715,7 @@ pub async fn flag_comment(configuration: &configuration::Configuration, params: 
     }
 }
 
-pub async fn get_audit_logs(configuration: &configuration::Configuration, params: GetAuditLogsParams) -> Result<models::GetAuditLogsResponse, Error<GetAuditLogsError>> {
+pub async fn get_audit_logs(configuration: &configuration::Configuration, params: GetAuditLogsParams) -> Result<models::GetAuditLogsResponse1, Error<GetAuditLogsError>> {
 
     let uri_str = format!("{}/api/v1/audit-logs", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -3853,8 +3763,8 @@ pub async fn get_audit_logs(configuration: &configuration::Configuration, params
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetAuditLogsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetAuditLogsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetAuditLogsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetAuditLogsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3863,7 +3773,7 @@ pub async fn get_audit_logs(configuration: &configuration::Configuration, params
     }
 }
 
-pub async fn get_cached_notification_count(configuration: &configuration::Configuration, params: GetCachedNotificationCountParams) -> Result<models::GetCachedNotificationCountResponse, Error<GetCachedNotificationCountError>> {
+pub async fn get_cached_notification_count(configuration: &configuration::Configuration, params: GetCachedNotificationCountParams) -> Result<models::GetCachedNotificationCountResponse1, Error<GetCachedNotificationCountError>> {
 
     let uri_str = format!("{}/api/v1/notification-count/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -3896,8 +3806,8 @@ pub async fn get_cached_notification_count(configuration: &configuration::Config
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCachedNotificationCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCachedNotificationCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCachedNotificationCountResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCachedNotificationCountResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3906,7 +3816,7 @@ pub async fn get_cached_notification_count(configuration: &configuration::Config
     }
 }
 
-pub async fn get_comment(configuration: &configuration::Configuration, params: GetCommentParams) -> Result<models::ApiGetCommentResponse, Error<GetCommentError>> {
+pub async fn get_comment(configuration: &configuration::Configuration, params: GetCommentParams) -> Result<models::GetCommentResponse, Error<GetCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -3939,8 +3849,8 @@ pub async fn get_comment(configuration: &configuration::Configuration, params: G
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetCommentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetCommentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -3949,7 +3859,7 @@ pub async fn get_comment(configuration: &configuration::Configuration, params: G
     }
 }
 
-pub async fn get_comments(configuration: &configuration::Configuration, params: GetCommentsParams) -> Result<models::ApiGetCommentsResponse, Error<GetCommentsError>> {
+pub async fn get_comments(configuration: &configuration::Configuration, params: GetCommentsParams) -> Result<models::GetCommentsResponse, Error<GetCommentsError>> {
 
     let uri_str = format!("{}/api/v1/comments", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4030,8 +3940,8 @@ pub async fn get_comments(configuration: &configuration::Configuration, params: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetCommentsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetCommentsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetCommentsResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetCommentsResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4126,7 +4036,7 @@ pub async fn get_domain_configs(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn get_email_template(configuration: &configuration::Configuration, params: GetEmailTemplateParams) -> Result<models::GetEmailTemplateResponse, Error<GetEmailTemplateError>> {
+pub async fn get_email_template(configuration: &configuration::Configuration, params: GetEmailTemplateParams) -> Result<models::GetEmailTemplateResponse1, Error<GetEmailTemplateError>> {
 
     let uri_str = format!("{}/api/v1/email-templates/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4159,8 +4069,8 @@ pub async fn get_email_template(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplateResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplateResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4169,7 +4079,7 @@ pub async fn get_email_template(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn get_email_template_definitions(configuration: &configuration::Configuration, params: GetEmailTemplateDefinitionsParams) -> Result<models::GetEmailTemplateDefinitionsResponse, Error<GetEmailTemplateDefinitionsError>> {
+pub async fn get_email_template_definitions(configuration: &configuration::Configuration, params: GetEmailTemplateDefinitionsParams) -> Result<models::GetEmailTemplateDefinitionsResponse1, Error<GetEmailTemplateDefinitionsError>> {
 
     let uri_str = format!("{}/api/v1/email-templates/definitions", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4202,8 +4112,8 @@ pub async fn get_email_template_definitions(configuration: &configuration::Confi
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplateDefinitionsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplateDefinitionsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplateDefinitionsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplateDefinitionsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4212,7 +4122,7 @@ pub async fn get_email_template_definitions(configuration: &configuration::Confi
     }
 }
 
-pub async fn get_email_template_render_errors(configuration: &configuration::Configuration, params: GetEmailTemplateRenderErrorsParams) -> Result<models::GetEmailTemplateRenderErrorsResponse, Error<GetEmailTemplateRenderErrorsError>> {
+pub async fn get_email_template_render_errors(configuration: &configuration::Configuration, params: GetEmailTemplateRenderErrorsParams) -> Result<models::GetEmailTemplateRenderErrorsResponse1, Error<GetEmailTemplateRenderErrorsError>> {
 
     let uri_str = format!("{}/api/v1/email-templates/{id}/render-errors", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4248,8 +4158,8 @@ pub async fn get_email_template_render_errors(configuration: &configuration::Con
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplateRenderErrorsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplateRenderErrorsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplateRenderErrorsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplateRenderErrorsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4258,7 +4168,7 @@ pub async fn get_email_template_render_errors(configuration: &configuration::Con
     }
 }
 
-pub async fn get_email_templates(configuration: &configuration::Configuration, params: GetEmailTemplatesParams) -> Result<models::GetEmailTemplatesResponse, Error<GetEmailTemplatesError>> {
+pub async fn get_email_templates(configuration: &configuration::Configuration, params: GetEmailTemplatesParams) -> Result<models::GetEmailTemplatesResponse1, Error<GetEmailTemplatesError>> {
 
     let uri_str = format!("{}/api/v1/email-templates", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4294,8 +4204,8 @@ pub async fn get_email_templates(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplatesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplatesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetEmailTemplatesResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetEmailTemplatesResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4305,7 +4215,7 @@ pub async fn get_email_templates(configuration: &configuration::Configuration, p
 }
 
 ///  req tenantId afterId
-pub async fn get_feed_posts(configuration: &configuration::Configuration, params: GetFeedPostsParams) -> Result<models::GetFeedPostsResponse, Error<GetFeedPostsError>> {
+pub async fn get_feed_posts(configuration: &configuration::Configuration, params: GetFeedPostsParams) -> Result<models::GetFeedPostsResponse1, Error<GetFeedPostsError>> {
 
     let uri_str = format!("{}/api/v1/feed-posts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4350,8 +4260,8 @@ pub async fn get_feed_posts(configuration: &configuration::Configuration, params
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetFeedPostsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetFeedPostsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetFeedPostsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetFeedPostsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4360,7 +4270,7 @@ pub async fn get_feed_posts(configuration: &configuration::Configuration, params
     }
 }
 
-pub async fn get_hash_tags(configuration: &configuration::Configuration, params: GetHashTagsParams) -> Result<models::GetHashTagsResponse, Error<GetHashTagsError>> {
+pub async fn get_hash_tags(configuration: &configuration::Configuration, params: GetHashTagsParams) -> Result<models::GetHashTagsResponse1, Error<GetHashTagsError>> {
 
     let uri_str = format!("{}/api/v1/hash-tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4396,8 +4306,8 @@ pub async fn get_hash_tags(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetHashTagsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetHashTagsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetHashTagsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetHashTagsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4406,7 +4316,7 @@ pub async fn get_hash_tags(configuration: &configuration::Configuration, params:
     }
 }
 
-pub async fn get_moderator(configuration: &configuration::Configuration, params: GetModeratorParams) -> Result<models::GetModeratorResponse, Error<GetModeratorError>> {
+pub async fn get_moderator(configuration: &configuration::Configuration, params: GetModeratorParams) -> Result<models::GetModeratorResponse1, Error<GetModeratorError>> {
 
     let uri_str = format!("{}/api/v1/moderators/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4439,8 +4349,8 @@ pub async fn get_moderator(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetModeratorResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetModeratorResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetModeratorResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetModeratorResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4449,7 +4359,7 @@ pub async fn get_moderator(configuration: &configuration::Configuration, params:
     }
 }
 
-pub async fn get_moderators(configuration: &configuration::Configuration, params: GetModeratorsParams) -> Result<models::GetModeratorsResponse, Error<GetModeratorsError>> {
+pub async fn get_moderators(configuration: &configuration::Configuration, params: GetModeratorsParams) -> Result<models::GetModeratorsResponse1, Error<GetModeratorsError>> {
 
     let uri_str = format!("{}/api/v1/moderators", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4485,8 +4395,8 @@ pub async fn get_moderators(configuration: &configuration::Configuration, params
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetModeratorsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetModeratorsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetModeratorsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetModeratorsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4495,7 +4405,7 @@ pub async fn get_moderators(configuration: &configuration::Configuration, params
     }
 }
 
-pub async fn get_notification_count(configuration: &configuration::Configuration, params: GetNotificationCountParams) -> Result<models::GetNotificationCountResponse, Error<GetNotificationCountError>> {
+pub async fn get_notification_count(configuration: &configuration::Configuration, params: GetNotificationCountParams) -> Result<models::GetNotificationCountResponse1, Error<GetNotificationCountError>> {
 
     let uri_str = format!("{}/api/v1/notifications/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4543,8 +4453,8 @@ pub async fn get_notification_count(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetNotificationCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetNotificationCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetNotificationCountResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetNotificationCountResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4553,7 +4463,7 @@ pub async fn get_notification_count(configuration: &configuration::Configuration
     }
 }
 
-pub async fn get_notifications(configuration: &configuration::Configuration, params: GetNotificationsParams) -> Result<models::GetNotificationsResponse, Error<GetNotificationsError>> {
+pub async fn get_notifications(configuration: &configuration::Configuration, params: GetNotificationsParams) -> Result<models::GetNotificationsResponse1, Error<GetNotificationsError>> {
 
     let uri_str = format!("{}/api/v1/notifications", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4604,8 +4514,8 @@ pub async fn get_notifications(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetNotificationsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetNotificationsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetNotificationsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetNotificationsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4701,7 +4611,7 @@ pub async fn get_pages(configuration: &configuration::Configuration, params: Get
     }
 }
 
-pub async fn get_pending_webhook_event_count(configuration: &configuration::Configuration, params: GetPendingWebhookEventCountParams) -> Result<models::GetPendingWebhookEventCountResponse, Error<GetPendingWebhookEventCountError>> {
+pub async fn get_pending_webhook_event_count(configuration: &configuration::Configuration, params: GetPendingWebhookEventCountParams) -> Result<models::GetPendingWebhookEventCountResponse1, Error<GetPendingWebhookEventCountError>> {
 
     let uri_str = format!("{}/api/v1/pending-webhook-events/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4752,8 +4662,8 @@ pub async fn get_pending_webhook_event_count(configuration: &configuration::Conf
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetPendingWebhookEventCountResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetPendingWebhookEventCountResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetPendingWebhookEventCountResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetPendingWebhookEventCountResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4762,7 +4672,7 @@ pub async fn get_pending_webhook_event_count(configuration: &configuration::Conf
     }
 }
 
-pub async fn get_pending_webhook_events(configuration: &configuration::Configuration, params: GetPendingWebhookEventsParams) -> Result<models::GetPendingWebhookEventsResponse, Error<GetPendingWebhookEventsError>> {
+pub async fn get_pending_webhook_events(configuration: &configuration::Configuration, params: GetPendingWebhookEventsParams) -> Result<models::GetPendingWebhookEventsResponse1, Error<GetPendingWebhookEventsError>> {
 
     let uri_str = format!("{}/api/v1/pending-webhook-events", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4816,8 +4726,8 @@ pub async fn get_pending_webhook_events(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetPendingWebhookEventsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetPendingWebhookEventsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetPendingWebhookEventsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetPendingWebhookEventsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4826,7 +4736,7 @@ pub async fn get_pending_webhook_events(configuration: &configuration::Configura
     }
 }
 
-pub async fn get_question_config(configuration: &configuration::Configuration, params: GetQuestionConfigParams) -> Result<models::GetQuestionConfigResponse, Error<GetQuestionConfigError>> {
+pub async fn get_question_config(configuration: &configuration::Configuration, params: GetQuestionConfigParams) -> Result<models::GetQuestionConfigResponse1, Error<GetQuestionConfigError>> {
 
     let uri_str = format!("{}/api/v1/question-configs/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4859,8 +4769,8 @@ pub async fn get_question_config(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionConfigResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionConfigResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionConfigResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionConfigResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4869,7 +4779,7 @@ pub async fn get_question_config(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn get_question_configs(configuration: &configuration::Configuration, params: GetQuestionConfigsParams) -> Result<models::GetQuestionConfigsResponse, Error<GetQuestionConfigsError>> {
+pub async fn get_question_configs(configuration: &configuration::Configuration, params: GetQuestionConfigsParams) -> Result<models::GetQuestionConfigsResponse1, Error<GetQuestionConfigsError>> {
 
     let uri_str = format!("{}/api/v1/question-configs", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4905,8 +4815,8 @@ pub async fn get_question_configs(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionConfigsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionConfigsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionConfigsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionConfigsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4915,7 +4825,7 @@ pub async fn get_question_configs(configuration: &configuration::Configuration, 
     }
 }
 
-pub async fn get_question_result(configuration: &configuration::Configuration, params: GetQuestionResultParams) -> Result<models::GetQuestionResultResponse, Error<GetQuestionResultError>> {
+pub async fn get_question_result(configuration: &configuration::Configuration, params: GetQuestionResultParams) -> Result<models::GetQuestionResultResponse1, Error<GetQuestionResultError>> {
 
     let uri_str = format!("{}/api/v1/question-results/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -4948,8 +4858,8 @@ pub async fn get_question_result(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionResultResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionResultResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionResultResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionResultResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -4958,7 +4868,7 @@ pub async fn get_question_result(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn get_question_results(configuration: &configuration::Configuration, params: GetQuestionResultsParams) -> Result<models::GetQuestionResultsResponse, Error<GetQuestionResultsError>> {
+pub async fn get_question_results(configuration: &configuration::Configuration, params: GetQuestionResultsParams) -> Result<models::GetQuestionResultsResponse1, Error<GetQuestionResultsError>> {
 
     let uri_str = format!("{}/api/v1/question-results", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5009,8 +4919,8 @@ pub async fn get_question_results(configuration: &configuration::Configuration, 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionResultsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionResultsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetQuestionResultsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetQuestionResultsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5197,7 +5107,7 @@ pub async fn get_subscriptions(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn get_tenant(configuration: &configuration::Configuration, params: GetTenantParams) -> Result<models::GetTenantResponse, Error<GetTenantError>> {
+pub async fn get_tenant(configuration: &configuration::Configuration, params: GetTenantParams) -> Result<models::GetTenantResponse1, Error<GetTenantError>> {
 
     let uri_str = format!("{}/api/v1/tenants/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5230,8 +5140,8 @@ pub async fn get_tenant(configuration: &configuration::Configuration, params: Ge
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5240,7 +5150,7 @@ pub async fn get_tenant(configuration: &configuration::Configuration, params: Ge
     }
 }
 
-pub async fn get_tenant_daily_usages(configuration: &configuration::Configuration, params: GetTenantDailyUsagesParams) -> Result<models::GetTenantDailyUsagesResponse, Error<GetTenantDailyUsagesError>> {
+pub async fn get_tenant_daily_usages(configuration: &configuration::Configuration, params: GetTenantDailyUsagesParams) -> Result<models::GetTenantDailyUsagesResponse1, Error<GetTenantDailyUsagesError>> {
 
     let uri_str = format!("{}/api/v1/tenant-daily-usage", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5285,8 +5195,8 @@ pub async fn get_tenant_daily_usages(configuration: &configuration::Configuratio
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantDailyUsagesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantDailyUsagesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantDailyUsagesResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantDailyUsagesResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5295,7 +5205,7 @@ pub async fn get_tenant_daily_usages(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn get_tenant_package(configuration: &configuration::Configuration, params: GetTenantPackageParams) -> Result<models::GetTenantPackageResponse, Error<GetTenantPackageError>> {
+pub async fn get_tenant_package(configuration: &configuration::Configuration, params: GetTenantPackageParams) -> Result<models::GetTenantPackageResponse1, Error<GetTenantPackageError>> {
 
     let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5328,8 +5238,8 @@ pub async fn get_tenant_package(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantPackageResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantPackageResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantPackageResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantPackageResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5338,7 +5248,7 @@ pub async fn get_tenant_package(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn get_tenant_packages(configuration: &configuration::Configuration, params: GetTenantPackagesParams) -> Result<models::GetTenantPackagesResponse, Error<GetTenantPackagesError>> {
+pub async fn get_tenant_packages(configuration: &configuration::Configuration, params: GetTenantPackagesParams) -> Result<models::GetTenantPackagesResponse1, Error<GetTenantPackagesError>> {
 
     let uri_str = format!("{}/api/v1/tenant-packages", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5374,8 +5284,8 @@ pub async fn get_tenant_packages(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantPackagesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantPackagesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantPackagesResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantPackagesResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5384,7 +5294,7 @@ pub async fn get_tenant_packages(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn get_tenant_user(configuration: &configuration::Configuration, params: GetTenantUserParams) -> Result<models::GetTenantUserResponse, Error<GetTenantUserError>> {
+pub async fn get_tenant_user(configuration: &configuration::Configuration, params: GetTenantUserParams) -> Result<models::GetTenantUserResponse1, Error<GetTenantUserError>> {
 
     let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5417,8 +5327,8 @@ pub async fn get_tenant_user(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantUserResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantUserResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantUserResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantUserResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5427,7 +5337,7 @@ pub async fn get_tenant_user(configuration: &configuration::Configuration, param
     }
 }
 
-pub async fn get_tenant_users(configuration: &configuration::Configuration, params: GetTenantUsersParams) -> Result<models::GetTenantUsersResponse, Error<GetTenantUsersError>> {
+pub async fn get_tenant_users(configuration: &configuration::Configuration, params: GetTenantUsersParams) -> Result<models::GetTenantUsersResponse1, Error<GetTenantUsersError>> {
 
     let uri_str = format!("{}/api/v1/tenant-users", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5463,8 +5373,8 @@ pub async fn get_tenant_users(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantUsersResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantUsersResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantUsersResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantUsersResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5473,7 +5383,7 @@ pub async fn get_tenant_users(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn get_tenants(configuration: &configuration::Configuration, params: GetTenantsParams) -> Result<models::GetTenantsResponse, Error<GetTenantsError>> {
+pub async fn get_tenants(configuration: &configuration::Configuration, params: GetTenantsParams) -> Result<models::GetTenantsResponse1, Error<GetTenantsError>> {
 
     let uri_str = format!("{}/api/v1/tenants", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5512,8 +5422,8 @@ pub async fn get_tenants(configuration: &configuration::Configuration, params: G
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTenantsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTenantsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5522,7 +5432,7 @@ pub async fn get_tenants(configuration: &configuration::Configuration, params: G
     }
 }
 
-pub async fn get_ticket(configuration: &configuration::Configuration, params: GetTicketParams) -> Result<models::GetTicketResponse, Error<GetTicketError>> {
+pub async fn get_ticket(configuration: &configuration::Configuration, params: GetTicketParams) -> Result<models::GetTicketResponse1, Error<GetTicketError>> {
 
     let uri_str = format!("{}/api/v1/tickets/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5558,8 +5468,8 @@ pub async fn get_ticket(configuration: &configuration::Configuration, params: Ge
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTicketResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTicketResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTicketResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTicketResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5568,7 +5478,7 @@ pub async fn get_ticket(configuration: &configuration::Configuration, params: Ge
     }
 }
 
-pub async fn get_tickets(configuration: &configuration::Configuration, params: GetTicketsParams) -> Result<models::GetTicketsResponse, Error<GetTicketsError>> {
+pub async fn get_tickets(configuration: &configuration::Configuration, params: GetTicketsParams) -> Result<models::GetTicketsResponse1, Error<GetTicketsError>> {
 
     let uri_str = format!("{}/api/v1/tickets", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5613,8 +5523,8 @@ pub async fn get_tickets(configuration: &configuration::Configuration, params: G
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTicketsResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTicketsResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetTicketsResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetTicketsResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5623,7 +5533,7 @@ pub async fn get_tickets(configuration: &configuration::Configuration, params: G
     }
 }
 
-pub async fn get_user(configuration: &configuration::Configuration, params: GetUserParams) -> Result<models::GetUserResponse, Error<GetUserError>> {
+pub async fn get_user(configuration: &configuration::Configuration, params: GetUserParams) -> Result<models::GetUserResponse1, Error<GetUserError>> {
 
     let uri_str = format!("{}/api/v1/users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5656,8 +5566,8 @@ pub async fn get_user(configuration: &configuration::Configuration, params: GetU
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5666,7 +5576,7 @@ pub async fn get_user(configuration: &configuration::Configuration, params: GetU
     }
 }
 
-pub async fn get_user_badge(configuration: &configuration::Configuration, params: GetUserBadgeParams) -> Result<models::ApiGetUserBadgeResponse, Error<GetUserBadgeError>> {
+pub async fn get_user_badge(configuration: &configuration::Configuration, params: GetUserBadgeParams) -> Result<models::GetUserBadgeResponse, Error<GetUserBadgeError>> {
 
     let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5699,8 +5609,8 @@ pub async fn get_user_badge(configuration: &configuration::Configuration, params
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetUserBadgeResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetUserBadgeResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserBadgeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserBadgeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5709,7 +5619,7 @@ pub async fn get_user_badge(configuration: &configuration::Configuration, params
     }
 }
 
-pub async fn get_user_badge_progress_by_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByIdParams) -> Result<models::ApiGetUserBadgeProgressResponse, Error<GetUserBadgeProgressByIdError>> {
+pub async fn get_user_badge_progress_by_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByIdParams) -> Result<models::GetUserBadgeProgressByIdResponse, Error<GetUserBadgeProgressByIdError>> {
 
     let uri_str = format!("{}/api/v1/user-badge-progress/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5742,8 +5652,8 @@ pub async fn get_user_badge_progress_by_id(configuration: &configuration::Config
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetUserBadgeProgressResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetUserBadgeProgressResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserBadgeProgressByIdResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserBadgeProgressByIdResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5752,7 +5662,7 @@ pub async fn get_user_badge_progress_by_id(configuration: &configuration::Config
     }
 }
 
-pub async fn get_user_badge_progress_by_user_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByUserIdParams) -> Result<models::ApiGetUserBadgeProgressResponse, Error<GetUserBadgeProgressByUserIdError>> {
+pub async fn get_user_badge_progress_by_user_id(configuration: &configuration::Configuration, params: GetUserBadgeProgressByUserIdParams) -> Result<models::GetUserBadgeProgressByUserIdResponse, Error<GetUserBadgeProgressByUserIdError>> {
 
     let uri_str = format!("{}/api/v1/user-badge-progress/user/{userId}", configuration.base_path, userId=crate::client::apis::urlencode(params.user_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5785,8 +5695,8 @@ pub async fn get_user_badge_progress_by_user_id(configuration: &configuration::C
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetUserBadgeProgressResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetUserBadgeProgressResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserBadgeProgressByUserIdResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserBadgeProgressByUserIdResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5795,7 +5705,7 @@ pub async fn get_user_badge_progress_by_user_id(configuration: &configuration::C
     }
 }
 
-pub async fn get_user_badge_progress_list(configuration: &configuration::Configuration, params: GetUserBadgeProgressListParams) -> Result<models::ApiGetUserBadgeProgressListResponse, Error<GetUserBadgeProgressListError>> {
+pub async fn get_user_badge_progress_list(configuration: &configuration::Configuration, params: GetUserBadgeProgressListParams) -> Result<models::GetUserBadgeProgressListResponse, Error<GetUserBadgeProgressListError>> {
 
     let uri_str = format!("{}/api/v1/user-badge-progress", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5837,8 +5747,8 @@ pub async fn get_user_badge_progress_list(configuration: &configuration::Configu
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetUserBadgeProgressListResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetUserBadgeProgressListResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserBadgeProgressListResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserBadgeProgressListResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5847,7 +5757,7 @@ pub async fn get_user_badge_progress_list(configuration: &configuration::Configu
     }
 }
 
-pub async fn get_user_badges(configuration: &configuration::Configuration, params: GetUserBadgesParams) -> Result<models::ApiGetUserBadgesResponse, Error<GetUserBadgesError>> {
+pub async fn get_user_badges(configuration: &configuration::Configuration, params: GetUserBadgesParams) -> Result<models::GetUserBadgesResponse, Error<GetUserBadgesError>> {
 
     let uri_str = format!("{}/api/v1/user-badges", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5898,8 +5808,8 @@ pub async fn get_user_badges(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiGetUserBadgesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiGetUserBadgesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetUserBadgesResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetUserBadgesResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5908,7 +5818,7 @@ pub async fn get_user_badges(configuration: &configuration::Configuration, param
     }
 }
 
-pub async fn get_votes(configuration: &configuration::Configuration, params: GetVotesParams) -> Result<models::GetVotesResponse, Error<GetVotesError>> {
+pub async fn get_votes(configuration: &configuration::Configuration, params: GetVotesParams) -> Result<models::GetVotesResponse1, Error<GetVotesError>> {
 
     let uri_str = format!("{}/api/v1/votes", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5942,8 +5852,8 @@ pub async fn get_votes(configuration: &configuration::Configuration, params: Get
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetVotesResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetVotesResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetVotesResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetVotesResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -5952,7 +5862,7 @@ pub async fn get_votes(configuration: &configuration::Configuration, params: Get
     }
 }
 
-pub async fn get_votes_for_user(configuration: &configuration::Configuration, params: GetVotesForUserParams) -> Result<models::GetVotesForUserResponse, Error<GetVotesForUserError>> {
+pub async fn get_votes_for_user(configuration: &configuration::Configuration, params: GetVotesForUserParams) -> Result<models::GetVotesForUserResponse1, Error<GetVotesForUserError>> {
 
     let uri_str = format!("{}/api/v1/votes/for-user", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -5992,8 +5902,8 @@ pub async fn get_votes_for_user(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetVotesForUserResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetVotesForUserResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::GetVotesForUserResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::GetVotesForUserResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6046,7 +5956,7 @@ pub async fn patch_domain_config(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn patch_hash_tag(configuration: &configuration::Configuration, params: PatchHashTagParams) -> Result<models::UpdateHashTagResponse, Error<PatchHashTagError>> {
+pub async fn patch_hash_tag(configuration: &configuration::Configuration, params: PatchHashTagParams) -> Result<models::PatchHashTagResponse, Error<PatchHashTagError>> {
 
     let uri_str = format!("{}/api/v1/hash-tags/{tag}", configuration.base_path, tag=crate::client::apis::urlencode(params.tag));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -6082,8 +5992,8 @@ pub async fn patch_hash_tag(configuration: &configuration::Configuration, params
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateHashTagResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateHashTagResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PatchHashTagResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PatchHashTagResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6274,7 +6184,7 @@ pub async fn put_sso_user(configuration: &configuration::Configuration, params: 
     }
 }
 
-pub async fn render_email_template(configuration: &configuration::Configuration, params: RenderEmailTemplateParams) -> Result<models::RenderEmailTemplateResponse, Error<RenderEmailTemplateError>> {
+pub async fn render_email_template(configuration: &configuration::Configuration, params: RenderEmailTemplateParams) -> Result<models::RenderEmailTemplateResponse1, Error<RenderEmailTemplateError>> {
 
     let uri_str = format!("{}/api/v1/email-templates/render", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -6311,8 +6221,8 @@ pub async fn render_email_template(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RenderEmailTemplateResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RenderEmailTemplateResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RenderEmailTemplateResponse1`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RenderEmailTemplateResponse1`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6321,7 +6231,7 @@ pub async fn render_email_template(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn replace_tenant_package(configuration: &configuration::Configuration, params: ReplaceTenantPackageParams) -> Result<models::ApiEmptyResponse, Error<ReplaceTenantPackageError>> {
+pub async fn replace_tenant_package(configuration: &configuration::Configuration, params: ReplaceTenantPackageParams) -> Result<models::ReplaceTenantPackageResponse, Error<ReplaceTenantPackageError>> {
 
     let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -6355,8 +6265,8 @@ pub async fn replace_tenant_package(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ReplaceTenantPackageResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ReplaceTenantPackageResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6365,7 +6275,7 @@ pub async fn replace_tenant_package(configuration: &configuration::Configuration
     }
 }
 
-pub async fn replace_tenant_user(configuration: &configuration::Configuration, params: ReplaceTenantUserParams) -> Result<models::ApiEmptyResponse, Error<ReplaceTenantUserError>> {
+pub async fn replace_tenant_user(configuration: &configuration::Configuration, params: ReplaceTenantUserParams) -> Result<models::ReplaceTenantUserResponse, Error<ReplaceTenantUserError>> {
 
     let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -6402,8 +6312,8 @@ pub async fn replace_tenant_user(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ReplaceTenantUserResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ReplaceTenantUserResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6412,7 +6322,7 @@ pub async fn replace_tenant_user(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn save_comment(configuration: &configuration::Configuration, params: SaveCommentParams) -> Result<models::ApiSaveCommentResponse, Error<SaveCommentError>> {
+pub async fn save_comment(configuration: &configuration::Configuration, params: SaveCommentParams) -> Result<models::SaveCommentResponse, Error<SaveCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -6458,8 +6368,8 @@ pub async fn save_comment(configuration: &configuration::Configuration, params: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiSaveCommentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiSaveCommentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SaveCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SaveCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6524,7 +6434,7 @@ pub async fn save_comments_bulk(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn send_invite(configuration: &configuration::Configuration, params: SendInviteParams) -> Result<models::ApiEmptyResponse, Error<SendInviteError>> {
+pub async fn send_invite(configuration: &configuration::Configuration, params: SendInviteParams) -> Result<models::SendInviteResponse, Error<SendInviteError>> {
 
     let uri_str = format!("{}/api/v1/moderators/{id}/send-invite", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -6558,8 +6468,8 @@ pub async fn send_invite(configuration: &configuration::Configuration, params: S
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SendInviteResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SendInviteResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6568,7 +6478,7 @@ pub async fn send_invite(configuration: &configuration::Configuration, params: S
     }
 }
 
-pub async fn send_login_link(configuration: &configuration::Configuration, params: SendLoginLinkParams) -> Result<models::ApiEmptyResponse, Error<SendLoginLinkError>> {
+pub async fn send_login_link(configuration: &configuration::Configuration, params: SendLoginLinkParams) -> Result<models::SendLoginLinkResponse, Error<SendLoginLinkError>> {
 
     let uri_str = format!("{}/api/v1/tenant-users/{id}/send-login-link", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -6604,8 +6514,8 @@ pub async fn send_login_link(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::SendLoginLinkResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::SendLoginLinkResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6614,7 +6524,7 @@ pub async fn send_login_link(configuration: &configuration::Configuration, param
     }
 }
 
-pub async fn un_block_user_from_comment(configuration: &configuration::Configuration, params: UnBlockUserFromCommentParams) -> Result<models::UnblockSuccess, Error<UnBlockUserFromCommentError>> {
+pub async fn un_block_user_from_comment(configuration: &configuration::Configuration, params: UnBlockUserFromCommentParams) -> Result<models::UnBlockUserFromCommentResponse, Error<UnBlockUserFromCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments/{id}/un-block", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -6654,8 +6564,8 @@ pub async fn un_block_user_from_comment(configuration: &configuration::Configura
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnblockSuccess`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnblockSuccess`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnBlockUserFromCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnBlockUserFromCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6664,7 +6574,7 @@ pub async fn un_block_user_from_comment(configuration: &configuration::Configura
     }
 }
 
-pub async fn un_flag_comment(configuration: &configuration::Configuration, params: UnFlagCommentParams) -> Result<models::FlagCommentResponse, Error<UnFlagCommentError>> {
+pub async fn un_flag_comment(configuration: &configuration::Configuration, params: UnFlagCommentParams) -> Result<models::UnFlagCommentResponse, Error<UnFlagCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments/{id}/un-flag", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
@@ -6703,8 +6613,8 @@ pub async fn un_flag_comment(configuration: &configuration::Configuration, param
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::FlagCommentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::FlagCommentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UnFlagCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UnFlagCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6713,7 +6623,7 @@ pub async fn un_flag_comment(configuration: &configuration::Configuration, param
     }
 }
 
-pub async fn update_comment(configuration: &configuration::Configuration, params: UpdateCommentParams) -> Result<models::ApiEmptyResponse, Error<UpdateCommentError>> {
+pub async fn update_comment(configuration: &configuration::Configuration, params: UpdateCommentParams) -> Result<models::UpdateCommentResponse, Error<UpdateCommentError>> {
 
     let uri_str = format!("{}/api/v1/comments/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -6756,8 +6666,8 @@ pub async fn update_comment(configuration: &configuration::Configuration, params
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateCommentResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateCommentResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6766,7 +6676,7 @@ pub async fn update_comment(configuration: &configuration::Configuration, params
     }
 }
 
-pub async fn update_email_template(configuration: &configuration::Configuration, params: UpdateEmailTemplateParams) -> Result<models::ApiEmptyResponse, Error<UpdateEmailTemplateError>> {
+pub async fn update_email_template(configuration: &configuration::Configuration, params: UpdateEmailTemplateParams) -> Result<models::UpdateEmailTemplateResponse, Error<UpdateEmailTemplateError>> {
 
     let uri_str = format!("{}/api/v1/email-templates/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -6800,8 +6710,8 @@ pub async fn update_email_template(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateEmailTemplateResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateEmailTemplateResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6810,7 +6720,7 @@ pub async fn update_email_template(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn update_feed_post(configuration: &configuration::Configuration, params: UpdateFeedPostParams) -> Result<models::ApiEmptyResponse, Error<UpdateFeedPostError>> {
+pub async fn update_feed_post(configuration: &configuration::Configuration, params: UpdateFeedPostParams) -> Result<models::UpdateFeedPostResponse, Error<UpdateFeedPostError>> {
 
     let uri_str = format!("{}/api/v1/feed-posts/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -6844,8 +6754,8 @@ pub async fn update_feed_post(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateFeedPostResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateFeedPostResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6854,7 +6764,7 @@ pub async fn update_feed_post(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn update_moderator(configuration: &configuration::Configuration, params: UpdateModeratorParams) -> Result<models::ApiEmptyResponse, Error<UpdateModeratorError>> {
+pub async fn update_moderator(configuration: &configuration::Configuration, params: UpdateModeratorParams) -> Result<models::UpdateModeratorResponse, Error<UpdateModeratorError>> {
 
     let uri_str = format!("{}/api/v1/moderators/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -6888,8 +6798,8 @@ pub async fn update_moderator(configuration: &configuration::Configuration, para
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateModeratorResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateModeratorResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6898,7 +6808,7 @@ pub async fn update_moderator(configuration: &configuration::Configuration, para
     }
 }
 
-pub async fn update_notification(configuration: &configuration::Configuration, params: UpdateNotificationParams) -> Result<models::ApiEmptyResponse, Error<UpdateNotificationError>> {
+pub async fn update_notification(configuration: &configuration::Configuration, params: UpdateNotificationParams) -> Result<models::UpdateNotificationResponse, Error<UpdateNotificationError>> {
 
     let uri_str = format!("{}/api/v1/notifications/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -6935,8 +6845,8 @@ pub async fn update_notification(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateNotificationResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateNotificationResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6945,7 +6855,7 @@ pub async fn update_notification(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn update_question_config(configuration: &configuration::Configuration, params: UpdateQuestionConfigParams) -> Result<models::ApiEmptyResponse, Error<UpdateQuestionConfigError>> {
+pub async fn update_question_config(configuration: &configuration::Configuration, params: UpdateQuestionConfigParams) -> Result<models::UpdateQuestionConfigResponse, Error<UpdateQuestionConfigError>> {
 
     let uri_str = format!("{}/api/v1/question-configs/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -6979,8 +6889,8 @@ pub async fn update_question_config(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateQuestionConfigResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateQuestionConfigResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -6989,7 +6899,7 @@ pub async fn update_question_config(configuration: &configuration::Configuration
     }
 }
 
-pub async fn update_question_result(configuration: &configuration::Configuration, params: UpdateQuestionResultParams) -> Result<models::ApiEmptyResponse, Error<UpdateQuestionResultError>> {
+pub async fn update_question_result(configuration: &configuration::Configuration, params: UpdateQuestionResultParams) -> Result<models::UpdateQuestionResultResponse, Error<UpdateQuestionResultError>> {
 
     let uri_str = format!("{}/api/v1/question-results/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -7023,8 +6933,8 @@ pub async fn update_question_result(configuration: &configuration::Configuration
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateQuestionResultResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateQuestionResultResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -7080,7 +6990,7 @@ pub async fn update_subscription(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn update_tenant(configuration: &configuration::Configuration, params: UpdateTenantParams) -> Result<models::ApiEmptyResponse, Error<UpdateTenantError>> {
+pub async fn update_tenant(configuration: &configuration::Configuration, params: UpdateTenantParams) -> Result<models::UpdateTenantResponse, Error<UpdateTenantError>> {
 
     let uri_str = format!("{}/api/v1/tenants/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -7114,8 +7024,8 @@ pub async fn update_tenant(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateTenantResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateTenantResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -7124,7 +7034,7 @@ pub async fn update_tenant(configuration: &configuration::Configuration, params:
     }
 }
 
-pub async fn update_tenant_package(configuration: &configuration::Configuration, params: UpdateTenantPackageParams) -> Result<models::ApiEmptyResponse, Error<UpdateTenantPackageError>> {
+pub async fn update_tenant_package(configuration: &configuration::Configuration, params: UpdateTenantPackageParams) -> Result<models::UpdateTenantPackageResponse, Error<UpdateTenantPackageError>> {
 
     let uri_str = format!("{}/api/v1/tenant-packages/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -7158,8 +7068,8 @@ pub async fn update_tenant_package(configuration: &configuration::Configuration,
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateTenantPackageResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateTenantPackageResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -7168,7 +7078,7 @@ pub async fn update_tenant_package(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn update_tenant_user(configuration: &configuration::Configuration, params: UpdateTenantUserParams) -> Result<models::ApiEmptyResponse, Error<UpdateTenantUserError>> {
+pub async fn update_tenant_user(configuration: &configuration::Configuration, params: UpdateTenantUserParams) -> Result<models::UpdateTenantUserResponse, Error<UpdateTenantUserError>> {
 
     let uri_str = format!("{}/api/v1/tenant-users/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
@@ -7205,8 +7115,8 @@ pub async fn update_tenant_user(configuration: &configuration::Configuration, pa
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptyResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptyResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateTenantUserResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateTenantUserResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -7215,7 +7125,7 @@ pub async fn update_tenant_user(configuration: &configuration::Configuration, pa
     }
 }
 
-pub async fn update_user_badge(configuration: &configuration::Configuration, params: UpdateUserBadgeParams) -> Result<models::ApiEmptySuccessResponse, Error<UpdateUserBadgeError>> {
+pub async fn update_user_badge(configuration: &configuration::Configuration, params: UpdateUserBadgeParams) -> Result<models::UpdateUserBadgeResponse, Error<UpdateUserBadgeError>> {
 
     let uri_str = format!("{}/api/v1/user-badges/{id}", configuration.base_path, id=crate::client::apis::urlencode(params.id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
@@ -7249,8 +7159,8 @@ pub async fn update_user_badge(configuration: &configuration::Configuration, par
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::ApiEmptySuccessResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::ApiEmptySuccessResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::UpdateUserBadgeResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::UpdateUserBadgeResponse`")))),
         }
     } else {
         let content = resp.text().await?;
