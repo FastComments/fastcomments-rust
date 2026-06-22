@@ -21,20 +21,6 @@ pub struct UpdateUserNotificationStatusResponse {
     pub modified_count: Option<i64>,
     #[serde(rename = "note", skip_serializing_if = "Option::is_none")]
     pub note: Option<Note>,
-    #[serde(rename = "reason", skip_serializing_if = "Option::is_none")]
-    pub reason: Option<String>,
-    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
-    pub code: Option<String>,
-    #[serde(rename = "secondaryCode", skip_serializing_if = "Option::is_none")]
-    pub secondary_code: Option<String>,
-    #[serde(rename = "bannedUntil", skip_serializing_if = "Option::is_none")]
-    pub banned_until: Option<i64>,
-    #[serde(rename = "maxCharacterLength", skip_serializing_if = "Option::is_none")]
-    pub max_character_length: Option<i32>,
-    #[serde(rename = "translatedError", skip_serializing_if = "Option::is_none")]
-    pub translated_error: Option<String>,
-    #[serde(rename = "customConfig", skip_serializing_if = "Option::is_none")]
-    pub custom_config: Option<Box<models::CustomConfigParameters>>,
 }
 
 impl UpdateUserNotificationStatusResponse {
@@ -44,13 +30,6 @@ impl UpdateUserNotificationStatusResponse {
             matched_count: None,
             modified_count: None,
             note: None,
-            reason: None,
-            code: None,
-            secondary_code: None,
-            banned_until: None,
-            max_character_length: None,
-            translated_error: None,
-            custom_config: None,
         }
     }
 }

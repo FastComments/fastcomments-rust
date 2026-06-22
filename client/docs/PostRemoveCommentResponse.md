@@ -4,15 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** | Option<**String**> |  | [optional]
-**status** | [**models::ApiStatus**](APIStatus.md) |  | 
-**reason** | Option<**String**> |  | [optional]
-**code** | Option<**String**> |  | [optional]
-**secondary_code** | Option<**String**> |  | [optional]
-**banned_until** | Option<**i64**> |  | [optional]
-**max_character_length** | Option<**i32**> |  | [optional]
-**translated_error** | Option<**String**> |  | [optional]
-**custom_config** | Option<[**models::CustomConfigParameters**](CustomConfigParameters.md)> |  | [optional]
+**action** | **String** |  | 
+**status** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
