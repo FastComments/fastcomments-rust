@@ -160,7 +160,7 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | Option<**String**> |  |  |
+**tenant_id** | **String** |  | [required] |
 **create_hash_tag_body** | Option<[**CreateHashTagBody**](CreateHashTagBody.md)> |  |  |
 
 ### Return type
@@ -189,7 +189,7 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | Option<**String**> |  |  |
+**tenant_id** | **String** |  | [required] |
 **bulk_create_hash_tags_body** | Option<[**BulkCreateHashTagsBody**](BulkCreateHashTagsBody.md)> |  |  |
 
 ### Return type
@@ -939,7 +939,7 @@ Name | Type | Description  | Required | Notes
 
 ## delete_hash_tag
 
-> models::ApiEmptyResponse delete_hash_tag(tag, tenant_id, delete_hash_tag_request_body)
+> models::ApiEmptyResponse delete_hash_tag(tenant_id, tag, delete_hash_tag_request_body)
 
 
 ### Parameters
@@ -947,8 +947,8 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **tag** | **String** |  | [required] |
-**tenant_id** | Option<**String**> |  |  |
 **delete_hash_tag_request_body** | Option<[**DeleteHashTagRequestBody**](DeleteHashTagRequestBody.md)> |  |  |
 
 ### Return type
@@ -2783,7 +2783,7 @@ Name | Type | Description  | Required | Notes
 
 ## patch_hash_tag
 
-> models::UpdateHashTagResponse patch_hash_tag(tag, tenant_id, update_hash_tag_body)
+> models::UpdateHashTagResponse patch_hash_tag(tenant_id, tag, update_hash_tag_body)
 
 
 ### Parameters
@@ -2791,8 +2791,8 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **tag** | **String** |  | [required] |
-**tenant_id** | Option<**String**> |  |  |
 **update_hash_tag_body** | Option<[**UpdateHashTagBody**](UpdateHashTagBody.md)> |  |  |
 
 ### Return type

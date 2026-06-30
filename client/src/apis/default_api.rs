@@ -24,14 +24,14 @@ pub struct AddDomainConfigParams {
 /// struct for passing parameters to the method [`add_hash_tag`]
 #[derive(Clone, Debug)]
 pub struct AddHashTagParams {
-    pub tenant_id: Option<String>,
+    pub tenant_id: String,
     pub create_hash_tag_body: Option<models::CreateHashTagBody>
 }
 
 /// struct for passing parameters to the method [`add_hash_tags_bulk`]
 #[derive(Clone, Debug)]
 pub struct AddHashTagsBulkParams {
-    pub tenant_id: Option<String>,
+    pub tenant_id: String,
     pub bulk_create_hash_tags_body: Option<models::BulkCreateHashTagsBody>
 }
 
@@ -237,8 +237,8 @@ pub struct DeleteEmailTemplateRenderErrorParams {
 /// struct for passing parameters to the method [`delete_hash_tag`]
 #[derive(Clone, Debug)]
 pub struct DeleteHashTagParams {
+    pub tenant_id: String,
     pub tag: String,
-    pub tenant_id: Option<String>,
     pub delete_hash_tag_request_body: Option<models::DeleteHashTagRequestBody>
 }
 
@@ -737,8 +737,8 @@ pub struct PatchDomainConfigParams {
 /// struct for passing parameters to the method [`patch_hash_tag`]
 #[derive(Clone, Debug)]
 pub struct PatchHashTagParams {
+    pub tenant_id: String,
     pub tag: String,
-    pub tenant_id: Option<String>,
     pub update_hash_tag_body: Option<models::UpdateHashTagBody>
 }
 
@@ -1899,9 +1899,7 @@ pub async fn add_hash_tag(configuration: &configuration::Configuration, params: 
     let uri_str = format!("{}/api/v1/hash-tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -1945,9 +1943,7 @@ pub async fn add_hash_tags_bulk(configuration: &configuration::Configuration, pa
     let uri_str = format!("{}/api/v1/hash-tags/bulk", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -3132,9 +3128,7 @@ pub async fn delete_hash_tag(configuration: &configuration::Configuration, param
     let uri_str = format!("{}/api/v1/hash-tags/{tag}", configuration.base_path, tag=crate::client::apis::urlencode(params.tag));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -6051,9 +6045,7 @@ pub async fn patch_hash_tag(configuration: &configuration::Configuration, params
     let uri_str = format!("{}/api/v1/hash-tags/{tag}", configuration.base_path, tag=crate::client::apis::urlencode(params.tag));
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

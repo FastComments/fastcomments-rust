@@ -4,55 +4,55 @@ All URIs are relative to *https://fastcomments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_moderation_vote**](ModerationApi.md#delete_moderation_vote) | **DELETE** /auth/my-account/moderate-comments/vote/{commentId}/{voteId} | 
-[**get_api_comments**](ModerationApi.md#get_api_comments) | **GET** /auth/my-account/moderate-comments/api/comments | 
-[**get_api_export_status**](ModerationApi.md#get_api_export_status) | **GET** /auth/my-account/moderate-comments/api/export/status | 
-[**get_api_ids**](ModerationApi.md#get_api_ids) | **GET** /auth/my-account/moderate-comments/api/ids | 
-[**get_ban_users_from_comment**](ModerationApi.md#get_ban_users_from_comment) | **GET** /auth/my-account/moderate-comments/ban-users/from-comment/{commentId} | 
-[**get_comment_ban_status**](ModerationApi.md#get_comment_ban_status) | **GET** /auth/my-account/moderate-comments/get-comment-ban-status/{commentId} | 
-[**get_comment_children**](ModerationApi.md#get_comment_children) | **GET** /auth/my-account/moderate-comments/comment-children/{commentId} | 
-[**get_count**](ModerationApi.md#get_count) | **GET** /auth/my-account/moderate-comments/count | 
-[**get_counts**](ModerationApi.md#get_counts) | **GET** /auth/my-account/moderate-comments/banned-users/counts | 
-[**get_logs**](ModerationApi.md#get_logs) | **GET** /auth/my-account/moderate-comments/logs/{commentId} | 
-[**get_manual_badges**](ModerationApi.md#get_manual_badges) | **GET** /auth/my-account/moderate-comments/get-manual-badges | 
-[**get_manual_badges_for_user**](ModerationApi.md#get_manual_badges_for_user) | **GET** /auth/my-account/moderate-comments/get-manual-badges-for-user | 
-[**get_moderation_comment**](ModerationApi.md#get_moderation_comment) | **GET** /auth/my-account/moderate-comments/comment/{commentId} | 
-[**get_moderation_comment_text**](ModerationApi.md#get_moderation_comment_text) | **GET** /auth/my-account/moderate-comments/get-comment-text/{commentId} | 
-[**get_pre_ban_summary**](ModerationApi.md#get_pre_ban_summary) | **GET** /auth/my-account/moderate-comments/pre-ban-summary/{commentId} | 
-[**get_search_comments_summary**](ModerationApi.md#get_search_comments_summary) | **GET** /auth/my-account/moderate-comments/search/comments/summary | 
-[**get_search_pages**](ModerationApi.md#get_search_pages) | **GET** /auth/my-account/moderate-comments/search/pages | 
-[**get_search_sites**](ModerationApi.md#get_search_sites) | **GET** /auth/my-account/moderate-comments/search/sites | 
-[**get_search_suggest**](ModerationApi.md#get_search_suggest) | **GET** /auth/my-account/moderate-comments/search/suggest | 
-[**get_search_users**](ModerationApi.md#get_search_users) | **GET** /auth/my-account/moderate-comments/search/users | 
-[**get_trust_factor**](ModerationApi.md#get_trust_factor) | **GET** /auth/my-account/moderate-comments/get-trust-factor | 
-[**get_user_ban_preference**](ModerationApi.md#get_user_ban_preference) | **GET** /auth/my-account/moderate-comments/user-ban-preference | 
-[**get_user_internal_profile**](ModerationApi.md#get_user_internal_profile) | **GET** /auth/my-account/moderate-comments/get-user-internal-profile | 
-[**post_adjust_comment_votes**](ModerationApi.md#post_adjust_comment_votes) | **POST** /auth/my-account/moderate-comments/adjust-comment-votes/{commentId} | 
-[**post_api_export**](ModerationApi.md#post_api_export) | **POST** /auth/my-account/moderate-comments/api/export | 
-[**post_ban_user_from_comment**](ModerationApi.md#post_ban_user_from_comment) | **POST** /auth/my-account/moderate-comments/ban-user/from-comment/{commentId} | 
-[**post_ban_user_undo**](ModerationApi.md#post_ban_user_undo) | **POST** /auth/my-account/moderate-comments/ban-user/undo | 
-[**post_bulk_pre_ban_summary**](ModerationApi.md#post_bulk_pre_ban_summary) | **POST** /auth/my-account/moderate-comments/bulk-pre-ban-summary | 
-[**post_comments_by_ids**](ModerationApi.md#post_comments_by_ids) | **POST** /auth/my-account/moderate-comments/comments-by-ids | 
-[**post_flag_comment**](ModerationApi.md#post_flag_comment) | **POST** /auth/my-account/moderate-comments/flag-comment/{commentId} | 
-[**post_remove_comment**](ModerationApi.md#post_remove_comment) | **POST** /auth/my-account/moderate-comments/remove-comment/{commentId} | 
-[**post_restore_deleted_comment**](ModerationApi.md#post_restore_deleted_comment) | **POST** /auth/my-account/moderate-comments/restore-deleted-comment/{commentId} | 
-[**post_set_comment_approval_status**](ModerationApi.md#post_set_comment_approval_status) | **POST** /auth/my-account/moderate-comments/set-comment-approval-status/{commentId} | 
-[**post_set_comment_review_status**](ModerationApi.md#post_set_comment_review_status) | **POST** /auth/my-account/moderate-comments/set-comment-review-status/{commentId} | 
-[**post_set_comment_spam_status**](ModerationApi.md#post_set_comment_spam_status) | **POST** /auth/my-account/moderate-comments/set-comment-spam-status/{commentId} | 
-[**post_set_comment_text**](ModerationApi.md#post_set_comment_text) | **POST** /auth/my-account/moderate-comments/set-comment-text/{commentId} | 
-[**post_un_flag_comment**](ModerationApi.md#post_un_flag_comment) | **POST** /auth/my-account/moderate-comments/un-flag-comment/{commentId} | 
-[**post_vote**](ModerationApi.md#post_vote) | **POST** /auth/my-account/moderate-comments/vote/{commentId} | 
-[**put_award_badge**](ModerationApi.md#put_award_badge) | **PUT** /auth/my-account/moderate-comments/award-badge | 
-[**put_close_thread**](ModerationApi.md#put_close_thread) | **PUT** /auth/my-account/moderate-comments/close-thread | 
-[**put_remove_badge**](ModerationApi.md#put_remove_badge) | **PUT** /auth/my-account/moderate-comments/remove-badge | 
-[**put_reopen_thread**](ModerationApi.md#put_reopen_thread) | **PUT** /auth/my-account/moderate-comments/reopen-thread | 
-[**set_trust_factor**](ModerationApi.md#set_trust_factor) | **PUT** /auth/my-account/moderate-comments/set-trust-factor | 
+[**delete_moderation_vote**](ModerationApi.md#delete_moderation_vote) | **DELETE** /auth/my-account/moderate-comments/mod_api/vote/{commentId}/{voteId} | 
+[**get_api_comments**](ModerationApi.md#get_api_comments) | **GET** /auth/my-account/moderate-comments/mod_api/api/comments | 
+[**get_api_export_status**](ModerationApi.md#get_api_export_status) | **GET** /auth/my-account/moderate-comments/mod_api/api/export/status | 
+[**get_api_ids**](ModerationApi.md#get_api_ids) | **GET** /auth/my-account/moderate-comments/mod_api/api/ids | 
+[**get_ban_users_from_comment**](ModerationApi.md#get_ban_users_from_comment) | **GET** /auth/my-account/moderate-comments/mod_api/ban-users/from-comment/{commentId} | 
+[**get_comment_ban_status**](ModerationApi.md#get_comment_ban_status) | **GET** /auth/my-account/moderate-comments/mod_api/get-comment-ban-status/{commentId} | 
+[**get_comment_children**](ModerationApi.md#get_comment_children) | **GET** /auth/my-account/moderate-comments/mod_api/comment-children/{commentId} | 
+[**get_count**](ModerationApi.md#get_count) | **GET** /auth/my-account/moderate-comments/mod_api/count | 
+[**get_counts**](ModerationApi.md#get_counts) | **GET** /auth/my-account/moderate-comments/banned-users/mod_api/counts | 
+[**get_logs**](ModerationApi.md#get_logs) | **GET** /auth/my-account/moderate-comments/mod_api/logs/{commentId} | 
+[**get_manual_badges**](ModerationApi.md#get_manual_badges) | **GET** /auth/my-account/moderate-comments/mod_api/get-manual-badges | 
+[**get_manual_badges_for_user**](ModerationApi.md#get_manual_badges_for_user) | **GET** /auth/my-account/moderate-comments/mod_api/get-manual-badges-for-user | 
+[**get_moderation_comment**](ModerationApi.md#get_moderation_comment) | **GET** /auth/my-account/moderate-comments/mod_api/comment/{commentId} | 
+[**get_moderation_comment_text**](ModerationApi.md#get_moderation_comment_text) | **GET** /auth/my-account/moderate-comments/mod_api/get-comment-text/{commentId} | 
+[**get_pre_ban_summary**](ModerationApi.md#get_pre_ban_summary) | **GET** /auth/my-account/moderate-comments/mod_api/pre-ban-summary/{commentId} | 
+[**get_search_comments_summary**](ModerationApi.md#get_search_comments_summary) | **GET** /auth/my-account/moderate-comments/mod_api/search/comments/summary | 
+[**get_search_pages**](ModerationApi.md#get_search_pages) | **GET** /auth/my-account/moderate-comments/mod_api/search/pages | 
+[**get_search_sites**](ModerationApi.md#get_search_sites) | **GET** /auth/my-account/moderate-comments/mod_api/search/sites | 
+[**get_search_suggest**](ModerationApi.md#get_search_suggest) | **GET** /auth/my-account/moderate-comments/mod_api/search/suggest | 
+[**get_search_users**](ModerationApi.md#get_search_users) | **GET** /auth/my-account/moderate-comments/mod_api/search/users | 
+[**get_trust_factor**](ModerationApi.md#get_trust_factor) | **GET** /auth/my-account/moderate-comments/mod_api/get-trust-factor | 
+[**get_user_ban_preference**](ModerationApi.md#get_user_ban_preference) | **GET** /auth/my-account/moderate-comments/mod_api/user-ban-preference | 
+[**get_user_internal_profile**](ModerationApi.md#get_user_internal_profile) | **GET** /auth/my-account/moderate-comments/mod_api/get-user-internal-profile | 
+[**post_adjust_comment_votes**](ModerationApi.md#post_adjust_comment_votes) | **POST** /auth/my-account/moderate-comments/mod_api/adjust-comment-votes/{commentId} | 
+[**post_api_export**](ModerationApi.md#post_api_export) | **POST** /auth/my-account/moderate-comments/mod_api/api/export | 
+[**post_ban_user_from_comment**](ModerationApi.md#post_ban_user_from_comment) | **POST** /auth/my-account/moderate-comments/mod_api/ban-user/from-comment/{commentId} | 
+[**post_ban_user_undo**](ModerationApi.md#post_ban_user_undo) | **POST** /auth/my-account/moderate-comments/mod_api/ban-user/undo | 
+[**post_bulk_pre_ban_summary**](ModerationApi.md#post_bulk_pre_ban_summary) | **POST** /auth/my-account/moderate-comments/mod_api/bulk-pre-ban-summary | 
+[**post_comments_by_ids**](ModerationApi.md#post_comments_by_ids) | **POST** /auth/my-account/moderate-comments/mod_api/comments-by-ids | 
+[**post_flag_comment**](ModerationApi.md#post_flag_comment) | **POST** /auth/my-account/moderate-comments/mod_api/flag-comment/{commentId} | 
+[**post_remove_comment**](ModerationApi.md#post_remove_comment) | **POST** /auth/my-account/moderate-comments/mod_api/remove-comment/{commentId} | 
+[**post_restore_deleted_comment**](ModerationApi.md#post_restore_deleted_comment) | **POST** /auth/my-account/moderate-comments/mod_api/restore-deleted-comment/{commentId} | 
+[**post_set_comment_approval_status**](ModerationApi.md#post_set_comment_approval_status) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-approval-status/{commentId} | 
+[**post_set_comment_review_status**](ModerationApi.md#post_set_comment_review_status) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-review-status/{commentId} | 
+[**post_set_comment_spam_status**](ModerationApi.md#post_set_comment_spam_status) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-spam-status/{commentId} | 
+[**post_set_comment_text**](ModerationApi.md#post_set_comment_text) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-text/{commentId} | 
+[**post_un_flag_comment**](ModerationApi.md#post_un_flag_comment) | **POST** /auth/my-account/moderate-comments/mod_api/un-flag-comment/{commentId} | 
+[**post_vote**](ModerationApi.md#post_vote) | **POST** /auth/my-account/moderate-comments/mod_api/vote/{commentId} | 
+[**put_award_badge**](ModerationApi.md#put_award_badge) | **PUT** /auth/my-account/moderate-comments/mod_api/award-badge | 
+[**put_close_thread**](ModerationApi.md#put_close_thread) | **PUT** /auth/my-account/moderate-comments/mod_api/close-thread | 
+[**put_remove_badge**](ModerationApi.md#put_remove_badge) | **PUT** /auth/my-account/moderate-comments/mod_api/remove-badge | 
+[**put_reopen_thread**](ModerationApi.md#put_reopen_thread) | **PUT** /auth/my-account/moderate-comments/mod_api/reopen-thread | 
+[**set_trust_factor**](ModerationApi.md#set_trust_factor) | **PUT** /auth/my-account/moderate-comments/mod_api/set-trust-factor | 
 
 
 
 ## delete_moderation_vote
 
-> models::VoteDeleteResponse delete_moderation_vote(comment_id, vote_id, sso)
+> models::VoteDeleteResponse delete_moderation_vote(tenant_id, comment_id, vote_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -60,8 +60,10 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **vote_id** | **String** |  | [required] |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -82,7 +84,7 @@ No authorization required
 
 ## get_api_comments
 
-> models::ModerationApiGetCommentsResponse get_api_comments(page, count, text_search, by_ip_from_comment, filters, search_filters, sorts, demo, sso)
+> models::ModerationApiGetCommentsResponse get_api_comments(tenant_id, page, count, text_search, by_ip_from_comment, filters, search_filters, sorts, demo, sso)
 
 
 ### Parameters
@@ -90,6 +92,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **page** | Option<**f64**> |  |  |
 **count** | Option<**f64**> |  |  |
 **text_search** | Option<**String**> |  |  |
@@ -118,7 +121,7 @@ No authorization required
 
 ## get_api_export_status
 
-> models::ModerationExportStatusResponse get_api_export_status(batch_job_id, sso)
+> models::ModerationExportStatusResponse get_api_export_status(tenant_id, batch_job_id, sso)
 
 
 ### Parameters
@@ -126,6 +129,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **batch_job_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
@@ -147,7 +151,7 @@ No authorization required
 
 ## get_api_ids
 
-> models::ModerationApiGetCommentIdsResponse get_api_ids(text_search, by_ip_from_comment, filters, search_filters, after_id, demo, sso)
+> models::ModerationApiGetCommentIdsResponse get_api_ids(tenant_id, text_search, by_ip_from_comment, filters, search_filters, after_id, demo, sso)
 
 
 ### Parameters
@@ -155,6 +159,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **text_search** | Option<**String**> |  |  |
 **by_ip_from_comment** | Option<**String**> |  |  |
 **filters** | Option<**String**> |  |  |
@@ -181,7 +186,7 @@ No authorization required
 
 ## get_ban_users_from_comment
 
-> models::GetBannedUsersFromCommentResponse get_ban_users_from_comment(comment_id, sso)
+> models::GetBannedUsersFromCommentResponse get_ban_users_from_comment(tenant_id, comment_id, sso)
 
 
 ### Parameters
@@ -189,6 +194,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -210,7 +216,7 @@ No authorization required
 
 ## get_comment_ban_status
 
-> models::GetCommentBanStatusResponse get_comment_ban_status(comment_id, sso)
+> models::GetCommentBanStatusResponse get_comment_ban_status(tenant_id, comment_id, sso)
 
 
 ### Parameters
@@ -218,6 +224,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -239,7 +246,7 @@ No authorization required
 
 ## get_comment_children
 
-> models::ModerationApiChildCommentsResponse get_comment_children(comment_id, sso)
+> models::ModerationApiChildCommentsResponse get_comment_children(tenant_id, comment_id, sso)
 
 
 ### Parameters
@@ -247,6 +254,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -268,7 +276,7 @@ No authorization required
 
 ## get_count
 
-> models::ModerationApiCountCommentsResponse get_count(text_search, by_ip_from_comment, filter, search_filters, demo, sso)
+> models::ModerationApiCountCommentsResponse get_count(tenant_id, text_search, by_ip_from_comment, filter, search_filters, demo, sso)
 
 
 ### Parameters
@@ -276,6 +284,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **text_search** | Option<**String**> |  |  |
 **by_ip_from_comment** | Option<**String**> |  |  |
 **filter** | Option<**String**> |  |  |
@@ -301,7 +310,7 @@ No authorization required
 
 ## get_counts
 
-> models::GetBannedUsersCountResponse get_counts(sso)
+> models::GetBannedUsersCountResponse get_counts(tenant_id, sso)
 
 
 ### Parameters
@@ -309,6 +318,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -329,7 +339,7 @@ No authorization required
 
 ## get_logs
 
-> models::ModerationApiGetLogsResponse get_logs(comment_id, sso)
+> models::ModerationApiGetLogsResponse get_logs(tenant_id, comment_id, sso)
 
 
 ### Parameters
@@ -337,6 +347,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -358,7 +369,7 @@ No authorization required
 
 ## get_manual_badges
 
-> models::GetTenantManualBadgesResponse get_manual_badges(sso)
+> models::GetTenantManualBadgesResponse get_manual_badges(tenant_id, sso)
 
 
 ### Parameters
@@ -366,6 +377,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -386,7 +398,7 @@ No authorization required
 
 ## get_manual_badges_for_user
 
-> models::GetUserManualBadgesResponse get_manual_badges_for_user(badges_user_id, comment_id, sso)
+> models::GetUserManualBadgesResponse get_manual_badges_for_user(tenant_id, badges_user_id, comment_id, sso)
 
 
 ### Parameters
@@ -394,6 +406,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **badges_user_id** | Option<**String**> |  |  |
 **comment_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
@@ -416,7 +429,7 @@ No authorization required
 
 ## get_moderation_comment
 
-> models::ModerationApiCommentResponse get_moderation_comment(comment_id, include_email, include_ip, sso)
+> models::ModerationApiCommentResponse get_moderation_comment(tenant_id, comment_id, include_email, include_ip, sso)
 
 
 ### Parameters
@@ -424,6 +437,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **include_email** | Option<**bool**> |  |  |
 **include_ip** | Option<**bool**> |  |  |
@@ -447,7 +461,7 @@ No authorization required
 
 ## get_moderation_comment_text
 
-> models::GetCommentTextResponse get_moderation_comment_text(comment_id, sso)
+> models::GetCommentTextResponse get_moderation_comment_text(tenant_id, comment_id, sso)
 
 
 ### Parameters
@@ -455,6 +469,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -476,7 +491,7 @@ No authorization required
 
 ## get_pre_ban_summary
 
-> models::PreBanSummary get_pre_ban_summary(comment_id, include_by_user_id_and_email, include_by_ip, include_by_email_domain, sso)
+> models::PreBanSummary get_pre_ban_summary(tenant_id, comment_id, include_by_user_id_and_email, include_by_ip, include_by_email_domain, sso)
 
 
 ### Parameters
@@ -484,6 +499,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **include_by_user_id_and_email** | Option<**bool**> |  |  |
 **include_by_ip** | Option<**bool**> |  |  |
@@ -508,7 +524,7 @@ No authorization required
 
 ## get_search_comments_summary
 
-> models::ModerationCommentSearchResponse get_search_comments_summary(value, filters, search_filters, sso)
+> models::ModerationCommentSearchResponse get_search_comments_summary(tenant_id, value, filters, search_filters, sso)
 
 
 ### Parameters
@@ -516,6 +532,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **value** | Option<**String**> |  |  |
 **filters** | Option<**String**> |  |  |
 **search_filters** | Option<**String**> |  |  |
@@ -539,7 +556,7 @@ No authorization required
 
 ## get_search_pages
 
-> models::ModerationPageSearchResponse get_search_pages(value, sso)
+> models::ModerationPageSearchResponse get_search_pages(tenant_id, value, sso)
 
 
 ### Parameters
@@ -547,6 +564,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **value** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
@@ -568,7 +586,7 @@ No authorization required
 
 ## get_search_sites
 
-> models::ModerationSiteSearchResponse get_search_sites(value, sso)
+> models::ModerationSiteSearchResponse get_search_sites(tenant_id, value, sso)
 
 
 ### Parameters
@@ -576,6 +594,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **value** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
@@ -597,7 +616,7 @@ No authorization required
 
 ## get_search_suggest
 
-> models::ModerationSuggestResponse get_search_suggest(text_search, sso)
+> models::ModerationSuggestResponse get_search_suggest(tenant_id, text_search, sso)
 
 
 ### Parameters
@@ -605,6 +624,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **text_search** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
@@ -626,7 +646,7 @@ No authorization required
 
 ## get_search_users
 
-> models::ModerationUserSearchResponse get_search_users(value, sso)
+> models::ModerationUserSearchResponse get_search_users(tenant_id, value, sso)
 
 
 ### Parameters
@@ -634,6 +654,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **value** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
@@ -655,7 +676,7 @@ No authorization required
 
 ## get_trust_factor
 
-> models::GetUserTrustFactorResponse get_trust_factor(user_id, sso)
+> models::GetUserTrustFactorResponse get_trust_factor(tenant_id, user_id, sso)
 
 
 ### Parameters
@@ -663,6 +684,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **user_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
@@ -684,7 +706,7 @@ No authorization required
 
 ## get_user_ban_preference
 
-> models::ApiModerateGetUserBanPreferencesResponse get_user_ban_preference(sso)
+> models::ApiModerateGetUserBanPreferencesResponse get_user_ban_preference(tenant_id, sso)
 
 
 ### Parameters
@@ -692,6 +714,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -712,7 +735,7 @@ No authorization required
 
 ## get_user_internal_profile
 
-> models::GetUserInternalProfileResponse get_user_internal_profile(comment_id, sso)
+> models::GetUserInternalProfileResponse get_user_internal_profile(tenant_id, comment_id, sso)
 
 
 ### Parameters
@@ -720,6 +743,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
@@ -741,7 +765,7 @@ No authorization required
 
 ## post_adjust_comment_votes
 
-> models::AdjustVotesResponse post_adjust_comment_votes(comment_id, adjust_comment_votes_params, sso)
+> models::AdjustVotesResponse post_adjust_comment_votes(tenant_id, comment_id, adjust_comment_votes_params, broadcast_id, sso)
 
 
 ### Parameters
@@ -749,8 +773,10 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **adjust_comment_votes_params** | [**AdjustCommentVotesParams**](AdjustCommentVotesParams.md) |  | [required] |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -771,7 +797,7 @@ No authorization required
 
 ## post_api_export
 
-> models::ModerationExportResponse post_api_export(text_search, by_ip_from_comment, filters, search_filters, sorts, sso)
+> models::ModerationExportResponse post_api_export(tenant_id, text_search, by_ip_from_comment, filters, search_filters, sorts, sso)
 
 
 ### Parameters
@@ -779,6 +805,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **text_search** | Option<**String**> |  |  |
 **by_ip_from_comment** | Option<**String**> |  |  |
 **filters** | Option<**String**> |  |  |
@@ -804,7 +831,7 @@ No authorization required
 
 ## post_ban_user_from_comment
 
-> models::BanUserFromCommentResult post_ban_user_from_comment(comment_id, ban_email, ban_email_domain, ban_ip, delete_all_users_comments, banned_until, is_shadow_ban, update_id, ban_reason, sso)
+> models::BanUserFromCommentResult post_ban_user_from_comment(tenant_id, comment_id, ban_email, ban_email_domain, ban_ip, delete_all_users_comments, banned_until, is_shadow_ban, update_id, ban_reason, sso)
 
 
 ### Parameters
@@ -812,6 +839,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **ban_email** | Option<**bool**> |  |  |
 **ban_email_domain** | Option<**bool**> |  |  |
@@ -841,7 +869,7 @@ No authorization required
 
 ## post_ban_user_undo
 
-> models::ApiEmptyResponse post_ban_user_undo(ban_user_undo_params, sso)
+> models::ApiEmptyResponse post_ban_user_undo(tenant_id, ban_user_undo_params, sso)
 
 
 ### Parameters
@@ -849,6 +877,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **ban_user_undo_params** | [**BanUserUndoParams**](BanUserUndoParams.md) |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -870,7 +899,7 @@ No authorization required
 
 ## post_bulk_pre_ban_summary
 
-> models::BulkPreBanSummary post_bulk_pre_ban_summary(bulk_pre_ban_params, include_by_user_id_and_email, include_by_ip, include_by_email_domain, sso)
+> models::BulkPreBanSummary post_bulk_pre_ban_summary(tenant_id, bulk_pre_ban_params, include_by_user_id_and_email, include_by_ip, include_by_email_domain, sso)
 
 
 ### Parameters
@@ -878,6 +907,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **bulk_pre_ban_params** | [**BulkPreBanParams**](BulkPreBanParams.md) |  | [required] |
 **include_by_user_id_and_email** | Option<**bool**> |  |  |
 **include_by_ip** | Option<**bool**> |  |  |
@@ -902,7 +932,7 @@ No authorization required
 
 ## post_comments_by_ids
 
-> models::ModerationApiChildCommentsResponse post_comments_by_ids(comments_by_ids_params, sso)
+> models::ModerationApiChildCommentsResponse post_comments_by_ids(tenant_id, comments_by_ids_params, sso)
 
 
 ### Parameters
@@ -910,6 +940,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comments_by_ids_params** | [**CommentsByIdsParams**](CommentsByIdsParams.md) |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -931,7 +962,7 @@ No authorization required
 
 ## post_flag_comment
 
-> models::ApiEmptyResponse post_flag_comment(comment_id, sso)
+> models::ApiEmptyResponse post_flag_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -939,7 +970,9 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -960,7 +993,7 @@ No authorization required
 
 ## post_remove_comment
 
-> models::PostRemoveCommentResponse post_remove_comment(comment_id, sso)
+> models::PostRemoveCommentApiResponse post_remove_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -968,12 +1001,14 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
 
-[**models::PostRemoveCommentResponse**](PostRemoveCommentResponse.md)
+[**models::PostRemoveCommentApiResponse**](PostRemoveCommentApiResponse.md)
 
 ### Authorization
 
@@ -989,7 +1024,7 @@ No authorization required
 
 ## post_restore_deleted_comment
 
-> models::ApiEmptyResponse post_restore_deleted_comment(comment_id, sso)
+> models::ApiEmptyResponse post_restore_deleted_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -997,7 +1032,9 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -1018,7 +1055,7 @@ No authorization required
 
 ## post_set_comment_approval_status
 
-> models::SetCommentApprovedResponse post_set_comment_approval_status(comment_id, approved, sso)
+> models::SetCommentApprovedResponse post_set_comment_approval_status(tenant_id, comment_id, approved, broadcast_id, sso)
 
 
 ### Parameters
@@ -1026,8 +1063,10 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **approved** | Option<**bool**> |  |  |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -1048,7 +1087,7 @@ No authorization required
 
 ## post_set_comment_review_status
 
-> models::ApiEmptyResponse post_set_comment_review_status(comment_id, reviewed, sso)
+> models::ApiEmptyResponse post_set_comment_review_status(tenant_id, comment_id, reviewed, broadcast_id, sso)
 
 
 ### Parameters
@@ -1056,8 +1095,10 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **reviewed** | Option<**bool**> |  |  |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -1078,7 +1119,7 @@ No authorization required
 
 ## post_set_comment_spam_status
 
-> models::ApiEmptyResponse post_set_comment_spam_status(comment_id, spam, perm_not_spam, sso)
+> models::ApiEmptyResponse post_set_comment_spam_status(tenant_id, comment_id, spam, perm_not_spam, broadcast_id, sso)
 
 
 ### Parameters
@@ -1086,9 +1127,11 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **spam** | Option<**bool**> |  |  |
 **perm_not_spam** | Option<**bool**> |  |  |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -1109,7 +1152,7 @@ No authorization required
 
 ## post_set_comment_text
 
-> models::SetCommentTextResponse post_set_comment_text(comment_id, set_comment_text_params, sso)
+> models::SetCommentTextResponse post_set_comment_text(tenant_id, comment_id, set_comment_text_params, broadcast_id, sso)
 
 
 ### Parameters
@@ -1117,8 +1160,10 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **set_comment_text_params** | [**SetCommentTextParams**](SetCommentTextParams.md) |  | [required] |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -1139,7 +1184,7 @@ No authorization required
 
 ## post_un_flag_comment
 
-> models::ApiEmptyResponse post_un_flag_comment(comment_id, sso)
+> models::ApiEmptyResponse post_un_flag_comment(tenant_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -1147,7 +1192,9 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -1168,7 +1215,7 @@ No authorization required
 
 ## post_vote
 
-> models::VoteResponse post_vote(comment_id, direction, sso)
+> models::VoteResponse post_vote(tenant_id, comment_id, direction, broadcast_id, sso)
 
 
 ### Parameters
@@ -1176,8 +1223,10 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **comment_id** | **String** |  | [required] |
 **direction** | Option<**String**> |  |  |
+**broadcast_id** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
 
 ### Return type
@@ -1198,7 +1247,7 @@ No authorization required
 
 ## put_award_badge
 
-> models::AwardUserBadgeResponse put_award_badge(badge_id, user_id, comment_id, broadcast_id, sso)
+> models::AwardUserBadgeResponse put_award_badge(tenant_id, badge_id, user_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -1206,6 +1255,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **badge_id** | **String** |  | [required] |
 **user_id** | Option<**String**> |  |  |
 **comment_id** | Option<**String**> |  |  |
@@ -1230,7 +1280,7 @@ No authorization required
 
 ## put_close_thread
 
-> models::ApiEmptyResponse put_close_thread(url_id, sso)
+> models::ApiEmptyResponse put_close_thread(tenant_id, url_id, sso)
 
 
 ### Parameters
@@ -1238,6 +1288,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **url_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -1259,7 +1310,7 @@ No authorization required
 
 ## put_remove_badge
 
-> models::RemoveUserBadgeResponse put_remove_badge(badge_id, user_id, comment_id, broadcast_id, sso)
+> models::RemoveUserBadgeResponse put_remove_badge(tenant_id, badge_id, user_id, comment_id, broadcast_id, sso)
 
 
 ### Parameters
@@ -1267,6 +1318,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **badge_id** | **String** |  | [required] |
 **user_id** | Option<**String**> |  |  |
 **comment_id** | Option<**String**> |  |  |
@@ -1291,7 +1343,7 @@ No authorization required
 
 ## put_reopen_thread
 
-> models::ApiEmptyResponse put_reopen_thread(url_id, sso)
+> models::ApiEmptyResponse put_reopen_thread(tenant_id, url_id, sso)
 
 
 ### Parameters
@@ -1299,6 +1351,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **url_id** | **String** |  | [required] |
 **sso** | Option<**String**> |  |  |
 
@@ -1320,7 +1373,7 @@ No authorization required
 
 ## set_trust_factor
 
-> models::SetUserTrustFactorResponse set_trust_factor(user_id, trust_factor, sso)
+> models::SetUserTrustFactorResponse set_trust_factor(tenant_id, user_id, trust_factor, sso)
 
 
 ### Parameters
@@ -1328,6 +1381,7 @@ No authorization required
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **String** |  | [required] |
 **user_id** | Option<**String**> |  |  |
 **trust_factor** | Option<**String**> |  |  |
 **sso** | Option<**String**> |  |  |
