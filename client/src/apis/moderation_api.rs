@@ -17,16 +17,17 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`delete_moderation_vote`]
 #[derive(Clone, Debug)]
 pub struct DeleteModerationVoteParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub vote_id: String,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_api_comments`]
 #[derive(Clone, Debug)]
 pub struct GetApiCommentsParams {
+    pub tenant_id: String,
     pub page: Option<f64>,
     pub count: Option<f64>,
     pub text_search: Option<String>,
@@ -35,217 +36,217 @@ pub struct GetApiCommentsParams {
     pub search_filters: Option<String>,
     pub sorts: Option<String>,
     pub demo: Option<bool>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_api_export_status`]
 #[derive(Clone, Debug)]
 pub struct GetApiExportStatusParams {
+    pub tenant_id: String,
     pub batch_job_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_api_ids`]
 #[derive(Clone, Debug)]
 pub struct GetApiIdsParams {
+    pub tenant_id: String,
     pub text_search: Option<String>,
     pub by_ip_from_comment: Option<String>,
     pub filters: Option<String>,
     pub search_filters: Option<String>,
     pub after_id: Option<String>,
     pub demo: Option<bool>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_ban_users_from_comment`]
 #[derive(Clone, Debug)]
 pub struct GetBanUsersFromCommentParams {
+    pub tenant_id: String,
     pub comment_id: String,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_comment_ban_status`]
 #[derive(Clone, Debug)]
 pub struct GetCommentBanStatusParams {
+    pub tenant_id: String,
     pub comment_id: String,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_comment_children`]
 #[derive(Clone, Debug)]
 pub struct GetCommentChildrenParams {
+    pub tenant_id: String,
     pub comment_id: String,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_count`]
 #[derive(Clone, Debug)]
 pub struct GetCountParams {
+    pub tenant_id: String,
     pub text_search: Option<String>,
     pub by_ip_from_comment: Option<String>,
     pub filter: Option<String>,
     pub search_filters: Option<String>,
     pub demo: Option<bool>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_counts`]
 #[derive(Clone, Debug)]
 pub struct GetCountsParams {
-    pub tenant_id: Option<String>,
+    pub tenant_id: String,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_logs`]
 #[derive(Clone, Debug)]
 pub struct GetLogsParams {
+    pub tenant_id: String,
     pub comment_id: String,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_manual_badges`]
 #[derive(Clone, Debug)]
 pub struct GetManualBadgesParams {
-    pub tenant_id: Option<String>,
+    pub tenant_id: String,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_manual_badges_for_user`]
 #[derive(Clone, Debug)]
 pub struct GetManualBadgesForUserParams {
+    pub tenant_id: String,
     pub badges_user_id: Option<String>,
     pub comment_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_moderation_comment`]
 #[derive(Clone, Debug)]
 pub struct GetModerationCommentParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub include_email: Option<bool>,
     pub include_ip: Option<bool>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_moderation_comment_text`]
 #[derive(Clone, Debug)]
 pub struct GetModerationCommentTextParams {
+    pub tenant_id: String,
     pub comment_id: String,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_pre_ban_summary`]
 #[derive(Clone, Debug)]
 pub struct GetPreBanSummaryParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub include_by_user_id_and_email: Option<bool>,
     pub include_by_ip: Option<bool>,
     pub include_by_email_domain: Option<bool>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_search_comments_summary`]
 #[derive(Clone, Debug)]
 pub struct GetSearchCommentsSummaryParams {
+    pub tenant_id: String,
     pub value: Option<String>,
     pub filters: Option<String>,
     pub search_filters: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_search_pages`]
 #[derive(Clone, Debug)]
 pub struct GetSearchPagesParams {
+    pub tenant_id: String,
     pub value: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_search_sites`]
 #[derive(Clone, Debug)]
 pub struct GetSearchSitesParams {
+    pub tenant_id: String,
     pub value: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_search_suggest`]
 #[derive(Clone, Debug)]
 pub struct GetSearchSuggestParams {
+    pub tenant_id: String,
     pub text_search: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_search_users`]
 #[derive(Clone, Debug)]
 pub struct GetSearchUsersParams {
+    pub tenant_id: String,
     pub value: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_trust_factor`]
 #[derive(Clone, Debug)]
 pub struct GetTrustFactorParams {
+    pub tenant_id: String,
     pub user_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_user_ban_preference`]
 #[derive(Clone, Debug)]
 pub struct GetUserBanPreferenceParams {
-    pub tenant_id: Option<String>,
+    pub tenant_id: String,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`get_user_internal_profile`]
 #[derive(Clone, Debug)]
 pub struct GetUserInternalProfileParams {
+    pub tenant_id: String,
     pub comment_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_adjust_comment_votes`]
 #[derive(Clone, Debug)]
 pub struct PostAdjustCommentVotesParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub adjust_comment_votes_params: models::AdjustCommentVotesParams,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_api_export`]
 #[derive(Clone, Debug)]
 pub struct PostApiExportParams {
+    pub tenant_id: String,
     pub text_search: Option<String>,
     pub by_ip_from_comment: Option<String>,
     pub filters: Option<String>,
     pub search_filters: Option<String>,
     pub sorts: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_ban_user_from_comment`]
 #[derive(Clone, Debug)]
 pub struct PostBanUserFromCommentParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub ban_email: Option<bool>,
     pub ban_email_domain: Option<bool>,
@@ -255,168 +256,167 @@ pub struct PostBanUserFromCommentParams {
     pub is_shadow_ban: Option<bool>,
     pub update_id: Option<String>,
     pub ban_reason: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_ban_user_undo`]
 #[derive(Clone, Debug)]
 pub struct PostBanUserUndoParams {
+    pub tenant_id: String,
     pub ban_user_undo_params: models::BanUserUndoParams,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_bulk_pre_ban_summary`]
 #[derive(Clone, Debug)]
 pub struct PostBulkPreBanSummaryParams {
+    pub tenant_id: String,
     pub bulk_pre_ban_params: models::BulkPreBanParams,
     pub include_by_user_id_and_email: Option<bool>,
     pub include_by_ip: Option<bool>,
     pub include_by_email_domain: Option<bool>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_comments_by_ids`]
 #[derive(Clone, Debug)]
 pub struct PostCommentsByIdsParams {
+    pub tenant_id: String,
     pub comments_by_ids_params: models::CommentsByIdsParams,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_flag_comment`]
 #[derive(Clone, Debug)]
 pub struct PostFlagCommentParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_remove_comment`]
 #[derive(Clone, Debug)]
 pub struct PostRemoveCommentParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_restore_deleted_comment`]
 #[derive(Clone, Debug)]
 pub struct PostRestoreDeletedCommentParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_set_comment_approval_status`]
 #[derive(Clone, Debug)]
 pub struct PostSetCommentApprovalStatusParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub approved: Option<bool>,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_set_comment_review_status`]
 #[derive(Clone, Debug)]
 pub struct PostSetCommentReviewStatusParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub reviewed: Option<bool>,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_set_comment_spam_status`]
 #[derive(Clone, Debug)]
 pub struct PostSetCommentSpamStatusParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub spam: Option<bool>,
     pub perm_not_spam: Option<bool>,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_set_comment_text`]
 #[derive(Clone, Debug)]
 pub struct PostSetCommentTextParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub set_comment_text_params: models::SetCommentTextParams,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_un_flag_comment`]
 #[derive(Clone, Debug)]
 pub struct PostUnFlagCommentParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`post_vote`]
 #[derive(Clone, Debug)]
 pub struct PostVoteParams {
+    pub tenant_id: String,
     pub comment_id: String,
     pub direction: Option<String>,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`put_award_badge`]
 #[derive(Clone, Debug)]
 pub struct PutAwardBadgeParams {
+    pub tenant_id: String,
     pub badge_id: String,
     pub user_id: Option<String>,
     pub comment_id: Option<String>,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`put_close_thread`]
 #[derive(Clone, Debug)]
 pub struct PutCloseThreadParams {
+    pub tenant_id: String,
     pub url_id: String,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`put_remove_badge`]
 #[derive(Clone, Debug)]
 pub struct PutRemoveBadgeParams {
+    pub tenant_id: String,
     pub badge_id: String,
     pub user_id: Option<String>,
     pub comment_id: Option<String>,
     pub broadcast_id: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`put_reopen_thread`]
 #[derive(Clone, Debug)]
 pub struct PutReopenThreadParams {
+    pub tenant_id: String,
     pub url_id: String,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
 /// struct for passing parameters to the method [`set_trust_factor`]
 #[derive(Clone, Debug)]
 pub struct SetTrustFactorParams {
+    pub tenant_id: String,
     pub user_id: Option<String>,
     pub trust_factor: Option<String>,
-    pub tenant_id: Option<String>,
     pub sso: Option<String>
 }
 
@@ -768,14 +768,12 @@ pub enum SetTrustFactorError {
 
 pub async fn delete_moderation_vote(configuration: &configuration::Configuration, params: DeleteModerationVoteParams) -> Result<models::VoteDeleteResponse, Error<DeleteModerationVoteError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/vote/{commentId}/{voteId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id), voteId=crate::client::apis::urlencode(params.vote_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/vote/{commentId}/{voteId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id), voteId=crate::client::apis::urlencode(params.vote_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -811,9 +809,10 @@ pub async fn delete_moderation_vote(configuration: &configuration::Configuration
 
 pub async fn get_api_comments(configuration: &configuration::Configuration, params: GetApiCommentsParams) -> Result<models::ModerationApiGetCommentsResponse, Error<GetApiCommentsError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/api/comments", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/api/comments", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.page {
         req_builder = req_builder.query(&[("page", &param_value.to_string())]);
     }
@@ -837,9 +836,6 @@ pub async fn get_api_comments(configuration: &configuration::Configuration, para
     }
     if let Some(ref param_value) = params.demo {
         req_builder = req_builder.query(&[("demo", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -875,14 +871,12 @@ pub async fn get_api_comments(configuration: &configuration::Configuration, para
 
 pub async fn get_api_export_status(configuration: &configuration::Configuration, params: GetApiExportStatusParams) -> Result<models::ModerationExportStatusResponse, Error<GetApiExportStatusError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/api/export/status", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/api/export/status", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.batch_job_id {
         req_builder = req_builder.query(&[("batchJobId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -918,9 +912,10 @@ pub async fn get_api_export_status(configuration: &configuration::Configuration,
 
 pub async fn get_api_ids(configuration: &configuration::Configuration, params: GetApiIdsParams) -> Result<models::ModerationApiGetCommentIdsResponse, Error<GetApiIdsError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/api/ids", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/api/ids", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.text_search {
         req_builder = req_builder.query(&[("text-search", &param_value.to_string())]);
     }
@@ -938,9 +933,6 @@ pub async fn get_api_ids(configuration: &configuration::Configuration, params: G
     }
     if let Some(ref param_value) = params.demo {
         req_builder = req_builder.query(&[("demo", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -976,12 +968,10 @@ pub async fn get_api_ids(configuration: &configuration::Configuration, params: G
 
 pub async fn get_ban_users_from_comment(configuration: &configuration::Configuration, params: GetBanUsersFromCommentParams) -> Result<models::GetBannedUsersFromCommentResponse, Error<GetBanUsersFromCommentError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/ban-users/from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/ban-users/from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1016,12 +1006,10 @@ pub async fn get_ban_users_from_comment(configuration: &configuration::Configura
 
 pub async fn get_comment_ban_status(configuration: &configuration::Configuration, params: GetCommentBanStatusParams) -> Result<models::GetCommentBanStatusResponse, Error<GetCommentBanStatusError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/get-comment-ban-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/get-comment-ban-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1056,12 +1044,10 @@ pub async fn get_comment_ban_status(configuration: &configuration::Configuration
 
 pub async fn get_comment_children(configuration: &configuration::Configuration, params: GetCommentChildrenParams) -> Result<models::ModerationApiChildCommentsResponse, Error<GetCommentChildrenError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/comment-children/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/comment-children/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1096,9 +1082,10 @@ pub async fn get_comment_children(configuration: &configuration::Configuration, 
 
 pub async fn get_count(configuration: &configuration::Configuration, params: GetCountParams) -> Result<models::ModerationApiCountCommentsResponse, Error<GetCountError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/count", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.text_search {
         req_builder = req_builder.query(&[("text-search", &param_value.to_string())]);
     }
@@ -1113,9 +1100,6 @@ pub async fn get_count(configuration: &configuration::Configuration, params: Get
     }
     if let Some(ref param_value) = params.demo {
         req_builder = req_builder.query(&[("demo", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1151,12 +1135,10 @@ pub async fn get_count(configuration: &configuration::Configuration, params: Get
 
 pub async fn get_counts(configuration: &configuration::Configuration, params: GetCountsParams) -> Result<models::GetBannedUsersCountResponse, Error<GetCountsError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/banned-users/counts", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/banned-users/mod_api/counts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1191,12 +1173,10 @@ pub async fn get_counts(configuration: &configuration::Configuration, params: Ge
 
 pub async fn get_logs(configuration: &configuration::Configuration, params: GetLogsParams) -> Result<models::ModerationApiGetLogsResponse, Error<GetLogsError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/logs/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/logs/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1231,12 +1211,10 @@ pub async fn get_logs(configuration: &configuration::Configuration, params: GetL
 
 pub async fn get_manual_badges(configuration: &configuration::Configuration, params: GetManualBadgesParams) -> Result<models::GetTenantManualBadgesResponse, Error<GetManualBadgesError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/get-manual-badges", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/get-manual-badges", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1271,17 +1249,15 @@ pub async fn get_manual_badges(configuration: &configuration::Configuration, par
 
 pub async fn get_manual_badges_for_user(configuration: &configuration::Configuration, params: GetManualBadgesForUserParams) -> Result<models::GetUserManualBadgesResponse, Error<GetManualBadgesForUserError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/get-manual-badges-for-user", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/get-manual-badges-for-user", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.badges_user_id {
         req_builder = req_builder.query(&[("badgesUserId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.comment_id {
         req_builder = req_builder.query(&[("commentId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1317,17 +1293,15 @@ pub async fn get_manual_badges_for_user(configuration: &configuration::Configura
 
 pub async fn get_moderation_comment(configuration: &configuration::Configuration, params: GetModerationCommentParams) -> Result<models::ModerationApiCommentResponse, Error<GetModerationCommentError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.include_email {
         req_builder = req_builder.query(&[("includeEmail", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.include_ip {
         req_builder = req_builder.query(&[("includeIP", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1363,12 +1337,10 @@ pub async fn get_moderation_comment(configuration: &configuration::Configuration
 
 pub async fn get_moderation_comment_text(configuration: &configuration::Configuration, params: GetModerationCommentTextParams) -> Result<models::GetCommentTextResponse, Error<GetModerationCommentTextError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/get-comment-text/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/get-comment-text/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1403,9 +1375,10 @@ pub async fn get_moderation_comment_text(configuration: &configuration::Configur
 
 pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, params: GetPreBanSummaryParams) -> Result<models::PreBanSummary, Error<GetPreBanSummaryError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/pre-ban-summary/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/pre-ban-summary/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.include_by_user_id_and_email {
         req_builder = req_builder.query(&[("includeByUserIdAndEmail", &param_value.to_string())]);
     }
@@ -1414,9 +1387,6 @@ pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, p
     }
     if let Some(ref param_value) = params.include_by_email_domain {
         req_builder = req_builder.query(&[("includeByEmailDomain", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1452,9 +1422,10 @@ pub async fn get_pre_ban_summary(configuration: &configuration::Configuration, p
 
 pub async fn get_search_comments_summary(configuration: &configuration::Configuration, params: GetSearchCommentsSummaryParams) -> Result<models::ModerationCommentSearchResponse, Error<GetSearchCommentsSummaryError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/search/comments/summary", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/search/comments/summary", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.value {
         req_builder = req_builder.query(&[("value", &param_value.to_string())]);
     }
@@ -1463,9 +1434,6 @@ pub async fn get_search_comments_summary(configuration: &configuration::Configur
     }
     if let Some(ref param_value) = params.search_filters {
         req_builder = req_builder.query(&[("searchFilters", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1501,14 +1469,12 @@ pub async fn get_search_comments_summary(configuration: &configuration::Configur
 
 pub async fn get_search_pages(configuration: &configuration::Configuration, params: GetSearchPagesParams) -> Result<models::ModerationPageSearchResponse, Error<GetSearchPagesError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/search/pages", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/search/pages", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.value {
         req_builder = req_builder.query(&[("value", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1544,14 +1510,12 @@ pub async fn get_search_pages(configuration: &configuration::Configuration, para
 
 pub async fn get_search_sites(configuration: &configuration::Configuration, params: GetSearchSitesParams) -> Result<models::ModerationSiteSearchResponse, Error<GetSearchSitesError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/search/sites", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/search/sites", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.value {
         req_builder = req_builder.query(&[("value", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1587,14 +1551,12 @@ pub async fn get_search_sites(configuration: &configuration::Configuration, para
 
 pub async fn get_search_suggest(configuration: &configuration::Configuration, params: GetSearchSuggestParams) -> Result<models::ModerationSuggestResponse, Error<GetSearchSuggestError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/search/suggest", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/search/suggest", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.text_search {
         req_builder = req_builder.query(&[("text-search", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1630,14 +1592,12 @@ pub async fn get_search_suggest(configuration: &configuration::Configuration, pa
 
 pub async fn get_search_users(configuration: &configuration::Configuration, params: GetSearchUsersParams) -> Result<models::ModerationUserSearchResponse, Error<GetSearchUsersError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/search/users", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/search/users", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.value {
         req_builder = req_builder.query(&[("value", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1673,14 +1633,12 @@ pub async fn get_search_users(configuration: &configuration::Configuration, para
 
 pub async fn get_trust_factor(configuration: &configuration::Configuration, params: GetTrustFactorParams) -> Result<models::GetUserTrustFactorResponse, Error<GetTrustFactorError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/get-trust-factor", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/get-trust-factor", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.user_id {
         req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1716,12 +1674,10 @@ pub async fn get_trust_factor(configuration: &configuration::Configuration, para
 
 pub async fn get_user_ban_preference(configuration: &configuration::Configuration, params: GetUserBanPreferenceParams) -> Result<models::ApiModerateGetUserBanPreferencesResponse, Error<GetUserBanPreferenceError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/user-ban-preference", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/user-ban-preference", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -1756,14 +1712,12 @@ pub async fn get_user_ban_preference(configuration: &configuration::Configuratio
 
 pub async fn get_user_internal_profile(configuration: &configuration::Configuration, params: GetUserInternalProfileParams) -> Result<models::GetUserInternalProfileResponse, Error<GetUserInternalProfileError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/get-user-internal-profile", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/get-user-internal-profile", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.comment_id {
         req_builder = req_builder.query(&[("commentId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1799,14 +1753,12 @@ pub async fn get_user_internal_profile(configuration: &configuration::Configurat
 
 pub async fn post_adjust_comment_votes(configuration: &configuration::Configuration, params: PostAdjustCommentVotesParams) -> Result<models::AdjustVotesResponse, Error<PostAdjustCommentVotesError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/adjust-comment-votes/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/adjust-comment-votes/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1843,9 +1795,10 @@ pub async fn post_adjust_comment_votes(configuration: &configuration::Configurat
 
 pub async fn post_api_export(configuration: &configuration::Configuration, params: PostApiExportParams) -> Result<models::ModerationExportResponse, Error<PostApiExportError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/api/export", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/api/export", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.text_search {
         req_builder = req_builder.query(&[("text-search", &param_value.to_string())]);
     }
@@ -1860,9 +1813,6 @@ pub async fn post_api_export(configuration: &configuration::Configuration, param
     }
     if let Some(ref param_value) = params.sorts {
         req_builder = req_builder.query(&[("sorts", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1898,9 +1848,10 @@ pub async fn post_api_export(configuration: &configuration::Configuration, param
 
 pub async fn post_ban_user_from_comment(configuration: &configuration::Configuration, params: PostBanUserFromCommentParams) -> Result<models::BanUserFromCommentResult, Error<PostBanUserFromCommentError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/ban-user/from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/ban-user/from-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.ban_email {
         req_builder = req_builder.query(&[("banEmail", &param_value.to_string())]);
     }
@@ -1924,9 +1875,6 @@ pub async fn post_ban_user_from_comment(configuration: &configuration::Configura
     }
     if let Some(ref param_value) = params.ban_reason {
         req_builder = req_builder.query(&[("banReason", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -1962,12 +1910,10 @@ pub async fn post_ban_user_from_comment(configuration: &configuration::Configura
 
 pub async fn post_ban_user_undo(configuration: &configuration::Configuration, params: PostBanUserUndoParams) -> Result<models::ApiEmptyResponse, Error<PostBanUserUndoError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/ban-user/undo", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/ban-user/undo", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2003,9 +1949,10 @@ pub async fn post_ban_user_undo(configuration: &configuration::Configuration, pa
 
 pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configuration, params: PostBulkPreBanSummaryParams) -> Result<models::BulkPreBanSummary, Error<PostBulkPreBanSummaryError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/bulk-pre-ban-summary", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/bulk-pre-ban-summary", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.include_by_user_id_and_email {
         req_builder = req_builder.query(&[("includeByUserIdAndEmail", &param_value.to_string())]);
     }
@@ -2014,9 +1961,6 @@ pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configurat
     }
     if let Some(ref param_value) = params.include_by_email_domain {
         req_builder = req_builder.query(&[("includeByEmailDomain", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2053,12 +1997,10 @@ pub async fn post_bulk_pre_ban_summary(configuration: &configuration::Configurat
 
 pub async fn post_comments_by_ids(configuration: &configuration::Configuration, params: PostCommentsByIdsParams) -> Result<models::ModerationApiChildCommentsResponse, Error<PostCommentsByIdsError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/comments-by-ids", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/comments-by-ids", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2094,14 +2036,12 @@ pub async fn post_comments_by_ids(configuration: &configuration::Configuration, 
 
 pub async fn post_flag_comment(configuration: &configuration::Configuration, params: PostFlagCommentParams) -> Result<models::ApiEmptyResponse, Error<PostFlagCommentError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/flag-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/flag-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2135,16 +2075,14 @@ pub async fn post_flag_comment(configuration: &configuration::Configuration, par
     }
 }
 
-pub async fn post_remove_comment(configuration: &configuration::Configuration, params: PostRemoveCommentParams) -> Result<models::PostRemoveCommentResponse, Error<PostRemoveCommentError>> {
+pub async fn post_remove_comment(configuration: &configuration::Configuration, params: PostRemoveCommentParams) -> Result<models::PostRemoveCommentApiResponse, Error<PostRemoveCommentError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/remove-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/remove-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2168,8 +2106,8 @@ pub async fn post_remove_comment(configuration: &configuration::Configuration, p
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostRemoveCommentResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostRemoveCommentResponse`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PostRemoveCommentApiResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PostRemoveCommentApiResponse`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -2180,14 +2118,12 @@ pub async fn post_remove_comment(configuration: &configuration::Configuration, p
 
 pub async fn post_restore_deleted_comment(configuration: &configuration::Configuration, params: PostRestoreDeletedCommentParams) -> Result<models::ApiEmptyResponse, Error<PostRestoreDeletedCommentError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/restore-deleted-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/restore-deleted-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2223,17 +2159,15 @@ pub async fn post_restore_deleted_comment(configuration: &configuration::Configu
 
 pub async fn post_set_comment_approval_status(configuration: &configuration::Configuration, params: PostSetCommentApprovalStatusParams) -> Result<models::SetCommentApprovedResponse, Error<PostSetCommentApprovalStatusError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-approval-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/set-comment-approval-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.approved {
         req_builder = req_builder.query(&[("approved", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2269,17 +2203,15 @@ pub async fn post_set_comment_approval_status(configuration: &configuration::Con
 
 pub async fn post_set_comment_review_status(configuration: &configuration::Configuration, params: PostSetCommentReviewStatusParams) -> Result<models::ApiEmptyResponse, Error<PostSetCommentReviewStatusError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-review-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/set-comment-review-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.reviewed {
         req_builder = req_builder.query(&[("reviewed", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2315,9 +2247,10 @@ pub async fn post_set_comment_review_status(configuration: &configuration::Confi
 
 pub async fn post_set_comment_spam_status(configuration: &configuration::Configuration, params: PostSetCommentSpamStatusParams) -> Result<models::ApiEmptyResponse, Error<PostSetCommentSpamStatusError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-spam-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/set-comment-spam-status/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.spam {
         req_builder = req_builder.query(&[("spam", &param_value.to_string())]);
     }
@@ -2326,9 +2259,6 @@ pub async fn post_set_comment_spam_status(configuration: &configuration::Configu
     }
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2364,14 +2294,12 @@ pub async fn post_set_comment_spam_status(configuration: &configuration::Configu
 
 pub async fn post_set_comment_text(configuration: &configuration::Configuration, params: PostSetCommentTextParams) -> Result<models::SetCommentTextResponse, Error<PostSetCommentTextError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/set-comment-text/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/set-comment-text/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2408,14 +2336,12 @@ pub async fn post_set_comment_text(configuration: &configuration::Configuration,
 
 pub async fn post_un_flag_comment(configuration: &configuration::Configuration, params: PostUnFlagCommentParams) -> Result<models::ApiEmptyResponse, Error<PostUnFlagCommentError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/un-flag-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/un-flag-comment/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2451,17 +2377,15 @@ pub async fn post_un_flag_comment(configuration: &configuration::Configuration, 
 
 pub async fn post_vote(configuration: &configuration::Configuration, params: PostVoteParams) -> Result<models::VoteResponse, Error<PostVoteError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/vote/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/vote/{commentId}", configuration.base_path, commentId=crate::client::apis::urlencode(params.comment_id));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.direction {
         req_builder = req_builder.query(&[("direction", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2497,9 +2421,10 @@ pub async fn post_vote(configuration: &configuration::Configuration, params: Pos
 
 pub async fn put_award_badge(configuration: &configuration::Configuration, params: PutAwardBadgeParams) -> Result<models::AwardUserBadgeResponse, Error<PutAwardBadgeError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/award-badge", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/award-badge", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     req_builder = req_builder.query(&[("badgeId", &params.badge_id.to_string())]);
     if let Some(ref param_value) = params.user_id {
         req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
@@ -2509,9 +2434,6 @@ pub async fn put_award_badge(configuration: &configuration::Configuration, param
     }
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2547,13 +2469,11 @@ pub async fn put_award_badge(configuration: &configuration::Configuration, param
 
 pub async fn put_close_thread(configuration: &configuration::Configuration, params: PutCloseThreadParams) -> Result<models::ApiEmptyResponse, Error<PutCloseThreadError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/close-thread", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/close-thread", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2588,9 +2508,10 @@ pub async fn put_close_thread(configuration: &configuration::Configuration, para
 
 pub async fn put_remove_badge(configuration: &configuration::Configuration, params: PutRemoveBadgeParams) -> Result<models::RemoveUserBadgeResponse, Error<PutRemoveBadgeError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/remove-badge", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/remove-badge", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     req_builder = req_builder.query(&[("badgeId", &params.badge_id.to_string())]);
     if let Some(ref param_value) = params.user_id {
         req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
@@ -2600,9 +2521,6 @@ pub async fn put_remove_badge(configuration: &configuration::Configuration, para
     }
     if let Some(ref param_value) = params.broadcast_id {
         req_builder = req_builder.query(&[("broadcastId", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
@@ -2638,13 +2556,11 @@ pub async fn put_remove_badge(configuration: &configuration::Configuration, para
 
 pub async fn put_reopen_thread(configuration: &configuration::Configuration, params: PutReopenThreadParams) -> Result<models::ApiEmptyResponse, Error<PutReopenThreadError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/reopen-thread", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/reopen-thread", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     req_builder = req_builder.query(&[("urlId", &params.url_id.to_string())]);
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
-    }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);
     }
@@ -2679,17 +2595,15 @@ pub async fn put_reopen_thread(configuration: &configuration::Configuration, par
 
 pub async fn set_trust_factor(configuration: &configuration::Configuration, params: SetTrustFactorParams) -> Result<models::SetUserTrustFactorResponse, Error<SetTrustFactorError>> {
 
-    let uri_str = format!("{}/auth/my-account/moderate-comments/set-trust-factor", configuration.base_path);
+    let uri_str = format!("{}/auth/my-account/moderate-comments/mod_api/set-trust-factor", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
+    req_builder = req_builder.query(&[("tenantId", &params.tenant_id.to_string())]);
     if let Some(ref param_value) = params.user_id {
         req_builder = req_builder.query(&[("userId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.trust_factor {
         req_builder = req_builder.query(&[("trustFactor", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.tenant_id {
-        req_builder = req_builder.query(&[("tenantId", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.sso {
         req_builder = req_builder.query(&[("sso", &param_value.to_string())]);

@@ -12,16 +12,16 @@ use crate::client::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PostRemoveCommentResponse {
+pub struct PostRemoveCommentApiResponse {
     #[serde(rename = "action")]
     pub action: String,
     #[serde(rename = "status")]
     pub status: String,
 }
 
-impl PostRemoveCommentResponse {
-    pub fn new(action: String, status: String) -> PostRemoveCommentResponse {
-        PostRemoveCommentResponse {
+impl PostRemoveCommentApiResponse {
+    pub fn new(action: String, status: String) -> PostRemoveCommentApiResponse {
+        PostRemoveCommentApiResponse {
             action,
             status,
         }
